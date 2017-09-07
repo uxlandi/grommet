@@ -255,9 +255,11 @@ export default class Select extends Component {
     const { onChange, options } = this.props;
     const { activeOptionIndex } = this.state;
     const { intl } = this.context;
-    if (activeOptionIndex >= 0) {
+    if (Array.isArray(options) && options.length > 0) {
       event.preventDefault(); // prevent submitting forms
-      const option = options[activeOptionIndex];
+      const option = activeOptionIndex >= 0
+        ? options[activeOptionIndex]
+        : options[0];
       const value = this._valueForSelectedOption(option);
       this.setState({ dropActive: false, value }, () => {
         const optionMessage = this._renderLabel(option);
