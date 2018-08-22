@@ -7,7 +7,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Add, Close, FormClose, StatusGood, Trash } from 'grommet-icons';
+import Add from 'grommet-icons/es6/components/icons/Add';
+import Close from 'grommet-icons/es6/components/icons/Close';
+import FormClose from 'grommet-icons/es6/components/icons/FormClose';
+import StatusGood from 'grommet-icons/es6/components/icons/StatusGood';
+import Trash from 'grommet-icons/es6/components/icons/Trash';
+
 
 import { Box, Button, FormField, Grommet, Heading, Layer, Text, TextInput } from '../';
 import { grommet } from '../../themes';

@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 
-import { FormCheckmark } from 'grommet-icons';
+import FormCheckmark from 'grommet-icons/es6/components/icons/FormCheckmark';
+
 
 import { colorForName } from '../../../utils';
 
