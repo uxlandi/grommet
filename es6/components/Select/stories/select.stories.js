@@ -10,7 +10,7 @@ import React, { createRef, Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { storiesOf } from '@storybook/react';
 
-import FormClose from 'grommet-icons/es6/components/icons/FormClose';
+import FormClose from 'grommet-icons/es6/icons/FormClose';
 
 
 import { Box, Button, CheckBox, Grommet, Select, Text } from '../../';

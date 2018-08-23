@@ -9,11 +9,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Bookmark from 'grommet-icons/es6/components/icons/Bookmark';
-import CircleInformation from 'grommet-icons/es6/components/icons/CircleInformation';
-import FormSubtract from 'grommet-icons/es6/components/icons/FormSubtract';
-import FormAdd from 'grommet-icons/es6/components/icons/FormAdd';
-import User from 'grommet-icons/es6/components/icons/User';
+import Bookmark from 'grommet-icons/es6/icons/Bookmark';
+import CircleInformation from 'grommet-icons/es6/icons/CircleInformation';
+import FormSubtract from 'grommet-icons/es6/icons/FormSubtract';
+import FormAdd from 'grommet-icons/es6/icons/FormAdd';
+import User from 'grommet-icons/es6/icons/User';
 
 
 import { Accordion, AccordionPanel, Box, Grommet, Heading, Text, TextInput, ThemeContext } from '../../';

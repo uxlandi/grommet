@@ -6,8 +6,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import Close from 'grommet-icons/es6/components/icons/Close';
-import FormDown from 'grommet-icons/es6/components/icons/FormDown';
+import Close from 'grommet-icons/es6/icons/Close';
+import FormDown from 'grommet-icons/es6/icons/FormDown';
 
 
 import DropButton from '../DropButton/DropButton';

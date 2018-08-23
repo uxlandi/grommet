@@ -2,7 +2,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Add from 'grommet-icons/es6/components/icons/Add';
+import Add from 'grommet-icons/es6/icons/Add';
 
 
 import Button from '../Button/Button';
