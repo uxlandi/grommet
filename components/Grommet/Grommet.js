@@ -8,7 +8,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _grommetIcons = require('grommet-icons');
+var _ThemeContext = require('grommet-icons/ThemeContext');
+
+var _ThemeContext2 = _interopRequireDefault(_ThemeContext);
 
 var _contexts = require('../../contexts');
 
@@ -127,7 +129,7 @@ var Grommet = function (_Component) {
       _contexts.ThemeContext.Provider,
       { value: theme },
       _react2.default.createElement(
-        _grommetIcons.ThemeContext.Provider,
+        _ThemeContext2.default.Provider,
         { value: theme.icon },
         _react2.default.createElement(
           _contexts.ResponsiveContext.Provider,
