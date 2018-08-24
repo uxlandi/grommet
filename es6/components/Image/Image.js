@@ -28,8 +28,4 @@ var Image = function (_Component) {
   return Image;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Image);
-}
-
-export default compose(withTheme)(Image);
+export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Image) : Image);

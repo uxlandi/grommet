@@ -338,8 +338,4 @@ Calendar.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Calendar);
-}
-
-export default compose(withTheme)(Calendar);
+export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Calendar) : Calendar);

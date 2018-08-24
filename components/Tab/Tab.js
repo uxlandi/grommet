@@ -149,10 +149,6 @@ var Tab = function (_Component) {
   return Tab;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc.doc)(Tab);
-}
-
-var TabWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(Tab);
+var TabWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Tab) : Tab);
 
 exports.Tab = TabWrapper;

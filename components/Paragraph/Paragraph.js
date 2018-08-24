@@ -43,10 +43,6 @@ var Paragraph = function (_Component) {
   return Paragraph;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc.doc)(Paragraph);
-}
-
-var ParagraphWrapper = (0, _recompose.compose)(_hocs.withTheme)(Paragraph);
+var ParagraphWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Paragraph) : Paragraph);
 
 exports.Paragraph = ParagraphWrapper;

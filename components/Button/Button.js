@@ -125,10 +125,6 @@ Button.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc.doc)(Button);
-}
-
-var ButtonWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(Button);
+var ButtonWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Button) : Button);
 
 exports.Button = ButtonWrapper;

@@ -8,6 +8,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = require('react-dom');
 
+var _recompose = require('recompose');
+
 var _styledComponents = require('styled-components');
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
@@ -141,8 +143,4 @@ var Collapsible = function (_Component) {
   return Collapsible;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Collapsible);
-}
-
-exports.default = (0, _hocs.withTheme)(Collapsible);
+exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Collapsible) : Collapsible);

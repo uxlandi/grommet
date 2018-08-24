@@ -356,10 +356,4 @@ Calendar.defaultProps = {
   size: 'medium',
   locale: 'en-US'
 };
-
-
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Calendar);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(Calendar);
+exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Calendar) : Calendar);

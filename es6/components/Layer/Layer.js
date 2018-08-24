@@ -8,6 +8,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
+import { compose } from 'recompose';
 
 import { getNewContainer } from '../../utils';
 
@@ -69,8 +70,4 @@ Layer.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Layer);
-}
-
-export default withTheme(Layer);
+export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Layer) : Layer);

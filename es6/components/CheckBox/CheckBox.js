@@ -92,8 +92,4 @@ var CheckBox = function (_Component) {
   return CheckBox;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(CheckBox);
-}
-
-export default compose(withFocus, withTheme, withForwardRef)(CheckBox);
+export default compose(withFocus, withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(CheckBox) : CheckBox);

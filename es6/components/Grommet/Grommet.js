@@ -10,6 +10,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 import React, { Component } from 'react';
 import { ThemeContext as IconThemeContext } from 'grommet-icons';
+import { compose } from 'recompose';
 
 import { ResponsiveContext, ThemeContext } from '../../contexts';
 import baseTheme from '../../themes/base';
@@ -126,8 +127,4 @@ var Grommet = function (_Component) {
   return Grommet;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Grommet);
-}
-
-export default withIconTheme(Grommet);
+export default compose(withIconTheme)(process.env.NODE_ENV !== 'production' ? doc(Grommet) : Grommet);

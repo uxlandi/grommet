@@ -36,8 +36,4 @@ var TextArea = function (_Component) {
   return TextArea;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(TextArea);
-}
-
-export default compose(withTheme, withForwardRef)(TextArea);
+export default compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(TextArea) : TextArea);

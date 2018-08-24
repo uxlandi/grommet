@@ -218,10 +218,6 @@ Select.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc.doc)(Select);
-}
-
-var SelectWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(Select);
+var SelectWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Select) : Select);
 
 exports.Select = SelectWrapper;

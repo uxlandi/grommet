@@ -66,10 +66,4 @@ Heading.defaultProps = {
   level: 1,
   responsive: true
 };
-
-
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Heading);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(Heading);
+exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Heading) : Heading);

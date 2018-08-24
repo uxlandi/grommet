@@ -92,8 +92,4 @@ var Keyboard = function (_Component) {
   return Keyboard;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Keyboard);
-}
-
-exports.default = Keyboard;
+exports.default = process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Keyboard) : Keyboard;

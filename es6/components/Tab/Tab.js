@@ -135,10 +135,6 @@ var Tab = function (_Component) {
   return Tab;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Tab);
-}
-
-var TabWrapper = compose(withTheme, withForwardRef)(Tab);
+var TabWrapper = compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(Tab) : Tab);
 
 export { TabWrapper as Tab };

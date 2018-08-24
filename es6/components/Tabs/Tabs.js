@@ -13,7 +13,7 @@ import React, { cloneElement, Children, Component } from 'react';
 import { Box } from '../';
 import { doc } from './doc';
 
-export var Tabs = function (_Component) {
+var Tabs = function (_Component) {
   _inherits(Tabs, _Component);
 
   function Tabs() {
@@ -116,6 +116,8 @@ Tabs.defaultProps = {
   },
   responsive: true
 };
-if (process.env.NODE_ENV !== 'production') {
-  doc(Tabs);
-}
+
+
+var TabsWrapper = process.env.NODE_ENV !== 'production' ? doc(Tabs) : Tabs;
+
+export { TabsWrapper as Tabs };

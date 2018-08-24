@@ -232,8 +232,4 @@ var Diagram = function (_Component) {
 Diagram.defaultProps = { connections: [] };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Diagram);
-}
-
-export default compose(withTheme)(Diagram);
+export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Diagram) : Diagram);

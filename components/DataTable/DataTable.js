@@ -177,10 +177,6 @@ DataTable.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc.doc)(DataTable);
-}
-
-var DataTableWrapper = (0, _recompose.compose)(_hocs.withTheme)(DataTable);
+var DataTableWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(DataTable) : DataTable);
 
 exports.DataTable = DataTableWrapper;

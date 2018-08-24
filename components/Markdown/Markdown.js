@@ -70,8 +70,4 @@ var GrommetMarkdown = function (_Component) {
   return GrommetMarkdown;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(GrommetMarkdown);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(GrommetMarkdown);
+exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(GrommetMarkdown) : GrommetMarkdown);

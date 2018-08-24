@@ -255,10 +255,4 @@ Menu.defaultProps = {
   items: [],
   messages: { openMenu: 'Open Menu', closeMenu: 'Close Menu' }
 };
-
-
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Menu);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(Menu);
+exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Menu) : Menu);

@@ -199,8 +199,4 @@ var Carousel = function (_Component) {
   return Carousel;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Carousel);
-}
-
-export default compose(withTheme, withFocus)(Carousel);
+export default compose(withTheme, withFocus)(process.env.NODE_ENV !== 'production' ? doc(Carousel) : Carousel);

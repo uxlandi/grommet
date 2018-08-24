@@ -161,10 +161,6 @@ DataTable.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(DataTable);
-}
-
-var DataTableWrapper = compose(withTheme)(DataTable);
+var DataTableWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(DataTable) : DataTable);
 
 export { DataTableWrapper as DataTable };

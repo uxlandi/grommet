@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import { Anchor } from '../Anchor';
 import { doc } from './doc';
 
-export var RoutedAnchor = function (_Component) {
+var RoutedAnchor = function (_Component) {
   _inherits(RoutedAnchor, _Component);
 
   function RoutedAnchor() {
@@ -69,6 +69,8 @@ RoutedAnchor.contextTypes = {
 RoutedAnchor.defaultProps = {
   method: 'push'
 };
-if (process.env.NODE_ENV !== 'production') {
-  doc(RoutedAnchor);
-}
+
+
+var RoutedAnchorWrapper = process.env.NODE_ENV !== 'production' ? doc(RoutedAnchor) : RoutedAnchor;
+
+export { RoutedAnchorWrapper as RoutedAnchor };

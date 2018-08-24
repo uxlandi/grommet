@@ -90,8 +90,4 @@ var RadioButton = function (_Component) {
   return RadioButton;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(RadioButton);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(RadioButton);
+exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(RadioButton) : RadioButton);

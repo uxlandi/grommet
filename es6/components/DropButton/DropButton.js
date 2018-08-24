@@ -142,8 +142,4 @@ DropButton.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(DropButton);
-}
-
-export default compose(withTheme, withForwardRef)(DropButton);
+export default compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(DropButton) : DropButton);

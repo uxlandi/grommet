@@ -222,8 +222,4 @@ RangeSelector.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(RangeSelector);
-}
-
-export default compose(withTheme, withForwardRef)(RangeSelector);
+export default compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(RangeSelector) : RangeSelector);

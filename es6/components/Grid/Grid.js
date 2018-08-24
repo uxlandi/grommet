@@ -56,12 +56,8 @@ Grid.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Grid);
-}
+var GridWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Grid) : Grid);
 
-var WrappedGrid = compose(withTheme)(Grid);
+GridWrapper.available = typeof window !== 'undefined' && window.CSS && window.CSS.supports && window.CSS.supports('display', 'grid');
 
-WrappedGrid.available = typeof window !== 'undefined' && window.CSS && window.CSS.supports && window.CSS.supports('display', 'grid');
-
-export default WrappedGrid;
+export default GridWrapper;

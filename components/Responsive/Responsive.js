@@ -71,8 +71,4 @@ var Responsive = function (_Component) {
   return Responsive;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Responsive);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(Responsive);
+exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Responsive) : Responsive);

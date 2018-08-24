@@ -50,8 +50,4 @@ var TextArea = function (_Component) {
   return TextArea;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(TextArea);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(TextArea);
+exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(TextArea) : TextArea);

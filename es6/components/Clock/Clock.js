@@ -220,8 +220,4 @@ Clock.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Clock);
-}
-
-export default compose(withTheme)(Clock);
+export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Clock) : Clock);

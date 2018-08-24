@@ -13,7 +13,7 @@ import { Layer } from '../Layer';
 
 import { doc } from './doc';
 
-export var SkipLinks = function (_Component) {
+var SkipLinks = function (_Component) {
   _inherits(SkipLinks, _Component);
 
   function SkipLinks() {
@@ -93,6 +93,8 @@ SkipLinks.defaultProps = {
     skipTo: 'Skip To'
   }
 };
-if (process.env.NODE_ENV !== 'production') {
-  doc(SkipLinks);
-}
+
+
+var SkipLinksWrapper = process.env.NODE_ENV !== 'production' ? doc(SkipLinks) : SkipLinks;
+
+export { SkipLinksWrapper as SkipLinks };

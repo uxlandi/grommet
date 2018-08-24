@@ -4,7 +4,7 @@ import { TableContext } from '../Table/TableContext';
 import { StyledTableBody } from '../Table/StyledTable';
 import { doc } from './doc';
 
-export var TableBody = function TableBody(props) {
+var TableBody = function TableBody(props) {
   return React.createElement(
     TableContext.Provider,
     { value: 'body' },
@@ -12,6 +12,6 @@ export var TableBody = function TableBody(props) {
   );
 };
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(TableBody);
-}
+var TableBodyWrapper = process.env.NODE_ENV !== 'production' ? doc(TableBody) : TableBody;
+
+export { TableBodyWrapper as TableBody };

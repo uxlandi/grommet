@@ -142,10 +142,4 @@ Distribution.defaultProps = {
   direction: 'row',
   gap: 'xsmall'
 };
-
-
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Distribution);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(Distribution);
+exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Distribution) : Distribution);

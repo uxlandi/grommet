@@ -30,8 +30,6 @@ var TableFooter = function (_Component) {
   return TableFooter;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(TableFooter);
-}
+var TableFooterWrapper = process.env.NODE_ENV !== 'production' ? doc(TableFooter) : TableFooter;
 
-export { TableFooter };
+export { TableFooterWrapper as TableFooter };

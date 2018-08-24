@@ -82,8 +82,4 @@ Meter.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Meter);
-}
-
-export default compose(withTheme)(Meter);
+export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Meter) : Meter);

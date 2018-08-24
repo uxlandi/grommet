@@ -414,8 +414,4 @@ var WorldMap = function (_Component) {
   return WorldMap;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(WorldMap);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(WorldMap);
+exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(WorldMap) : WorldMap);

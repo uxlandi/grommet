@@ -215,8 +215,4 @@ var Carousel = function (_Component) {
   return Carousel;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Carousel);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withFocus)(Carousel);
+exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withFocus)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Carousel) : Carousel);

@@ -105,10 +105,6 @@ var Anchor = function (_Component) {
   return Anchor;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc.doc)(Anchor);
-}
-
-var AnchorWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(Anchor);
+var AnchorWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Anchor) : Anchor);
 
 exports.Anchor = AnchorWrapper;

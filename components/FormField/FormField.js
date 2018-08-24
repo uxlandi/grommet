@@ -150,8 +150,4 @@ var FormField = function (_Component) {
   return FormField;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(FormField);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme)(FormField);
+exports.default = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(FormField) : FormField);

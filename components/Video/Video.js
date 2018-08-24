@@ -514,10 +514,4 @@ var Video = function (_Component) {
 Video.defaultProps = {
   controls: 'over'
 };
-
-
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Video);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(Video);
+exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Video) : Video);

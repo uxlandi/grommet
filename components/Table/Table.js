@@ -55,10 +55,6 @@ var Table = function (_Component) {
   return Table;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc.doc)(Table);
-}
-
-var TableWrapper = (0, _recompose.compose)(_hocs.withTheme)(Table);
+var TableWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Table) : Table);
 
 exports.Table = TableWrapper;

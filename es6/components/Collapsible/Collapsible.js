@@ -6,6 +6,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 import React, { createRef, Component } from 'react';
 import { findDOMNode } from 'react-dom';
+import { compose } from 'recompose';
 import styled from 'styled-components';
 
 import { withTheme } from '../hocs';
@@ -127,8 +128,4 @@ var Collapsible = function (_Component) {
   return Collapsible;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Collapsible);
-}
-
-export default withTheme(Collapsible);
+export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Collapsible) : Collapsible);

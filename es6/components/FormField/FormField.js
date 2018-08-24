@@ -136,8 +136,4 @@ var FormField = function (_Component) {
   return FormField;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(FormField);
-}
-
-export default compose(withFocus, withTheme)(FormField);
+export default compose(withFocus, withTheme)(process.env.NODE_ENV !== 'production' ? doc(FormField) : FormField);

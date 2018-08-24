@@ -144,10 +144,6 @@ var AccordionPanel = function (_Component) {
   return AccordionPanel;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(AccordionPanel);
-}
-
-var AccordionPanelWrapper = compose(withTheme, withForwardRef)(AccordionPanel);
+var AccordionPanelWrapper = compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(AccordionPanel) : AccordionPanel);
 
 export { AccordionPanelWrapper as AccordionPanel };

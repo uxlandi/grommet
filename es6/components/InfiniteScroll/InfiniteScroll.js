@@ -115,9 +115,6 @@ InfiniteScroll.defaultProps = {
   items: [],
   step: 50
 };
-export default InfiniteScroll;
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(InfiniteScroll);
-}
+export default process.env.NODE_ENV !== 'production' ? doc(InfiniteScroll) : InfiniteScroll;

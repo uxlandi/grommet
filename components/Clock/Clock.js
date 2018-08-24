@@ -235,10 +235,4 @@ Clock.defaultProps = {
   size: 'medium',
   type: 'analog'
 };
-
-
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Clock);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(Clock);
+exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Clock) : Clock);

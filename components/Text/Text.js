@@ -61,10 +61,6 @@ Text.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc.doc)(Text);
-}
-
-var TextWrapper = (0, _recompose.compose)(_hocs.withTheme)(Text);
+var TextWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Text) : Text);
 
 exports.Text = TextWrapper;

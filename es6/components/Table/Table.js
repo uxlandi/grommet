@@ -44,10 +44,6 @@ var Table = function (_Component) {
   return Table;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Table);
-}
-
-var TableWrapper = compose(withTheme)(Table);
+var TableWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Table) : Table);
 
 export { TableWrapper as Table };

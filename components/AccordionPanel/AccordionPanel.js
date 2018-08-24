@@ -160,10 +160,6 @@ var AccordionPanel = function (_Component) {
   return AccordionPanel;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc.doc)(AccordionPanel);
-}
-
-var AccordionPanelWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(AccordionPanel);
+var AccordionPanelWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(AccordionPanel) : AccordionPanel);
 
 exports.AccordionPanel = AccordionPanelWrapper;

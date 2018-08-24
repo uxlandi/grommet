@@ -39,8 +39,4 @@ var RangeInput = function (_Component) {
   return RangeInput;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(RangeInput);
-}
-
-export default compose(withFocus, withTheme, withForwardRef)(RangeInput);
+export default compose(withFocus, withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(RangeInput) : RangeInput);

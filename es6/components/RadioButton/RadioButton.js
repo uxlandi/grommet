@@ -75,8 +75,4 @@ var RadioButton = function (_Component) {
   return RadioButton;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(RadioButton);
-}
-
-export default compose(withTheme, withForwardRef)(RadioButton);
+export default compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(RadioButton) : RadioButton);

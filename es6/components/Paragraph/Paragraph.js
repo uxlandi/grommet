@@ -32,10 +32,6 @@ var Paragraph = function (_Component) {
   return Paragraph;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Paragraph);
-}
-
-var ParagraphWrapper = compose(withTheme)(Paragraph);
+var ParagraphWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Paragraph) : Paragraph);
 
 export { ParagraphWrapper as Paragraph };

@@ -50,10 +50,6 @@ Text.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Text);
-}
-
-var TextWrapper = compose(withTheme)(Text);
+var TextWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Text) : Text);
 
 export { TextWrapper as Text };

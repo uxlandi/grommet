@@ -236,10 +236,4 @@ RangeSelector.defaultProps = {
   step: 1,
   values: []
 };
-
-
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(RangeSelector);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(RangeSelector);
+exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(RangeSelector) : RangeSelector);

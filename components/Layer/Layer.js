@@ -8,6 +8,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = require('react-dom');
 
+var _recompose = require('recompose');
+
 var _utils = require('../../utils');
 
 var _hocs = require('../hocs');
@@ -81,10 +83,4 @@ Layer.defaultProps = {
   position: 'center',
   responsive: true
 };
-
-
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Layer);
-}
-
-exports.default = (0, _hocs.withTheme)(Layer);
+exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Layer) : Layer);

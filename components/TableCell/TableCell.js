@@ -63,10 +63,6 @@ TableCell.defaultProps = {
   pad: { horizontal: 'small', vertical: 'xsmall' }
 };
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc.doc)(TableCell);
-}
-
-var TableCellWrapper = (0, _recompose.compose)(_hocs.withTheme)(TableCell);
+var TableCellWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(TableCell) : TableCell);
 
 exports.TableCell = TableCellWrapper;

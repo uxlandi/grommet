@@ -266,8 +266,4 @@ Chart.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Chart);
-}
-
-export default compose(withTheme)(Chart);
+export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Chart) : Chart);

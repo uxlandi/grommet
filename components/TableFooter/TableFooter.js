@@ -41,8 +41,6 @@ var TableFooter = function (_Component) {
   return TableFooter;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc.doc)(TableFooter);
-}
+var TableFooterWrapper = process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(TableFooter) : TableFooter;
 
-exports.TableFooter = TableFooter;
+exports.TableFooter = TableFooterWrapper;

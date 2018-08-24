@@ -236,8 +236,4 @@ Menu.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Menu);
-}
-
-export default compose(withTheme, withForwardRef)(Menu);
+export default compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(Menu) : Menu);

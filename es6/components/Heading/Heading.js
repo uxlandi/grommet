@@ -54,8 +54,4 @@ Heading.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Heading);
-}
-
-export default compose(withTheme)(Heading);
+export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Heading) : Heading);

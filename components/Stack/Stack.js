@@ -90,8 +90,4 @@ var Stack = function (_Component) {
   return Stack;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Stack);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(Stack);
+exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Stack) : Stack);

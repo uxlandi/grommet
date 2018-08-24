@@ -177,11 +177,5 @@ Box.defaultProps = {
   responsive: true,
   tag: 'div'
 };
-
-
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Box);
-}
-
 exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef // needed for RangeSelector
-)(Box);
+)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Box) : Box);

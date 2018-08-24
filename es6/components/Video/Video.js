@@ -495,8 +495,4 @@ Video.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Video);
-}
-
-export default compose(withTheme, withForwardRef)(Video);
+export default compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(Video) : Video);

@@ -54,8 +54,4 @@ var GrommetMarkdown = function (_Component) {
   return GrommetMarkdown;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(GrommetMarkdown);
-}
-
-export default compose(withTheme)(GrommetMarkdown);
+export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(GrommetMarkdown) : GrommetMarkdown);

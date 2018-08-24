@@ -133,8 +133,4 @@ Distribution.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Distribution);
-}
-
-export default compose(withTheme)(Distribution);
+export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Distribution) : Distribution);

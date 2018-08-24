@@ -199,10 +199,6 @@ Select.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Select);
-}
-
-var SelectWrapper = compose(withTheme, withForwardRef)(Select);
+var SelectWrapper = compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(Select) : Select);
 
 export { SelectWrapper as Select };

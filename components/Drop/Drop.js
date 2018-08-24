@@ -10,6 +10,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = require('react-dom');
 
+var _recompose = require('recompose');
+
 var _utils = require('../../utils');
 
 var _hocs = require('../hocs');
@@ -78,10 +80,4 @@ Drop.defaultProps = {
     left: 'left'
   }
 };
-
-
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Drop);
-}
-
-exports.default = (0, _hocs.withTheme)(Drop);
+exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Drop) : Drop);

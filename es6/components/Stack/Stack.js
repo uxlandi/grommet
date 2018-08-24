@@ -76,8 +76,4 @@ var Stack = function (_Component) {
   return Stack;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Stack);
-}
-
-export default compose(withTheme)(Stack);
+export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Stack) : Stack);

@@ -388,10 +388,6 @@ TextInput.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc.doc)(TextInput);
-}
-
-var TextInputWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withAnnounce, _hocs.withForwardRef)(TextInput);
+var TextInputWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withAnnounce, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(TextInput) : TextInput);
 
 exports.TextInput = TextInputWrapper;

@@ -112,10 +112,6 @@ Button.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Button);
-}
-
-var ButtonWrapper = compose(withFocus, withTheme, withForwardRef)(Button);
+var ButtonWrapper = compose(withFocus, withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(Button) : Button);
 
 export { ButtonWrapper as Button };

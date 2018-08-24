@@ -121,10 +121,6 @@ Accordion.defaultProps = {
 };
 
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Accordion);
-}
-
-var AccordionWrapper = compose(withTheme)(Accordion);
+var AccordionWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Accordion) : Accordion);
 
 export { AccordionWrapper as Accordion };

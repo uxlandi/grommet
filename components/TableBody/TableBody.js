@@ -15,7 +15,7 @@ var _doc = require('./doc');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var TableBody = exports.TableBody = function TableBody(props) {
+var TableBody = function TableBody(props) {
   return _react2.default.createElement(
     _TableContext.TableContext.Provider,
     { value: 'body' },
@@ -23,6 +23,6 @@ var TableBody = exports.TableBody = function TableBody(props) {
   );
 };
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc.doc)(TableBody);
-}
+var TableBodyWrapper = process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(TableBody) : TableBody;
+
+exports.TableBody = TableBodyWrapper;

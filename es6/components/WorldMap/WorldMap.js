@@ -400,8 +400,4 @@ var WorldMap = function (_Component) {
   return WorldMap;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(WorldMap);
-}
-
-export default compose(withTheme)(WorldMap);
+export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(WorldMap) : WorldMap);

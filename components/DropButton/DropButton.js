@@ -154,10 +154,4 @@ DropButton.defaultProps = {
   a11yTitle: 'Open Drop',
   dropAlign: { top: 'top', left: 'left' }
 };
-
-
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(DropButton);
-}
-
-exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(DropButton);
+exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(DropButton) : DropButton);

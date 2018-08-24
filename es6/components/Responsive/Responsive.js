@@ -62,8 +62,4 @@ var Responsive = function (_Component) {
   return Responsive;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Responsive);
-}
-
-export default compose(withTheme)(Responsive);
+export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Responsive) : Responsive);

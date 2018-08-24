@@ -10,7 +10,7 @@ import { TableContext } from '../Table/TableContext';
 import { StyledTableHeader } from '../Table/StyledTable';
 import { doc } from './doc';
 
-export var TableHeader = function (_Component) {
+var TableHeader = function (_Component) {
   _inherits(TableHeader, _Component);
 
   function TableHeader() {
@@ -30,6 +30,6 @@ export var TableHeader = function (_Component) {
   return TableHeader;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(TableHeader);
-}
+var TableHeaderWrapper = process.env.NODE_ENV !== 'production' ? doc(TableHeader) : TableHeader;
+
+export { TableHeaderWrapper as TableHeader };

@@ -92,10 +92,6 @@ var Anchor = function (_Component) {
   return Anchor;
 }(Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(Anchor);
-}
-
-var AnchorWrapper = compose(withFocus, withTheme, withForwardRef)(Anchor);
+var AnchorWrapper = compose(withFocus, withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(Anchor) : Anchor);
 
 export { AnchorWrapper as Anchor };

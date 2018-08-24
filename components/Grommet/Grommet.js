@@ -10,6 +10,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _grommetIcons = require('grommet-icons');
 
+var _recompose = require('recompose');
+
 var _contexts = require('../../contexts');
 
 var _base = require('../../themes/base');
@@ -145,8 +147,4 @@ var Grommet = function (_Component) {
   return Grommet;
 }(_react.Component);
 
-if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Grommet);
-}
-
-exports.default = (0, _hocs.withIconTheme)(Grommet);
+exports.default = (0, _recompose.compose)(_hocs.withIconTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Grommet) : Grommet);

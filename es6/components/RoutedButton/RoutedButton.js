@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import { Button } from '../Button';
 import { doc } from './doc';
 
-export var RoutedButton = function (_Component) {
+var RoutedButton = function (_Component) {
   _inherits(RoutedButton, _Component);
 
   function RoutedButton() {
@@ -85,6 +85,6 @@ var _initialiseProps = function _initialiseProps() {
   };
 };
 
-if (process.env.NODE_ENV !== 'production') {
-  doc(RoutedButton);
-}
+var RoutedButtonWrapper = process.env.NODE_ENV !== 'production' ? doc(RoutedButton) : RoutedButton;
+
+export { RoutedButtonWrapper as RoutedButton };
