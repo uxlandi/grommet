@@ -10,9 +10,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = require('react-dom');
 
-var _ThemeContext = require('grommet-icons/ThemeContext');
-
-var _ThemeContext2 = _interopRequireDefault(_ThemeContext);
+var _grommetIcons = require('grommet-icons');
 
 var _contexts = require('../../contexts');
 
@@ -275,7 +273,7 @@ var DropContainer = function (_Component) {
     if (stateTheme) {
       if (stateTheme.dark !== propsTheme.dark && stateTheme.icon) {
         content = _react2.default.createElement(
-          _ThemeContext2.default.Provider,
+          _grommetIcons.ThemeContext.Provider,
           { value: stateTheme.icon },
           content
         );

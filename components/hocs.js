@@ -15,9 +15,7 @@ var _getDisplayName = require('recompose/getDisplayName');
 
 var _getDisplayName2 = _interopRequireDefault(_getDisplayName);
 
-var _ThemeContext = require('grommet-icons/ThemeContext');
-
-var _ThemeContext2 = _interopRequireDefault(_ThemeContext);
+var _grommetIcons = require('grommet-icons');
 
 var _contexts = require('../contexts');
 
@@ -231,7 +229,7 @@ var withAnnounce = exports.withAnnounce = function withAnnounce(WrappedComponent
 var withIconTheme = exports.withIconTheme = function withIconTheme(WrappedComponent) {
   var IconThemeComponent = function IconThemeComponent(props) {
     return _react2.default.createElement(
-      _ThemeContext2.default.Consumer,
+      _grommetIcons.ThemeContext.Consumer,
       null,
       function (iconTheme) {
         return _react2.default.createElement(WrappedComponent, _extends({}, props, { iconTheme: iconTheme }));

@@ -10,8 +10,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
-
-import IconThemeContext from 'grommet-icons/ThemeContext';
+import { ThemeContext as IconThemeContext } from 'grommet-icons';
 
 import FocusedContainer from '../FocusedContainer';
 import { Keyboard } from '../Keyboard';

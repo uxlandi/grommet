@@ -11,9 +11,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import FormDown from 'grommet-icons/es6/icons/FormDown';
-import FormNext from 'grommet-icons/es6/icons/FormNext';
-
+import { FormDown, FormNext } from 'grommet-icons';
 
 import { Box, Button, Collapsible, Grommet, Text } from '../';
 import { grommet } from '../../themes';

@@ -1,8 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Add from 'grommet-icons/es6/icons/Add';
-
+import { Add } from 'grommet-icons';
 
 import { Anchor, Grommet } from '../';
 import { grommet } from '../../themes';

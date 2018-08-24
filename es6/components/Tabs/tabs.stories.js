@@ -6,10 +6,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import Attraction from 'grommet-icons/es6/icons/Attraction';
-import Car from 'grommet-icons/es6/icons/Car';
-import TreeOption from 'grommet-icons/es6/icons/TreeOption';
-
+import { Attraction, Car, TreeOption } from 'grommet-icons';
 
 import { Grommet, Box, Tab, Tabs } from '../';
 import { grommet } from '../../themes';
