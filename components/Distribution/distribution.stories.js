@@ -6,21 +6,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _Distribution = require('../Distribution/Distribution');
-
-var _Distribution2 = _interopRequireDefault(_Distribution);
-
-var _Box = require('../Box/Box');
-
-var _Box2 = _interopRequireDefault(_Box);
-
-var _Text = require('../Text/Text');
-
-var _Text2 = _interopRequireDefault(_Text);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -43,20 +29,20 @@ var SimpleDistribution = function (_Component) {
 
   SimpleDistribution.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _Distribution2.default,
+        _.Distribution,
         {
           basis: 'medium',
           values: [{ value: 50, color: 'light-3' }, { value: 30, color: 'neutral-1' }, { value: 20, color: 'brand' }, { value: 10, color: 'light-3' }, { value: 5, color: 'neutral-1' }]
         },
         function (value) {
           return _react2.default.createElement(
-            _Box2.default,
+            _.Box,
             { pad: 'xsmall', background: value.color, fill: true },
             _react2.default.createElement(
-              _Text2.default,
+              _.Text,
               { size: 'large' },
               value.value
             )

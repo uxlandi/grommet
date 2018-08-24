@@ -10,7 +10,7 @@ var SorterButton = styled(Button).withConfig({
   displayName: 'Sorter__SorterButton'
 })(['flex-shrink:1;height:100%;']);
 
-var Sorter = function Sorter(_ref) {
+export var Sorter = function Sorter(_ref) {
   var align = _ref.align,
       children = _ref.children,
       fill = _ref.fill,
@@ -52,5 +52,3 @@ var Sorter = function Sorter(_ref) {
 
   return content;
 };
-
-export default Sorter;

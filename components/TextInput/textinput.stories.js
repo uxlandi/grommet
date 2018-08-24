@@ -6,13 +6,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _TextInput = require('../TextInput/TextInput');
-
-var _TextInput2 = _interopRequireDefault(_TextInput);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
+var _2 = require('../');
 
 var _themes = require('../../themes');
 
@@ -45,9 +39,9 @@ var SimpleTextInput = function (_Component) {
     var value = this.state.value;
 
     return _react2.default.createElement(
-      _Grommet2.default,
+      _2.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_TextInput2.default, { ref: this.ref, value: value, onChange: this.onChange })
+      _react2.default.createElement(_2.TextInput, { ref: this.ref, value: value, onChange: this.onChange })
     );
   };
 
@@ -81,9 +75,9 @@ var SuggestionsTextInput = function (_Component2) {
     var value = this.state.value;
 
     return _react2.default.createElement(
-      _Grommet2.default,
+      _2.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_TextInput2.default, {
+      _react2.default.createElement(_2.TextInput, {
         value: value,
         onChange: this.onChange,
         onSelect: this.onSelect,

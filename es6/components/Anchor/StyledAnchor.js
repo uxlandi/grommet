@@ -8,7 +8,7 @@ import { focusStyle, normalizeColor } from '../../utils';
 
 var disabledStyle = '\n  opacity: 0.3;\n  cursor: default;\n  text-decoration: none;\n';
 
-var StyledAnchor = styled.a.withConfig({
+export var StyledAnchor = styled.a.withConfig({
   displayName: 'StyledAnchor'
 })(['box-sizing:border-box;font-size:inherit;line-height:inherit;color:', ';text-decoration:', ';cursor:pointer;outline:none;', ' ', ' ', ' ', ' ', ''], function (props) {
   return normalizeColor(props.theme.anchor.color, props.theme);
@@ -24,8 +24,6 @@ var StyledAnchor = styled.a.withConfig({
   return props.disabled && disabledStyle;
 }, function (props) {
   return props.focus && focusStyle;
-});
-
-export default StyledAnchor.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.anchor.extend;
 });

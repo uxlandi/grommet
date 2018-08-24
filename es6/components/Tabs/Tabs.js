@@ -10,11 +10,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 import React, { cloneElement, Children, Component } from 'react';
 
-import { Box } from '../Box';
+import { Box } from '../';
+import { doc } from './doc';
 
-import doc from './doc';
-
-var Tabs = function (_Component) {
+export var Tabs = function (_Component) {
   _inherits(Tabs, _Component);
 
   function Tabs() {
@@ -117,10 +116,6 @@ Tabs.defaultProps = {
   },
   responsive: true
 };
-
-
 if (process.env.NODE_ENV !== 'production') {
   doc(Tabs);
 }
-
-export default Tabs;

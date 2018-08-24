@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Button = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -10,23 +11,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _recompose = require('recompose');
 
-var _Box = require('../Box/Box');
+var _Box = require('../Box');
 
-var _Box2 = _interopRequireDefault(_Box);
-
-var _Text = require('../Text/Text');
-
-var _Text2 = _interopRequireDefault(_Text);
+var _Text = require('../Text');
 
 var _hocs = require('../hocs');
 
 var _StyledButton = require('./StyledButton');
 
-var _StyledButton2 = _interopRequireDefault(_StyledButton);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38,7 +31,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var AnchorStyledButton = _StyledButton2.default.withComponent('a');
+var AnchorStyledButton = _StyledButton.StyledButton.withComponent('a');
 
 var Button = function (_Component) {
   _inherits(Button, _Component);
@@ -75,10 +68,10 @@ var Button = function (_Component) {
         type = _props.type,
         rest = _objectWithoutProperties(_props, ['a11yTitle', 'forwardRef', 'children', 'icon', 'fill', 'focus', 'href', 'label', 'onClick', 'plain', 'reverse', 'theme', 'type']);
 
-    var Tag = href ? AnchorStyledButton : _StyledButton2.default;
+    var Tag = href ? AnchorStyledButton : _StyledButton.StyledButton;
 
     var buttonLabel = typeof label === 'string' ? _react2.default.createElement(
-      _Text2.default,
+      _Text.Text,
       null,
       _react2.default.createElement(
         'strong',
@@ -109,7 +102,7 @@ var Button = function (_Component) {
         type: !href ? type : undefined
       }),
       first || second ? _react2.default.createElement(
-        _Box2.default,
+        _Box.Box,
         {
           direction: 'row',
           align: 'center',
@@ -133,7 +126,9 @@ Button.defaultProps = {
 
 
 if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Button);
+  (0, _doc.doc)(Button);
 }
 
-exports.default = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(Button);
+var ButtonWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(Button);
+
+exports.Button = ButtonWrapper;

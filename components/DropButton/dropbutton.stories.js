@@ -8,33 +8,7 @@ var _react3 = require('@storybook/react');
 
 var _grommetIcons = require('grommet-icons');
 
-var _DropButton = require('../DropButton/DropButton');
-
-var _DropButton2 = _interopRequireDefault(_DropButton);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
-
-var _Box = require('../Box/Box');
-
-var _Box2 = _interopRequireDefault(_Box);
-
-var _Heading = require('../Heading/Heading');
-
-var _Heading2 = _interopRequireDefault(_Heading);
-
-var _Button = require('../Button/Button');
-
-var _Button2 = _interopRequireDefault(_Button);
-
-var _Text = require('../Text/Text');
-
-var _Text2 = _interopRequireDefault(_Text);
-
-var _Calendar = require('../Calendar/Calendar');
-
-var _Calendar2 = _interopRequireDefault(_Calendar);
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -49,20 +23,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var DropContent = function DropContent(_ref) {
   var onClose = _ref.onClose;
   return _react2.default.createElement(
-    _Box2.default,
+    _.Box,
     { pad: 'small' },
     _react2.default.createElement(
-      _Box2.default,
+      _.Box,
       { direction: 'row', justify: 'between', align: 'center' },
       _react2.default.createElement(
-        _Heading2.default,
+        _.Heading,
         { level: 3, margin: 'small' },
         'Heading'
       ),
-      _react2.default.createElement(_Button2.default, { icon: _react2.default.createElement(_grommetIcons.Close, null), onClick: onClose })
+      _react2.default.createElement(_.Button, { icon: _react2.default.createElement(_grommetIcons.Close, null), onClick: onClose })
     ),
     _react2.default.createElement(
-      _Text2.default,
+      _.Text,
       null,
       'Content'
     )
@@ -95,9 +69,9 @@ var SimpleDropButton = function (_Component) {
     var open = this.state.open;
 
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_DropButton2.default, {
+      _react2.default.createElement(_.DropButton, {
         label: 'Open',
         open: open,
         onClose: function onClose() {
@@ -141,10 +115,10 @@ var CalendarDropButton = function (_Component2) {
         open = _state.open;
 
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _DropButton2.default,
+        _.DropButton,
         {
           open: open,
           onClose: function onClose() {
@@ -153,13 +127,13 @@ var CalendarDropButton = function (_Component2) {
           onOpen: function onOpen() {
             return _this4.setState({ open: true });
           },
-          dropContent: _react2.default.createElement(_Calendar2.default, { date: date, onSelect: this.onSelect })
+          dropContent: _react2.default.createElement(_.Calendar, { date: date, onSelect: this.onSelect })
         },
         _react2.default.createElement(
-          _Box2.default,
+          _.Box,
           { direction: 'row', gap: 'medium', align: 'center', pad: 'small' },
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             null,
             date ? new Date(date).toLocaleDateString() : 'Select date'
           ),

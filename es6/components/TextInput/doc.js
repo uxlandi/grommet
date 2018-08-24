@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (TextInput) {
+export var doc = function doc(TextInput) {
   var DocumentedTextInput = describe(TextInput).availableAt(getAvailableAtBadge('TextInput')).description('A text input field with optional suggestions.').usage('import { TextInput } from \'grommet\';\n<TextInput id=\'item\' name=\'item\' />');
 
   DocumentedTextInput.propTypes = {
@@ -43,4 +43,4 @@ export default (function (TextInput) {
   };
 
   return DocumentedTextInput;
-});
+};

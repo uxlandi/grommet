@@ -14,9 +14,8 @@ import { compose } from 'recompose';
 
 import { Box } from '../Box';
 import { Button } from '../Button';
-import { Keyboard } from '../Keyboard';
 import { Heading } from '../Heading';
-
+import { Keyboard } from '../Keyboard';
 import { withTheme } from '../hocs';
 
 import StyledCalendar, { StyledDay, StyledDayContainer, StyledWeek, StyledWeeks, StyledWeeksContainer } from './StyledCalendar';

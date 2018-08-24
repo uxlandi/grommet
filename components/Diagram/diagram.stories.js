@@ -8,21 +8,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _Diagram = require('../Diagram/Diagram');
-
-var _Diagram2 = _interopRequireDefault(_Diagram);
-
-var _Box = require('../Box/Box');
-
-var _Box2 = _interopRequireDefault(_Box);
-
-var _Stack = require('../Stack/Stack');
-
-var _Stack2 = _interopRequireDefault(_Stack);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -40,7 +26,7 @@ var Node = function Node(_ref) {
   var id = _ref.id,
       rest = _objectWithoutProperties(_ref, ['id']);
 
-  return _react2.default.createElement(_Box2.default, _extends({
+  return _react2.default.createElement(_.Box, _extends({
     id: id,
     basis: 'xxsmall',
     margin: 'small',
@@ -78,30 +64,30 @@ var SimpleDiagram = function (_Component) {
 
   SimpleDiagram.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _Stack2.default,
+        _.Stack,
         null,
         _react2.default.createElement(
-          _Box2.default,
+          _.Box,
           null,
           _react2.default.createElement(
-            _Box2.default,
+            _.Box,
             { direction: 'row' },
             [1, 2, 3].map(function (id) {
               return _react2.default.createElement(Node, { key: id, id: id });
             })
           ),
           _react2.default.createElement(
-            _Box2.default,
+            _.Box,
             { direction: 'row' },
             [4, 5].map(function (id) {
               return _react2.default.createElement(Node, { key: id, id: id, background: 'neutral-2' });
             })
           )
         ),
-        _react2.default.createElement(_Diagram2.default, {
+        _react2.default.createElement(_.Diagram, {
           connections: [connection('1', '5', { color: 'accent-2' }), connection('3', '5', { color: 'accent-2', anchor: 'horizontal' })]
         })
       )

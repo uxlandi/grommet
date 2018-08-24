@@ -4,8 +4,8 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 import React from 'react';
 
-import { TableCell } from '../Table';
 import { Box } from '../Box';
+import { TableCell } from '../TableCell';
 import { Text } from '../Text';
 
 var Cell = function Cell(_ref) {
@@ -66,5 +66,4 @@ var Cell = function Cell(_ref) {
     content
   );
 };
-
-export default Cell;
+export { Cell };

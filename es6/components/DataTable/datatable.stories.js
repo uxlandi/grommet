@@ -9,11 +9,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import DataTable from './DataTable';
-import Grommet from '../Grommet/Grommet';
-import Meter from '../Meter/Meter';
-import Box from '../Box/Box';
-import Text from '../Text/Text';
+import { Grommet, Box, DataTable, Meter, Text } from '../';
 import { grommet } from '../../themes';
 
 var amountFormatter = new Intl.NumberFormat('en-US', {
@@ -212,7 +208,7 @@ var ServedDataTable = function (_Component5) {
 
     return React.createElement(
       Grommet,
-      null,
+      { theme: grommet },
       React.createElement(DataTable, {
         columns: columns.map(function (column) {
           return _extends({}, column, {

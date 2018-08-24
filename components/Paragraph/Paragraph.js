@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Paragraph = undefined;
 
 var _react = require('react');
 
@@ -12,11 +13,7 @@ var _hocs = require('../hocs');
 
 var _StyledParagraph = require('./StyledParagraph');
 
-var _StyledParagraph2 = _interopRequireDefault(_StyledParagraph);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -40,14 +37,16 @@ var Paragraph = function (_Component) {
   Paragraph.prototype.render = function render() {
     var rest = _objectWithoutProperties(this.props, []);
 
-    return _react2.default.createElement(_StyledParagraph2.default, rest);
+    return _react2.default.createElement(_StyledParagraph.StyledParagraph, rest);
   };
 
   return Paragraph;
 }(_react.Component);
 
 if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Paragraph);
+  (0, _doc.doc)(Paragraph);
 }
 
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(Paragraph);
+var ParagraphWrapper = (0, _recompose.compose)(_hocs.withTheme)(Paragraph);
+
+exports.Paragraph = ParagraphWrapper;

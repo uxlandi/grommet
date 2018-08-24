@@ -1,16 +1,8 @@
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 import { describe, PropTypes } from 'react-desc';
 
-import { ROUTER_PROPS, getAvailableAtBadge } from '../../utils';
+import { getAvailableAtBadge } from '../../utils';
 
-export function routedAnchor(RoutedAnchor) {
-  var DocumentedRoutedAnchor = describe(RoutedAnchor).availableAt(getAvailableAtBadge('RoutedAnchor')).description('An Anchor with support for React Router.').usage("import { RoutedAnchor } from 'grommet';\n<RoutedAnchor primary={true} path='/documentation' />");
-  DocumentedRoutedAnchor.propTypes = _extends({}, ROUTER_PROPS);
-  return DocumentedRoutedAnchor;
-}
-
-export default (function (Anchor) {
+export var doc = function doc(Anchor) {
   var DocumentedAnchor = describe(Anchor).availableAt(getAvailableAtBadge('Anchor')).description('A text link. We have a separate component from the browser\nbase so we can style it. You can either set the icon and/or label properties\nor just use children.').usage("import { Anchor } from 'grommet';\n<Anchor href={location} label='Label' />");
 
   DocumentedAnchor.propTypes = {
@@ -24,4 +16,4 @@ export default (function (Anchor) {
   };
 
   return DocumentedAnchor;
-});
+};

@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Footer = undefined;
 
 var _react = require('react');
 
@@ -8,15 +9,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _recompose = require('recompose');
 
-var _Table = require('../Table');
-
 var _Box = require('../Box');
+
+var _TableRow = require('../TableRow');
+
+var _TableCell = require('../TableCell');
 
 var _hocs = require('../hocs');
 
 var _Cell = require('./Cell');
-
-var _Cell2 = _interopRequireDefault(_Cell);
 
 var _StyledDataTable = require('./StyledDataTable');
 
@@ -35,15 +36,15 @@ var Footer = function Footer(_ref) {
     _StyledDataTable.StyledDataTableFooter,
     rest,
     _react2.default.createElement(
-      _Table.TableRow,
+      _TableRow.TableRow,
       null,
       groups && _react2.default.createElement(
-        _Table.TableCell,
+        _TableCell.TableCell,
         { size: 'xxsmall', plain: true, verticalAlign: 'top' },
         _react2.default.createElement(_Box.Box, theme.dataTable.footer)
       ),
       columns.map(function (column) {
-        return _react2.default.createElement(_Cell2.default, {
+        return _react2.default.createElement(_Cell.Cell, {
           key: column.property,
           context: 'footer',
           column: column,
@@ -55,4 +56,6 @@ var Footer = function Footer(_ref) {
   );
 };
 
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(Footer);
+var FooterWrapper = (0, _recompose.compose)(_hocs.withTheme)(Footer);
+
+exports.Footer = FooterWrapper;

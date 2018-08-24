@@ -2,9 +2,9 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-import SkipLink from './SkipLink';
+import { SkipLink } from '../SkipLink';
 
-export default (function (SkipLinks) {
+export var doc = function doc(SkipLinks) {
   var DocumentedSkipLinks = describe(SkipLinks).availableAt(getAvailableAtBadge('SkipLinks')).description('Describe a list of elements to skip to.').usage('import { SkipLinks } from \'grommet\';\n<SkipLinks elements={[\'main\', \'footer\']} />');
 
   DocumentedSkipLinks.propTypes = {
@@ -15,4 +15,4 @@ export default (function (SkipLinks) {
   };
 
   return DocumentedSkipLinks;
-});
+};

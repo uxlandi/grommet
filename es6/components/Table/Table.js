@@ -11,8 +11,8 @@ import { compose } from 'recompose';
 
 import { withTheme } from '../hocs';
 
-import StyledTable, { StyledTableDataCaption } from './StyledTable';
-import doc from './doc';
+import { StyledTable, StyledTableDataCaption } from './StyledTable';
+import { doc } from './doc';
 
 var Table = function (_Component) {
   _inherits(Table, _Component);
@@ -44,11 +44,10 @@ var Table = function (_Component) {
   return Table;
 }(Component);
 
-Table.defaultProps = { columns: [], data: [] };
-
-
 if (process.env.NODE_ENV !== 'production') {
   doc(Table);
 }
 
-export default compose(withTheme)(Table);
+var TableWrapper = compose(withTheme)(Table);
+
+export { TableWrapper as Table };

@@ -11,7 +11,6 @@ import styled from 'styled-components';
 import { debounce, isNodeAfterScroll, isNodeBeforeScroll, setFocusWithoutScroll } from '../../utils';
 
 import { withTheme } from '../hocs';
-
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { InfiniteScroll } from '../InfiniteScroll';
@@ -301,4 +300,6 @@ SelectContainer.defaultProps = {
 };
 
 
-export default withTheme(SelectContainer);
+var SelectContainerWrapper = withTheme(SelectContainer);
+
+export { SelectContainerWrapper as SelectContainer };

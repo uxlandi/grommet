@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.SelectContainer = undefined;
 
 var _react = require('react');
 
@@ -316,4 +317,8 @@ var SelectContainer = function (_Component) {
 SelectContainer.defaultProps = {
   value: ''
 };
-exports.default = (0, _hocs.withTheme)(SelectContainer);
+
+
+var SelectContainerWrapper = (0, _hocs.withTheme)(SelectContainer);
+
+exports.SelectContainer = SelectContainerWrapper;

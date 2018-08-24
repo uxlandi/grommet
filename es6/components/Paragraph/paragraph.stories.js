@@ -7,8 +7,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Paragraph from '../Paragraph/Paragraph';
-import Grommet from '../Grommet/Grommet';
+import { Paragraph } from '../Paragraph';
+import { Grommet } from '../Grommet';
 import { grommet } from '../../themes';
 
 var sizes = ['xlarge', 'large', 'medium', 'small'];
@@ -31,7 +31,7 @@ var All = function (_Component) {
       sizes.map(function (size) {
         return React.createElement(
           Paragraph,
-          { size: size },
+          { key: size, size: size },
           'Paragraph ' + size,
           paragraphFiller
         );

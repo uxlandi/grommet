@@ -42,5 +42,3 @@ var expectPortal = exports.expectPortal = function expectPortal(portalId) {
     }
   };
 };
-
-exports.default = { createPortal: createPortal, expectPortal: expectPortal };

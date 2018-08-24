@@ -10,25 +10,7 @@ var _react3 = require('@storybook/react');
 
 var _grommetIcons = require('grommet-icons');
 
-var _Button = require('../Button/Button');
-
-var _Button2 = _interopRequireDefault(_Button);
-
-var _RoutedButton = require('../Button/RoutedButton');
-
-var _RoutedButton2 = _interopRequireDefault(_RoutedButton);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
-
-var _Box = require('../Box/Box');
-
-var _Box2 = _interopRequireDefault(_Box);
-
-var _Text = require('../Text/Text');
-
-var _Text2 = _interopRequireDefault(_Text);
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -36,33 +18,33 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var SimpleButton = function SimpleButton(props) {
   return _react2.default.createElement(
-    _Grommet2.default,
+    _.Grommet,
     { theme: _themes.grommet },
-    _react2.default.createElement(_Button2.default, _extends({ fill: true, label: 'Submit', onClick: function onClick() {} }, props))
+    _react2.default.createElement(_.Button, _extends({ fill: true, label: 'Submit', onClick: function onClick() {} }, props))
   );
 };
 
 var IconButton = function IconButton() {
   return _react2.default.createElement(
-    _Grommet2.default,
+    _.Grommet,
     { theme: _themes.grommet },
-    _react2.default.createElement(_Button2.default, { icon: _react2.default.createElement(_grommetIcons.Add, null), hoverIndicator: true, onClick: function onClick() {} })
+    _react2.default.createElement(_.Button, { icon: _react2.default.createElement(_grommetIcons.Add, null), hoverIndicator: true, onClick: function onClick() {} })
   );
 };
 
 var PlainButton = function PlainButton(props) {
   return _react2.default.createElement(
-    _Grommet2.default,
+    _.Grommet,
     { theme: _themes.grommet },
     _react2.default.createElement(
-      _Button2.default,
+      _.Button,
       _extends({ hoverIndicator: true, onClick: function onClick() {} }, props),
       _react2.default.createElement(
-        _Box2.default,
+        _.Box,
         { pad: 'small', direction: 'row', align: 'center', gap: 'small' },
         _react2.default.createElement(_grommetIcons.Add, null),
         _react2.default.createElement(
-          _Text2.default,
+          _.Text,
           null,
           'Add'
         )
@@ -73,17 +55,17 @@ var PlainButton = function PlainButton(props) {
 
 var AnchorButton = function AnchorButton() {
   return _react2.default.createElement(
-    _Grommet2.default,
+    _.Grommet,
     { theme: _themes.grommet },
-    _react2.default.createElement(_Button2.default, { label: 'Go', href: '#' })
+    _react2.default.createElement(_.Button, { label: 'Go', href: '#' })
   );
 };
 
 var RouteButton = function RouteButton() {
   return _react2.default.createElement(
-    _Grommet2.default,
+    _.Grommet,
     { theme: _themes.grommet },
-    _react2.default.createElement(_RoutedButton2.default, { label: 'Go', path: '/' })
+    _react2.default.createElement(_.RoutedButton, { label: 'Go', path: '/' })
   );
 };
 
@@ -117,9 +99,9 @@ var customTheme = {
 
 var CustomThemeButton = function CustomThemeButton() {
   return _react2.default.createElement(
-    _Grommet2.default,
+    _.Grommet,
     { theme: customTheme },
-    _react2.default.createElement(_Button2.default, { label: 'Submit', onClick: function onClick() {}, primary: true })
+    _react2.default.createElement(_.Button, { label: 'Submit', onClick: function onClick() {}, primary: true })
   );
 };
 

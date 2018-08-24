@@ -6,25 +6,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _Grid = require('../Grid/Grid');
+var _ = require('../');
 
-var _Grid2 = _interopRequireDefault(_Grid);
-
-var _Box = require('../Box/Box');
-
-var _Box2 = _interopRequireDefault(_Box);
-
-var _Button = require('../Button/Button');
-
-var _Button2 = _interopRequireDefault(_Button);
-
-var _Text = require('../Text/Text');
-
-var _Text2 = _interopRequireDefault(_Text);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
+var _themes = require('../../themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -55,17 +39,17 @@ var AppGrid = function (_Component) {
     var sidebar = this.state.sidebar;
 
     return _react2.default.createElement(
-      _Grommet2.default,
-      null,
+      _.Grommet,
+      { theme: _themes.grommet },
       _react2.default.createElement(
-        _Grid2.default,
+        _.Grid,
         {
           rows: ['auto', 'medium'],
           columns: ['auto', 'flex'],
           areas: [{ name: 'header', start: [0, 0], end: [1, 0] }, { name: 'sidebar', start: [0, 1], end: [0, 1] }, { name: 'main', start: [1, 1], end: [1, 1] }]
         },
         _react2.default.createElement(
-          _Box2.default,
+          _.Box,
           {
             gridArea: 'header',
             direction: 'row',
@@ -75,24 +59,24 @@ var AppGrid = function (_Component) {
             background: 'dark-2'
           },
           _react2.default.createElement(
-            _Button2.default,
+            _.Button,
             { onClick: function onClick() {
                 return _this2.setState({ sidebar: !sidebar });
               } },
             _react2.default.createElement(
-              _Text2.default,
+              _.Text,
               { size: 'large' },
               'Title'
             )
           ),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             null,
             'my@email'
           )
         ),
         sidebar && _react2.default.createElement(
-          _Box2.default,
+          _.Box,
           {
             gridArea: 'sidebar',
             background: 'dark-5',
@@ -101,13 +85,13 @@ var AppGrid = function (_Component) {
           },
           ['First', 'Second', 'Third'].map(function (name) {
             return _react2.default.createElement(
-              _Button2.default,
+              _.Button,
               { key: name, href: '#', hoverIndicator: true },
               _react2.default.createElement(
-                _Box2.default,
+                _.Box,
                 { pad: { horizontal: 'medium', vertical: 'small' } },
                 _react2.default.createElement(
-                  _Text2.default,
+                  _.Text,
                   null,
                   name
                 )
@@ -116,10 +100,10 @@ var AppGrid = function (_Component) {
           })
         ),
         _react2.default.createElement(
-          _Box2.default,
+          _.Box,
           { gridArea: 'main', justify: 'center', align: 'center' },
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             null,
             'main'
           )

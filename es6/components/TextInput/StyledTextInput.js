@@ -1,4 +1,4 @@
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
+var _templateObject = _taggedTemplateLiteralLoose(['\n', '\n'], ['\n', '\n']);
 
 function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
 
@@ -17,13 +17,15 @@ var sizeStyle = function sizeStyle(props) {
 
 var plainStyle = css(['border:none;-webkit-appearance:none;']);
 
-var StyledTextInput = styled.input.withConfig({
+export var StyledTextInput = styled.input.withConfig({
   displayName: 'StyledTextInput'
 })(['', ' width:100%;-webkit-appearance:textfield;', ' ', ' &::-webkit-input-placeholder{', '}&::-moz-placeholder{', '}&:-ms-input-placeholder{', '}&::-moz-focus-inner{border:none;outline:none;}'], inputStyle, function (props) {
   return props.size && sizeStyle(props);
 }, function (props) {
   return props.plain && plainStyle;
-}, placeholderColor, placeholderColor, placeholderColor);
+}, placeholderColor, placeholderColor, placeholderColor).extend(_templateObject, function (props) {
+  return props.theme.textInput && props.theme.textInput.extend;
+});
 
 export var StyledTextInputContainer = styled.div.withConfig({
   displayName: 'StyledTextInput__StyledTextInputContainer'
@@ -38,7 +40,3 @@ export var StyledPlaceholder = styled.div.withConfig({
 export var StyledSuggestions = styled.ol.withConfig({
   displayName: 'StyledTextInput__StyledSuggestions'
 })(['border-top-left-radius:0;border-top-right-radius:0;margin:0;padding:0;list-style-type:none;']);
-
-export default StyledTextInput.extend(_templateObject, function (props) {
-  return props.theme.textInput && props.theme.textInput.extend;
-});

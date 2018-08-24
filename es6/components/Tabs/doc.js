@@ -2,20 +2,9 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-import Tab from './Tab';
+import { Tab } from '../Tab';
 
-export var docTab = function docTab(TabComponent) {
-  // can't call this Tab due to line 5
-  var DocumentedTab = describe(TabComponent).description('One tab within Tabs.').usage('import { Tab } from \'grommet\';\n<Tab />');
-
-  DocumentedTab.propTypes = {
-    title: PropTypes.string.description('The title of the tab.')
-  };
-
-  return DocumentedTab;
-};
-
-export default (function (Tabs) {
+export var doc = function doc(Tabs) {
   var DocumentedTabs = describe(Tabs).availableAt(getAvailableAtBadge('Tabs')).description('A tabular view component.').usage('import { Tabs, Tab } from \'grommet\';\n<Tabs>\n  <Tab title=\'Tab 1\'>...</Tab>\n  <Tab title=\'Tab 2\'>...</Tab>\n</Tabs>');
 
   DocumentedTabs.propTypes = {
@@ -30,4 +19,4 @@ export default (function (Tabs) {
     onActive: PropTypes.func.description('Function that will be called with the active tab index when the currently active\ntab changes.')
   };
   return DocumentedTabs;
-});
+};

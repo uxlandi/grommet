@@ -4,10 +4,11 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 import React from 'react';
 
-import { TableRow, TableCell } from '../Table';
 import { InfiniteScroll } from '../InfiniteScroll';
+import { TableRow } from '../TableRow';
+import { TableCell } from '../TableCell';
 
-import Cell from './Cell';
+import { Cell } from './Cell';
 import { StyledDataTableBody, StyledDataTableRow } from './StyledDataTable';
 
 var Body = function Body(_ref) {
@@ -59,5 +60,4 @@ var Body = function Body(_ref) {
     )
   );
 };
-
-export default Body;
+export { Body };

@@ -28,5 +28,3 @@ var throttle = exports.throttle = function throttle(fn) {
     }
   };
 };
-
-exports.default = throttle;

@@ -36,5 +36,3 @@ var StyledDataTableFooter = exports.StyledDataTableFooter = _styledComponents2.d
 })(['', ''], function (props) {
   return props.size && '\n    display: table;\n    width: 100%;\n    table-layout: fixed;\n  ';
 });
-
-exports.default = {};

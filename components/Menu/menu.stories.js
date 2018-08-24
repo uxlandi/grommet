@@ -6,17 +6,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _Menu = require('../Menu/Menu');
-
-var _Menu2 = _interopRequireDefault(_Menu);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
-
-var _Box = require('../Box/Box');
-
-var _Box2 = _interopRequireDefault(_Box);
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -39,12 +29,12 @@ var SimpleMenu = function (_Component) {
 
   SimpleMenu.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _Box2.default,
+        _.Box,
         { direction: 'row', gap: 'large' },
-        _react2.default.createElement(_Menu2.default, {
+        _react2.default.createElement(_.Menu, {
           label: 'Actions',
           items: [{ label: 'Launch', onClick: function onClick() {} }, { label: 'Abort', onClick: function onClick() {} }]
         })

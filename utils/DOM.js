@@ -163,20 +163,3 @@ var isNodeBeforeScroll = exports.isNodeBeforeScroll = function isNodeBeforeScrol
 
   return top <= targetTop;
 };
-
-exports.default = {
-  copyAttribute: copyAttribute,
-  filterByFocusable: filterByFocusable,
-  findScrollParents: findScrollParents,
-  findVisibleParent: findVisibleParent,
-  isNodeAfterScroll: isNodeAfterScroll,
-  isNodeBeforeScroll: isNodeBeforeScroll,
-  getBodyChildElements: getBodyChildElements,
-  getFirstFocusableDescendant: getFirstFocusableDescendant,
-  getNewContainer: getNewContainer,
-  makeNodeFocusable: makeNodeFocusable,
-  makeNodeUnfocusable: makeNodeUnfocusable,
-  setFocusWithoutScroll: setFocusWithoutScroll,
-  setTabIndex: setTabIndex,
-  unsetTabIndex: unsetTabIndex
-};

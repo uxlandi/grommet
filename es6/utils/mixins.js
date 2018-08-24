@@ -1,30 +1,30 @@
 import { css } from 'styled-components';
 
-export function parseMetricToNum(fontAsString) {
+export var parseMetricToNum = function parseMetricToNum(fontAsString) {
   return parseFloat(fontAsString.replace(/[^0-9/.]/g, ''), 10);
-}
+};
 
-export function fontSize(size, lineHeight) {
+export var fontSize = function fontSize(size, lineHeight) {
   return css(['font-size:', ';line-height:', ';'], function (props) {
     return parseMetricToNum(size) / parseMetricToNum(props.theme.global.font.size) * 1 + 'rem';
   }, function (props) {
     return lineHeight || Math.ceil(parseMetricToNum(size) / parseMetricToNum(props.theme.global.lineHeight)) * (parseMetricToNum(props.theme.global.lineHeight) / parseMetricToNum(size)) + 'px';
   });
-}
+};
 
-export function lapAndUp(content) {
+export var lapAndUp = function lapAndUp(content) {
   return css(['@media only screen and (min-width:', '){', '}'], function (props) {
     return props.theme.global.breakpoints.narrow + 1 + 'px';
   }, content);
-}
+};
 
-export function palm(content) {
+export var palm = function palm(content) {
   return css(['@media only screen and (max-width:', '){', '}'], function (props) {
     return props.theme.global.breakpoints.narrow + 'px';
   }, content);
-}
+};
 
-export function findAllByType(component, type) {
+export var findAllByType = function findAllByType(component, type) {
   var matches = [];
 
   if (component.type === type) {
@@ -38,9 +38,9 @@ export function findAllByType(component, type) {
   }
 
   return matches;
-}
+};
 
-export function getAvailableAtBadge(availableAt) {
+export var getAvailableAtBadge = function getAvailableAtBadge(availableAt) {
   return [{
     url: 'https://storybook.grommet.io/?selectedKind=' + availableAt + '&full=0&addons=0&stories=1&panelRight=0',
     badge: 'https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png',
@@ -50,8 +50,4 @@ export function getAvailableAtBadge(availableAt) {
     badge: 'https://codesandbox.io/static/img/play-codesandbox.svg',
     label: 'CodeSandbox'
   }];
-}
-
-export default {
-  fontSize: fontSize, findAllByType: findAllByType, getAvailableAtBadge: getAvailableAtBadge, lapAndUp: lapAndUp, palm: palm
 };

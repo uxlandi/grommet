@@ -79,13 +79,3 @@ export var evalStyle = function evalStyle(arg, theme) {
   }
   return arg;
 };
-
-export default {
-  activeStyle: activeStyle,
-  baseStyle: baseStyle,
-  controlBorderStyle: controlBorderStyle,
-  evalStyle: evalStyle,
-  edgeStyle: edgeStyle,
-  focusStyle: focusStyle,
-  inputStyle: inputStyle
-};

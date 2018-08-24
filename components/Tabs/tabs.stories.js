@@ -8,21 +8,7 @@ var _react3 = require('@storybook/react');
 
 var _grommetIcons = require('grommet-icons');
 
-var _Tabs = require('../Tabs/Tabs');
-
-var _Tabs2 = _interopRequireDefault(_Tabs);
-
-var _Tab = require('../Tabs/Tab');
-
-var _Tab2 = _interopRequireDefault(_Tab);
-
-var _Box = require('../Box/Box');
-
-var _Box2 = _interopRequireDefault(_Box);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -36,35 +22,35 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var UncontrolledTabs = function UncontrolledTabs() {
   return _react2.default.createElement(
-    _Grommet2.default,
-    null,
+    _.Grommet,
+    { theme: _themes.grommet },
     _react2.default.createElement(
-      _Tabs2.default,
+      _.Tabs,
       null,
       _react2.default.createElement(
-        _Tab2.default,
+        _.Tab,
         { title: 'Tab 1' },
         _react2.default.createElement(
-          _Box2.default,
-          { pad: 'large', align: 'center', background: 'accent-1' },
+          _.Box,
+          { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
           _react2.default.createElement(_grommetIcons.Attraction, { size: 'xlarge' })
         )
       ),
       _react2.default.createElement(
-        _Tab2.default,
+        _.Tab,
         { title: 'Tab 2' },
         _react2.default.createElement(
-          _Box2.default,
-          { pad: 'large', align: 'center', background: 'accent-2' },
+          _.Box,
+          { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
           _react2.default.createElement(_grommetIcons.TreeOption, { size: 'xlarge' })
         )
       ),
       _react2.default.createElement(
-        _Tab2.default,
+        _.Tab,
         { title: 'Tab 3' },
         _react2.default.createElement(
-          _Box2.default,
-          { pad: 'large', align: 'center', background: 'accent-3' },
+          _.Box,
+          { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
           _react2.default.createElement(_grommetIcons.Car, { size: 'xlarge' })
         )
       )
@@ -93,34 +79,34 @@ var ControlledTabs = function (_Component) {
     var index = this.state.index;
 
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _Tabs2.default,
+        _.Tabs,
         { activeIndex: index, onActive: this.onActive },
         _react2.default.createElement(
-          _Tab2.default,
+          _.Tab,
           { title: 'Tab 1' },
           _react2.default.createElement(
-            _Box2.default,
+            _.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
             _react2.default.createElement(_grommetIcons.Attraction, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _Tab2.default,
+          _.Tab,
           { title: 'Tab 2' },
           _react2.default.createElement(
-            _Box2.default,
+            _.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
             _react2.default.createElement(_grommetIcons.TreeOption, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _Tab2.default,
+          _.Tab,
           { title: 'Tab 3' },
           _react2.default.createElement(
-            _Box2.default,
+            _.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
             _react2.default.createElement(_grommetIcons.Car, { size: 'xlarge' })
           )

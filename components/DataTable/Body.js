@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Body = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -8,13 +9,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Table = require('../Table');
-
 var _InfiniteScroll = require('../InfiniteScroll');
 
-var _Cell = require('./Cell');
+var _TableRow = require('../TableRow');
 
-var _Cell2 = _interopRequireDefault(_Cell);
+var _TableCell = require('../TableCell');
+
+var _Cell = require('./Cell');
 
 var _StyledDataTable = require('./StyledDataTable');
 
@@ -42,10 +43,10 @@ var Body = function Body(_ref) {
         scrollableAncestor: 'window',
         renderMarker: function renderMarker(marker) {
           return _react2.default.createElement(
-            _Table.TableRow,
+            _TableRow.TableRow,
             null,
             _react2.default.createElement(
-              _Table.TableCell,
+              _TableCell.TableCell,
               null,
               marker
             )
@@ -57,7 +58,7 @@ var Body = function Body(_ref) {
           _StyledDataTable.StyledDataTableRow,
           { key: datum[primaryProperty], size: size },
           columns.map(function (column) {
-            return _react2.default.createElement(_Cell2.default, {
+            return _react2.default.createElement(_Cell.Cell, {
               key: column.property,
               context: 'body',
               column: column,
@@ -71,5 +72,4 @@ var Body = function Body(_ref) {
     )
   );
 };
-
-exports.default = Body;
+exports.Body = Body;

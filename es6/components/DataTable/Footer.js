@@ -3,11 +3,12 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 import React from 'react';
 import { compose } from 'recompose';
 
-import { TableRow, TableCell } from '../Table';
 import { Box } from '../Box';
+import { TableRow } from '../TableRow';
+import { TableCell } from '../TableCell';
 import { withTheme } from '../hocs';
 
-import Cell from './Cell';
+import { Cell } from './Cell';
 import { StyledDataTableFooter } from './StyledDataTable';
 
 var Footer = function Footer(_ref) {
@@ -41,4 +42,6 @@ var Footer = function Footer(_ref) {
   );
 };
 
-export default compose(withTheme)(Footer);
+var FooterWrapper = compose(withTheme)(Footer);
+
+export { FooterWrapper as Footer };

@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.GroupedBody = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -8,15 +9,11 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Table = require('../Table');
+var _TableCell = require('../TableCell');
 
 var _Cell = require('./Cell');
 
-var _Cell2 = _interopRequireDefault(_Cell);
-
 var _ExpanderCell = require('./ExpanderCell');
-
-var _ExpanderCell2 = _interopRequireDefault(_ExpanderCell);
 
 var _StyledDataTable = require('./StyledDataTable');
 
@@ -44,14 +41,14 @@ var GroupedBody = function GroupedBody(_ref) {
       var content = _react2.default.createElement(
         _StyledDataTable.StyledDataTableRow,
         { key: group.key, size: size },
-        _react2.default.createElement(_ExpanderCell2.default, {
+        _react2.default.createElement(_ExpanderCell.ExpanderCell, {
           context: expanded ? 'groupHeader' : 'body',
           expanded: expanded,
           theme: theme,
           onToggle: onToggle(group.key)
         }),
         columns.map(function (column) {
-          return _react2.default.createElement(_Cell2.default, {
+          return _react2.default.createElement(_Cell.Cell, {
             key: column.property,
             context: expanded ? 'groupHeader' : 'body',
             column: column,
@@ -72,14 +69,14 @@ var GroupedBody = function GroupedBody(_ref) {
               _StyledDataTable.StyledDataTableRow,
               { key: datum[primaryProperty], size: size },
               _react2.default.createElement(
-                _Table.TableCell,
+                _TableCell.TableCell,
                 {
                   verticalAlign: 'bottom'
                 },
                 groupState[group.key].expanded
               ),
               columns.map(function (column) {
-                return _react2.default.createElement(_Cell2.default, {
+                return _react2.default.createElement(_Cell.Cell, {
                   key: column.property,
                   context: 'body',
                   column: column,
@@ -93,7 +90,7 @@ var GroupedBody = function GroupedBody(_ref) {
           _react2.default.createElement(
             _StyledDataTable.StyledDataTableRow,
             { size: size, 'aria-hidden': true },
-            _react2.default.createElement(_Table.TableCell, null)
+            _react2.default.createElement(_TableCell.TableCell, null)
           )
         );
       }
@@ -102,5 +99,4 @@ var GroupedBody = function GroupedBody(_ref) {
     })
   );
 };
-
-exports.default = GroupedBody;
+exports.GroupedBody = GroupedBody;

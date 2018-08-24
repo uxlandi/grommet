@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (TextInput) {
+var doc = exports.doc = function doc(TextInput) {
   var DocumentedTextInput = (0, _reactDesc.describe)(TextInput).availableAt((0, _utils.getAvailableAtBadge)('TextInput')).description('A text input field with optional suggestions.').usage('import { TextInput } from \'grommet\';\n<TextInput id=\'item\' name=\'item\' />');
 
   DocumentedTextInput.propTypes = {

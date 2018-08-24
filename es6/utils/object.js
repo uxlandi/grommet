@@ -2,18 +2,18 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-export function isObject(item) {
+export var isObject = function isObject(item) {
   return item && (typeof item === 'undefined' ? 'undefined' : _typeof(item)) === 'object' && !Array.isArray(item);
-}
+};
 
-export function deepFreeze(obj) {
+export var deepFreeze = function deepFreeze(obj) {
   Object.keys(obj).forEach(function (key) {
     return key && isObject(obj[key]) && Object.freeze(obj[key]);
   });
   return Object.freeze(obj);
-}
+};
 
-export function deepMerge(target) {
+export var deepMerge = function deepMerge(target) {
   for (var _len = arguments.length, sources = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
     sources[_key - 1] = arguments[_key];
   }
@@ -39,9 +39,9 @@ export function deepMerge(target) {
     }
   });
   return output;
-}
+};
 
-export function removeUndefined(obj) {
+export var removeUndefined = function removeUndefined(obj) {
   var result = {};
   Object.keys(obj).forEach(function (key) {
     if (obj[key] !== undefined) {
@@ -49,6 +49,4 @@ export function removeUndefined(obj) {
     }
   });
   return result;
-}
-
-export default { deepFreeze: deepFreeze, deepMerge: deepMerge, isObject: isObject, removeUndefined: removeUndefined };
+};

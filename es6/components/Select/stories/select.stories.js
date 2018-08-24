@@ -443,7 +443,6 @@ var CustomSearchSelect = function (_Component4) {
             Select,
             {
               ref: this.selectRef,
-              fill: true,
               closeOnChange: false,
               placeholder: 'Select Content Partners',
               searchPlaceholder: 'Search Content Partners',

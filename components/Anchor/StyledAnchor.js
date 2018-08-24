@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.StyledAnchor = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -16,7 +17,7 @@ function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return s
 
 var disabledStyle = '\n  opacity: 0.3;\n  cursor: default;\n  text-decoration: none;\n';
 
-var StyledAnchor = _styledComponents2.default.a.withConfig({
+var StyledAnchor = exports.StyledAnchor = _styledComponents2.default.a.withConfig({
   displayName: 'StyledAnchor'
 })(['box-sizing:border-box;font-size:inherit;line-height:inherit;color:', ';text-decoration:', ';cursor:pointer;outline:none;', ' ', ' ', ' ', ' ', ''], function (props) {
   return (0, _utils.normalizeColor)(props.theme.anchor.color, props.theme);
@@ -32,8 +33,6 @@ var StyledAnchor = _styledComponents2.default.a.withConfig({
   return props.disabled && disabledStyle;
 }, function (props) {
   return props.focus && _utils.focusStyle;
-});
-
-exports.default = StyledAnchor.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.anchor.extend;
 });

@@ -1,40 +1,35 @@
 'use strict';
 
 exports.__esModule = true;
-exports.parseMetricToNum = parseMetricToNum;
-exports.fontSize = fontSize;
-exports.lapAndUp = lapAndUp;
-exports.palm = palm;
-exports.findAllByType = findAllByType;
-exports.getAvailableAtBadge = getAvailableAtBadge;
+exports.getAvailableAtBadge = exports.findAllByType = exports.palm = exports.lapAndUp = exports.fontSize = exports.parseMetricToNum = undefined;
 
 var _styledComponents = require('styled-components');
 
-function parseMetricToNum(fontAsString) {
+var parseMetricToNum = exports.parseMetricToNum = function parseMetricToNum(fontAsString) {
   return parseFloat(fontAsString.replace(/[^0-9/.]/g, ''), 10);
-}
+};
 
-function fontSize(size, lineHeight) {
+var fontSize = exports.fontSize = function fontSize(size, lineHeight) {
   return (0, _styledComponents.css)(['font-size:', ';line-height:', ';'], function (props) {
     return parseMetricToNum(size) / parseMetricToNum(props.theme.global.font.size) * 1 + 'rem';
   }, function (props) {
     return lineHeight || Math.ceil(parseMetricToNum(size) / parseMetricToNum(props.theme.global.lineHeight)) * (parseMetricToNum(props.theme.global.lineHeight) / parseMetricToNum(size)) + 'px';
   });
-}
+};
 
-function lapAndUp(content) {
+var lapAndUp = exports.lapAndUp = function lapAndUp(content) {
   return (0, _styledComponents.css)(['@media only screen and (min-width:', '){', '}'], function (props) {
     return props.theme.global.breakpoints.narrow + 1 + 'px';
   }, content);
-}
+};
 
-function palm(content) {
+var palm = exports.palm = function palm(content) {
   return (0, _styledComponents.css)(['@media only screen and (max-width:', '){', '}'], function (props) {
     return props.theme.global.breakpoints.narrow + 'px';
   }, content);
-}
+};
 
-function findAllByType(component, type) {
+var findAllByType = exports.findAllByType = function findAllByType(component, type) {
   var matches = [];
 
   if (component.type === type) {
@@ -48,9 +43,9 @@ function findAllByType(component, type) {
   }
 
   return matches;
-}
+};
 
-function getAvailableAtBadge(availableAt) {
+var getAvailableAtBadge = exports.getAvailableAtBadge = function getAvailableAtBadge(availableAt) {
   return [{
     url: 'https://storybook.grommet.io/?selectedKind=' + availableAt + '&full=0&addons=0&stories=1&panelRight=0',
     badge: 'https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png',
@@ -60,8 +55,4 @@ function getAvailableAtBadge(availableAt) {
     badge: 'https://codesandbox.io/static/img/play-codesandbox.svg',
     label: 'CodeSandbox'
   }];
-}
-
-exports.default = {
-  fontSize: fontSize, findAllByType: findAllByType, getAvailableAtBadge: getAvailableAtBadge, lapAndUp: lapAndUp, palm: palm
 };

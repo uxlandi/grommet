@@ -33,5 +33,3 @@ export var expectPortal = function expectPortal(portalId) {
     }
   };
 };
-
-export default { createPortal: createPortal, expectPortal: expectPortal };

@@ -1,7 +1,6 @@
 'use strict';
 
 exports.__esModule = true;
-exports.dark = exports.hpe = exports.grommet = exports.base = undefined;
 
 var _base = require('./base');
 
@@ -39,8 +38,4 @@ Object.defineProperty(exports, 'dark', {
   }
 });
 
-var _base2 = _interopRequireDefault(_base);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _base2.default;

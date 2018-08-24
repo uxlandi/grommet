@@ -11,12 +11,12 @@ import { compose } from 'recompose';
 
 import { withTheme } from '../hocs';
 
-import Header from './Header';
-import Footer from './Footer';
-import Body from './Body';
-import GroupedBody from './GroupedBody';
-import buildState from './buildState';
-import doc from './doc';
+import { Header } from './Header';
+import { Footer } from './Footer';
+import { Body } from './Body';
+import { GroupedBody } from './GroupedBody';
+import { buildState } from './buildState';
+import { doc } from './doc';
 import { StyledDataTable } from './StyledDataTable';
 
 var DataTable = function (_Component) {
@@ -165,4 +165,6 @@ if (process.env.NODE_ENV !== 'production') {
   doc(DataTable);
 }
 
-export default compose(withTheme)(DataTable);
+var DataTableWrapper = compose(withTheme)(DataTable);
+
+export { DataTableWrapper as DataTable };

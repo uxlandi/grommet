@@ -16,9 +16,9 @@ var _Box = require('../Box');
 
 var _Button = require('../Button');
 
-var _Keyboard = require('../Keyboard');
-
 var _Heading = require('../Heading');
+
+var _Keyboard = require('../Keyboard');
 
 var _hocs = require('../hocs');
 

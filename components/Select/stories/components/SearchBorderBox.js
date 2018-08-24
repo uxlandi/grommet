@@ -10,9 +10,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Box = require('../../../Box/Box');
-
-var _Box2 = _interopRequireDefault(_Box);
+var _ = require('../../../');
 
 var _contexts = require('../../../../contexts');
 
@@ -77,7 +75,7 @@ var SearchBorderBox = function (_Component) {
       _contexts.ThemeContext.Extend,
       { value: boxBorderTheme },
       _react2.default.createElement(
-        _Box2.default,
+        _.Box,
         _extends({
           focus: focus,
           searching: searching,

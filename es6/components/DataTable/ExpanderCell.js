@@ -5,9 +5,9 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 import React from 'react';
 import { compose } from 'recompose';
 
-import { TableCell } from '../Table';
-import { Button } from '../Button';
 import { Box } from '../Box';
+import { Button } from '../Button';
+import { TableCell } from '../TableCell';
 import { withTheme } from '../hocs';
 
 var ExpanderCell = function ExpanderCell(_ref) {
@@ -45,4 +45,6 @@ var ExpanderCell = function ExpanderCell(_ref) {
   return React.createElement(TableCell, { size: 'xxsmall', verticalAlign: 'top' });
 };
 
-export default compose(withTheme)(ExpanderCell);
+var ExpanderCellWrapper = compose(withTheme)(ExpanderCell);
+
+export { ExpanderCellWrapper as ExpanderCell };

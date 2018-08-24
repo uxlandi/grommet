@@ -186,7 +186,7 @@ var groupData = function groupData(nextProps, prevState, nextState) {
   return _extends({}, nextState, { groups: groups, groupState: groupState });
 };
 
-var buildState = function buildState(nextProps, prevState) {
+var buildState = exports.buildState = function buildState(nextProps, prevState) {
   var data = nextProps.data;
   var filters = prevState.filters,
       sort = prevState.sort,
@@ -203,5 +203,3 @@ var buildState = function buildState(nextProps, prevState) {
 
   return nextState;
 };
-
-exports.default = buildState;

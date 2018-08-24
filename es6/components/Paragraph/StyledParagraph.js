@@ -40,7 +40,7 @@ var textAlignStyle = css(['text-align:', ';'], function (props) {
   return TEXT_ALIGN_MAP[props.textAlign];
 });
 
-var StyledParagraph = styled.p.withConfig({
+export var StyledParagraph = styled.p.withConfig({
   displayName: 'StyledParagraph'
 })(['', ' ', ' ', ' ', ''], function (props) {
   return sizeStyle(props);
@@ -50,8 +50,6 @@ var StyledParagraph = styled.p.withConfig({
   return props.textAlign && textAlignStyle;
 }, function (props) {
   return props.color && colorStyle;
-});
-
-export default StyledParagraph.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.paragraph && props.theme.paragraph.extend;
 });

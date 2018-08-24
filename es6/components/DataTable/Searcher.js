@@ -8,13 +8,13 @@ import React, { Component, Fragment } from 'react';
 import FormSearch from 'grommet-icons/es6/icons/FormSearch';
 
 
-import { Button } from '../Button';
 import { Box } from '../Box';
+import { Button } from '../Button';
+import { Keyboard } from '../Keyboard';
 import { Text } from '../Text';
 import { TextInput } from '../TextInput';
-import { Keyboard } from '../Keyboard';
 
-var Searcher = function (_Component) {
+export var Searcher = function (_Component) {
   _inherits(Searcher, _Component);
 
   function Searcher() {
@@ -94,5 +94,3 @@ var Searcher = function (_Component) {
 
   return Searcher;
 }(Component);
-
-export default Searcher;

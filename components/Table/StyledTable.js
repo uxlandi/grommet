@@ -1,7 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
-exports.StyledTableFooter = exports.StyledTableHeader = exports.StyledTableBody = exports.StyledTableRow = exports.StyledTableDataCaption = exports.StyledTableCell = undefined;
+exports.StyledTable = exports.StyledTableFooter = exports.StyledTableHeader = exports.StyledTableBody = exports.StyledTableRow = exports.StyledTableDataCaption = exports.StyledTableCell = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -59,10 +59,8 @@ var StyledTableFooter = exports.StyledTableFooter = _styledComponents2.default.t
   displayName: 'StyledTable__StyledTableFooter'
 })(['']);
 
-var StyledTable = _styledComponents2.default.table.withConfig({
+var StyledTable = exports.StyledTable = _styledComponents2.default.table.withConfig({
   displayName: 'StyledTable'
-})(['border-spacing:0;border-collapse:collapse;']);
-
-exports.default = StyledTable.extend(_templateObject, function (props) {
+})(['border-spacing:0;border-collapse:collapse;']).extend(_templateObject, function (props) {
   return props.theme.table && props.theme.table.extend;
 });

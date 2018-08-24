@@ -1,16 +1,8 @@
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 import { describe, PropTypes } from 'react-desc';
 
-import { ROUTER_PROPS, getAvailableAtBadge } from '../../utils';
+import { getAvailableAtBadge } from '../../utils';
 
-export function routedButton(RoutedButton) {
-  var DocumentedRoutedButton = describe(RoutedButton).availableAt(getAvailableAtBadge('RoutedButton')).description('A button with support for React Router.').usage('import { RoutedButton } from \'grommet\';\n<RoutedButton primary={true} path=\'/documentation\' />');
-  DocumentedRoutedButton.propTypes = _extends({}, ROUTER_PROPS);
-  return DocumentedRoutedButton;
-}
-
-export default (function (Button) {
+export var doc = function doc(Button) {
   var DocumentedButton = describe(Button).availableAt(getAvailableAtBadge('Button')).description('A button. We have a separate component from the browser base so we can style it.').usage('import { Button } from \'grommet\';\n<Button primary={true} label=\'Label\' />');
 
   DocumentedButton.propTypes = {
@@ -33,4 +25,4 @@ export default (function (Button) {
   };
 
   return DocumentedButton;
-});
+};

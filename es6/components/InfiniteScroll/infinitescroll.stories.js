@@ -3,10 +3,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import InfiniteScroll from '../InfiniteScroll/InfiniteScroll';
-import Grommet from '../Grommet/Grommet';
-import Box from '../Box/Box';
-import Text from '../Text/Text';
+import { Grommet, Box, InfiniteScroll, Text } from '../';
 import { grommet } from '../../themes';
 
 var items = Array(200).fill().map(function (_, i) {

@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.StyledText = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -67,7 +68,7 @@ var weightStyle = (0, _styledComponents.css)(['font-weight:', ';'], function (pr
   return props.weight;
 });
 
-var StyledText = _styledComponents2.default.span.withConfig({
+var StyledText = exports.StyledText = _styledComponents2.default.span.withConfig({
   displayName: 'StyledText'
 })(['', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return sizeStyle(props);
@@ -81,8 +82,6 @@ var StyledText = _styledComponents2.default.span.withConfig({
   return props.color && colorStyle;
 }, function (props) {
   return props.weight && weightStyle;
-});
-
-exports.default = StyledText.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.text && props.theme.text.extend;
 });

@@ -8,25 +8,7 @@ var _react3 = require('@storybook/react');
 
 var _grommetIcons = require('grommet-icons');
 
-var _Box = require('../Box/Box');
-
-var _Box2 = _interopRequireDefault(_Box);
-
-var _Text = require('../Text/Text');
-
-var _Text2 = _interopRequireDefault(_Text);
-
-var _Anchor = require('../Anchor/Anchor');
-
-var _Anchor2 = _interopRequireDefault(_Anchor);
-
-var _Button = require('../Button/Button');
-
-var _Button2 = _interopRequireDefault(_Button);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -49,10 +31,10 @@ var SimpleBox = function (_Component) {
 
   SimpleBox.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _Box2.default,
+        _.Box,
         {
           direction: 'row-responsive',
           justify: 'center',
@@ -61,7 +43,7 @@ var SimpleBox = function (_Component) {
           background: 'dark-2'
         },
         _react2.default.createElement(
-          _Box2.default,
+          _.Box,
           {
             pad: 'xlarge',
             align: 'center',
@@ -69,15 +51,15 @@ var SimpleBox = function (_Component) {
           },
           _react2.default.createElement(_grommetIcons.Attraction, { size: 'xlarge' }),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             null,
             'Party'
           ),
-          _react2.default.createElement(_Anchor2.default, { href: '', label: 'Link' }),
-          _react2.default.createElement(_Button2.default, { label: 'Button', onClick: function onClick() {} })
+          _react2.default.createElement(_.Anchor, { href: '', label: 'Link' }),
+          _react2.default.createElement(_.Button, { label: 'Button', onClick: function onClick() {} })
         ),
         _react2.default.createElement(
-          _Box2.default,
+          _.Box,
           {
             pad: 'xlarge',
             align: 'center',
@@ -85,24 +67,24 @@ var SimpleBox = function (_Component) {
           },
           _react2.default.createElement(_grommetIcons.TreeOption, { size: 'xlarge' }),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             null,
             'Nature'
           ),
-          _react2.default.createElement(_Anchor2.default, { href: '', label: 'Link' }),
-          _react2.default.createElement(_Button2.default, { label: 'Button', onClick: function onClick() {} })
+          _react2.default.createElement(_.Anchor, { href: '', label: 'Link' }),
+          _react2.default.createElement(_.Button, { label: 'Button', onClick: function onClick() {} })
         ),
         _react2.default.createElement(
-          _Box2.default,
+          _.Box,
           { pad: 'xlarge', align: 'center', background: 'dark-3' },
           _react2.default.createElement(_grommetIcons.Car, { size: 'xlarge', color: 'light-2' }),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             null,
             'Travel'
           ),
-          _react2.default.createElement(_Anchor2.default, { href: '', label: 'Link' }),
-          _react2.default.createElement(_Button2.default, { label: 'Button', onClick: function onClick() {} })
+          _react2.default.createElement(_.Anchor, { href: '', label: 'Link' }),
+          _react2.default.createElement(_.Button, { label: 'Button', onClick: function onClick() {} })
         )
       )
     );
@@ -133,10 +115,10 @@ var CustomColorBox = function (_Component2) {
 
   CustomColorBox.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: customColorBox },
       _react2.default.createElement(
-        _Box2.default,
+        _.Box,
         {
           justify: 'center',
           align: 'center',
@@ -145,7 +127,7 @@ var CustomColorBox = function (_Component2) {
           round: 'large'
         },
         _react2.default.createElement(
-          _Text2.default,
+          _.Text,
           null,
           'I have a linear gradient background'
         )

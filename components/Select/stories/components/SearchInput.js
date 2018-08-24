@@ -10,9 +10,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = require('react-dom');
 
-var _TextInput = require('../../../TextInput/TextInput');
-
-var _TextInput2 = _interopRequireDefault(_TextInput);
+var _ = require('../../../');
 
 var _SearchBorderBox = require('./SearchBorderBox');
 
@@ -64,7 +62,7 @@ var SearchInput = function (_Component) {
         return _react2.default.createElement(
           _SearchBorderBox2.default,
           { searching: searching },
-          _react2.default.createElement(_TextInput2.default, _extends({}, _this3.props, {
+          _react2.default.createElement(_.TextInput, _extends({}, _this3.props, {
             plain: true,
             ref: _this3.textInputRef
           }))

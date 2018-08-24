@@ -8,17 +8,7 @@ var _react3 = require('@storybook/react');
 
 var _themes = require('../../themes');
 
-var _Stack = require('../Stack/Stack');
-
-var _Stack2 = _interopRequireDefault(_Stack);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
-
-var _Box = require('../Box/Box');
-
-var _Box2 = _interopRequireDefault(_Box);
+var _ = require('../');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39,13 +29,13 @@ var SimpleStack = function (_Component) {
 
   SimpleStack.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       null,
       _react2.default.createElement(
-        _Stack2.default,
+        _.Stack,
         { anchor: 'center' },
-        _react2.default.createElement(_Box2.default, { pad: 'large', background: 'neutral-1' }),
-        _react2.default.createElement(_Box2.default, { pad: 'small', background: 'accent-1' })
+        _react2.default.createElement(_.Box, { pad: 'large', background: 'neutral-1' }),
+        _react2.default.createElement(_.Box, { pad: 'small', background: 'accent-1' })
       )
     );
   };
@@ -64,13 +54,13 @@ var FillStack = function (_Component2) {
 
   FillStack.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet, full: true },
       _react2.default.createElement(
-        _Stack2.default,
+        _.Stack,
         { fill: true },
         _react2.default.createElement(
-          _Box2.default,
+          _.Box,
           { background: 'brand', fill: true },
           'Test'
         )

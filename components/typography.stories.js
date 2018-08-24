@@ -6,25 +6,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _Grommet = require('./Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
-
-var _Box = require('./Box/Box');
-
-var _Box2 = _interopRequireDefault(_Box);
-
-var _Heading = require('./Heading/Heading');
-
-var _Heading2 = _interopRequireDefault(_Heading);
-
-var _Paragraph = require('./Paragraph/Paragraph');
-
-var _Paragraph2 = _interopRequireDefault(_Paragraph);
-
-var _Text = require('./Text/Text');
-
-var _Text2 = _interopRequireDefault(_Text);
+var _ = require('./');
 
 var _themes = require('../themes');
 
@@ -50,74 +32,74 @@ var Medium = function (_Component) {
   Medium.prototype.render = function render() {
     var margin = undefined;
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _Box2.default,
+        _.Box,
         { pad: 'medium' },
         _react2.default.createElement(
           'div',
           null,
           _react2.default.createElement(
-            _Heading2.default,
+            _.Heading,
             { margin: margin },
             'Heading 1 - Medium'
           ),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             { size: 'xlarge' },
             'Text XLarge'
           ),
           _react2.default.createElement(
-            _Paragraph2.default,
+            _.Paragraph,
             { size: 'large', margin: margin },
             'Paragraph - Large',
             paragraphFiller
           ),
           _react2.default.createElement(
-            _Heading2.default,
+            _.Heading,
             { level: 2, margin: margin },
             'Heading 2 - Medium'
           ),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             { size: 'large' },
             'Text Large'
           ),
           _react2.default.createElement(
-            _Paragraph2.default,
+            _.Paragraph,
             { margin: margin },
             'Paragraph - Medium',
             paragraphFiller
           ),
           _react2.default.createElement(
-            _Heading2.default,
+            _.Heading,
             { level: 3, margin: margin },
             'Heading 3 - Medium'
           ),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             null,
             'Text Medium'
           ),
           _react2.default.createElement(
-            _Paragraph2.default,
+            _.Paragraph,
             { margin: margin },
             'Paragraph - Medium',
             paragraphFiller
           ),
           _react2.default.createElement(
-            _Heading2.default,
+            _.Heading,
             { level: 4, margin: margin },
             'Heading 4 - Medium'
           ),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             { size: 'small' },
             'Text Small'
           ),
           _react2.default.createElement(
-            _Paragraph2.default,
+            _.Paragraph,
             { size: 'small', margin: margin },
             'Paragraph - Small',
             paragraphFiller
@@ -141,74 +123,74 @@ var Small = function (_Component2) {
 
   Small.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _Box2.default,
+        _.Box,
         { pad: 'medium' },
         _react2.default.createElement(
           'div',
           null,
           _react2.default.createElement(
-            _Heading2.default,
+            _.Heading,
             { size: 'small' },
             'Heading 1 - Small'
           ),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             { size: 'large' },
             'Text Large'
           ),
           _react2.default.createElement(
-            _Paragraph2.default,
+            _.Paragraph,
             null,
             'Paragraph - Medium',
             paragraphFiller
           ),
           _react2.default.createElement(
-            _Heading2.default,
+            _.Heading,
             { level: 2, size: 'small' },
             'Heading 2 - Small'
           ),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             null,
             'Text Medium'
           ),
           _react2.default.createElement(
-            _Paragraph2.default,
+            _.Paragraph,
             null,
             'Paragraph - Medium',
             paragraphFiller
           ),
           _react2.default.createElement(
-            _Heading2.default,
+            _.Heading,
             { level: 3, size: 'small' },
             'Heading 3 - Small'
           ),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             null,
             'Text Medium'
           ),
           _react2.default.createElement(
-            _Paragraph2.default,
+            _.Paragraph,
             { size: 'small' },
             'Paragraph - Small',
             paragraphFiller
           ),
           _react2.default.createElement(
-            _Heading2.default,
+            _.Heading,
             { level: 4, size: 'small' },
             'Heading 4 - Small'
           ),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             { size: 'small' },
             'Text Small'
           ),
           _react2.default.createElement(
-            _Paragraph2.default,
+            _.Paragraph,
             { size: 'small' },
             'Paragraph - Small',
             paragraphFiller
@@ -232,74 +214,74 @@ var Large = function (_Component3) {
 
   Large.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _Box2.default,
+        _.Box,
         { pad: 'medium' },
         _react2.default.createElement(
           'div',
           null,
           _react2.default.createElement(
-            _Heading2.default,
+            _.Heading,
             { size: 'large' },
             'Heading 1 - Large'
           ),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             { size: 'xxlarge' },
             'Text XXLarge'
           ),
           _react2.default.createElement(
-            _Paragraph2.default,
+            _.Paragraph,
             { size: 'xlarge' },
             'Paragraph - XLarge',
             paragraphFiller
           ),
           _react2.default.createElement(
-            _Heading2.default,
+            _.Heading,
             { level: 2, size: 'large' },
             'Heading 2 - Large'
           ),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             { size: 'xlarge' },
             'Text XLarge'
           ),
           _react2.default.createElement(
-            _Paragraph2.default,
+            _.Paragraph,
             { size: 'large' },
             'Paragraph - Large',
             paragraphFiller
           ),
           _react2.default.createElement(
-            _Heading2.default,
+            _.Heading,
             { level: 3, size: 'large' },
             'Heading 3 - Large'
           ),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             { size: 'large' },
             'Text Large'
           ),
           _react2.default.createElement(
-            _Paragraph2.default,
+            _.Paragraph,
             null,
             'Paragraph - Medium',
             paragraphFiller
           ),
           _react2.default.createElement(
-            _Heading2.default,
+            _.Heading,
             { level: 4, size: 'large' },
             'Heading 4 - Large'
           ),
           _react2.default.createElement(
-            _Text2.default,
+            _.Text,
             null,
             'Text Medium'
           ),
           _react2.default.createElement(
-            _Paragraph2.default,
+            _.Paragraph,
             null,
             'Paragraph - Medium',
             paragraphFiller

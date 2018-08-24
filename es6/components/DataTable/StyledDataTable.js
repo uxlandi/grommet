@@ -27,5 +27,3 @@ export var StyledDataTableFooter = styled.tfoot.withConfig({
 })(['', ''], function (props) {
   return props.size && '\n    display: table;\n    width: 100%;\n    table-layout: fixed;\n  ';
 });
-
-export default {};

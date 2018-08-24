@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.TextInput = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -20,21 +21,17 @@ var _Box = require('../Box');
 
 var _Button = require('../Button');
 
+var _Drop = require('../Drop');
+
 var _InfiniteScroll = require('../InfiniteScroll');
 
 var _Keyboard = require('../Keyboard');
-
-var _Drop = require('../Drop');
 
 var _hocs = require('../hocs');
 
 var _StyledTextInput = require('./StyledTextInput');
 
-var _StyledTextInput2 = _interopRequireDefault(_StyledTextInput);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -358,7 +355,7 @@ var TextInput = function (_Component) {
           onDown: this.onNextSuggestion,
           onKeyDown: onKeyDown
         },
-        _react2.default.createElement(_StyledTextInput2.default, _extends({
+        _react2.default.createElement(_StyledTextInput.StyledTextInput, _extends({
           id: id,
           innerRef: inputRef,
           autoComplete: 'off',
@@ -392,7 +389,9 @@ TextInput.defaultProps = {
 
 
 if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(TextInput);
+  (0, _doc.doc)(TextInput);
 }
 
-exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withAnnounce, _hocs.withForwardRef)(TextInput);
+var TextInputWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withAnnounce, _hocs.withForwardRef)(TextInput);
+
+exports.TextInput = TextInputWrapper;

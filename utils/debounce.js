@@ -15,5 +15,3 @@ var debounce = exports.debounce = function debounce(cb, timer) {
     }, timer);
   };
 };
-
-exports.default = debounce;

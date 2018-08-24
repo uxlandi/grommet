@@ -3,26 +3,28 @@ export var colorForName = function colorForName(name, theme) {
   return theme.global.colors[name] || name;
 };
 
-function parseHexToRGB(color) {
-  // https://stackoverflow.com/a/42429333
-  return color.match(/[A-Za-z0-9]{2}/g).map(function (v) {
-    return parseInt(v, 16);
-  });
-}
+var parseHexToRGB = function parseHexToRGB(color) {
+  return (
+    // https://stackoverflow.com/a/42429333
+    color.match(/[A-Za-z0-9]{2}/g).map(function (v) {
+      return parseInt(v, 16);
+    })
+  );
+};
 
 var canExtractRGBArray = function canExtractRGBArray(color) {
   return (/^#/.test(color) || /^rgb/.test(color)
   );
 };
 
-function getRGBArray(color) {
+var getRGBArray = function getRGBArray(color) {
   if (/^#/.test(color)) {
     return parseHexToRGB(color);
   } else if (/^rgb/.test(color)) {
     return color.match(/rgba?\((\s?[0-9]*\s?),(\s?[0-9]*\s?),(\s?[0-9]*\s?).*?\)/).splice(1);
   }
   return color;
-}
+};
 
 export var colorIsDark = function colorIsDark(color) {
   var _getRGBArray = getRGBArray(color),
@@ -61,5 +63,3 @@ export var normalizeColor = function normalizeColor(color, theme) {
   }
   return result;
 };
-
-export default { colorForName: colorForName, colorIsDark: colorIsDark, getRGBA: getRGBA, normalizeColor: normalizeColor };

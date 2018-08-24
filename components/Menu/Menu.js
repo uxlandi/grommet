@@ -20,9 +20,9 @@ var _Box = require('../Box');
 
 var _Button = require('../Button');
 
-var _Keyboard = require('../Keyboard');
-
 var _DropButton = require('../DropButton');
+
+var _Keyboard = require('../Keyboard');
 
 var _Text = require('../Text');
 
@@ -211,7 +211,7 @@ var Menu = function (_Component) {
                 items.map(function (item, index) {
                   return _react2.default.createElement(
                     _Box.Box,
-                    { flex: false },
+                    { key: 'menuItem_' + index, flex: false },
                     _react2.default.createElement(
                       _Button.Button,
                       {
@@ -219,7 +219,6 @@ var Menu = function (_Component) {
                           _this2.buttonRefs[index] = _ref;
                         },
                         active: activeItemIndex === index,
-                        key: 'menuItem_' + index,
                         hoverIndicator: 'background',
                         onClick: item.onClick ? function () {
                           item.onClick.apply(item, arguments);

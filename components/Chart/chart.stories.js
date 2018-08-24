@@ -8,29 +8,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _Chart = require('../Chart/Chart');
-
-var _Chart2 = _interopRequireDefault(_Chart);
+var _ = require('../');
 
 var _calcs2 = require('../Chart/calcs');
 
 var _calcs3 = _interopRequireDefault(_calcs2);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
-
-var _Box = require('../Box/Box');
-
-var _Box2 = _interopRequireDefault(_Box);
-
-var _Stack = require('../Stack/Stack');
-
-var _Stack2 = _interopRequireDefault(_Stack);
-
-var _Text = require('../Text/Text');
-
-var _Text2 = _interopRequireDefault(_Text);
 
 var _themes = require('../../themes');
 
@@ -53,9 +35,9 @@ var BarChart = function (_Component) {
 
   BarChart.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_Chart2.default, {
+      _react2.default.createElement(_.Chart, {
         type: 'bar',
         values: [[10, 20], [20, 30], [30, 15]]
       })
@@ -76,9 +58,9 @@ var LineChart = function (_Component2) {
 
   LineChart.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_Chart2.default, {
+      _react2.default.createElement(_.Chart, {
         type: 'line',
         values: [20, 30, 15]
       })
@@ -99,9 +81,9 @@ var AreaChart = function (_Component3) {
 
   AreaChart.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_Chart2.default, {
+      _react2.default.createElement(_.Chart, {
         type: 'area',
         values: [{ value: [10, 20] }, { value: [20, 30] }, { value: [30, 15] }]
       })
@@ -169,27 +151,27 @@ var RichChart = function (_Component4) {
       overflow: true
     };
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _Box2.default,
+        _.Box,
         { align: 'center' },
         _react2.default.createElement(
-          _Box2.default,
+          _.Box,
           { direction: 'row', justify: 'between', width: 'medium', margin: { vertical: 'small' } },
           xAxis.map(function (x) {
             return _react2.default.createElement(
-              _Text2.default,
+              _.Text,
               { key: x },
               x
             );
           })
         ),
         _react2.default.createElement(
-          _Stack2.default,
+          _.Stack,
           { guidingChild: 'last' },
           _react2.default.createElement(
-            _Box2.default,
+            _.Box,
             { fill: true, justify: 'between' },
             yAxis.map(function (y, index) {
               var first = index === 0;
@@ -203,27 +185,27 @@ var RichChart = function (_Component4) {
                 align = 'center';
               }
               return _react2.default.createElement(
-                _Box2.default,
+                _.Box,
                 { key: y, direction: 'row', align: align },
                 _react2.default.createElement(
-                  _Box2.default,
+                  _.Box,
                   { pad: { horizontal: 'small' } },
                   _react2.default.createElement(
-                    _Text2.default,
+                    _.Text,
                     null,
                     y
                   )
                 ),
-                _react2.default.createElement(_Box2.default, { border: 'top', flex: true })
+                _react2.default.createElement(_.Box, { border: 'top', flex: true })
               );
             })
           ),
-          _react2.default.createElement(_Chart2.default, _extends({}, chartProps, {
+          _react2.default.createElement(_.Chart, _extends({}, chartProps, {
             type: 'area',
             color: { color: 'accent-1', opacity: 'medium' },
             thickness: 'hair'
           })),
-          _react2.default.createElement(_Chart2.default, _extends({}, chartProps, {
+          _react2.default.createElement(_.Chart, _extends({}, chartProps, {
             type: 'line',
             round: true,
             color: { color: 'accent-3', opacity: 'strong' },

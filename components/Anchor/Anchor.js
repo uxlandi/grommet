@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Anchor = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -10,23 +11,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _recompose = require('recompose');
 
-var _Box = require('../Box/Box');
+var _Box = require('../Box');
 
-var _Box2 = _interopRequireDefault(_Box);
-
-var _Text = require('../Text/Text');
-
-var _Text2 = _interopRequireDefault(_Text);
+var _Text = require('../Text');
 
 var _hocs = require('../hocs');
 
 var _StyledAnchor = require('./StyledAnchor');
 
-var _StyledAnchor2 = _interopRequireDefault(_StyledAnchor);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -73,7 +66,7 @@ var Anchor = function (_Component) {
         rest = _objectWithoutProperties(_props, ['a11yTitle', 'children', 'disabled', 'forwardRef', 'href', 'icon', 'focus', 'label', 'primary', 'onClick', 'reverse', 'theme']);
 
     var anchorLabel = typeof label === 'string' ? _react2.default.createElement(
-      _Text2.default,
+      _Text.Text,
       null,
       _react2.default.createElement(
         'strong',
@@ -86,7 +79,7 @@ var Anchor = function (_Component) {
     var second = reverse ? icon : anchorLabel;
 
     return _react2.default.createElement(
-      _StyledAnchor2.default,
+      _StyledAnchor.StyledAnchor,
       _extends({}, rest, {
         innerRef: forwardRef,
         'aria-label': a11yTitle,
@@ -101,7 +94,7 @@ var Anchor = function (_Component) {
         onClick: !disabled ? onClick : undefined
       }),
       first || second ? _react2.default.createElement(
-        _Box2.default,
+        _Box.Box,
         { tag: 'span', direction: 'row', align: 'center', gap: 'small', style: { display: 'inline-flex' } },
         first,
         second
@@ -113,7 +106,9 @@ var Anchor = function (_Component) {
 }(_react.Component);
 
 if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Anchor);
+  (0, _doc.doc)(Anchor);
 }
 
-exports.default = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(Anchor);
+var AnchorWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(Anchor);
+
+exports.Anchor = AnchorWrapper;

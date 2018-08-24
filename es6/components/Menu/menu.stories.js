@@ -7,9 +7,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Menu from '../Menu/Menu';
-import Grommet from '../Grommet/Grommet';
-import Box from '../Box/Box';
+import { Grommet, Box, Menu } from '../';
 import { grommet } from '../../themes';
 
 var SimpleMenu = function (_Component) {

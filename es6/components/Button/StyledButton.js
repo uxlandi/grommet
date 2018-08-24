@@ -47,7 +47,7 @@ var fillStyle = '\n  width: 100%;\n  height: 100%;\n  max-width: none;\n  flex: 
 
 var plainStyle = css(['color:inherit;border:none;padding:0;text-align:inherit;']);
 
-var StyledButton = styled.button.withConfig({
+export var StyledButton = styled.button.withConfig({
   displayName: 'StyledButton'
 })(['display:inline-block;box-sizing:border-box;cursor:pointer;outline:none;font:inherit;text-decoration:none;margin:0;background:transparent;overflow:visible;text-transform:none;', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return props.plain && plainStyle;
@@ -69,8 +69,6 @@ var StyledButton = styled.button.withConfig({
   return props.fillContainer && fillStyle;
 }, function (props) {
   return props.hasIcon && !props.label && !props.plain && '\n    padding: ' + props.theme.global.edgeSize.small + ';\n  ';
-});
-
-export default StyledButton.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.button.extend;
 });

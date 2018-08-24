@@ -9,13 +9,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import FormField from '../FormField/FormField';
-import Grommet from '../Grommet/Grommet';
-import TextInput from '../TextInput/TextInput';
-import TextArea from '../TextArea/TextArea';
-import Select from '../Select/Select';
-import CheckBox from '../CheckBox/CheckBox';
-import Box from '../Box/Box';
+import { Grommet, Box, CheckBox, FormField, Select, TextArea, TextInput } from '../';
 import { grommet } from '../../themes';
 
 var allSuggestions = Array(100).fill().map(function (_, i) {
@@ -144,7 +138,7 @@ var FormFieldSelect = function (_Component2) {
 
     return React.createElement(
       Grommet,
-      null,
+      { theme: grommet },
       React.createElement(
         FormField,
         _extends({ label: 'Label', htmlFor: 'select' }, this.props),

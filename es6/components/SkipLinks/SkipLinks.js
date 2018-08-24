@@ -11,9 +11,9 @@ import { Box } from '../Box';
 import { Heading } from '../Heading';
 import { Layer } from '../Layer';
 
-import doc from './doc';
+import { doc } from './doc';
 
-var SkipLinks = function (_Component) {
+export var SkipLinks = function (_Component) {
   _inherits(SkipLinks, _Component);
 
   function SkipLinks() {
@@ -93,10 +93,6 @@ SkipLinks.defaultProps = {
     skipTo: 'Skip To'
   }
 };
-
-
 if (process.env.NODE_ENV !== 'production') {
   doc(SkipLinks);
 }
-
-export default SkipLinks;

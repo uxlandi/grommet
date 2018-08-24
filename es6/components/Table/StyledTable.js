@@ -50,10 +50,8 @@ export var StyledTableFooter = styled.tfoot.withConfig({
   displayName: 'StyledTable__StyledTableFooter'
 })(['']);
 
-var StyledTable = styled.table.withConfig({
+export var StyledTable = styled.table.withConfig({
   displayName: 'StyledTable'
-})(['border-spacing:0;border-collapse:collapse;']);
-
-export default StyledTable.extend(_templateObject, function (props) {
+})(['border-spacing:0;border-collapse:collapse;']).extend(_templateObject, function (props) {
   return props.theme.table && props.theme.table.extend;
 });

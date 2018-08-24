@@ -27,5 +27,3 @@ export var throttle = function throttle(fn) {
     }
   };
 };
-
-export default throttle;

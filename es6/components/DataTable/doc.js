@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (DataTable) {
+export var doc = function doc(DataTable) {
   var DocumentedDataTable = describe(DataTable).availableAt(getAvailableAtBadge('DataTable')).description('A data driven table.').usage('import { DataTable } from \'grommet\';\n<DataTable />');
 
   DocumentedDataTable.propTypes = {
@@ -29,4 +29,4 @@ export default (function (DataTable) {
   };
 
   return DocumentedDataTable;
-});
+};

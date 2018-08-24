@@ -15,10 +15,9 @@ import styled from 'styled-components';
 
 import { Box } from '../Box';
 import { Button } from '../Button';
-import { Keyboard } from '../Keyboard';
 import { DropButton } from '../DropButton';
+import { Keyboard } from '../Keyboard';
 import { Text } from '../Text';
-
 import { withForwardRef, withTheme } from '../hocs';
 import { evalStyle } from '../../utils';
 
@@ -191,7 +190,7 @@ var Menu = function (_Component) {
                 items.map(function (item, index) {
                   return React.createElement(
                     Box,
-                    { flex: false },
+                    { key: 'menuItem_' + index, flex: false },
                     React.createElement(
                       Button,
                       {
@@ -199,7 +198,6 @@ var Menu = function (_Component) {
                           _this2.buttonRefs[index] = _ref;
                         },
                         active: activeItemIndex === index,
-                        key: 'menuItem_' + index,
                         hoverIndicator: 'background',
                         onClick: item.onClick ? function () {
                           item.onClick.apply(item, arguments);

@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.DataTable = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -14,27 +15,15 @@ var _hocs = require('../hocs');
 
 var _Header = require('./Header');
 
-var _Header2 = _interopRequireDefault(_Header);
-
 var _Footer = require('./Footer');
-
-var _Footer2 = _interopRequireDefault(_Footer);
 
 var _Body = require('./Body');
 
-var _Body2 = _interopRequireDefault(_Body);
-
 var _GroupedBody = require('./GroupedBody');
-
-var _GroupedBody2 = _interopRequireDefault(_GroupedBody);
 
 var _buildState = require('./buildState');
 
-var _buildState2 = _interopRequireDefault(_buildState);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 var _StyledDataTable = require('./StyledDataTable');
 
@@ -105,7 +94,7 @@ var DataTable = function (_Component) {
   }
 
   DataTable.getDerivedStateFromProps = function getDerivedStateFromProps(nextProps, prevState) {
-    return (0, _buildState2.default)(nextProps, prevState);
+    return (0, _buildState.buildState)(nextProps, prevState);
   };
 
   DataTable.prototype.render = function render() {
@@ -137,7 +126,7 @@ var DataTable = function (_Component) {
     return _react2.default.createElement(
       _StyledDataTable.StyledDataTable,
       null,
-      _react2.default.createElement(_Header2.default, {
+      _react2.default.createElement(_Header.Header, {
         columns: columns,
         filtering: filtering,
         filters: filters,
@@ -153,7 +142,7 @@ var DataTable = function (_Component) {
         onSort: sortable ? this.onSort : undefined,
         onToggle: this.onToggleGroups
       }),
-      groups ? _react2.default.createElement(_GroupedBody2.default, {
+      groups ? _react2.default.createElement(_GroupedBody.GroupedBody, {
         columns: columns,
         groupBy: groupBy,
         groups: groups,
@@ -161,7 +150,7 @@ var DataTable = function (_Component) {
         primaryProperty: primaryProperty,
         theme: theme,
         onToggle: this.onToggleGroup
-      }) : _react2.default.createElement(_Body2.default, {
+      }) : _react2.default.createElement(_Body.Body, {
         columns: columns,
         data: data,
         onMore: onMore,
@@ -169,7 +158,7 @@ var DataTable = function (_Component) {
         size: size,
         theme: theme
       }),
-      showFooter && _react2.default.createElement(_Footer2.default, {
+      showFooter && _react2.default.createElement(_Footer.Footer, {
         columns: columns,
         footerValues: footerValues,
         groups: groups,
@@ -189,7 +178,9 @@ DataTable.defaultProps = {
 
 
 if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(DataTable);
+  (0, _doc.doc)(DataTable);
 }
 
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(DataTable);
+var DataTableWrapper = (0, _recompose.compose)(_hocs.withTheme)(DataTable);
+
+exports.DataTable = DataTableWrapper;

@@ -11,11 +11,7 @@ import Car from 'grommet-icons/es6/icons/Car';
 import TreeOption from 'grommet-icons/es6/icons/TreeOption';
 
 
-import Box from '../Box/Box';
-import Text from '../Text/Text';
-import Anchor from '../Anchor/Anchor';
-import Button from '../Button/Button';
-import Grommet from '../Grommet/Grommet';
+import { Grommet, Anchor, Box, Button, Text } from '../';
 import { grommet } from '../../themes';
 
 var SimpleBox = function (_Component) {

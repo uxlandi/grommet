@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Header = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -8,27 +9,19 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Table = require('../Table');
+var _Box = require('../Box');
+
+var _TableCell = require('../TableCell');
 
 var _Text = require('../Text');
 
-var _Box = require('../Box');
-
 var _Resizer = require('./Resizer');
-
-var _Resizer2 = _interopRequireDefault(_Resizer);
 
 var _Searcher = require('./Searcher');
 
-var _Searcher2 = _interopRequireDefault(_Searcher);
-
 var _Sorter = require('./Sorter');
 
-var _Sorter2 = _interopRequireDefault(_Sorter);
-
 var _ExpanderCell = require('./ExpanderCell');
-
-var _ExpanderCell2 = _interopRequireDefault(_ExpanderCell);
 
 var _StyledDataTable = require('./StyledDataTable');
 
@@ -72,7 +65,7 @@ var Header = function Header(_ref) {
     _react2.default.createElement(
       _StyledDataTable.StyledDataTableRow,
       null,
-      groups && _react2.default.createElement(_ExpanderCell2.default, {
+      groups && _react2.default.createElement(_ExpanderCell.ExpanderCell, {
         context: 'header',
         expanded: Object.keys(groupState).filter(function (k) {
           return !groupState[k].expanded;
@@ -94,7 +87,7 @@ var Header = function Header(_ref) {
 
         if (onSort) {
           content = _react2.default.createElement(
-            _Sorter2.default,
+            _Sorter.Sorter,
             {
               align: align,
               fill: !search,
@@ -125,7 +118,7 @@ var Header = function Header(_ref) {
               align: 'center'
             }, outerThemeProps),
             content,
-            _react2.default.createElement(_Searcher2.default, {
+            _react2.default.createElement(_Searcher.Searcher, {
               filtering: filtering,
               filters: filters,
               property: property,
@@ -147,14 +140,14 @@ var Header = function Header(_ref) {
 
         if (onResize) {
           content = _react2.default.createElement(
-            _Resizer2.default,
+            _Resizer.Resizer,
             { property: property, onResize: onResize, theme: theme },
             content
           );
         }
 
         return _react2.default.createElement(
-          _Table.TableCell,
+          _TableCell.TableCell,
           {
             key: property,
             scope: 'col',
@@ -168,5 +161,4 @@ var Header = function Header(_ref) {
     )
   );
 };
-
-exports.default = Header;
+exports.Header = Header;

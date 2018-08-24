@@ -11,5 +11,3 @@ var backgroundPropType = exports.backgroundPropType = _reactDesc.PropTypes.oneOf
   color: _reactDesc.PropTypes.string,
   opacity: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['weak', 'medium', 'strong']), _reactDesc.PropTypes.bool])
 })]).description('Background color');
-
-exports.default = { a11yTitlePropType: a11yTitlePropType, backgroundPropType: backgroundPropType };

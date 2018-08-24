@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (Paragraph) {
+export var doc = function doc(Paragraph) {
   var DocumentedParagraph = describe(Paragraph).availableAt(getAvailableAtBadge('Paragraph')).description('A paragraph of text.').usage('import { Paragraph } from \'grommet\';\n<Paragraph />');
 
   DocumentedParagraph.propTypes = {
@@ -16,4 +16,4 @@ export default (function (Paragraph) {
   };
 
   return DocumentedParagraph;
-});
+};

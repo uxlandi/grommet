@@ -243,5 +243,3 @@ var withIconTheme = exports.withIconTheme = function withIconTheme(WrappedCompon
 
   return IconThemeComponent;
 };
-
-exports.default = { withAnnounce: withAnnounce, withFocus: withFocus, withForwardRef: withForwardRef, withIconTheme: withIconTheme, withTheme: withTheme };

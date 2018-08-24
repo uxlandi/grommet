@@ -59,7 +59,7 @@ var weightStyle = css(['font-weight:', ';'], function (props) {
   return props.weight;
 });
 
-var StyledText = styled.span.withConfig({
+export var StyledText = styled.span.withConfig({
   displayName: 'StyledText'
 })(['', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return sizeStyle(props);
@@ -73,8 +73,6 @@ var StyledText = styled.span.withConfig({
   return props.color && colorStyle;
 }, function (props) {
   return props.weight && weightStyle;
-});
-
-export default StyledText.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.text && props.theme.text.extend;
 });

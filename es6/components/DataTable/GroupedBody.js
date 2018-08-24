@@ -4,10 +4,10 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 import React, { Fragment } from 'react';
 
-import { TableCell } from '../Table';
+import { TableCell } from '../TableCell';
 
-import Cell from './Cell';
-import ExpanderCell from './ExpanderCell';
+import { Cell } from './Cell';
+import { ExpanderCell } from './ExpanderCell';
 import { StyledDataTableBody, StyledDataTableRow } from './StyledDataTable';
 
 var GroupedBody = function GroupedBody(_ref) {
@@ -88,5 +88,4 @@ var GroupedBody = function GroupedBody(_ref) {
     })
   );
 };
-
-export default GroupedBody;
+export { GroupedBody };

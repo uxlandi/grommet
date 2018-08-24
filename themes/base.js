@@ -78,7 +78,7 @@ var generate = exports.generate = function generate() {
 
   var borderWidth = 2;
 
-  return (0, _utils.deepFreeze)({
+  var result = {
     global: {
       animation: {
         duration: '1s',
@@ -588,7 +588,7 @@ var generate = exports.generate = function generate() {
     // },
     video: {
       captions: {
-        background: (0, _polished.rgba)(0, 0, 0, 0.7)
+        background: 'rgba(0, 0, 0, 0.7)'
       },
       // controls: { background: undefined },
       icons: {
@@ -613,7 +613,9 @@ var generate = exports.generate = function generate() {
         base: '8px'
       }
     }
-  });
+  };
+
+  return (0, _utils.deepFreeze)(result);
 };
 
 exports.default = generate(24);

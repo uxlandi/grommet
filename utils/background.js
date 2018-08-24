@@ -89,9 +89,3 @@ var backgroundStyle = exports.backgroundStyle = function backgroundStyle(backgro
 
   return undefined;
 };
-
-exports.default = {
-  backgroundIsDark: backgroundIsDark,
-  backgroundStyle: backgroundStyle,
-  normalizeBackground: normalizeBackground
-};

@@ -11,8 +11,8 @@ import { compose } from 'recompose';
 
 import { withTheme } from '../hocs';
 
-import StyledParagraph from './StyledParagraph';
-import doc from './doc';
+import { StyledParagraph } from './StyledParagraph';
+import { doc } from './doc';
 
 var Paragraph = function (_Component) {
   _inherits(Paragraph, _Component);
@@ -36,4 +36,6 @@ if (process.env.NODE_ENV !== 'production') {
   doc(Paragraph);
 }
 
-export default compose(withTheme)(Paragraph);
+var ParagraphWrapper = compose(withTheme)(Paragraph);
+
+export { ParagraphWrapper as Paragraph };

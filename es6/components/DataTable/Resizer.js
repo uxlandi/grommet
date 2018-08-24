@@ -16,7 +16,7 @@ var ResizerBox = styled(Box).withConfig({
   displayName: 'Resizer__ResizerBox'
 })(['cursor:col-resize;']);
 
-var Resizer = function (_Component) {
+export var Resizer = function (_Component) {
   _inherits(Resizer, _Component);
 
   function Resizer() {
@@ -78,5 +78,3 @@ var Resizer = function (_Component) {
 
   return Resizer;
 }(Component);
-
-export default Resizer;

@@ -14,5 +14,3 @@ export var debounce = function debounce(cb, timer) {
     }, timer);
   };
 };
-
-export default debounce;

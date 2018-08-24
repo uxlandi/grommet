@@ -8,33 +8,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _FormField = require('../FormField/FormField');
-
-var _FormField2 = _interopRequireDefault(_FormField);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
-
-var _TextInput = require('../TextInput/TextInput');
-
-var _TextInput2 = _interopRequireDefault(_TextInput);
-
-var _TextArea = require('../TextArea/TextArea');
-
-var _TextArea2 = _interopRequireDefault(_TextArea);
-
-var _Select = require('../Select/Select');
-
-var _Select2 = _interopRequireDefault(_Select);
-
-var _CheckBox = require('../CheckBox/CheckBox');
-
-var _CheckBox2 = _interopRequireDefault(_CheckBox);
-
-var _Box = require('../Box/Box');
-
-var _Box2 = _interopRequireDefault(_Box);
+var _2 = require('../');
 
 var _themes = require('../../themes');
 
@@ -80,12 +54,12 @@ var FormFieldTextInput = function (_Component) {
         suggestions = _state.suggestions;
 
     return _react2.default.createElement(
-      _Grommet2.default,
+      _2.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _FormField2.default,
+        _2.FormField,
         _extends({ label: 'Label', htmlFor: 'text-input' }, this.props),
-        _react2.default.createElement(_TextInput2.default, {
+        _react2.default.createElement(_2.TextInput, {
           id: 'text-input',
           placeholder: 'placeholder',
           value: value,
@@ -102,27 +76,27 @@ var FormFieldTextInput = function (_Component) {
 
 var FormFieldTextArea = function FormFieldTextArea(props) {
   return _react2.default.createElement(
-    _Grommet2.default,
+    _2.Grommet,
     { theme: _themes.grommet },
     _react2.default.createElement(
-      _FormField2.default,
+      _2.FormField,
       _extends({ label: 'Label', htmlFor: 'text-area' }, props),
-      _react2.default.createElement(_TextArea2.default, { id: 'text-area', placeholder: 'placeholder' })
+      _react2.default.createElement(_2.TextArea, { id: 'text-area', placeholder: 'placeholder' })
     )
   );
 };
 
 var FormFieldCheckBox = function FormFieldCheckBox(props) {
   return _react2.default.createElement(
-    _Grommet2.default,
+    _2.Grommet,
     { theme: _themes.grommet },
     _react2.default.createElement(
-      _FormField2.default,
+      _2.FormField,
       _extends({ label: 'Label', htmlFor: 'check-box' }, props),
       _react2.default.createElement(
-        _Box2.default,
+        _2.Box,
         { pad: { horizontal: 'small', vertical: 'xsmall' } },
-        _react2.default.createElement(_CheckBox2.default, { id: 'check-box', label: 'CheckBox' })
+        _react2.default.createElement(_2.CheckBox, { id: 'check-box', label: 'CheckBox' })
       )
     )
   );
@@ -130,15 +104,15 @@ var FormFieldCheckBox = function FormFieldCheckBox(props) {
 
 var FormFieldToggle = function FormFieldToggle(props) {
   return _react2.default.createElement(
-    _Grommet2.default,
+    _2.Grommet,
     { theme: _themes.grommet },
     _react2.default.createElement(
-      _FormField2.default,
+      _2.FormField,
       _extends({ label: 'Label', htmlFor: 'check-box' }, props),
       _react2.default.createElement(
-        _Box2.default,
+        _2.Box,
         { pad: { horizontal: 'small', vertical: 'xsmall' } },
-        _react2.default.createElement(_CheckBox2.default, { id: 'check-box', label: 'CheckBox', toggle: true })
+        _react2.default.createElement(_2.CheckBox, { id: 'check-box', label: 'CheckBox', toggle: true })
       )
     )
   );
@@ -171,12 +145,12 @@ var FormFieldSelect = function (_Component2) {
         options = _state2.options;
 
     return _react2.default.createElement(
-      _Grommet2.default,
-      null,
+      _2.Grommet,
+      { theme: _themes.grommet },
       _react2.default.createElement(
-        _FormField2.default,
+        _2.FormField,
         _extends({ label: 'Label', htmlFor: 'select' }, this.props),
-        _react2.default.createElement(_Select2.default, {
+        _react2.default.createElement(_2.Select, {
           id: 'select',
           placeholder: 'placeholder',
           options: options,
@@ -195,10 +169,10 @@ var FormFieldSelect = function (_Component2) {
 
 var FormFieldHelpError = function FormFieldHelpError(props) {
   return _react2.default.createElement(
-    _Grommet2.default,
+    _2.Grommet,
     { theme: _themes.grommet },
     _react2.default.createElement(
-      _FormField2.default,
+      _2.FormField,
       _extends({
         label: 'Label',
         htmlFor: 'text-input'
@@ -206,7 +180,7 @@ var FormFieldHelpError = function FormFieldHelpError(props) {
         help: 'Text to help the user know what is possible',
         error: 'Text to call attention to an issue with this field'
       }),
-      _react2.default.createElement(_TextInput2.default, {
+      _react2.default.createElement(_2.TextInput, {
         id: 'text-input',
         placeholder: 'placeholder',
         value: 'Value',

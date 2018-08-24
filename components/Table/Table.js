@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Table = undefined;
 
 var _react = require('react');
 
@@ -12,11 +13,7 @@ var _hocs = require('../hocs');
 
 var _StyledTable = require('./StyledTable');
 
-var _StyledTable2 = _interopRequireDefault(_StyledTable);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -44,7 +41,7 @@ var Table = function (_Component) {
         rest = _objectWithoutProperties(_props, ['caption', 'children']);
 
     return _react2.default.createElement(
-      _StyledTable2.default,
+      _StyledTable.StyledTable,
       rest,
       caption ? _react2.default.createElement(
         _StyledTable.StyledTableDataCaption,
@@ -58,11 +55,10 @@ var Table = function (_Component) {
   return Table;
 }(_react.Component);
 
-Table.defaultProps = { columns: [], data: [] };
-
-
 if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Table);
+  (0, _doc.doc)(Table);
 }
 
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(Table);
+var TableWrapper = (0, _recompose.compose)(_hocs.withTheme)(Table);
+
+exports.Table = TableWrapper;

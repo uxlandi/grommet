@@ -1,9 +1,9 @@
 'use strict';
 
 exports.__esModule = true;
-exports.StyledSuggestions = exports.StyledPlaceholder = exports.StyledTextInputContainer = undefined;
+exports.StyledSuggestions = exports.StyledPlaceholder = exports.StyledTextInputContainer = exports.StyledTextInput = undefined;
 
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
+var _templateObject = _taggedTemplateLiteralLoose(['\n', '\n'], ['\n', '\n']);
 
 var _styledComponents = require('styled-components');
 
@@ -26,13 +26,15 @@ var sizeStyle = function sizeStyle(props) {
 
 var plainStyle = (0, _styledComponents.css)(['border:none;-webkit-appearance:none;']);
 
-var StyledTextInput = _styledComponents2.default.input.withConfig({
+var StyledTextInput = exports.StyledTextInput = _styledComponents2.default.input.withConfig({
   displayName: 'StyledTextInput'
 })(['', ' width:100%;-webkit-appearance:textfield;', ' ', ' &::-webkit-input-placeholder{', '}&::-moz-placeholder{', '}&:-ms-input-placeholder{', '}&::-moz-focus-inner{border:none;outline:none;}'], _utils.inputStyle, function (props) {
   return props.size && sizeStyle(props);
 }, function (props) {
   return props.plain && plainStyle;
-}, placeholderColor, placeholderColor, placeholderColor);
+}, placeholderColor, placeholderColor, placeholderColor).extend(_templateObject, function (props) {
+  return props.theme.textInput && props.theme.textInput.extend;
+});
 
 var StyledTextInputContainer = exports.StyledTextInputContainer = _styledComponents2.default.div.withConfig({
   displayName: 'StyledTextInput__StyledTextInputContainer'
@@ -47,7 +49,3 @@ var StyledPlaceholder = exports.StyledPlaceholder = _styledComponents2.default.d
 var StyledSuggestions = exports.StyledSuggestions = _styledComponents2.default.ol.withConfig({
   displayName: 'StyledTextInput__StyledSuggestions'
 })(['border-top-left-radius:0;border-top-right-radius:0;margin:0;padding:0;list-style-type:none;']);
-
-exports.default = StyledTextInput.extend(_templateObject, function (props) {
-  return props.theme.textInput && props.theme.textInput.extend;
-});

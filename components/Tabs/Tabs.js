@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Tabs = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -8,11 +9,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Box = require('../Box');
+var _ = require('../');
 
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24,7 +23,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Tabs = function (_Component) {
+var Tabs = exports.Tabs = function (_Component) {
   _inherits(Tabs, _Component);
 
   function Tabs() {
@@ -102,7 +101,7 @@ var Tabs = function (_Component) {
       'div',
       { role: 'tablist' },
       _react2.default.createElement(
-        _Box.Box,
+        _.Box,
         _extends({
           direction: 'row',
           justify: justify
@@ -130,7 +129,5 @@ Tabs.defaultProps = {
 
 
 if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Tabs);
+  (0, _doc.doc)(Tabs);
 }
-
-exports.default = Tabs;

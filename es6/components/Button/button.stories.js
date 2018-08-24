@@ -5,11 +5,7 @@ import { storiesOf } from '@storybook/react';
 import Add from 'grommet-icons/es6/icons/Add';
 
 
-import Button from '../Button/Button';
-import RoutedButton from '../Button/RoutedButton';
-import Grommet from '../Grommet/Grommet';
-import Box from '../Box/Box';
-import Text from '../Text/Text';
+import { Box, Button, Grommet, RoutedButton, Text } from '../';
 import { grommet } from '../../themes';
 
 var SimpleButton = function SimpleButton(props) {

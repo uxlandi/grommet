@@ -11,13 +11,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { compose } from 'recompose';
 
-import Box from '../Box/Box';
-import Text from '../Text/Text';
-
+import { Box } from '../Box';
+import { Text } from '../Text';
 import { withFocus, withForwardRef, withTheme } from '../hocs';
 
-import StyledAnchor from './StyledAnchor';
-import doc from './doc';
+import { StyledAnchor } from './StyledAnchor';
+import { doc } from './doc';
 
 var Anchor = function (_Component) {
   _inherits(Anchor, _Component);
@@ -97,4 +96,6 @@ if (process.env.NODE_ENV !== 'production') {
   doc(Anchor);
 }
 
-export default compose(withFocus, withTheme, withForwardRef)(Anchor);
+var AnchorWrapper = compose(withFocus, withTheme, withForwardRef)(Anchor);
+
+export { AnchorWrapper as Anchor };

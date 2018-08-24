@@ -2,18 +2,9 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-import AccordionPanel from './AccordionPanel';
+import { AccordionPanel } from '../AccordionPanel';
 
-export function accordionPanel(Panel) {
-  var DocumentedAccordionPanel = describe(Panel).description('An Accordion panel.');
-  DocumentedAccordionPanel.propTypes = {
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).description('The panel label.').isRequired,
-    header: PropTypes.node.description('If specified, the entire panel header will be managed by the caller.')
-  };
-  return DocumentedAccordionPanel;
-}
-
-export default (function (Accordion) {
+export var doc = function doc(Accordion) {
   var DocumentedAccordion = describe(Accordion).availableAt(getAvailableAtBadge('Accordion')).description('An accordion containing collapsible panels.').usage('import { Accordion, AccordionPanel } from \'grommet\';\n<Accordion>\n  <AccordionPanel label=\'Panel 1\'>...</AccordionPanel>\n  <AccordionPanel label=\'Panek 2\'>...</AccordionPanel>\n</Accordion>');
 
   DocumentedAccordion.propTypes = {
@@ -30,4 +21,4 @@ export default (function (Accordion) {
   };
 
   return DocumentedAccordion;
-});
+};

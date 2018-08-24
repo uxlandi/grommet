@@ -27,5 +27,3 @@ export var arcCommands = function arcCommands(centerX, centerY, radius, startAng
 export var translateEndAngle = function translateEndAngle(startAngle, anglePer, value) {
   return Math.min(360, Math.max(0, startAngle + anglePer * value));
 };
-
-export default { polarToCartesian: polarToCartesian, arcCommands: arcCommands, translateEndAngle: translateEndAngle };

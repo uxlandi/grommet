@@ -7,11 +7,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Grid from '../Grid/Grid';
-import Box from '../Box/Box';
-import Button from '../Button/Button';
-import Text from '../Text/Text';
-import Grommet from '../Grommet/Grommet';
+import { Grommet, Box, Button, Grid, Text } from '../';
+import { grommet } from '../../themes';
 
 var AppGrid = function (_Component) {
   _inherits(AppGrid, _Component);
@@ -35,7 +32,7 @@ var AppGrid = function (_Component) {
 
     return React.createElement(
       Grommet,
-      null,
+      { theme: grommet },
       React.createElement(
         Grid,
         {

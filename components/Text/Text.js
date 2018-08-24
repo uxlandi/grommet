@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Text = undefined;
 
 var _react = require('react');
 
@@ -12,11 +13,7 @@ var _hocs = require('../hocs');
 
 var _StyledText = require('./StyledText');
 
-var _StyledText2 = _interopRequireDefault(_StyledText);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29,7 +26,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var styledComponents = {
-  span: _StyledText2.default
+  span: _StyledText.StyledText
 }; // tag -> styled component
 
 var Text = function (_Component) {
@@ -48,7 +45,7 @@ var Text = function (_Component) {
 
     var StyledComponent = styledComponents[tag];
     if (!StyledComponent) {
-      StyledComponent = _StyledText2.default.withComponent(tag);
+      StyledComponent = _StyledText.StyledText.withComponent(tag);
       styledComponents[tag] = StyledComponent;
     }
 
@@ -65,7 +62,9 @@ Text.defaultProps = {
 
 
 if (process.env.NODE_ENV !== 'production') {
-  (0, _doc2.default)(Text);
+  (0, _doc.doc)(Text);
 }
 
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(Text);
+var TextWrapper = (0, _recompose.compose)(_hocs.withTheme)(Text);
+
+exports.Text = TextWrapper;

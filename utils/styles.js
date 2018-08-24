@@ -86,13 +86,3 @@ var evalStyle = exports.evalStyle = function evalStyle(arg, theme) {
   }
   return arg;
 };
-
-exports.default = {
-  activeStyle: activeStyle,
-  baseStyle: baseStyle,
-  controlBorderStyle: controlBorderStyle,
-  evalStyle: evalStyle,
-  edgeStyle: edgeStyle,
-  focusStyle: focusStyle,
-  inputStyle: inputStyle
-};

@@ -7,8 +7,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import TextInput from '../TextInput/TextInput';
-import Grommet from '../Grommet/Grommet';
+import { Grommet, TextInput } from '../';
 import { grommet } from '../../themes';
 
 var SimpleTextInput = function (_Component) {

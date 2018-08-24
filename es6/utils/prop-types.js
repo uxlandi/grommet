@@ -6,5 +6,3 @@ export var backgroundPropType = PropTypes.oneOfType([PropTypes.string, PropTypes
   color: PropTypes.string,
   opacity: PropTypes.oneOfType([PropTypes.oneOf(['weak', 'medium', 'strong']), PropTypes.bool])
 })]).description('Background color');
-
-export default { a11yTitlePropType: a11yTitlePropType, backgroundPropType: backgroundPropType };

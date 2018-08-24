@@ -8,17 +8,7 @@ var _react3 = require('@storybook/react');
 
 var _grommetIcons = require('grommet-icons');
 
-var _Carousel = require('../Carousel/Carousel');
-
-var _Carousel2 = _interopRequireDefault(_Carousel);
-
-var _Box = require('../Box/Box');
-
-var _Box2 = _interopRequireDefault(_Box);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
+var _ = require('../');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39,26 +29,26 @@ var SimpleCarousel = function (_Component) {
 
   SimpleCarousel.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       null,
       _react2.default.createElement(
-        _Box2.default,
+        _.Box,
         { justify: 'center', align: 'center' },
         _react2.default.createElement(
-          _Carousel2.default,
+          _.Carousel,
           null,
           _react2.default.createElement(
-            _Box2.default,
+            _.Box,
             { pad: 'xlarge', background: 'accent-1' },
             _react2.default.createElement(_grommetIcons.Attraction, { size: 'xlarge' })
           ),
           _react2.default.createElement(
-            _Box2.default,
+            _.Box,
             { pad: 'xlarge', background: 'accent-2' },
             _react2.default.createElement(_grommetIcons.TreeOption, { size: 'xlarge' })
           ),
           _react2.default.createElement(
-            _Box2.default,
+            _.Box,
             { pad: 'xlarge', background: 'accent-3' },
             _react2.default.createElement(_grommetIcons.Car, { size: 'xlarge' })
           )

@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.StyledParagraph = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -48,7 +49,7 @@ var textAlignStyle = (0, _styledComponents.css)(['text-align:', ';'], function (
   return TEXT_ALIGN_MAP[props.textAlign];
 });
 
-var StyledParagraph = _styledComponents2.default.p.withConfig({
+var StyledParagraph = exports.StyledParagraph = _styledComponents2.default.p.withConfig({
   displayName: 'StyledParagraph'
 })(['', ' ', ' ', ' ', ''], function (props) {
   return sizeStyle(props);
@@ -58,8 +59,6 @@ var StyledParagraph = _styledComponents2.default.p.withConfig({
   return props.textAlign && textAlignStyle;
 }, function (props) {
   return props.color && colorStyle;
-});
-
-exports.default = StyledParagraph.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.paragraph && props.theme.paragraph.extend;
 });

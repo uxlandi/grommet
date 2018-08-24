@@ -4,14 +4,14 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 import React from 'react';
 
-import { TableCell } from '../Table';
-import { Text } from '../Text';
 import { Box } from '../Box';
+import { TableCell } from '../TableCell';
+import { Text } from '../Text';
 
-import Resizer from './Resizer';
-import Searcher from './Searcher';
-import Sorter from './Sorter';
-import ExpanderCell from './ExpanderCell';
+import { Resizer } from './Resizer';
+import { Searcher } from './Searcher';
+import { Sorter } from './Sorter';
+import { ExpanderCell } from './ExpanderCell';
 import { StyledDataTableHeader, StyledDataTableRow } from './StyledDataTable';
 
 var Header = function Header(_ref) {
@@ -146,5 +146,4 @@ var Header = function Header(_ref) {
     )
   );
 };
-
-export default Header;
+export { Header };

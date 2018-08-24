@@ -6,25 +6,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _RangeSelector = require('../RangeSelector/RangeSelector');
-
-var _RangeSelector2 = _interopRequireDefault(_RangeSelector);
-
-var _Stack = require('../Stack/Stack');
-
-var _Stack2 = _interopRequireDefault(_Stack);
-
-var _Box = require('../Box/Box');
-
-var _Box2 = _interopRequireDefault(_Box);
-
-var _Text = require('../Text/Text');
-
-var _Text2 = _interopRequireDefault(_Text);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -57,27 +39,27 @@ var SimpleRangeSelector = function (_Component) {
     var values = this.state.values;
 
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _Stack2.default,
+        _.Stack,
         null,
         _react2.default.createElement(
-          _Box2.default,
+          _.Box,
           { direction: 'row', justify: 'between' },
           [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (value) {
             return _react2.default.createElement(
-              _Box2.default,
+              _.Box,
               { key: value, pad: 'small', border: false },
               _react2.default.createElement(
-                _Text2.default,
+                _.Text,
                 { style: { fontFamily: 'monospace' } },
                 value
               )
             );
           })
         ),
-        _react2.default.createElement(_RangeSelector2.default, {
+        _react2.default.createElement(_.RangeSelector, {
           direction: 'horizontal',
           invert: false,
           min: 0,

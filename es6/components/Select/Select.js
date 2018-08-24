@@ -19,8 +19,8 @@ import { TextInput } from '../TextInput';
 import { withForwardRef, withTheme } from '../hocs';
 import { controlBorderStyle, colorIsDark, evalStyle } from '../../utils';
 
-import SelectContainer from './SelectContainer';
-import doc from './doc';
+import { SelectContainer } from './SelectContainer';
+import { doc } from './doc';
 
 var SelectTextInput = styled(TextInput).withConfig({
   displayName: 'Select__SelectTextInput'
@@ -203,4 +203,6 @@ if (process.env.NODE_ENV !== 'production') {
   doc(Select);
 }
 
-export default compose(withTheme, withForwardRef)(Select);
+var SelectWrapper = compose(withTheme, withForwardRef)(Select);
+
+export { SelectWrapper as Select };
