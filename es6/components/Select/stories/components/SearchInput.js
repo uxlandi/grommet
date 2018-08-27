@@ -12,10 +12,10 @@ import { findDOMNode } from 'react-dom';
 
 import { TextInput } from '../../../';
 
-import SearchBorderBox from './SearchBorderBox';
-import SearchInputContext from './SearchInputContext';
+import { SearchBorderBox } from './SearchBorderBox';
+import { SearchInputContext } from './SearchInputContext';
 
-var SearchInput = function (_Component) {
+export var SearchInput = function (_Component) {
   _inherits(SearchInput, _Component);
 
   function SearchInput() {
@@ -60,5 +60,3 @@ var SearchInput = function (_Component) {
 
   return SearchInput;
 }(Component);
-
-export default SearchInput;

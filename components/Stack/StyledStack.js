@@ -1,7 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
-exports.StyledStackLayer = undefined;
+exports.StyledStackLayer = exports.StyledStack = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -15,16 +15,13 @@ function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return s
 
 var fillStyle = '\n  width: 100%;\n  height: 100%;\n  max-width: none;\n  flex-grow: 1;\n  display: flex;\n';
 
-var StyledStack = _styledComponents2.default.div.withConfig({
+var StyledStack = exports.StyledStack = _styledComponents2.default.div.withConfig({
   displayName: 'StyledStack'
 })(['position:relative;', ''], function (props) {
   return props.fillContainer && fillStyle;
-});
-
-exports.default = StyledStack.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.stack && props.theme.stack.extend;
 });
-
 
 var styleMap = {
   'fill': '\n    top: 0;\n    left: 0;\n    bottom: 0;\n    right: 0;\n  ',

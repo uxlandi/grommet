@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.CheckBox = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -16,11 +17,7 @@ var _object = require('../../utils/object');
 
 var _StyledCheckBox = require('./StyledCheckBox');
 
-var _StyledCheckBox2 = _interopRequireDefault(_StyledCheckBox);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -89,7 +86,7 @@ var CheckBox = function (_Component) {
         theme: theme
       }),
       _react2.default.createElement(
-        _StyledCheckBox2.default,
+        _StyledCheckBox.StyledCheckBox,
         { theme: theme },
         _react2.default.createElement(_StyledCheckBox.StyledCheckBoxInput, _extends({}, rest, {
           innerRef: forwardRef,
@@ -107,4 +104,6 @@ var CheckBox = function (_Component) {
   return CheckBox;
 }(_react.Component);
 
-exports.default = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(CheckBox) : CheckBox);
+var CheckBoxWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(CheckBox) : CheckBox);
+
+exports.CheckBox = CheckBoxWrapper;

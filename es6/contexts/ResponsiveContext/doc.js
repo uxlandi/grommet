@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (ResponsiveContext) {
+export var doc = function doc(ResponsiveContext) {
   var DocumentedResponsiveContext = describe(ResponsiveContext).availableAt(getAvailableAtBadge('ResponsiveContext')).description('A means of providing different rendering behavior based on the\n      screen resolution.').usage("import { ResponsiveContext } from 'grommet';\n<ResponsiveContext.Consumer />\n{resolution => ()}");
 
   DocumentedResponsiveContext.propTypes = {
@@ -10,4 +10,4 @@ export default (function (ResponsiveContext) {
   };
 
   return DocumentedResponsiveContext;
-});
+};

@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (FormField) {
+export var doc = function doc(FormField) {
   var DocumentedFormField = describe(FormField).availableAt(getAvailableAtBadge('FormField')).description('A field in a form.').usage('import { FormField } from \'grommet\';\n<FormField />');
 
   DocumentedFormField.propTypes = {
@@ -13,4 +13,4 @@ export default (function (FormField) {
   };
 
   return DocumentedFormField;
-});
+};

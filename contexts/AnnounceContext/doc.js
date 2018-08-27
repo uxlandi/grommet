@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (AnnounceContext) {
+var doc = exports.doc = function doc(AnnounceContext) {
   var DocumentedAnnounceContext = (0, _reactDesc.describe)(AnnounceContext).availableAt((0, _utils.getAvailableAtBadge)('AnnounceContext')).description('A means of announcing events for screen readers.').usage("import { AnnounceContext } from 'grommet';\n<AnnounceContext.Consumer />\n{announce => ()}");
 
   DocumentedAnnounceContext.propTypes = {

@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (AnnounceContext) {
+export var doc = function doc(AnnounceContext) {
   var DocumentedAnnounceContext = describe(AnnounceContext).availableAt(getAvailableAtBadge('AnnounceContext')).description('A means of announcing events for screen readers.').usage("import { AnnounceContext } from 'grommet';\n<AnnounceContext.Consumer />\n{announce => ()}");
 
   DocumentedAnnounceContext.propTypes = {
@@ -10,4 +10,4 @@ export default (function (AnnounceContext) {
   };
 
   return DocumentedAnnounceContext;
-});
+};

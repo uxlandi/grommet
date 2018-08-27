@@ -90,10 +90,8 @@ export var StyledCheckBoxKnob = styled.span.withConfig({
   return props.theme.checkBox.toggle.radius;
 });
 
-var StyledCheckBox = styled.div.withConfig({
+export var StyledCheckBox = styled.div.withConfig({
   displayName: 'StyledCheckBox'
-})(['position:relative;']);
-
-export default StyledCheckBox.extend(_templateObject, function (props) {
+})(['position:relative;']).extend(_templateObject, function (props) {
   return props.theme.checkBox && props.theme.checkBox.extend;
 });

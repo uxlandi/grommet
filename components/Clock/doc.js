@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (Clock) {
+var doc = exports.doc = function doc(Clock) {
   var DocumentedClock = (0, _reactDesc.describe)(Clock).availableAt((0, _utils.getAvailableAtBadge)('Clock')).description('A clock with timezone awareness.').usage('import { Clock } from \'grommet\';\n<Clock />');
 
   DocumentedClock.propTypes = {

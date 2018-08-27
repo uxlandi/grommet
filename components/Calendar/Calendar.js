@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Calendar = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 // import { findDOMNode } from 'react-dom';
@@ -24,11 +25,7 @@ var _hocs = require('../hocs');
 
 var _StyledCalendar = require('./StyledCalendar');
 
-var _StyledCalendar2 = _interopRequireDefault(_StyledCalendar);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 var _utils = require('./utils');
 
@@ -280,7 +277,7 @@ var Calendar = function (_Component) {
     var NextIcon = size === 'small' ? theme.calendar.icons.small.next : theme.calendar.icons.next;
 
     return _react2.default.createElement(
-      _StyledCalendar2.default,
+      _StyledCalendar.StyledCalendar,
       _extends({ size: size, theme: theme }, rest),
       _react2.default.createElement(
         _Keyboard.Keyboard,
@@ -356,4 +353,8 @@ Calendar.defaultProps = {
   size: 'medium',
   locale: 'en-US'
 };
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Calendar) : Calendar);
+
+
+var CalendarWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Calendar) : Calendar);
+
+exports.Calendar = CalendarWrapper;

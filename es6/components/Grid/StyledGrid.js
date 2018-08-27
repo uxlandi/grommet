@@ -144,7 +144,7 @@ var areasStyle = function areasStyle(props) {
   }).join(' ') + ';';
 };
 
-var StyledGrid = styled.div.withConfig({
+export var StyledGrid = styled.div.withConfig({
   displayName: 'StyledGrid'
 })(['display:grid;box-sizing:border-box;', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return props.fillContainer && fillStyle(props.fillContainer);
@@ -164,8 +164,6 @@ var StyledGrid = styled.div.withConfig({
   return props.justifyContent && justifyContentStyle;
 }, function (props) {
   return props.rowsProp && rowsStyle(props);
-});
-
-export default StyledGrid.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.grid && props.theme.grid.extend;
 });

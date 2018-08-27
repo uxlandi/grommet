@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (Heading) {
+var doc = exports.doc = function doc(Heading) {
   var DocumentedHeading = (0, _reactDesc.describe)(Heading).availableAt((0, _utils.getAvailableAtBadge)('Heading')).description('Heading text structed in levels.').usage('import { Heading } from \'grommet\';\n<Heading />');
 
   DocumentedHeading.propTypes = {

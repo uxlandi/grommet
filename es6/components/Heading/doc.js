@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (Heading) {
+export var doc = function doc(Heading) {
   var DocumentedHeading = describe(Heading).availableAt(getAvailableAtBadge('Heading')).description('Heading text structed in levels.').usage('import { Heading } from \'grommet\';\n<Heading />');
 
   DocumentedHeading.propTypes = {
@@ -19,4 +19,4 @@ export default (function (Heading) {
   };
 
   return DocumentedHeading;
-});
+};

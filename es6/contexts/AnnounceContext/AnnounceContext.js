@@ -12,7 +12,7 @@ var createAnnouncer = function createAnnouncer() {
   return announcer;
 };
 
-var AnnounceContext = React.createContext(function (message) {
+export var AnnounceContext = React.createContext(function (message) {
   var mode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'polite';
 
   // we only create a new container if we don't have one already
@@ -26,5 +26,3 @@ var AnnounceContext = React.createContext(function (message) {
     announcer.innerHTML = '';
   }, 500);
 });
-
-export default AnnounceContext;

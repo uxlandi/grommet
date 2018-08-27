@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (TextArea) {
+var doc = exports.doc = function doc(TextArea) {
   var DocumentedTextArea = (0, _reactDesc.describe)(TextArea).availableAt((0, _utils.getAvailableAtBadge)('TextArea')).description('A textarea.').usage('import { TextArea } from \'grommet\';\n<TextArea id=\'item\' name=\'item\' />');
 
   DocumentedTextArea.propTypes = {

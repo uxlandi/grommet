@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (RadioButton) {
+var doc = exports.doc = function doc(RadioButton) {
   var DocumentedRadioButton = (0, _reactDesc.describe)(RadioButton).availableAt((0, _utils.getAvailableAtBadge)('RadioButton')).description('A radio button control.').usage('import { RadioButton } from \'grommet\';\n<RadioButton />');
 
   DocumentedRadioButton.propTypes = {

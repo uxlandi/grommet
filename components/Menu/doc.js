@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
@@ -9,7 +10,7 @@ var _utils = require('../../utils');
 var VERTICAL_ALIGN_OPTIONS = ['top', 'bottom'];
 var HORIZONTAL_ALIGN_OPTIONS = ['right', 'left'];
 
-exports.default = function (Menu) {
+var doc = exports.doc = function doc(Menu) {
   var DocumentedMenu = (0, _reactDesc.describe)(Menu).availableAt((0, _utils.getAvailableAtBadge)('Menu')).description('Presents a list of choices within a drop down via a control that\n      opens it.').usage('import { Menu } from \'grommet\';\n<Menu />');
 
   DocumentedMenu.propTypes = {

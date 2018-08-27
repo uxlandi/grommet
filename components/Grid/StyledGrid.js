@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.StyledGrid = undefined;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -152,7 +153,7 @@ var areasStyle = function areasStyle(props) {
   }).join(' ') + ';';
 };
 
-var StyledGrid = _styledComponents2.default.div.withConfig({
+var StyledGrid = exports.StyledGrid = _styledComponents2.default.div.withConfig({
   displayName: 'StyledGrid'
 })(['display:grid;box-sizing:border-box;', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return props.fillContainer && fillStyle(props.fillContainer);
@@ -172,8 +173,6 @@ var StyledGrid = _styledComponents2.default.div.withConfig({
   return props.justifyContent && justifyContentStyle;
 }, function (props) {
   return props.rowsProp && rowsStyle(props);
-});
-
-exports.default = StyledGrid.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.grid && props.theme.grid.extend;
 });

@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Layer = undefined;
 
 var _react = require('react');
 
@@ -16,11 +17,7 @@ var _hocs = require('../hocs');
 
 var _LayerContainer = require('./LayerContainer');
 
-var _LayerContainer2 = _interopRequireDefault(_LayerContainer);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -70,7 +67,7 @@ var Layer = function (_Component) {
         theme = _props.theme,
         rest = _objectWithoutProperties(_props, ['theme']);
 
-    return (0, _reactDom.createPortal)(_react2.default.createElement(_LayerContainer2.default, rest), this.layerContainer);
+    return (0, _reactDom.createPortal)(_react2.default.createElement(_LayerContainer.LayerContainer, rest), this.layerContainer);
   };
 
   return Layer;
@@ -83,4 +80,8 @@ Layer.defaultProps = {
   position: 'center',
   responsive: true
 };
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Layer) : Layer);
+
+
+var LayerWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Layer) : Layer);
+
+exports.Layer = LayerWrapper;

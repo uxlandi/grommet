@@ -7,9 +7,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Heading from '../Heading/Heading';
-import Grommet from '../Grommet/Grommet';
-import Grid from '../Grid/Grid';
+import { Grommet, Grid, Heading } from '../';
 import { ThemeContext } from '../../contexts';
 import { grommet } from '../../themes';
 
@@ -30,7 +28,7 @@ var Set = function Set(_ref2) {
     'div',
     null,
     [1, 2, 3, 4].map(function (level) {
-      return React.createElement(H, { level: level, size: size, theme: theme });
+      return React.createElement(H, { key: level, level: level, size: size, theme: theme });
     })
   );
 };

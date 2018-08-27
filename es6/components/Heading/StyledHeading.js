@@ -60,7 +60,7 @@ var colorStyle = css(['color:', ';'], function (props) {
   return colorForName(props.color, props.theme);
 });
 
-var StyledHeading = styled.h1.withConfig({
+export var StyledHeading = styled.h1.withConfig({
   displayName: 'StyledHeading'
 })(['', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return props.theme.heading.font && css(['font-family:', ';'], props.theme.heading.font.family);
@@ -74,8 +74,6 @@ var StyledHeading = styled.h1.withConfig({
   return props.truncate && truncateStyle;
 }, function (props) {
   return props.color && colorStyle;
-});
-
-export default StyledHeading.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.heading && props.theme.heading.extend;
 });

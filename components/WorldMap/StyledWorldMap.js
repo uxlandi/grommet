@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.StyledWorldMap = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -12,10 +13,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
 
-var StyledWorldMap = _styledComponents2.default.svg.withConfig({
+var StyledWorldMap = exports.StyledWorldMap = _styledComponents2.default.svg.withConfig({
   displayName: 'StyledWorldMap'
-})(['width:100%;']);
-
-exports.default = StyledWorldMap.extend(_templateObject, function (props) {
+})(['width:100%;']).extend(_templateObject, function (props) {
   return props.theme.diagram && props.theme.diagram.extend;
 });

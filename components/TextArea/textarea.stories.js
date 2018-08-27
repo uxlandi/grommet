@@ -6,13 +6,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _TextArea = require('../TextArea/TextArea');
-
-var _TextArea2 = _interopRequireDefault(_TextArea);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -45,9 +39,9 @@ var SimpleTextArea = function (_Component) {
     var value = this.state.value;
 
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_TextArea2.default, { value: value, onChange: this.onChange })
+      _react2.default.createElement(_.TextArea, { value: value, onChange: this.onChange })
     );
   };
 

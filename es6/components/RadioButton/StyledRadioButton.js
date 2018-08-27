@@ -48,10 +48,8 @@ export var StyledRadioButtonButton = styled.div.withConfig({
   return (props.theme.radioButton.check.color || props.theme.global.control.color)[props.theme.dark ? 'dark' : 'light'];
 });
 
-var StyledRadioButton = styled.div.withConfig({
+export var StyledRadioButton = styled.div.withConfig({
   displayName: 'StyledRadioButton'
-})(['position:relative;']);
-
-export default StyledRadioButton.extend(_templateObject, function (props) {
+})(['position:relative;']).extend(_templateObject, function (props) {
   return props.theme.radioButton && props.theme.radioButton.extend;
 });

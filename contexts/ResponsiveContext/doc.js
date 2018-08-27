@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (ResponsiveContext) {
+var doc = exports.doc = function doc(ResponsiveContext) {
   var DocumentedResponsiveContext = (0, _reactDesc.describe)(ResponsiveContext).availableAt((0, _utils.getAvailableAtBadge)('ResponsiveContext')).description('A means of providing different rendering behavior based on the\n      screen resolution.').usage("import { ResponsiveContext } from 'grommet';\n<ResponsiveContext.Consumer />\n{resolution => ()}");
 
   DocumentedResponsiveContext.propTypes = {

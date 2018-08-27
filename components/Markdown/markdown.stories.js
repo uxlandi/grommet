@@ -6,13 +6,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _Markdown = require('../Markdown/Markdown');
-
-var _Markdown2 = _interopRequireDefault(_Markdown);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -37,10 +31,10 @@ var SimpleMarkdown = function (_Component) {
 
   SimpleMarkdown.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _Markdown2.default,
+        _.Markdown,
         null,
         CONTENT
       )

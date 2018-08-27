@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.LayerContainer = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -14,8 +15,6 @@ var _grommetIcons = require('grommet-icons');
 
 var _FocusedContainer = require('../FocusedContainer');
 
-var _FocusedContainer2 = _interopRequireDefault(_FocusedContainer);
-
 var _Keyboard = require('../Keyboard');
 
 var _hocs = require('../hocs');
@@ -23,8 +22,6 @@ var _hocs = require('../hocs');
 var _utils = require('../../utils');
 
 var _StyledLayer = require('./StyledLayer');
-
-var _StyledLayer2 = _interopRequireDefault(_StyledLayer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -129,7 +126,7 @@ var LayerContainer = function (_Component) {
 
     if (modal) {
       content = _react2.default.createElement(
-        _StyledLayer2.default,
+        _StyledLayer.StyledLayer,
         {
           id: id,
           plain: plain,
@@ -154,7 +151,7 @@ var LayerContainer = function (_Component) {
 
     if (modal) {
       content = _react2.default.createElement(
-        _FocusedContainer2.default,
+        _FocusedContainer.FocusedContainer,
         { hidden: position === 'hidden', restrictScroll: true },
         _react2.default.createElement(
           _grommetIcons.ThemeContext.Provider,
@@ -176,4 +173,8 @@ LayerContainer.defaultProps = {
   modal: true,
   position: 'center'
 };
-exports.default = (0, _hocs.withTheme)(LayerContainer);
+
+
+var LayerContainerWrapper = (0, _hocs.withTheme)(LayerContainer);
+
+exports.LayerContainer = LayerContainerWrapper;

@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.theme = undefined;
 
 var _styledComponents = require('styled-components');
 
@@ -10,15 +11,9 @@ var _utils = require('../../../utils');
 
 var _ArrowDown = require('./components/icons/ArrowDown');
 
-var _ArrowDown2 = _interopRequireDefault(_ArrowDown);
-
 var _SearchInput = require('./components/SearchInput');
 
-var _SearchInput2 = _interopRequireDefault(_SearchInput);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
+var theme = exports.theme = {
   global: {
     colors: {
       border: '#e0e0e0',
@@ -70,9 +65,9 @@ exports.default = {
   },
   select: {
     icons: {
-      down: _ArrowDown2.default
+      down: _ArrowDown.ArrowDown
     },
-    searchInput: _SearchInput2.default
+    searchInput: _SearchInput.SearchInput
   },
   textInput: {
     extend: function extend(props) {

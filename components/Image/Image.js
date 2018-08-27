@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Image = undefined;
 
 var _react = require('react');
 
@@ -12,11 +13,7 @@ var _hocs = require('../hocs');
 
 var _StyledImage = require('./StyledImage');
 
-var _StyledImage2 = _interopRequireDefault(_StyledImage);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36,10 +33,12 @@ var Image = function (_Component) {
   }
 
   Image.prototype.render = function render() {
-    return _react2.default.createElement(_StyledImage2.default, this.props);
+    return _react2.default.createElement(_StyledImage.StyledImage, this.props);
   };
 
   return Image;
 }(_react.Component);
 
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Image) : Image);
+var ImageWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Image) : Image);
+
+exports.Image = ImageWrapper;

@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (Chart) {
+export var doc = function doc(Chart) {
   var DocumentedChart = describe(Chart).availableAt(getAvailableAtBadge('Chart')).description('A graphical chart.').usage("import { Chart } from 'grommet';\n<Chart />");
 
   DocumentedChart.propTypes = {
@@ -30,7 +30,7 @@ export default (function (Chart) {
   };
 
   return DocumentedChart;
-});
+};
 
 export var docCalcs = function docCalcs(calcs) {
   var DocumentedCalcs = describe(calcs).description('\n      A function to help calculate values for bounds and axis. Use it via:\n      const data = calcs(<myValues>, { coarseness: 5, steps: [1, 1] });\n      where \'data\' will contain \'bounds\' and \'axis\' properties.\n    ').usage('import { calcs } from \'grommet\';\nconst data = calcs(<values>, { coarseness: 5, steps: [1, 1] });');

@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import Waypoint from 'react-waypoint';
 
-import doc from './doc';
+import { doc } from './doc';
 
 var InfiniteScroll = function (_Component) {
   _inherits(InfiniteScroll, _Component);
@@ -117,4 +117,6 @@ InfiniteScroll.defaultProps = {
 };
 
 
-export default process.env.NODE_ENV !== 'production' ? doc(InfiniteScroll) : InfiniteScroll;
+var InfiniteScrollWrapper = process.env.NODE_ENV !== 'production' ? doc(InfiniteScroll) : InfiniteScroll;
+
+export { InfiniteScrollWrapper as InfiniteScroll };

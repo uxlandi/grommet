@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { backgroundPropType, getAvailableAtBadge } from '../../utils';
 
-export default (function (Meter) {
+export var doc = function doc(Meter) {
   var DocumentedMeter = describe(Meter).availableAt(getAvailableAtBadge('Meter')).description('A graphical meter.').usage('import { Meter } from \'grommet\';\n<Meter />');
 
   DocumentedMeter.propTypes = {
@@ -22,4 +22,4 @@ export default (function (Meter) {
   };
 
   return DocumentedMeter;
-});
+};

@@ -11,14 +11,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Children, Component } from 'react';
 import { compose } from 'recompose';
 
-import { Box } from '../Box';
-import { Button } from '../Button';
-import { Keyboard } from '../Keyboard';
-import { Stack } from '../Stack';
+import { Box, Button, Keyboard, Stack } from '../';
 import { withFocus, withTheme } from '../hocs';
 import { evalStyle } from '../../utils';
 
-import doc from './doc';
+import { doc } from './doc';
 
 var Carousel = function (_Component) {
   _inherits(Carousel, _Component);
@@ -199,4 +196,6 @@ var Carousel = function (_Component) {
   return Carousel;
 }(Component);
 
-export default compose(withTheme, withFocus)(process.env.NODE_ENV !== 'production' ? doc(Carousel) : Carousel);
+var CarouselWrapper = compose(withTheme, withFocus)(process.env.NODE_ENV !== 'production' ? doc(Carousel) : Carousel);
+
+export { CarouselWrapper as Carousel };

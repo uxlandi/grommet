@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (RangeSelector) {
+export var doc = function doc(RangeSelector) {
   var DocumentedRangeSelector = describe(RangeSelector).availableAt(getAvailableAtBadge('RangeSelector')).description('A control to allow selecting a range of values.').usage('import { RangeSelector } from \'grommet\';\n<RangeSelector />');
 
   DocumentedRangeSelector.propTypes = {
@@ -24,4 +24,4 @@ export default (function (RangeSelector) {
   };
 
   return DocumentedRangeSelector;
-});
+};

@@ -18,7 +18,7 @@ import { Heading } from '../Heading';
 import { Paragraph } from '../Paragraph';
 import { withTheme } from '../hocs';
 
-import doc from './doc';
+import { doc } from './doc';
 
 var GrommetMarkdown = function (_Component) {
   _inherits(GrommetMarkdown, _Component);
@@ -54,4 +54,6 @@ var GrommetMarkdown = function (_Component) {
   return GrommetMarkdown;
 }(Component);
 
-export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(GrommetMarkdown) : GrommetMarkdown);
+var GrommetMarkdownWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(GrommetMarkdown) : GrommetMarkdown);
+
+export { GrommetMarkdownWrapper as Markdown };

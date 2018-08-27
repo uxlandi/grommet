@@ -109,7 +109,7 @@ var Element = function Element(_ref) {
   return result;
 };
 
-var Digital = function (_Component2) {
+export var Digital = function (_Component2) {
   _inherits(Digital, _Component2);
 
   function Digital() {
@@ -146,5 +146,3 @@ var Digital = function (_Component2) {
 
   return Digital;
 }(Component);
-
-export default Digital;

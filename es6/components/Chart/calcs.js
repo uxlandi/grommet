@@ -1,6 +1,6 @@
 import { normalizeValues } from './utils';
 
-export default (function (values) {
+export var calcs = function calcs(values) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
   var coarseness = options.coarseness || 5;
@@ -44,4 +44,4 @@ export default (function (values) {
   }
 
   return { axis: [xAxis, yAxis], bounds: bounds, dimensions: dimensions };
-});
+};

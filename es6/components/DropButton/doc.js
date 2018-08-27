@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (DropButton) {
+export var doc = function doc(DropButton) {
   var DocumentedDropButton = describe(DropButton).availableAt(getAvailableAtBadge('DropButton')).description('A Button that when clicked will a Drop with the specified \'dropContent\'.\n      When opened, the drop will control the focus so that the contents behind\n      it are not focusable. All properties of Button can be passed through.\n      ').usage('import { DropButton } from \'grommet\';\n<DropButton dropContent={...} />');
 
   DocumentedDropButton.propTypes = {
@@ -25,4 +25,4 @@ export default (function (DropButton) {
   };
 
   return DocumentedDropButton;
-});
+};

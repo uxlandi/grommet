@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (Calendar) {
+var doc = exports.doc = function doc(Calendar) {
   var DocumentedCalendar = (0, _reactDesc.describe)(Calendar).availableAt((0, _utils.getAvailableAtBadge)('Calendar')).description('Calendar of days in months.\n      It can be used to select a single date, a range of dates, or multiple\n      individual dates.').usage('import { Calendar } from \'grommet\';\n<Calendar />');
 
   DocumentedCalendar.propTypes = {

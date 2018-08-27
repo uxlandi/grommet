@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.StyledGrommet = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -16,14 +17,12 @@ function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return s
 
 var fullStyle = (0, _styledComponents.css)(['width:100vw;height:100vh;overflow:auto;']);
 
-var StyledGrommet = _styledComponents2.default.div.withConfig({
+var StyledGrommet = exports.StyledGrommet = _styledComponents2.default.div.withConfig({
   displayName: 'StyledGrommet'
 })(['', ' ', ' ', ''], _utils.baseStyle, function (props) {
   return props.full && fullStyle;
 }, function (props) {
   return props.theme.global.font.face;
-});
-
-exports.default = StyledGrommet.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.grommet.extend;
 });

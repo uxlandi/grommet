@@ -13,7 +13,7 @@ import { withTheme } from '../hocs';
 
 import { Box } from '../Box';
 
-import doc from './doc';
+import { doc } from './doc';
 
 var AnimatedBox = styled(Box).withConfig({
   displayName: 'Collapsible__AnimatedBox'
@@ -128,4 +128,6 @@ var Collapsible = function (_Component) {
   return Collapsible;
 }(Component);
 
-export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Collapsible) : Collapsible);
+var CollapsibleWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Collapsible) : Collapsible);
+
+export { CollapsibleWrapper as Collapsible };

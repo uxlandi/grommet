@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.InfiniteScroll = undefined;
 
 var _react = require('react');
 
@@ -13,8 +14,6 @@ var _reactWaypoint = require('react-waypoint');
 var _reactWaypoint2 = _interopRequireDefault(_reactWaypoint);
 
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -129,4 +128,8 @@ InfiniteScroll.defaultProps = {
   items: [],
   step: 50
 };
-exports.default = process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(InfiniteScroll) : InfiniteScroll;
+
+
+var InfiniteScrollWrapper = process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(InfiniteScroll) : InfiniteScroll;
+
+exports.InfiniteScroll = InfiniteScrollWrapper;

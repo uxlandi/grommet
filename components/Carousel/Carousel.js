@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Carousel = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -10,21 +11,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _recompose = require('recompose');
 
-var _Box = require('../Box');
-
-var _Button = require('../Button');
-
-var _Keyboard = require('../Keyboard');
-
-var _Stack = require('../Stack');
+var _ = require('../');
 
 var _hocs = require('../hocs');
 
 var _utils = require('../../utils');
 
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -126,7 +119,7 @@ var Carousel = function (_Component) {
 
     var selectors = [];
     var wrappedChildren = _react.Children.map(children, function (child, index) {
-      selectors.push(_react2.default.createElement(_Button.Button, {
+      selectors.push(_react2.default.createElement(_.Button, {
         key: index,
         icon: _react2.default.createElement(CurrentIcon, {
           color: activeIndex === index ? iconColor : undefined
@@ -149,10 +142,10 @@ var Carousel = function (_Component) {
       }
 
       return _react2.default.createElement(
-        _Box.Box,
+        _.Box,
         { overflow: 'hidden' },
         _react2.default.createElement(
-          _Box.Box,
+          _.Box,
           { animation: animation },
           child
         )
@@ -163,45 +156,45 @@ var Carousel = function (_Component) {
     var PreviousIcon = theme.carousel.icons.previous;
 
     return _react2.default.createElement(
-      _Keyboard.Keyboard,
+      _.Keyboard,
       { onLeft: onLeft, onRight: onRight },
       _react2.default.createElement(
-        _Stack.Stack,
+        _.Stack,
         _extends({ guidingChild: activeIndex, fill: fill }, rest),
         wrappedChildren,
         _react2.default.createElement(
-          _Box.Box,
+          _.Box,
           { tabIndex: '0', focus: focus, fill: true, direction: 'row', justify: 'between' },
           _react2.default.createElement(
-            _Box.Box,
+            _.Box,
             { fill: 'vertical' },
             _react2.default.createElement(
-              _Button.Button,
+              _.Button,
               { fill: 'true', onClick: onLeft, hoverIndicator: true },
               _react2.default.createElement(
-                _Box.Box,
+                _.Box,
                 { justify: 'center' },
                 _react2.default.createElement(PreviousIcon, null)
               )
             )
           ),
           _react2.default.createElement(
-            _Box.Box,
+            _.Box,
             { justify: 'end' },
             _react2.default.createElement(
-              _Box.Box,
+              _.Box,
               { direction: 'row', justify: 'center' },
               selectors
             )
           ),
           _react2.default.createElement(
-            _Box.Box,
+            _.Box,
             { fill: 'vertical' },
             _react2.default.createElement(
-              _Button.Button,
+              _.Button,
               { fill: 'true', onClick: onRight, hoverIndicator: true },
               _react2.default.createElement(
-                _Box.Box,
+                _.Box,
                 { justify: 'center' },
                 _react2.default.createElement(NextIcon, null)
               )
@@ -215,4 +208,6 @@ var Carousel = function (_Component) {
   return Carousel;
 }(_react.Component);
 
-exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withFocus)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Carousel) : Carousel);
+var CarouselWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withFocus)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Carousel) : Carousel);
+
+exports.Carousel = CarouselWrapper;

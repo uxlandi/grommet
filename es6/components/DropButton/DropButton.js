@@ -16,7 +16,7 @@ import { Drop } from '../Drop';
 import { withForwardRef, withTheme } from '../hocs';
 import { setFocusWithoutScroll } from '../../utils';
 
-import doc from './doc';
+import { doc } from './doc';
 
 var DropButton = function (_Component) {
   _inherits(DropButton, _Component);
@@ -142,4 +142,6 @@ DropButton.defaultProps = {
 };
 
 
-export default compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(DropButton) : DropButton);
+var DropButtonWrapper = compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(DropButton) : DropButton);
+
+export { DropButtonWrapper as DropButton };

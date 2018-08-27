@@ -13,8 +13,8 @@ import { compose } from 'recompose';
 
 import { withFocus, withForwardRef, withTheme } from '../hocs';
 
-import StyledRangeInput from './StyledRangeInput';
-import doc from './doc';
+import { StyledRangeInput } from './StyledRangeInput';
+import { doc } from './doc';
 
 var RangeInput = function (_Component) {
   _inherits(RangeInput, _Component);
@@ -39,4 +39,6 @@ var RangeInput = function (_Component) {
   return RangeInput;
 }(Component);
 
-export default compose(withFocus, withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(RangeInput) : RangeInput);
+var RangeInputWrapper = compose(withFocus, withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(RangeInput) : RangeInput);
+
+export { RangeInputWrapper as RangeInput };

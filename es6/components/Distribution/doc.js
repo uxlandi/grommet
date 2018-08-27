@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (Distribution) {
+export var doc = function doc(Distribution) {
   var DocumentedDistribution = describe(Distribution).availableAt(getAvailableAtBadge('Distribution')).description('Approximately proportionally sized grid of boxes. The\n      area given to each box isn\'t mathematically precise according to the\n      ratio to the total values. Instead, the boxes are laid out in a\n      manner that makes them more visually easy to scan. For example,\n      two values of 48 and 52 will actually each get 50% of the area.').usage("import { Distribution } from 'grommet';\n<Distribution />");
 
   DocumentedDistribution.propTypes = {
@@ -14,4 +14,4 @@ export default (function (Distribution) {
   };
 
   return DocumentedDistribution;
-});
+};

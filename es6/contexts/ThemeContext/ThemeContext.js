@@ -1,5 +1,5 @@
 import React from 'react';
-import baseTheme from '../../themes/base';
+import { base as baseTheme } from '../../themes';
 import { deepMerge } from '../../utils';
 
 var ThemeContext = React.createContext(baseTheme);
@@ -22,4 +22,4 @@ ThemeContext.Extend = function (_ref) {
   );
 };
 
-export default ThemeContext;
+export { ThemeContext };

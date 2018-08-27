@@ -34,7 +34,7 @@ var boxBorderTheme = {
   }
 };
 
-var SearchBorderBox = function (_Component) {
+export var SearchBorderBox = function (_Component) {
   _inherits(SearchBorderBox, _Component);
 
   function SearchBorderBox() {
@@ -83,5 +83,3 @@ var SearchBorderBox = function (_Component) {
 
   return SearchBorderBox;
 }(Component);
-
-export default SearchBorderBox;

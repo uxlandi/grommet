@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.hpe = undefined;
 
 var _utils = require('../utils');
 
@@ -32,7 +33,7 @@ Object.keys(statusColors).forEach(function (color) {
   colors['status-' + color] = statusColors[color];
 });
 
-exports.default = (0, _utils.deepFreeze)({
+var hpe = exports.hpe = (0, _utils.deepFreeze)({
   global: {
     colors: colors,
     font: {

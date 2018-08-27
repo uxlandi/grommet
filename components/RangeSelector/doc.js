@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (RangeSelector) {
+var doc = exports.doc = function doc(RangeSelector) {
   var DocumentedRangeSelector = (0, _reactDesc.describe)(RangeSelector).availableAt((0, _utils.getAvailableAtBadge)('RangeSelector')).description('A control to allow selecting a range of values.').usage('import { RangeSelector } from \'grommet\';\n<RangeSelector />');
 
   DocumentedRangeSelector.propTypes = {

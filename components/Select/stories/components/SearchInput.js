@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.SearchInput = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -14,11 +15,7 @@ var _ = require('../../../');
 
 var _SearchBorderBox = require('./SearchBorderBox');
 
-var _SearchBorderBox2 = _interopRequireDefault(_SearchBorderBox);
-
 var _SearchInputContext = require('./SearchInputContext');
-
-var _SearchInputContext2 = _interopRequireDefault(_SearchInputContext);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28,7 +25,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var SearchInput = function (_Component) {
+var SearchInput = exports.SearchInput = function (_Component) {
   _inherits(SearchInput, _Component);
 
   function SearchInput() {
@@ -55,12 +52,12 @@ var SearchInput = function (_Component) {
     var _this3 = this;
 
     return _react2.default.createElement(
-      _SearchInputContext2.default.Consumer,
+      _SearchInputContext.SearchInputContext.Consumer,
       null,
       function (_ref) {
         var searching = _ref.searching;
         return _react2.default.createElement(
-          _SearchBorderBox2.default,
+          _SearchBorderBox.SearchBorderBox,
           { searching: searching },
           _react2.default.createElement(_.TextInput, _extends({}, _this3.props, {
             plain: true,
@@ -73,5 +70,3 @@ var SearchInput = function (_Component) {
 
   return SearchInput;
 }(_react.Component);
-
-exports.default = SearchInput;

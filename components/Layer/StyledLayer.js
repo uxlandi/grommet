@@ -1,7 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
-exports.StyledContainer = exports.StyledOverlay = undefined;
+exports.StyledContainer = exports.StyledOverlay = exports.StyledLayer = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -19,7 +19,7 @@ var hiddenPositionStyle = (0, _styledComponents.css)(['left:-100%;right:100%;z-i
 
 var desktopLayerStyle = '\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  right: 0px;\n  bottom: 0px;\n  width: 100vw;\n  height: 100vh;\n';
 
-var StyledLayer = _styledComponents2.default.div.withConfig({
+var StyledLayer = exports.StyledLayer = _styledComponents2.default.div.withConfig({
   displayName: 'StyledLayer'
 })(['', ' background:unset;position:relative;z-index:10;pointer-events:none;outline:none;', ' ', ''], _utils.baseStyle, function (props) {
   return props.responsive && (0, _utils.palm)('\n    position: absolute;\n    height: 100%;\n    width: 100%;\n    overflow: auto;\n    ');
@@ -30,6 +30,8 @@ var StyledLayer = _styledComponents2.default.div.withConfig({
     return (0, _utils.lapAndUp)(desktopLayerStyle);
   }
   return desktopLayerStyle;
+}).extend(_templateObject, function (props) {
+  return props.theme.layer && props.theme.layer.extend;
 });
 
 var StyledOverlay = exports.StyledOverlay = _styledComponents2.default.div.withConfig({
@@ -193,7 +195,3 @@ var StyledContainer = exports.StyledContainer = _styledComponents2.default.div.w
 
 // ${props => props.full && fullStyle(props.full, props.margin, props.theme)}
 // ${props => props.margin && edgeStyle('margin', props.margin, props.theme)}
-
-exports.default = StyledLayer.extend(_templateObject, function (props) {
-  return props.theme.layer && props.theme.layer.extend;
-});

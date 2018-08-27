@@ -3,7 +3,7 @@ import { deepFreeze } from '../utils';
 var workSansPath = 'https://fonts.gstatic.com/s/worksans/v2';
 var zillaSlabPath = 'https://fonts.gstatic.com/s/zillaslab/v3';
 
-export default deepFreeze({
+export var grommet = deepFreeze({
   global: {
     font: {
       family: "'Work Sans', Arial, sans-serif",

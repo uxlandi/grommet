@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (InfiniteScroll) {
+var doc = exports.doc = function doc(InfiniteScroll) {
   var DocumentedInfiniteScroll = (0, _reactDesc.describe)(InfiniteScroll).availableAt((0, _utils.getAvailableAtBadge)('InfiniteScroll')).description('A container that lazily renders items.').usage('import { InfiniteScroll } from \'grommet\';\n<InfiniteScroll />');
 
   DocumentedInfiniteScroll.propTypes = {

@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Chart = undefined;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -20,13 +21,9 @@ var _hocs = require('../hocs');
 
 var _StyledChart = require('./StyledChart');
 
-var _StyledChart2 = _interopRequireDefault(_StyledChart);
-
 var _utils2 = require('./utils');
 
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -245,7 +242,7 @@ var Chart = function (_Component) {
     }
 
     return _react2.default.createElement(
-      _StyledChart2.default,
+      _StyledChart.StyledChart,
       _extends({
         ref: function ref(_ref6) {
           _this2.containerRef = _ref6;
@@ -279,4 +276,8 @@ Chart.defaultProps = {
   thickness: 'medium',
   type: 'bar'
 };
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Chart) : Chart);
+
+
+var ChartWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Chart) : Chart);
+
+exports.Chart = ChartWrapper;

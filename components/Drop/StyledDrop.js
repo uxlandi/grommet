@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.StyledDrop = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -28,7 +29,7 @@ function getTransformOriginStyle(align) {
 
 var dropKeyFrames = (0, _styledComponents.keyframes)(['0%{opacity:0.5;transform:scale(0.8);}100%{opacity:1;transform:scale(1);}']);
 
-var StyledDrop = _styledComponents2.default.div.withConfig({
+var StyledDrop = exports.StyledDrop = _styledComponents2.default.div.withConfig({
   displayName: 'StyledDrop'
 })(['', ' border-radius:', ';box-shadow:', ';position:fixed;z-index:20;outline:none;', ' opacity:0;transform-origin:', ';animation:', ' 0.1s forwards;animation-delay:0.01s;@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){display:flex;align-items:stretch;}'], _utils.baseStyle, function (props) {
   return props.theme.global.drop.border.radius;
@@ -38,8 +39,6 @@ var StyledDrop = _styledComponents2.default.div.withConfig({
   return (0, _utils.backgroundStyle)(props.theme.global.drop.background, props.theme);
 }, function (props) {
   return getTransformOriginStyle(props.align);
-}, dropKeyFrames);
-
-exports.default = StyledDrop.extend(_templateObject, function (props) {
+}, dropKeyFrames).extend(_templateObject, function (props) {
   return props.theme.drop && props.theme.drop.extend;
 });

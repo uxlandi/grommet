@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (Diagram) {
+var doc = exports.doc = function doc(Diagram) {
   var DocumentedDiagram = (0, _reactDesc.describe)(Diagram).availableAt((0, _utils.getAvailableAtBadge)('Diagram')).description('Graphical lines between DOM elements.\n      Diagram is meant to be used with Stack.').usage("import { Diagram } from 'grommet';\n<Diagram />");
 
   DocumentedDiagram.propTypes = {

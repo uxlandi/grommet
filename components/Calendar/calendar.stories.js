@@ -6,13 +6,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _Calendar = require('../Calendar/Calendar');
-
-var _Calendar2 = _interopRequireDefault(_Calendar);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -45,9 +39,9 @@ var SimpleCalendar = function (_Component) {
     var date = this.state.date;
 
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_Calendar2.default, { date: date, onSelect: this.onSelect, size: 'small' })
+      _react2.default.createElement(_.Calendar, { date: date, onSelect: this.onSelect, size: 'small' })
     );
   };
 
@@ -114,9 +108,9 @@ var RichCalendar = function (_Component2) {
         dates = _state.dates;
 
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_Calendar2.default, { date: date, dates: dates, onSelect: this.onSelect })
+      _react2.default.createElement(_.Calendar, { date: date, dates: dates, onSelect: this.onSelect })
     );
   };
 

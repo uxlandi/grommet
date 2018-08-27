@@ -13,9 +13,9 @@ import { compose } from 'recompose';
 
 import { withTheme } from '../hocs';
 
-import Analog from './Analog';
-import Digital from './Digital';
-import doc from './doc';
+import { Analog } from './Analog';
+import { Digital } from './Digital';
+import { doc } from './doc';
 
 var TIME_REGEXP = /T([0-9]{2}):([0-9]{2})(?::([0-9.,]{2,}))?/;
 var DURATION_REGEXP = /^(-|\+)?P.*T(?:([-+]?[0-9,.]*)H)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)S)?$/;
@@ -220,4 +220,6 @@ Clock.defaultProps = {
 };
 
 
-export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Clock) : Clock);
+var ClockWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Clock) : Clock);
+
+export { ClockWrapper as Clock };

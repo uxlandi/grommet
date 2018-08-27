@@ -44,7 +44,7 @@ Object.keys(statusColors).forEach(function (color) {
   colors['status-' + color] = statusColors[color];
 });
 
-export default deepFreeze({
+export var dark = deepFreeze({
   global: {
     colors: colors,
     control: {

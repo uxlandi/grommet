@@ -13,12 +13,10 @@ var fitStyle = css(['flex:1 1;overflow:hidden;object-fit:', ';'], function (prop
   return FIT_MAP[props.fit];
 });
 
-var StyledImage = styled.img.withConfig({
+export var StyledImage = styled.img.withConfig({
   displayName: 'StyledImage'
 })(['', ''], function (props) {
   return props.fit && fitStyle;
-});
-
-export default StyledImage.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.image && props.theme.image.extend;
 });

@@ -1,13 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
-exports.docCalcs = undefined;
+exports.docCalcs = exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (Chart) {
+var doc = exports.doc = function doc(Chart) {
   var DocumentedChart = (0, _reactDesc.describe)(Chart).availableAt((0, _utils.getAvailableAtBadge)('Chart')).description('A graphical chart.').usage("import { Chart } from 'grommet';\n<Chart />");
 
   DocumentedChart.propTypes = {

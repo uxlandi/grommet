@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.StyledImage = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -21,12 +22,10 @@ var fitStyle = (0, _styledComponents.css)(['flex:1 1;overflow:hidden;object-fit:
   return FIT_MAP[props.fit];
 });
 
-var StyledImage = _styledComponents2.default.img.withConfig({
+var StyledImage = exports.StyledImage = _styledComponents2.default.img.withConfig({
   displayName: 'StyledImage'
 })(['', ''], function (props) {
   return props.fit && fitStyle;
-});
-
-exports.default = StyledImage.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.image && props.theme.image.extend;
 });

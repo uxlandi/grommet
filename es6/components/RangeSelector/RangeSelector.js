@@ -15,8 +15,8 @@ import { compose } from 'recompose';
 import { Box } from '../Box';
 import { withForwardRef, withTheme } from '../hocs';
 
-import EdgeControl from './EdgeControl';
-import doc from './doc';
+import { EdgeControl } from './EdgeControl';
+import { doc } from './doc';
 
 var RangeSelector = function (_Component) {
   _inherits(RangeSelector, _Component);
@@ -222,4 +222,6 @@ RangeSelector.defaultProps = {
 };
 
 
-export default compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(RangeSelector) : RangeSelector);
+var RangeSelectorWrapper = compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(RangeSelector) : RangeSelector);
+
+export { RangeSelectorWrapper as RangeSelector };

@@ -12,10 +12,10 @@ import React, { Component } from 'react';
 
 import { parseMetricToNum } from '../../utils';
 
-import StyledMeter from './StyledMeter';
+import { StyledMeter } from './StyledMeter';
 import { strokeProps } from './utils';
 
-var Bar = function (_Component) {
+export var Bar = function (_Component) {
   _inherits(Bar, _Component);
 
   function Bar() {
@@ -105,8 +105,6 @@ var Bar = function (_Component) {
 
   return Bar;
 }(Component);
-
 Bar.defaultProps = {
   background: 'light-1'
 };
-export default Bar;

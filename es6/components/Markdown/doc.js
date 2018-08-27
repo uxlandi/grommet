@@ -2,7 +2,7 @@ import { describe } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (Markdown) {
+export var doc = function doc(Markdown) {
   var DocumentedMarkdown = describe(Markdown).availableAt(getAvailableAtBadge('Markdown')).description('Markdown formatting using Grommet components.').usage('import { Markdown } from \'grommet\';\n      <Markdown>{content}</Markdown>');
 
   // DocumentedMarkdown.propTypes = {
@@ -10,4 +10,4 @@ export default (function (Markdown) {
   // };
 
   return DocumentedMarkdown;
-});
+};

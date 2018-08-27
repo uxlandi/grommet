@@ -1,13 +1,14 @@
 'use strict';
 
 exports.__esModule = true;
+exports.grommet = undefined;
 
 var _utils = require('../utils');
 
 var workSansPath = 'https://fonts.gstatic.com/s/worksans/v2';
 var zillaSlabPath = 'https://fonts.gstatic.com/s/zillaslab/v3';
 
-exports.default = (0, _utils.deepFreeze)({
+var grommet = exports.grommet = (0, _utils.deepFreeze)({
   global: {
     font: {
       family: "'Work Sans', Arial, sans-serif",

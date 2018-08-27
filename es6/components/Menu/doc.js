@@ -5,7 +5,7 @@ import { getAvailableAtBadge } from '../../utils';
 var VERTICAL_ALIGN_OPTIONS = ['top', 'bottom'];
 var HORIZONTAL_ALIGN_OPTIONS = ['right', 'left'];
 
-export default (function (Menu) {
+export var doc = function doc(Menu) {
   var DocumentedMenu = describe(Menu).availableAt(getAvailableAtBadge('Menu')).description('Presents a list of choices within a drop down via a control that\n      opens it.').usage('import { Menu } from \'grommet\';\n<Menu />');
 
   DocumentedMenu.propTypes = {
@@ -32,4 +32,4 @@ export default (function (Menu) {
   };
 
   return DocumentedMenu;
-});
+};

@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.SearchBorderBox = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -44,7 +45,7 @@ var boxBorderTheme = {
   }
 };
 
-var SearchBorderBox = function (_Component) {
+var SearchBorderBox = exports.SearchBorderBox = function (_Component) {
   _inherits(SearchBorderBox, _Component);
 
   function SearchBorderBox() {
@@ -93,5 +94,3 @@ var SearchBorderBox = function (_Component) {
 
   return SearchBorderBox;
 }(_react.Component);
-
-exports.default = SearchBorderBox;

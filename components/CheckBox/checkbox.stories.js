@@ -8,13 +8,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _CheckBox = require('../CheckBox/CheckBox');
-
-var _CheckBox2 = _interopRequireDefault(_CheckBox);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -47,9 +41,9 @@ var SimpleCheckBox = function (_Component) {
     var checked = this.state.checked;
 
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_CheckBox2.default, _extends({}, this.props, {
+      _react2.default.createElement(_.CheckBox, _extends({}, this.props, {
         label: 'Choice',
         checked: checked,
         onChange: this.onChange

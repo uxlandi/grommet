@@ -6,17 +6,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _Heading = require('../Heading/Heading');
-
-var _Heading2 = _interopRequireDefault(_Heading);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
-
-var _Grid = require('../Grid/Grid');
-
-var _Grid2 = _interopRequireDefault(_Grid);
+var _ = require('../');
 
 var _contexts = require('../../contexts');
 
@@ -34,7 +24,7 @@ var H = function H(_ref) {
   var level = _ref.level,
       size = _ref.size;
   return _react2.default.createElement(
-    _Heading2.default,
+    _.Heading,
     { level: level, size: size },
     'Heading ' + level + ' ' + size
   );
@@ -47,7 +37,7 @@ var Set = function Set(_ref2) {
     'div',
     null,
     [1, 2, 3, 4].map(function (level) {
-      return _react2.default.createElement(H, { level: level, size: size, theme: theme });
+      return _react2.default.createElement(H, { key: level, level: level, size: size, theme: theme });
     })
   );
 };
@@ -63,14 +53,14 @@ var All = function (_Component) {
 
   All.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
         _contexts.ThemeContext.Consumer,
         null,
         function (theme) {
           return _react2.default.createElement(
-            _Grid2.default,
+            _.Grid,
             { columns: 'large', gap: 'medium' },
             _react2.default.createElement(Set, { size: 'medium', theme: theme }),
             _react2.default.createElement(Set, { size: 'small', theme: theme }),

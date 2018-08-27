@@ -15,8 +15,8 @@ import { FormClose } from 'grommet-icons';
 import { Box, Button, CheckBox, Grommet, Select, Text } from '../../';
 import { grommet } from '../../../themes';
 
-import customSearchTheme from './theme';
-import SearchInputContext from './components/SearchInputContext';
+import { theme as customSearchTheme } from './theme';
+import { SearchInputContext } from './components/SearchInputContext';
 import { deepMerge } from '../../../utils';
 
 var customRoundedTheme = deepMerge(grommet, {

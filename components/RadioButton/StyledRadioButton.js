@@ -1,7 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
-exports.StyledRadioButtonButton = exports.StyledRadioButtonInput = exports.StyledRadioButtonContainer = undefined;
+exports.StyledRadioButton = exports.StyledRadioButtonButton = exports.StyledRadioButtonInput = exports.StyledRadioButtonContainer = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -57,10 +57,8 @@ var StyledRadioButtonButton = exports.StyledRadioButtonButton = _styledComponent
   return (props.theme.radioButton.check.color || props.theme.global.control.color)[props.theme.dark ? 'dark' : 'light'];
 });
 
-var StyledRadioButton = _styledComponents2.default.div.withConfig({
+var StyledRadioButton = exports.StyledRadioButton = _styledComponents2.default.div.withConfig({
   displayName: 'StyledRadioButton'
-})(['position:relative;']);
-
-exports.default = StyledRadioButton.extend(_templateObject, function (props) {
+})(['position:relative;']).extend(_templateObject, function (props) {
   return props.theme.radioButton && props.theme.radioButton.extend;
 });

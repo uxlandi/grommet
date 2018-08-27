@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Stack = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -14,11 +15,7 @@ var _hocs = require('../hocs');
 
 var _StyledStack = require('./StyledStack');
 
-var _StyledStack2 = _interopRequireDefault(_StyledStack);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -81,7 +78,7 @@ var Stack = function (_Component) {
     });
 
     return _react2.default.createElement(
-      _StyledStack2.default,
+      _StyledStack.StyledStack,
       _extends({ fillContainer: fill }, rest),
       styledChildren
     );
@@ -90,4 +87,6 @@ var Stack = function (_Component) {
   return Stack;
 }(_react.Component);
 
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Stack) : Stack);
+var StackWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Stack) : Stack);
+
+exports.Stack = StackWrapper;

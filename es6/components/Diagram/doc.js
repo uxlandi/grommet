@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (Diagram) {
+export var doc = function doc(Diagram) {
   var DocumentedDiagram = describe(Diagram).availableAt(getAvailableAtBadge('Diagram')).description('Graphical lines between DOM elements.\n      Diagram is meant to be used with Stack.').usage("import { Diagram } from 'grommet';\n<Diagram />");
 
   DocumentedDiagram.propTypes = {
@@ -19,4 +19,4 @@ export default (function (Diagram) {
   };
 
   return DocumentedDiagram;
-});
+};

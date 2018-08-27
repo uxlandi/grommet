@@ -14,8 +14,8 @@ import { compose } from 'recompose';
 import { withFocus, withForwardRef, withTheme } from '../hocs';
 import { removeUndefined } from '../../utils/object';
 
-import StyledCheckBox, { StyledCheckBoxContainer, StyledCheckBoxInput, StyledCheckBoxBox, StyledCheckBoxToggle, StyledCheckBoxKnob } from './StyledCheckBox';
-import doc from './doc';
+import { StyledCheckBox, StyledCheckBoxContainer, StyledCheckBoxInput, StyledCheckBoxBox, StyledCheckBoxToggle, StyledCheckBoxKnob } from './StyledCheckBox';
+import { doc } from './doc';
 
 var CheckBox = function (_Component) {
   _inherits(CheckBox, _Component);
@@ -92,4 +92,6 @@ var CheckBox = function (_Component) {
   return CheckBox;
 }(Component);
 
-export default compose(withFocus, withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(CheckBox) : CheckBox);
+var CheckBoxWrapper = compose(withFocus, withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(CheckBox) : CheckBox);
+
+export { CheckBoxWrapper as CheckBox };

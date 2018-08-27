@@ -10,10 +10,12 @@ var sizeStyle = function sizeStyle(props) {
   return css(['font-size:', ';line-height:', ';width:', ';'], data.fontSize, data.lineHeight, props.theme.global.size[props.size]);
 };
 
-var StyledCalendar = styled.div.withConfig({
+export var StyledCalendar = styled.div.withConfig({
   displayName: 'StyledCalendar'
 })(['', ''], function (props) {
   return sizeStyle(props);
+}).extend(_templateObject, function (props) {
+  return props.theme.calendar && props.theme.calendar.extend;
 });
 
 export var StyledWeeksContainer = styled.div.withConfig({
@@ -65,8 +67,4 @@ export var StyledDay = styled.div.withConfig({
   return props.otherMonth && 'opacity: 0.5;';
 }, function (props) {
   return props.isSelected && 'font-weight: bold;';
-});
-
-export default StyledCalendar.extend(_templateObject, function (props) {
-  return props.theme.calendar && props.theme.calendar.extend;
 });

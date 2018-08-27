@@ -1,6 +1,6 @@
 import { describe, PropTypes } from 'react-desc';
 
-export default (function (Keyboard) {
+export var doc = function doc(Keyboard) {
   var DocumentedKeyboard = describe(Keyboard).description('A react component that handles keyboard key presses.').usage('import { Keyboard } from \'grommet\';\n<Keyboard onUp={() => {}} />');
 
   DocumentedKeyboard.propTypes = {
@@ -19,4 +19,4 @@ export default (function (Keyboard) {
   };
 
   return DocumentedKeyboard;
-});
+};

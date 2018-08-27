@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.FocusedContainer = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -32,7 +33,7 @@ var isNotAncestorOf = function isNotAncestorOf(child) {
   };
 };
 
-var FocusedContainer = function (_Component) {
+var FocusedContainer = exports.FocusedContainer = function (_Component) {
   _inherits(FocusedContainer, _Component);
 
   function FocusedContainer() {
@@ -108,4 +109,3 @@ FocusedContainer.propTypes = {
   hidden: _propTypes2.default.bool,
   restrictScroll: _propTypes2.default.bool
 };
-exports.default = FocusedContainer;

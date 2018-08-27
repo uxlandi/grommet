@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.dark = undefined;
 
 var _polished = require('polished');
 
@@ -49,7 +50,7 @@ Object.keys(statusColors).forEach(function (color) {
   colors['status-' + color] = statusColors[color];
 });
 
-exports.default = (0, _utils.deepFreeze)({
+var dark = exports.dark = (0, _utils.deepFreeze)({
   global: {
     colors: colors,
     control: {

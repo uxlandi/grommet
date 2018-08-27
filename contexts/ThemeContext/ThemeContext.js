@@ -1,20 +1,19 @@
 'use strict';
 
 exports.__esModule = true;
+exports.ThemeContext = undefined;
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _base = require('../../themes/base');
-
-var _base2 = _interopRequireDefault(_base);
+var _themes = require('../../themes');
 
 var _utils = require('../../utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ThemeContext = _react2.default.createContext(_base2.default);
+var ThemeContext = _react2.default.createContext(_themes.base);
 
 ThemeContext.Extend = function (_ref) {
   var children = _ref.children,
@@ -34,4 +33,4 @@ ThemeContext.Extend = function (_ref) {
   );
 };
 
-exports.default = ThemeContext;
+exports.ThemeContext = ThemeContext;

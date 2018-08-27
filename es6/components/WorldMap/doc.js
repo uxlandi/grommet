@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (WorldMap) {
+export var doc = function doc(WorldMap) {
   var DocumentedWorldMap = describe(WorldMap).availableAt(getAvailableAtBadge('WorldMap')).description('A map of the world, or a continent.').usage("import { WorldMap } from 'grommet';\n<WorldMap />");
 
   DocumentedWorldMap.propTypes = {
@@ -25,4 +25,4 @@ export default (function (WorldMap) {
   };
 
   return DocumentedWorldMap;
-});
+};

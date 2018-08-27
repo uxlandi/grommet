@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.RangeInput = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -14,11 +15,7 @@ var _hocs = require('../hocs');
 
 var _StyledRangeInput = require('./StyledRangeInput');
 
-var _StyledRangeInput2 = _interopRequireDefault(_StyledRangeInput);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -44,7 +41,7 @@ var RangeInput = function (_Component) {
         forwardRef = _props.forwardRef,
         rest = _objectWithoutProperties(_props, ['forwardRef']);
 
-    return _react2.default.createElement(_StyledRangeInput2.default, _extends({}, rest, {
+    return _react2.default.createElement(_StyledRangeInput.StyledRangeInput, _extends({}, rest, {
       innerRef: forwardRef,
       type: 'range'
     }));
@@ -53,4 +50,6 @@ var RangeInput = function (_Component) {
   return RangeInput;
 }(_react.Component);
 
-exports.default = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(RangeInput) : RangeInput);
+var RangeInputWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(RangeInput) : RangeInput);
+
+exports.RangeInput = RangeInputWrapper;

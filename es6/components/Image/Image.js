@@ -9,8 +9,8 @@ import { compose } from 'recompose';
 
 import { withTheme } from '../hocs';
 
-import StyledImage from './StyledImage';
-import doc from './doc';
+import { StyledImage } from './StyledImage';
+import { doc } from './doc';
 
 var Image = function (_Component) {
   _inherits(Image, _Component);
@@ -28,4 +28,6 @@ var Image = function (_Component) {
   return Image;
 }(Component);
 
-export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Image) : Image);
+var ImageWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Image) : Image);
+
+export { ImageWrapper as Image };

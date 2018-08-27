@@ -6,13 +6,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _WorldMap = require('../WorldMap/WorldMap');
-
-var _WorldMap2 = _interopRequireDefault(_WorldMap);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -45,9 +39,9 @@ var SimpleWorldMap = function (_Component) {
     var places = this.state.places;
 
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_WorldMap2.default, { onSelectPlace: this.onSelectPlace, places: places })
+      _react2.default.createElement(_.WorldMap, { onSelectPlace: this.onSelectPlace, places: places })
     );
   };
 

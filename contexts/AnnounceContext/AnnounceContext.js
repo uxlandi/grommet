@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.AnnounceContext = undefined;
 
 var _react = require('react');
 
@@ -20,7 +21,7 @@ var createAnnouncer = function createAnnouncer() {
   return announcer;
 };
 
-var AnnounceContext = _react2.default.createContext(function (message) {
+var AnnounceContext = exports.AnnounceContext = _react2.default.createContext(function (message) {
   var mode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'polite';
 
   // we only create a new container if we don't have one already
@@ -34,5 +35,3 @@ var AnnounceContext = _react2.default.createContext(function (message) {
     announcer.innerHTML = '';
   }, 500);
 });
-
-exports.default = AnnounceContext;

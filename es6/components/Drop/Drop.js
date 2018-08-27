@@ -16,8 +16,8 @@ import { getNewContainer, setFocusWithoutScroll } from '../../utils';
 
 import { withTheme } from '../hocs';
 
-import DropContainer from './DropContainer';
-import doc from './doc';
+import { DropContainer } from './DropContainer';
+import { doc } from './doc';
 
 var Drop = function (_Component) {
   _inherits(Drop, _Component);
@@ -67,4 +67,6 @@ Drop.defaultProps = {
 };
 
 
-export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Drop) : Drop);
+var DropWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Drop) : Drop);
+
+export { DropWrapper as Drop };

@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (Video) {
+var doc = exports.doc = function doc(Video) {
   var DocumentedVideo = (0, _reactDesc.describe)(Video).availableAt((0, _utils.getAvailableAtBadge)('Video')).description('A video player.').usage('import { Video } from \'grommet\';\n<Video />');
 
   DocumentedVideo.propTypes = {

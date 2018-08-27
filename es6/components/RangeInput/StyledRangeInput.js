@@ -28,7 +28,7 @@ var firefoxMicrosoftThumbStyle = css(['', ' margin-top:0px;height:', ';width:', 
   return props.theme.global.spacing;
 });
 
-var StyledRangeInput = styled.input.withConfig({
+export var StyledRangeInput = styled.input.withConfig({
   displayName: 'StyledRangeInput'
 })(['box-sizing:border-box;position:relative;-webkit-appearance:none;border-color:transparent;height:', ';width:100%;padding:0px;cursor:pointer;background:transparent;&:focus{outline:none;}&::-moz-focus-inner{border:none;}&::-moz-focus-outer{border:none;}&::-webkit-slider-runnable-track{', '}&::-webkit-slider-thumb{', ' margin-top:-', 'px;', '}&::-moz-range-track{', '}&::-moz-range-thumb{', '}&::-ms-thumb{', '}', ' &::-ms-track{', ' border-color:transparent;color:transparent;}&::-ms-fill-lower{background:', ';border-color:transparent;}&::-ms-fill-upper{background:', ';border-color:transparent;}', ''], function (props) {
   return props.theme.global.spacing;
@@ -44,8 +44,6 @@ var StyledRangeInput = styled.input.withConfig({
   return normalizeColor(props.theme.rangeInput.track.color, props.theme);
 }, function (props) {
   return props.focus && focusStyle;
-});
-
-export default StyledRangeInput.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.rangeInput && props.theme.rangeInput.extend;
 });

@@ -21,5 +21,3 @@ var strokeProps = exports.strokeProps = function strokeProps(color, theme) {
   }
   return result;
 };
-
-exports.default = { strokeProps: strokeProps };

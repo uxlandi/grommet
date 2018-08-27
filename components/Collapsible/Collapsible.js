@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Collapsible = undefined;
 
 var _react = require('react');
 
@@ -19,8 +20,6 @@ var _hocs = require('../hocs');
 var _Box = require('../Box');
 
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -143,4 +142,6 @@ var Collapsible = function (_Component) {
   return Collapsible;
 }(_react.Component);
 
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Collapsible) : Collapsible);
+var CollapsibleWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Collapsible) : Collapsible);
+
+exports.Collapsible = CollapsibleWrapper;

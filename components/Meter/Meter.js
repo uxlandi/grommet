@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Meter = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -14,15 +15,9 @@ var _hocs = require('../hocs');
 
 var _Bar = require('./Bar');
 
-var _Bar2 = _interopRequireDefault(_Bar);
-
 var _Circle = require('./Circle');
 
-var _Circle2 = _interopRequireDefault(_Circle);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -80,9 +75,9 @@ var Meter = function (_Component) {
 
     var content = void 0;
     if (type === 'bar') {
-      content = _react2.default.createElement(_Bar2.default, _extends({ max: max }, rest));
+      content = _react2.default.createElement(_Bar.Bar, _extends({ max: max }, rest));
     } else if (type === 'circle') {
-      content = _react2.default.createElement(_Circle2.default, _extends({ max: max }, rest));
+      content = _react2.default.createElement(_Circle.Circle, _extends({ max: max }, rest));
     }
 
     return content;
@@ -97,4 +92,8 @@ Meter.defaultProps = {
   thickness: 'medium',
   type: 'bar'
 };
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Meter) : Meter);
+
+
+var MeterWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Meter) : Meter);
+
+exports.Meter = MeterWrapper;

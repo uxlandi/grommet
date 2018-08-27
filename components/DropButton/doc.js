@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (DropButton) {
+var doc = exports.doc = function doc(DropButton) {
   var DocumentedDropButton = (0, _reactDesc.describe)(DropButton).availableAt((0, _utils.getAvailableAtBadge)('DropButton')).description('A Button that when clicked will a Drop with the specified \'dropContent\'.\n      When opened, the drop will control the focus so that the contents behind\n      it are not focusable. All properties of Button can be passed through.\n      ').usage('import { DropButton } from \'grommet\';\n<DropButton dropContent={...} />');
 
   DocumentedDropButton.propTypes = {

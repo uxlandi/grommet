@@ -15,12 +15,14 @@ var fitStyle = css(['flex:1 1;min-height:0;object-fit:', ';'], function (props) 
   return FIT_MAP[props.fit];
 });
 
-var StyledVideo = styled.video.withConfig({
+export var StyledVideo = styled.video.withConfig({
   displayName: 'StyledVideo'
 })(['max-width:100%;', '::cue{background:', ';}'], function (props) {
   return props.fit && fitStyle;
 }, function (props) {
   return props.theme.video.captions.background;
+}).extend(_templateObject, function (props) {
+  return props.theme.video && props.theme.video.extend;
 });
 
 export var StyledVideoContainer = styled.div.withConfig({
@@ -49,8 +51,4 @@ export var StyledVideoScrubber = styled.div.withConfig({
   displayName: 'StyledVideo__StyledVideoScrubber'
 })(['cursor:pointer;', ''], function (props) {
   return props.value && headStyle;
-});
-
-export default StyledVideo.extend(_templateObject, function (props) {
-  return props.theme.video && props.theme.video.extend;
 });

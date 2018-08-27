@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (Image) {
+export var doc = function doc(Image) {
   var DocumentedImage = describe(Image).availableAt(getAvailableAtBadge('Image')).description('An image.').usage('import { Image } from \'grommet\';\n<Image/>');
 
   DocumentedImage.propTypes = {
@@ -10,4 +10,4 @@ export default (function (Image) {
   };
 
   return DocumentedImage;
-});
+};

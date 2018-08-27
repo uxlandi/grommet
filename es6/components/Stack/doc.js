@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (Stack) {
+export var doc = function doc(Stack) {
   var DocumentedStack = describe(Stack).availableAt(getAvailableAtBadge('Stack')).description('Stacks components on top of the first child component.').usage('import { Stack } from \'grommet\';\n<Stack />');
 
   DocumentedStack.propTypes = {
@@ -12,4 +12,4 @@ export default (function (Stack) {
   };
 
   return DocumentedStack;
-});
+};

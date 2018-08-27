@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Bar = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -11,8 +12,6 @@ var _react2 = _interopRequireDefault(_react);
 var _utils = require('../../utils');
 
 var _StyledMeter = require('./StyledMeter');
-
-var _StyledMeter2 = _interopRequireDefault(_StyledMeter);
 
 var _utils2 = require('./utils');
 
@@ -26,7 +25,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Bar = function (_Component) {
+var Bar = exports.Bar = function (_Component) {
   _inherits(Bar, _Component);
 
   function Bar() {
@@ -94,7 +93,7 @@ var Bar = function (_Component) {
     }).reverse(); // reverse so the caps looks right
 
     return _react2.default.createElement(
-      _StyledMeter2.default,
+      _StyledMeter.StyledMeter,
       _extends({
         viewBox: '0 0 ' + width + ' ' + height,
         preserveAspectRatio: 'none',
@@ -120,4 +119,3 @@ var Bar = function (_Component) {
 Bar.defaultProps = {
   background: 'light-1'
 };
-exports.default = Bar;

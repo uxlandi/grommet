@@ -12,7 +12,7 @@ var ANIMATION_SHAPE = PropTypes.shape({
   size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge'])
 });
 
-export default (function (Box) {
+export var doc = function doc(Box) {
   var DocumentedBox = describe(Box).availableAt(getAvailableAtBadge('Box')).description('A flexible box that lays out its contents along a single direction.').usage("import { Box } from 'grommet';\n<Box />");
   DocumentedBox.propTypes = {
     a11yTitle: a11yTitlePropType,
@@ -49,7 +49,7 @@ export default (function (Box) {
       top: PropTypes.oneOf(PAD_SIZES),
       vertical: PropTypes.oneOf(PAD_SIZES)
     })]).description('The amount of margin around the box. An object can\n        be specified to distinguish horizontal margin, vertical margin, and\n        margin on a particular side of the box'),
-    overflow: PropTypes.oneOf(['auto', 'hidden', 'scroll']).description('box overflow.'),
+    overflow: PropTypes.oneOf(['auto', 'hidden', 'scroll', 'visible']).description('box overflow.'),
     pad: PropTypes.oneOfType([PropTypes.oneOf(['none'].concat(PAD_SIZES)), PropTypes.shape({
       bottom: PropTypes.oneOf(PAD_SIZES),
       horizontal: PropTypes.oneOf(PAD_SIZES),
@@ -65,4 +65,4 @@ export default (function (Box) {
     wrap: PropTypes.bool.description('Whether children can wrap if they\n      can\'t all fit.')
   };
   return DocumentedBox;
-});
+};

@@ -6,9 +6,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _themes = require('../../themes');
-
 var _ = require('../');
+
+var _themes = require('../../themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

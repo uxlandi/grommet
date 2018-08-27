@@ -6,13 +6,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _Meter = require('../Meter/Meter');
-
-var _Meter2 = _interopRequireDefault(_Meter);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -35,9 +29,9 @@ var BarMeter = function (_Component) {
 
   BarMeter.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_Meter2.default, {
+      _react2.default.createElement(_.Meter, {
         type: 'bar',
         background: 'light-2',
         values: [{ value: 30 }]
@@ -59,9 +53,9 @@ var CircleMeter = function (_Component2) {
 
   CircleMeter.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_Meter2.default, {
+      _react2.default.createElement(_.Meter, {
         type: 'circle',
         background: 'light-2',
         values: [{ value: 30 }]

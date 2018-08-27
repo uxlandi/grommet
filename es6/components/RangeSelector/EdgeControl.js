@@ -118,4 +118,6 @@ var EdgeControl = function (_Component) {
   return EdgeControl;
 }(Component);
 
-export default compose(withForwardRef)(EdgeControl);
+var EdgeControlWrapper = compose(withForwardRef)(EdgeControl);
+
+export { EdgeControlWrapper as EdgeControl };

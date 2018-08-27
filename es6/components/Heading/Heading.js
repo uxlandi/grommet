@@ -13,8 +13,8 @@ import { compose } from 'recompose';
 
 import { withTheme } from '../hocs';
 
-import StyledHeading from './StyledHeading';
-import doc from './doc';
+import { StyledHeading } from './StyledHeading';
+import { doc } from './doc';
 
 var styledComponents = {
   div: StyledHeading
@@ -54,4 +54,6 @@ Heading.defaultProps = {
 };
 
 
-export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Heading) : Heading);
+var HeadingWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Heading) : Heading);
+
+export { HeadingWrapper as Heading };

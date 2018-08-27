@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (Clock) {
+export var doc = function doc(Clock) {
   var DocumentedClock = describe(Clock).availableAt(getAvailableAtBadge('Clock')).description('A clock with timezone awareness.').usage('import { Clock } from \'grommet\';\n<Clock />');
 
   DocumentedClock.propTypes = {
@@ -16,4 +16,4 @@ export default (function (Clock) {
   };
 
   return DocumentedClock;
-});
+};

@@ -172,7 +172,7 @@ var AllDrops = function (_Component3) {
         { value: { global: { drop: { background: { color: 'white', opacity: 'medium' } } } } },
         React.createElement(
           Box,
-          { direction: 'row', wrap: 'true', pad: 'medium', align: 'center' },
+          { direction: 'row', wrap: true, pad: 'medium', align: 'center' },
           React.createElement(Set, {
             label: 'left: left',
             aligns: [{ top: 'top', left: 'left' }, { top: 'bottom', left: 'left' }, { bottom: 'top', left: 'left' }, { bottom: 'bottom', left: 'left' }]

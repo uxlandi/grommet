@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (Drop) {
+export var doc = function doc(Drop) {
   var DocumentedDrop = describe(Drop).availableAt(getAvailableAtBadge('Drop')).description('A drop container that opens next to a target.').usage('import { Drop } from \'grommet\';\n<Drop target={reference}>...</Drop>');
 
   DocumentedDrop.propTypes = {
@@ -24,4 +24,4 @@ export default (function (Drop) {
   };
 
   return DocumentedDrop;
-});
+};

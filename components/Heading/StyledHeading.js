@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.StyledHeading = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -68,7 +69,7 @@ var colorStyle = (0, _styledComponents.css)(['color:', ';'], function (props) {
   return (0, _utils.colorForName)(props.color, props.theme);
 });
 
-var StyledHeading = _styledComponents2.default.h1.withConfig({
+var StyledHeading = exports.StyledHeading = _styledComponents2.default.h1.withConfig({
   displayName: 'StyledHeading'
 })(['', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return props.theme.heading.font && (0, _styledComponents.css)(['font-family:', ';'], props.theme.heading.font.family);
@@ -82,8 +83,6 @@ var StyledHeading = _styledComponents2.default.h1.withConfig({
   return props.truncate && truncateStyle;
 }, function (props) {
   return props.color && colorStyle;
-});
-
-exports.default = StyledHeading.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.heading && props.theme.heading.extend;
 });

@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (Meter) {
+var doc = exports.doc = function doc(Meter) {
   var DocumentedMeter = (0, _reactDesc.describe)(Meter).availableAt((0, _utils.getAvailableAtBadge)('Meter')).description('A graphical meter.').usage('import { Meter } from \'grommet\';\n<Meter />');
 
   DocumentedMeter.propTypes = {

@@ -1,10 +1,11 @@
 'use strict';
 
 exports.__esModule = true;
+exports.calcs = undefined;
 
 var _utils = require('./utils');
 
-exports.default = function (values) {
+var calcs = exports.calcs = function calcs(values) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
   var coarseness = options.coarseness || 5;

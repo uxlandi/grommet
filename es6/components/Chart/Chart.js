@@ -18,10 +18,10 @@ import { colorForName, parseMetricToNum } from '../../utils';
 
 import { withTheme } from '../hocs';
 
-import StyledChart from './StyledChart';
+import { StyledChart } from './StyledChart';
 import { normalizeValues, normalizeBounds } from './utils';
 
-import doc from './doc';
+import { doc } from './doc';
 
 var renderBars = function renderBars(values, bounds, scale, height) {
   return (values || []).map(function (valueArg, index) {
@@ -266,4 +266,6 @@ Chart.defaultProps = {
 };
 
 
-export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Chart) : Chart);
+var ChartWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Chart) : Chart);
+
+export { ChartWrapper as Chart };

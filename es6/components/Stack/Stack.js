@@ -13,8 +13,8 @@ import { compose } from 'recompose';
 
 import { withTheme } from '../hocs';
 
-import StyledStack, { StyledStackLayer } from './StyledStack';
-import doc from './doc';
+import { StyledStack, StyledStackLayer } from './StyledStack';
+import { doc } from './doc';
 
 var Stack = function (_Component) {
   _inherits(Stack, _Component);
@@ -76,4 +76,6 @@ var Stack = function (_Component) {
   return Stack;
 }(Component);
 
-export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Stack) : Stack);
+var StackWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Stack) : Stack);
+
+export { StackWrapper as Stack };

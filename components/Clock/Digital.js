@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Digital = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -117,7 +118,7 @@ var Element = function Element(_ref) {
   return result;
 };
 
-var Digital = function (_Component2) {
+var Digital = exports.Digital = function (_Component2) {
   _inherits(Digital, _Component2);
 
   function Digital() {
@@ -154,5 +155,3 @@ var Digital = function (_Component2) {
 
   return Digital;
 }(_react.Component);
-
-exports.default = Digital;

@@ -13,13 +13,13 @@ import { findDOMNode } from 'react-dom';
 import { ThemeContext as IconThemeContext } from 'grommet-icons';
 
 import { ThemeContext } from '../../contexts';
-import FocusedContainer from '../FocusedContainer';
+import { FocusedContainer } from '../FocusedContainer';
 import { backgroundIsDark, findScrollParents, findVisibleParent, parseMetricToNum } from '../../utils';
 import { Keyboard } from '../Keyboard';
 
-import StyledDrop from './StyledDrop';
+import { StyledDrop } from './StyledDrop';
 
-var DropContainer = function (_Component) {
+export var DropContainer = function (_Component) {
   _inherits(DropContainer, _Component);
 
   function DropContainer() {
@@ -281,7 +281,6 @@ var DropContainer = function (_Component) {
 
   return DropContainer;
 }(Component);
-
 DropContainer.defaultProps = {
   align: {
     top: 'top',
@@ -289,6 +288,3 @@ DropContainer.defaultProps = {
   },
   stretch: 'width'
 };
-
-
-export default DropContainer;

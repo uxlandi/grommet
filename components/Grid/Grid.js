@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Grid = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -14,11 +15,7 @@ var _hocs = require('../hocs');
 
 var _StyledGrid = require('./StyledGrid');
 
-var _StyledGrid2 = _interopRequireDefault(_StyledGrid);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31,7 +28,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var styledComponents = {
-  div: _StyledGrid2.default
+  div: _StyledGrid.StyledGrid
 }; // tag -> styled component
 
 var Grid = function (_Component) {
@@ -52,7 +49,7 @@ var Grid = function (_Component) {
 
     var StyledComponent = styledComponents[tag];
     if (!StyledComponent) {
-      StyledComponent = _StyledGrid2.default.withComponent(tag);
+      StyledComponent = _StyledGrid.StyledGrid.withComponent(tag);
       styledComponents[tag] = StyledComponent;
     }
 
@@ -70,8 +67,8 @@ Grid.defaultProps = {
 };
 
 
-var GridWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Grid) : Grid);
+var GridWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Grid) : Grid);
 
 GridWrapper.available = typeof window !== 'undefined' && window.CSS && window.CSS.supports && window.CSS.supports('display', 'grid');
 
-exports.default = GridWrapper;
+exports.Grid = GridWrapper;

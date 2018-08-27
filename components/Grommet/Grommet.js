@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Grommet = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -16,19 +17,13 @@ var _contexts = require('../../contexts');
 
 var _base = require('../../themes/base');
 
-var _base2 = _interopRequireDefault(_base);
-
 var _utils = require('../../utils');
 
 var _hocs = require('../hocs');
 
 var _StyledGrommet = require('./StyledGrommet');
 
-var _StyledGrommet2 = _interopRequireDefault(_StyledGrommet);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -77,9 +72,9 @@ var Grommet = function (_Component) {
 
     var nextTheme = void 0;
     if (theme && (theme !== themeProp || iconTheme !== iconThemeProp)) {
-      nextTheme = (0, _utils.deepMerge)(_base2.default, theme);
+      nextTheme = (0, _utils.deepMerge)(_base.base, theme);
     } else if (!theme && (themeProp || !stateTheme)) {
-      nextTheme = _base2.default;
+      nextTheme = _base.base;
     }
 
     if (nextTheme) {
@@ -135,7 +130,7 @@ var Grommet = function (_Component) {
           _contexts.ResponsiveContext.Provider,
           { value: responsive },
           _react2.default.createElement(
-            _StyledGrommet2.default,
+            _StyledGrommet.StyledGrommet,
             _extends({}, rest, { theme: theme }),
             children
           )
@@ -147,4 +142,6 @@ var Grommet = function (_Component) {
   return Grommet;
 }(_react.Component);
 
-exports.default = (0, _recompose.compose)(_hocs.withIconTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Grommet) : Grommet);
+var GrommetWrapper = (0, _recompose.compose)(_hocs.withIconTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Grommet) : Grommet);
+
+exports.Grommet = GrommetWrapper;

@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Box = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -20,11 +21,7 @@ var _hocs = require('../hocs');
 
 var _StyledBox = require('./StyledBox');
 
-var _StyledBox2 = _interopRequireDefault(_StyledBox);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37,7 +34,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var styledComponents = {
-  div: _StyledBox2.default
+  div: _StyledBox.StyledBox
 }; // tag -> styled component
 
 var Box = function (_Component) {
@@ -107,7 +104,7 @@ var Box = function (_Component) {
 
     var StyledComponent = styledComponents[tag];
     if (!StyledComponent) {
-      StyledComponent = _StyledBox2.default.withComponent(tag);
+      StyledComponent = _StyledBox.StyledBox.withComponent(tag);
       styledComponents[tag] = StyledComponent;
     }
 
@@ -177,5 +174,9 @@ Box.defaultProps = {
   responsive: true,
   tag: 'div'
 };
-exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef // needed for RangeSelector
-)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Box) : Box);
+
+
+var BoxWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef // needed for RangeSelector
+)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Box) : Box);
+
+exports.Box = BoxWrapper;

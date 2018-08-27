@@ -16,7 +16,7 @@ import { Box } from '../Box';
 import { Text } from '../Text';
 import { withFocus, withTheme } from '../hocs';
 
-import doc from './doc';
+import { doc } from './doc';
 
 var FormField = function (_Component) {
   _inherits(FormField, _Component);
@@ -136,4 +136,6 @@ var FormField = function (_Component) {
   return FormField;
 }(Component);
 
-export default compose(withFocus, withTheme)(process.env.NODE_ENV !== 'production' ? doc(FormField) : FormField);
+var FormFieldWrapper = compose(withFocus, withTheme)(process.env.NODE_ENV !== 'production' ? doc(FormField) : FormField);
+
+export { FormFieldWrapper as FormField };

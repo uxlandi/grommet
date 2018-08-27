@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.RadioButton = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -16,11 +17,7 @@ var _object = require('../../utils/object');
 
 var _StyledRadioButton = require('./StyledRadioButton');
 
-var _StyledRadioButton2 = _interopRequireDefault(_StyledRadioButton);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -65,7 +62,7 @@ var RadioButton = function (_Component) {
         theme: theme
       }),
       _react2.default.createElement(
-        _StyledRadioButton2.default,
+        _StyledRadioButton.StyledRadioButton,
         { theme: theme },
         _react2.default.createElement(_StyledRadioButton.StyledRadioButtonInput, _extends({}, rest, {
           innerRef: forwardRef,
@@ -90,4 +87,6 @@ var RadioButton = function (_Component) {
   return RadioButton;
 }(_react.Component);
 
-exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(RadioButton) : RadioButton);
+var RadioButtonWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(RadioButton) : RadioButton);
+
+exports.RadioButton = RadioButtonWrapper;

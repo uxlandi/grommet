@@ -6,7 +6,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 import { Children, Component, cloneElement } from 'react';
 
-import doc from './doc';
+import { doc } from './doc';
 
 var KEYS = {
   8: 'onBackspace',
@@ -84,4 +84,6 @@ var Keyboard = function (_Component) {
   return Keyboard;
 }(Component);
 
-export default process.env.NODE_ENV !== 'production' ? doc(Keyboard) : Keyboard;
+var KeyboardWrapper = process.env.NODE_ENV !== 'production' ? doc(Keyboard) : Keyboard;
+
+export { KeyboardWrapper as Keyboard };

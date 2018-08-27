@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Clock = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -14,15 +15,9 @@ var _hocs = require('../hocs');
 
 var _Analog = require('./Analog');
 
-var _Analog2 = _interopRequireDefault(_Analog);
-
 var _Digital = require('./Digital');
 
-var _Digital2 = _interopRequireDefault(_Digital);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -217,9 +212,9 @@ var Clock = function (_Component) {
 
     var content = void 0;
     if (type === 'analog') {
-      content = _react2.default.createElement(_Analog2.default, _extends({ elements: elements }, rest));
+      content = _react2.default.createElement(_Analog.Analog, _extends({ elements: elements }, rest));
     } else if (type === 'digital') {
-      content = _react2.default.createElement(_Digital2.default, _extends({ elements: elements }, rest));
+      content = _react2.default.createElement(_Digital.Digital, _extends({ elements: elements }, rest));
     }
 
     return content;
@@ -235,4 +230,8 @@ Clock.defaultProps = {
   size: 'medium',
   type: 'analog'
 };
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Clock) : Clock);
+
+
+var ClockWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Clock) : Clock);
+
+exports.Clock = ClockWrapper;

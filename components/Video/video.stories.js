@@ -6,13 +6,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _Video = require('../Video/Video');
-
-var _Video2 = _interopRequireDefault(_Video);
-
-var _Grommet = require('../Grommet/Grommet');
-
-var _Grommet2 = _interopRequireDefault(_Grommet);
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -35,10 +29,10 @@ var SimpleVideo = function (_Component) {
 
   SimpleVideo.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet2.default,
+      _.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _Video2.default,
+        _.Video,
         null,
         _react2.default.createElement('source', { src: 'http://techslides.com/demos/sample-videos/small.webm', type: 'video/webm' }),
         _react2.default.createElement('source', { src: 'http://techslides.com/demos/sample-videos/small.ogv', type: 'video/ogg' }),

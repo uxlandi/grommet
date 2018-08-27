@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (Calendar) {
+export var doc = function doc(Calendar) {
   var DocumentedCalendar = describe(Calendar).availableAt(getAvailableAtBadge('Calendar')).description('Calendar of days in months.\n      It can be used to select a single date, a range of dates, or multiple\n      individual dates.').usage('import { Calendar } from \'grommet\';\n<Calendar />');
 
   DocumentedCalendar.propTypes = {
@@ -17,4 +17,4 @@ export default (function (Calendar) {
   };
 
   return DocumentedCalendar;
-});
+};

@@ -18,11 +18,7 @@ var _themes = require('../../../themes');
 
 var _theme = require('./theme');
 
-var _theme2 = _interopRequireDefault(_theme);
-
 var _SearchInputContext = require('./components/SearchInputContext');
-
-var _SearchInputContext2 = _interopRequireDefault(_SearchInputContext);
 
 var _utils = require('../../../utils');
 
@@ -446,12 +442,12 @@ var CustomSearchSelect = function (_Component4) {
 
     return _react2.default.createElement(
       _.Grommet,
-      { theme: _theme2.default },
+      { theme: _theme.theme },
       _react2.default.createElement(
         _.Box,
         { align: 'start', width: 'medium', direction: 'row' },
         _react2.default.createElement(
-          _SearchInputContext2.default.Provider,
+          _SearchInputContext.SearchInputContext.Provider,
           { value: { searching: searching } },
           _react2.default.createElement(
             _.Select,

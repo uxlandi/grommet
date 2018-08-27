@@ -14,8 +14,8 @@ import { getNewContainer } from '../../utils';
 
 import { withTheme } from '../hocs';
 
-import LayerContainer from './LayerContainer';
-import doc from './doc';
+import { LayerContainer } from './LayerContainer';
+import { doc } from './doc';
 
 var Layer = function (_Component) {
   _inherits(Layer, _Component);
@@ -70,4 +70,6 @@ Layer.defaultProps = {
 };
 
 
-export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Layer) : Layer);
+var LayerWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Layer) : Layer);
+
+export { LayerWrapper as Layer };

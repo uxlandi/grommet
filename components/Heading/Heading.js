@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Heading = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -14,11 +15,7 @@ var _hocs = require('../hocs');
 
 var _StyledHeading = require('./StyledHeading');
 
-var _StyledHeading2 = _interopRequireDefault(_StyledHeading);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31,7 +28,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var styledComponents = {
-  div: _StyledHeading2.default
+  div: _StyledHeading.StyledHeading
 }; // tag -> styled component
 
 var Heading = function (_Component) {
@@ -51,7 +48,7 @@ var Heading = function (_Component) {
     var tag = 'h' + level;
     var StyledComponent = styledComponents[tag];
     if (!StyledComponent) {
-      StyledComponent = _StyledHeading2.default.withComponent(tag);
+      StyledComponent = _StyledHeading.StyledHeading.withComponent(tag);
       styledComponents[tag] = StyledComponent;
     }
 
@@ -66,4 +63,8 @@ Heading.defaultProps = {
   level: 1,
   responsive: true
 };
-exports.default = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Heading) : Heading);
+
+
+var HeadingWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Heading) : Heading);
+
+exports.Heading = HeadingWrapper;

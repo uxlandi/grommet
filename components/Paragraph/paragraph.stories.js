@@ -6,9 +6,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _Paragraph = require('../Paragraph');
-
-var _Grommet = require('../Grommet');
+var _ = require('../');
 
 var _themes = require('../../themes');
 
@@ -35,18 +33,18 @@ var All = function (_Component) {
 
   All.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet.Grommet,
+      _.Grommet,
       { theme: _themes.grommet },
       sizes.map(function (size) {
         return _react2.default.createElement(
-          _Paragraph.Paragraph,
+          _.Paragraph,
           { key: size, size: size },
           'Paragraph ' + size,
           paragraphFiller
         );
       }),
       _react2.default.createElement(
-        _Paragraph.Paragraph,
+        _.Paragraph,
         { color: 'status-critical' },
         'This is an error message.'
       )

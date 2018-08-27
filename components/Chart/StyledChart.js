@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.StyledChart = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -12,10 +13,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
 
-var StyledChart = _styledComponents2.default.svg.withConfig({
+var StyledChart = exports.StyledChart = _styledComponents2.default.svg.withConfig({
   displayName: 'StyledChart'
-})(['display:block;max-width:100%;overflow:visible;']);
-
-exports.default = StyledChart.extend(_templateObject, function (props) {
+})(['display:block;max-width:100%;overflow:visible;']).extend(_templateObject, function (props) {
   return props.theme.chart && props.theme.chart.extend;
 });

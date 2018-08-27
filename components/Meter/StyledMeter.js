@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.StyledMeter = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -17,12 +18,10 @@ var roundStyle = (0, _styledComponents.css)(['border-radius:', ';'], function (p
 });
 
 // overflow: hidden is needed for ie11
-var StyledMeter = _styledComponents2.default.svg.withConfig({
+var StyledMeter = exports.StyledMeter = _styledComponents2.default.svg.withConfig({
   displayName: 'StyledMeter'
 })(['max-width:100%;', ' overflow:hidden;path{transition:all 0.3s;}'], function (props) {
   return props.round && roundStyle;
-});
-
-exports.default = StyledMeter.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.meter && props.theme.meter.extend;
 });

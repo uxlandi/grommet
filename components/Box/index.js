@@ -7,8 +7,6 @@ var _Box = require('./Box');
 Object.defineProperty(exports, 'Box', {
   enumerable: true,
   get: function get() {
-    return _interopRequireDefault(_Box).default;
+    return _Box.Box;
   }
 });
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

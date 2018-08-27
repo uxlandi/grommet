@@ -8,14 +8,12 @@ import { baseStyle } from '../../utils';
 
 var fullStyle = css(['width:100vw;height:100vh;overflow:auto;']);
 
-var StyledGrommet = styled.div.withConfig({
+export var StyledGrommet = styled.div.withConfig({
   displayName: 'StyledGrommet'
 })(['', ' ', ' ', ''], baseStyle, function (props) {
   return props.full && fullStyle;
 }, function (props) {
   return props.theme.global.font.face;
-});
-
-export default StyledGrommet.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.grommet.extend;
 });

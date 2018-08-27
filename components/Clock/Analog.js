@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Analog = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -52,7 +53,7 @@ var getClockState = function getClockState(_ref) {
   };
 };
 
-var Analog = function (_Component) {
+var Analog = exports.Analog = function (_Component) {
   _inherits(Analog, _Component);
 
   function Analog() {
@@ -166,4 +167,3 @@ var Analog = function (_Component) {
 Analog.defaultProps = {
   size: 'medium'
 };
-exports.default = Analog;

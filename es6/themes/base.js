@@ -612,4 +612,4 @@ export var generate = function generate() {
   return deepFreeze(result);
 };
 
-export default generate(24);
+export var base = generate(24);

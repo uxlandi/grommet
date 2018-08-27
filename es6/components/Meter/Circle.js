@@ -12,10 +12,10 @@ import React, { Component } from 'react';
 
 import { arcCommands, parseMetricToNum, translateEndAngle } from '../../utils';
 
-import StyledMeter from './StyledMeter';
+import { StyledMeter } from './StyledMeter';
 import { strokeProps } from './utils';
 
-var Circle = function (_Component) {
+export var Circle = function (_Component) {
   _inherits(Circle, _Component);
 
   function Circle() {
@@ -148,5 +148,3 @@ var Circle = function (_Component) {
 
   return Circle;
 }(Component);
-
-export default Circle;

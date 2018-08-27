@@ -1,14 +1,11 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Keyboard = undefined;
 
 var _react = require('react');
 
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -92,4 +89,6 @@ var Keyboard = function (_Component) {
   return Keyboard;
 }(_react.Component);
 
-exports.default = process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Keyboard) : Keyboard;
+var KeyboardWrapper = process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Keyboard) : Keyboard;
+
+exports.Keyboard = KeyboardWrapper;

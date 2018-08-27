@@ -7,8 +7,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import RadioButton from '../RadioButton/RadioButton';
-import Grommet from '../Grommet/Grommet';
+import { Grommet, RadioButton } from '../';
 import { grommet } from '../../themes';
 
 var SimpleRadioButton = function (_Component) {

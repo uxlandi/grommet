@@ -20,7 +20,7 @@ var isNotAncestorOf = function isNotAncestorOf(child) {
   };
 };
 
-var FocusedContainer = function (_Component) {
+export var FocusedContainer = function (_Component) {
   _inherits(FocusedContainer, _Component);
 
   function FocusedContainer() {
@@ -87,7 +87,6 @@ var FocusedContainer = function (_Component) {
 
   return FocusedContainer;
 }(Component);
-
 FocusedContainer.defaultProps = {
   hidden: false,
   restrictScroll: false
@@ -96,4 +95,3 @@ FocusedContainer.propTypes = {
   hidden: PropTypes.bool,
   restrictScroll: PropTypes.bool
 };
-export default FocusedContainer;

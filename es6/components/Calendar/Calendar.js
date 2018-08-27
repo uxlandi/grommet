@@ -18,8 +18,8 @@ import { Heading } from '../Heading';
 import { Keyboard } from '../Keyboard';
 import { withTheme } from '../hocs';
 
-import StyledCalendar, { StyledDay, StyledDayContainer, StyledWeek, StyledWeeks, StyledWeeksContainer } from './StyledCalendar';
-import doc from './doc';
+import { StyledCalendar, StyledDay, StyledDayContainer, StyledWeek, StyledWeeks, StyledWeeksContainer } from './StyledCalendar';
+import { doc } from './doc';
 import { addDays, addMonths, betweenDates, daysApart, sameDay, subtractDays, subtractMonths, withinDates } from './utils';
 
 var buildStartEnd = function buildStartEnd(reference, firstDayOfWeek) {
@@ -338,4 +338,6 @@ Calendar.defaultProps = {
 };
 
 
-export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Calendar) : Calendar);
+var CalendarWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Calendar) : Calendar);
+
+export { CalendarWrapper as Calendar };

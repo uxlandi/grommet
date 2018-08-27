@@ -13,8 +13,8 @@ import { compose } from 'recompose';
 
 import { withForwardRef, withTheme } from '../hocs';
 
-import StyledTextArea from './StyledTextArea';
-import doc from './doc';
+import { StyledTextArea } from './StyledTextArea';
+import { doc } from './doc';
 
 var TextArea = function (_Component) {
   _inherits(TextArea, _Component);
@@ -36,4 +36,6 @@ var TextArea = function (_Component) {
   return TextArea;
 }(Component);
 
-export default compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(TextArea) : TextArea);
+var TextAreaWrapper = compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(TextArea) : TextArea);
+
+export { TextAreaWrapper as TextArea };

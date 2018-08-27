@@ -1,7 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
-exports.StyledVideoScrubber = exports.StyledVideoControls = exports.StyledVideoContainer = undefined;
+exports.StyledVideoScrubber = exports.StyledVideoControls = exports.StyledVideoContainer = exports.StyledVideo = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -24,12 +24,14 @@ var fitStyle = (0, _styledComponents.css)(['flex:1 1;min-height:0;object-fit:', 
   return FIT_MAP[props.fit];
 });
 
-var StyledVideo = _styledComponents2.default.video.withConfig({
+var StyledVideo = exports.StyledVideo = _styledComponents2.default.video.withConfig({
   displayName: 'StyledVideo'
 })(['max-width:100%;', '::cue{background:', ';}'], function (props) {
   return props.fit && fitStyle;
 }, function (props) {
   return props.theme.video.captions.background;
+}).extend(_templateObject, function (props) {
+  return props.theme.video && props.theme.video.extend;
 });
 
 var StyledVideoContainer = exports.StyledVideoContainer = _styledComponents2.default.div.withConfig({
@@ -58,8 +60,4 @@ var StyledVideoScrubber = exports.StyledVideoScrubber = _styledComponents2.defau
   displayName: 'StyledVideo__StyledVideoScrubber'
 })(['cursor:pointer;', ''], function (props) {
   return props.value && headStyle;
-});
-
-exports.default = StyledVideo.extend(_templateObject, function (props) {
-  return props.theme.video && props.theme.video.extend;
 });

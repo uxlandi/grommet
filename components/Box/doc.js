@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
@@ -16,7 +17,7 @@ var ANIMATION_SHAPE = _reactDesc.PropTypes.shape({
   size: _reactDesc.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge'])
 });
 
-exports.default = function (Box) {
+var doc = exports.doc = function doc(Box) {
   var DocumentedBox = (0, _reactDesc.describe)(Box).availableAt((0, _utils.getAvailableAtBadge)('Box')).description('A flexible box that lays out its contents along a single direction.').usage("import { Box } from 'grommet';\n<Box />");
   DocumentedBox.propTypes = {
     a11yTitle: _utils.a11yTitlePropType,
@@ -53,7 +54,7 @@ exports.default = function (Box) {
       top: _reactDesc.PropTypes.oneOf(PAD_SIZES),
       vertical: _reactDesc.PropTypes.oneOf(PAD_SIZES)
     })]).description('The amount of margin around the box. An object can\n        be specified to distinguish horizontal margin, vertical margin, and\n        margin on a particular side of the box'),
-    overflow: _reactDesc.PropTypes.oneOf(['auto', 'hidden', 'scroll']).description('box overflow.'),
+    overflow: _reactDesc.PropTypes.oneOf(['auto', 'hidden', 'scroll', 'visible']).description('box overflow.'),
     pad: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['none'].concat(PAD_SIZES)), _reactDesc.PropTypes.shape({
       bottom: _reactDesc.PropTypes.oneOf(PAD_SIZES),
       horizontal: _reactDesc.PropTypes.oneOf(PAD_SIZES),

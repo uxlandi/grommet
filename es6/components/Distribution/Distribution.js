@@ -15,7 +15,7 @@ import { Box } from '../Box';
 
 import { withTheme } from '../hocs';
 
-import doc from './doc';
+import { doc } from './doc';
 
 var Value = function Value(_ref) {
   var basis = _ref.basis,
@@ -133,4 +133,6 @@ Distribution.defaultProps = {
 };
 
 
-export default compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Distribution) : Distribution);
+var DistributionWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Distribution) : Distribution);
+
+export { DistributionWrapper as Distribution };

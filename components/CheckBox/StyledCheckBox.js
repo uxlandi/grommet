@@ -1,7 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
-exports.StyledCheckBoxKnob = exports.StyledCheckBoxToggle = exports.StyledCheckBoxBox = exports.StyledCheckBoxInput = exports.StyledCheckBoxContainer = undefined;
+exports.StyledCheckBox = exports.StyledCheckBoxKnob = exports.StyledCheckBoxToggle = exports.StyledCheckBoxBox = exports.StyledCheckBoxInput = exports.StyledCheckBoxContainer = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -99,10 +99,8 @@ var StyledCheckBoxKnob = exports.StyledCheckBoxKnob = _styledComponents2.default
   return props.theme.checkBox.toggle.radius;
 });
 
-var StyledCheckBox = _styledComponents2.default.div.withConfig({
+var StyledCheckBox = exports.StyledCheckBox = _styledComponents2.default.div.withConfig({
   displayName: 'StyledCheckBox'
-})(['position:relative;']);
-
-exports.default = StyledCheckBox.extend(_templateObject, function (props) {
+})(['position:relative;']).extend(_templateObject, function (props) {
   return props.theme.checkBox && props.theme.checkBox.extend;
 });

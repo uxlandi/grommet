@@ -9,8 +9,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import CheckBox from '../CheckBox/CheckBox';
-import Grommet from '../Grommet/Grommet';
+import { Grommet, CheckBox } from '../';
 import { grommet } from '../../themes';
 
 var SimpleCheckBox = function (_Component) {

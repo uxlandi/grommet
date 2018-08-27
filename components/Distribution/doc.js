@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (Distribution) {
+var doc = exports.doc = function doc(Distribution) {
   var DocumentedDistribution = (0, _reactDesc.describe)(Distribution).availableAt((0, _utils.getAvailableAtBadge)('Distribution')).description('Approximately proportionally sized grid of boxes. The\n      area given to each box isn\'t mathematically precise according to the\n      ratio to the total values. Instead, the boxes are laid out in a\n      manner that makes them more visually easy to scan. For example,\n      two values of 48 and 52 will actually each get 50% of the area.').usage("import { Distribution } from 'grommet';\n<Distribution />");
 
   DocumentedDistribution.propTypes = {

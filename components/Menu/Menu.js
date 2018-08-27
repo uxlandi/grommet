@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Menu = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -16,23 +17,13 @@ var _styledComponents = require('styled-components');
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _Box = require('../Box');
-
-var _Button = require('../Button');
-
-var _DropButton = require('../DropButton');
-
-var _Keyboard = require('../Keyboard');
-
-var _Text = require('../Text');
+var _ = require('../');
 
 var _hocs = require('../hocs');
 
 var _utils = require('../../utils');
 
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -44,7 +35,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ContainerBox = (0, _styledComponents2.default)(_Box.Box).withConfig({
+var ContainerBox = (0, _styledComponents2.default)(_.Box).withConfig({
   displayName: 'Menu__ContainerBox'
 })(['max-height:inherit;@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){width:100%;}']);
 
@@ -142,7 +133,7 @@ var Menu = function (_Component) {
     var iconColor = (0, _utils.evalStyle)(theme.global.control.color[theme.dark ? 'dark' : 'light'], theme) || 'brand';
 
     var content = children || _react2.default.createElement(
-      _Box.Box,
+      _.Box,
       {
         direction: 'row',
         justify: 'start',
@@ -151,7 +142,7 @@ var Menu = function (_Component) {
         gap: label && icon !== false ? 'small' : undefined
       },
       _react2.default.createElement(
-        _Text.Text,
+        _.Text,
         { size: size },
         label
       ),
@@ -159,10 +150,10 @@ var Menu = function (_Component) {
     );
 
     var controlMirror = _react2.default.createElement(
-      _Box.Box,
+      _.Box,
       { flex: false },
       _react2.default.createElement(
-        _Button.Button,
+        _.Button,
         {
           a11yTitle: messages.closeMenu || 'Close Menu',
           onClick: this.onDropClose
@@ -172,7 +163,7 @@ var Menu = function (_Component) {
     );
 
     return _react2.default.createElement(
-      _Keyboard.Keyboard,
+      _.Keyboard,
       {
         onEnter: this.onSelectMenuItem,
         onSpace: this.onSelectMenuItem,
@@ -186,7 +177,7 @@ var Menu = function (_Component) {
         'div',
         null,
         _react2.default.createElement(
-          _DropButton.DropButton,
+          _.DropButton,
           _extends({
             ref: forwardRef
           }, rest, {
@@ -206,14 +197,14 @@ var Menu = function (_Component) {
               { background: dropBackground },
               dropAlign.top === 'top' ? controlMirror : undefined,
               _react2.default.createElement(
-                _Box.Box,
+                _.Box,
                 { overflow: 'auto' },
                 items.map(function (item, index) {
                   return _react2.default.createElement(
-                    _Box.Box,
+                    _.Box,
                     { key: 'menuItem_' + index, flex: false },
                     _react2.default.createElement(
-                      _Button.Button,
+                      _.Button,
                       {
                         ref: function ref(_ref) {
                           _this2.buttonRefs[index] = _ref;
@@ -229,7 +220,7 @@ var Menu = function (_Component) {
                         href: item.href
                       },
                       _react2.default.createElement(
-                        _Box.Box,
+                        _.Box,
                         { align: 'start', pad: 'small', direction: 'row' },
                         item.icon,
                         item.label
@@ -255,4 +246,8 @@ Menu.defaultProps = {
   items: [],
   messages: { openMenu: 'Open Menu', closeMenu: 'Close Menu' }
 };
-exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Menu) : Menu);
+
+
+var MenuWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Menu) : Menu);
+
+exports.Menu = MenuWrapper;

@@ -1,10 +1,11 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
-exports.default = function (Keyboard) {
+var doc = exports.doc = function doc(Keyboard) {
   var DocumentedKeyboard = (0, _reactDesc.describe)(Keyboard).description('A react component that handles keyboard key presses.').usage('import { Keyboard } from \'grommet\';\n<Keyboard onUp={() => {}} />');
 
   DocumentedKeyboard.propTypes = {

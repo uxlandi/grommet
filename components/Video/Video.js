@@ -1,6 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
+exports.Video = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -12,17 +13,7 @@ var _reactDom = require('react-dom');
 
 var _recompose = require('recompose');
 
-var _Box = require('../Box');
-
-var _Button = require('../Button');
-
-var _Menu = require('../Menu');
-
-var _Meter = require('../Meter');
-
-var _Stack = require('../Stack');
-
-var _Text = require('../Text');
+var _ = require('../');
 
 var _hocs = require('../hocs');
 
@@ -30,11 +21,7 @@ var _utils = require('../../utils');
 
 var _StyledVideo = require('./StyledVideo');
 
-var _StyledVideo2 = _interopRequireDefault(_StyledVideo);
-
 var _doc = require('./doc');
-
-var _doc2 = _interopRequireDefault(_doc);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -381,28 +368,28 @@ var Video = function (_Component) {
         active: !this.hasPlayed || controls === 'below' || over && interacting
       },
       _react2.default.createElement(
-        _Box.Box,
+        _.Box,
         {
           direction: 'row',
           align: 'center',
           justify: 'between',
           background: background
         },
-        _react2.default.createElement(_Button.Button, {
+        _react2.default.createElement(_.Button, {
           icon: playing ? _react2.default.createElement(Icons.Pause, { color: iconColor }) : _react2.default.createElement(Icons.Play, { color: iconColor }),
           hoverIndicator: 'background',
           onClick: playing ? this.pause : this.play
         }),
         _react2.default.createElement(
-          _Box.Box,
+          _.Box,
           { direction: 'row', align: 'center', flex: true },
           _react2.default.createElement(
-            _Box.Box,
+            _.Box,
             { flex: true },
             _react2.default.createElement(
-              _Stack.Stack,
+              _.Stack,
               null,
-              _react2.default.createElement(_Meter.Meter, {
+              _react2.default.createElement(_.Meter, {
                 'aria-label': 'Video progress',
                 background: over && (theme.video.scrubber && theme.video.scrubber.track.color || 'dark-3'),
                 size: 'full',
@@ -424,16 +411,16 @@ var Video = function (_Component) {
             )
           ),
           _react2.default.createElement(
-            _Box.Box,
+            _.Box,
             { pad: { horizontal: 'small' } },
             _react2.default.createElement(
-              _Text.Text,
+              _.Text,
               { margin: 'none' },
               formattedTime
             )
           )
         ),
-        _react2.default.createElement(_Menu.Menu, {
+        _react2.default.createElement(_.Menu, {
           icon: _react2.default.createElement(Icons.Configure, { color: iconColor }),
           dropAlign: { bottom: 'top', right: 'right' },
           dropBackground: background,
@@ -494,7 +481,7 @@ var Video = function (_Component) {
       _StyledVideo.StyledVideoContainer,
       _extends({}, mouseEventListeners, { theme: theme, style: style }),
       _react2.default.createElement(
-        _StyledVideo2.default,
+        _StyledVideo.StyledVideo,
         _extends({}, rest, {
           innerRef: videoRef,
           theme: theme
@@ -514,4 +501,8 @@ var Video = function (_Component) {
 Video.defaultProps = {
   controls: 'over'
 };
-exports.default = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc2.default)(Video) : Video);
+
+
+var VideoWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Video) : Video);
+
+exports.Video = VideoWrapper;

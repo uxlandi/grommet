@@ -1,7 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
-exports.StyledDay = exports.StyledDayContainer = exports.StyledWeek = exports.StyledWeeks = exports.StyledWeeksContainer = undefined;
+exports.StyledDay = exports.StyledDayContainer = exports.StyledWeek = exports.StyledWeeks = exports.StyledWeeksContainer = exports.StyledCalendar = undefined;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
 
@@ -20,10 +20,12 @@ var sizeStyle = function sizeStyle(props) {
   return (0, _styledComponents.css)(['font-size:', ';line-height:', ';width:', ';'], data.fontSize, data.lineHeight, props.theme.global.size[props.size]);
 };
 
-var StyledCalendar = _styledComponents2.default.div.withConfig({
+var StyledCalendar = exports.StyledCalendar = _styledComponents2.default.div.withConfig({
   displayName: 'StyledCalendar'
 })(['', ''], function (props) {
   return sizeStyle(props);
+}).extend(_templateObject, function (props) {
+  return props.theme.calendar && props.theme.calendar.extend;
 });
 
 var StyledWeeksContainer = exports.StyledWeeksContainer = _styledComponents2.default.div.withConfig({
@@ -75,8 +77,4 @@ var StyledDay = exports.StyledDay = _styledComponents2.default.div.withConfig({
   return props.otherMonth && 'opacity: 0.5;';
 }, function (props) {
   return props.isSelected && 'font-weight: bold;';
-});
-
-exports.default = StyledCalendar.extend(_templateObject, function (props) {
-  return props.theme.calendar && props.theme.calendar.extend;
 });

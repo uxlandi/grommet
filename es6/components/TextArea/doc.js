@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (TextArea) {
+export var doc = function doc(TextArea) {
   var DocumentedTextArea = describe(TextArea).availableAt(getAvailableAtBadge('TextArea')).description('A textarea.').usage('import { TextArea } from \'grommet\';\n<TextArea id=\'item\' name=\'item\' />');
 
   DocumentedTextArea.propTypes = {
@@ -15,4 +15,4 @@ export default (function (TextArea) {
   };
 
   return DocumentedTextArea;
-});
+};

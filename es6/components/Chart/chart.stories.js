@@ -10,7 +10,7 @@ import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Grommet, Box, Chart, Stack, Text } from '../';
-import calcs from '../Chart/calcs';
+import { calcs } from '../Chart/calcs';
 import { grommet } from '../../themes';
 
 var BarChart = function (_Component) {

@@ -44,7 +44,7 @@ var getClockState = function getClockState(_ref) {
   };
 };
 
-var Analog = function (_Component) {
+export var Analog = function (_Component) {
   _inherits(Analog, _Component);
 
   function Analog() {
@@ -154,8 +154,6 @@ var Analog = function (_Component) {
 
   return Analog;
 }(Component);
-
 Analog.defaultProps = {
   size: 'medium'
 };
-export default Analog;

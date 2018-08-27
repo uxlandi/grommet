@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (Grommet) {
+var doc = exports.doc = function doc(Grommet) {
   var DocumentedGrommet = (0, _reactDesc.describe)(Grommet).availableAt((0, _utils.getAvailableAtBadge)('Grommet')).description('This is the top level Grommet container.').usage('import { Grommet } from \'grommet\';\n<Grommet>...</Grommet>');
 
   DocumentedGrommet.propTypes = {

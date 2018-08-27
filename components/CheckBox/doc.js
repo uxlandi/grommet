@@ -1,12 +1,13 @@
 'use strict';
 
 exports.__esModule = true;
+exports.doc = undefined;
 
 var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-exports.default = function (CheckBox) {
+var doc = exports.doc = function doc(CheckBox) {
   var DocumentedCheckBox = (0, _reactDesc.describe)(CheckBox).availableAt((0, _utils.getAvailableAtBadge)('CheckBox')).description('A checkbox toggle control.').usage('import { CheckBox } from \'grommet\';\n<CheckBox />');
 
   DocumentedCheckBox.propTypes = {

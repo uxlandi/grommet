@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (Video) {
+export var doc = function doc(Video) {
   var DocumentedVideo = describe(Video).availableAt(getAvailableAtBadge('Video')).description('A video player.').usage('import { Video } from \'grommet\';\n<Video />');
 
   DocumentedVideo.propTypes = {
@@ -14,4 +14,4 @@ export default (function (Video) {
   };
 
   return DocumentedVideo;
-});
+};

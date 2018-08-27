@@ -1,7 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
-exports.StyledBoxGap = undefined;
+exports.StyledBoxGap = exports.StyledBox = undefined;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -303,7 +303,7 @@ var animationStyle = (0, _styledComponents.css)(['', ''], function (props) {
 });
 
 // NOTE: basis must be after flex! Otherwise, flex overrides basis
-var StyledBox = _styledComponents2.default.div.withConfig({
+var StyledBox = exports.StyledBox = _styledComponents2.default.div.withConfig({
   displayName: 'StyledBox'
 })(['display:flex;box-sizing:border-box;outline:none;', ';', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return !props.basis && 'max-width: 100%;';
@@ -349,12 +349,9 @@ var StyledBox = _styledComponents2.default.div.withConfig({
   return props.animation && animationStyle;
 }, function (props) {
   return props.focus && _utils.focusStyle;
-});
-
-exports.default = StyledBox.extend(_templateObject, function (props) {
+}).extend(_templateObject, function (props) {
   return props.theme.box && props.theme.box.extend;
 });
-
 
 var gapStyle = function gapStyle(directionProp, gap, responsive, _ref) {
   var edgeSize = _ref.global.edgeSize;

@@ -16,5 +16,3 @@ export var strokeProps = function strokeProps(color, theme) {
   }
   return result;
 };
-
-export default { strokeProps: strokeProps };

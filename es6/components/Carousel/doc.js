@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-export default (function (Carousel) {
+export var doc = function doc(Carousel) {
   var DocumentedCarousel = describe(Carousel).availableAt(getAvailableAtBadge('Carousel')).description('A carousel that cycles through children. Child components\n      would typically be Images. It is the caller\'s responsibility to ensure\n      that all children are the same size.').usage('import { Carousel } from \'grommet\';\n<Carousel />');
 
   DocumentedCarousel.propTypes = {
@@ -11,4 +11,4 @@ export default (function (Carousel) {
   };
 
   return DocumentedCarousel;
-});
+};

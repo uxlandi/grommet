@@ -10,7 +10,7 @@ var hiddenPositionStyle = css(['left:-100%;right:100%;z-index:-1;position:fixed;
 
 var desktopLayerStyle = '\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  right: 0px;\n  bottom: 0px;\n  width: 100vw;\n  height: 100vh;\n';
 
-var StyledLayer = styled.div.withConfig({
+export var StyledLayer = styled.div.withConfig({
   displayName: 'StyledLayer'
 })(['', ' background:unset;position:relative;z-index:10;pointer-events:none;outline:none;', ' ', ''], baseStyle, function (props) {
   return props.responsive && palm('\n    position: absolute;\n    height: 100%;\n    width: 100%;\n    overflow: auto;\n    ');
@@ -21,6 +21,8 @@ var StyledLayer = styled.div.withConfig({
     return lapAndUp(desktopLayerStyle);
   }
   return desktopLayerStyle;
+}).extend(_templateObject, function (props) {
+  return props.theme.layer && props.theme.layer.extend;
 });
 
 export var StyledOverlay = styled.div.withConfig({
@@ -184,7 +186,3 @@ export var StyledContainer = styled.div.withConfig({
 
 // ${props => props.full && fullStyle(props.full, props.margin, props.theme)}
 // ${props => props.margin && edgeStyle('margin', props.margin, props.theme)}
-
-export default StyledLayer.extend(_templateObject, function (props) {
-  return props.theme.layer && props.theme.layer.extend;
-});

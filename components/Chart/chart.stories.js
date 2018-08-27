@@ -12,8 +12,6 @@ var _ = require('../');
 
 var _calcs2 = require('../Chart/calcs');
 
-var _calcs3 = _interopRequireDefault(_calcs2);
-
 var _themes = require('../../themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -126,7 +124,7 @@ var RichChart = function (_Component4) {
       values.push({ value: [new Date(avg.date).getTime(), avg.value] });
     });
 
-    var _calcs = (0, _calcs3.default)(values, { coarseness: 5, steps: [3, 3] }),
+    var _calcs = (0, _calcs2.calcs)(values, { coarseness: 5, steps: [3, 3] }),
         axis = _calcs.axis,
         bounds = _calcs.bounds;
 
