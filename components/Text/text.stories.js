@@ -36,7 +36,7 @@ var All = function (_Component) {
       sizes.map(function (size) {
         return _react2.default.createElement(
           _.Box,
-          { margin: 'small' },
+          { key: size, margin: 'small' },
           _react2.default.createElement(
             _.Text,
             { size: size },

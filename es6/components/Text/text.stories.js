@@ -28,7 +28,7 @@ var All = function (_Component) {
       sizes.map(function (size) {
         return React.createElement(
           Box,
-          { margin: 'small' },
+          { key: size, margin: 'small' },
           React.createElement(
             Text,
             { size: size },

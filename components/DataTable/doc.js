@@ -28,9 +28,9 @@ var doc = exports.doc = function doc(DataTable) {
     groupBy: _reactDesc.PropTypes.string.description('Property to group data by.'),
     onMore: _reactDesc.PropTypes.func.description('Use this to indicate that \'data\' doesn\'t contain all that it could.\n      It will be called when all of the data rows have been rendered.\n      This might be used when the total number of items that could be retrieved\n      is more than you\'d want to load into the browser. \'onMore\' allows you\n      to lazily fetch more from the server only when needed. This cannot\n      be combined with properties that expect all data to be present in the\n      browser, such as columns.search, sortable, groupBy, or columns.aggregate.'),
     onSearch: _reactDesc.PropTypes.func.description('When supplied, and when at least one column has \'search\' enabled,\n      this function will be called with an object with keys for property\n      names and values which are the search text strings. This is typically\n      employed so a back-end can be used to search through the data.'),
-    resizeable: _reactDesc.PropTypes.string.description('Whether to allow the user to resize column widths.'),
+    resizeable: _reactDesc.PropTypes.bool.description('Whether to allow the user to resize column widths.'),
     size: _reactDesc.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']).description('\n      The height of the table body. If set, the table body will have a fixed\n      height and the rows will be scrollable within it. In order to preserve\n      header and footer cell alignment, all cells will have the same\n      width. This cannot be used in combination with \'resizeable\'.\n    '),
-    sortable: _reactDesc.PropTypes.string.description('Whether to allow the user to sort columns.')
+    sortable: _reactDesc.PropTypes.bool.description('Whether to allow the user to sort columns.')
   };
 
   return DocumentedDataTable;

@@ -129,6 +129,7 @@ var Components = function (_Component) {
       { key: 'input', gap: 'small' },
       _react2.default.createElement(_.Select, { placeholder: 'Select', options: ['One', 'Two'], onChange: function onChange() {} }),
       _react2.default.createElement(_.CheckBox, {
+        name: 'check',
         checked: checkBox,
         label: 'CheckBox',
         onChange: function onChange(event) {
@@ -136,6 +137,7 @@ var Components = function (_Component) {
         }
       }),
       _react2.default.createElement(_.CheckBox, {
+        name: 'toggle',
         toggle: true,
         checked: checkBox,
         label: 'CheckBox toggle',
@@ -144,6 +146,7 @@ var Components = function (_Component) {
         }
       }),
       _react2.default.createElement(_.RadioButton, {
+        name: 'radio',
         checked: radioButton,
         label: 'RadioButton',
         onChange: function onChange(event) {
@@ -162,7 +165,7 @@ var Components = function (_Component) {
           [0, 1, 2, 3].map(function (value) {
             return _react2.default.createElement(
               _.Box,
-              { key: value, pad: 'small', border: false },
+              { key: value, pad: 'small' },
               _react2.default.createElement(
                 _.Text,
                 { style: { fontFamily: 'monospace' } },

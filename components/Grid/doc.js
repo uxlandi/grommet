@@ -8,7 +8,7 @@ var _reactDesc = require('react-desc');
 var _utils = require('../../utils');
 
 var fixedSizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
-var sizes = ['xsmall', 'small', 'medium', 'large', 'xlarge', 'full', '1/2', '1/3', '2/3', '1/4', '3/4', 'flex'];
+var sizes = ['xsmall', 'small', 'medium', 'large', 'xlarge', 'full', '1/2', '1/3', '2/3', '1/4', '3/4', 'flex', 'auto'];
 var edgeSizes = ['small', 'medium', 'large', 'none'];
 
 var doc = exports.doc = function doc(Grid) {

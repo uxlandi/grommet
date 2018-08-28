@@ -7,7 +7,7 @@ var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-var PAD_SIZES = ['xsmall', 'small', 'medium', 'large'];
+var PAD_SIZES = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
 
 var ANIMATION_TYPE = _reactDesc.PropTypes.oneOf(['fadeIn', 'fadeOut', 'jiggle', 'pulse', 'slideUp', 'slideDown', 'slideLeft', 'slideRight', 'zoomIn', 'zoomOut']);
 var ANIMATION_SHAPE = _reactDesc.PropTypes.shape({
@@ -27,14 +27,18 @@ var doc = exports.doc = function doc(Box) {
     animation: _reactDesc.PropTypes.oneOfType([ANIMATION_TYPE, ANIMATION_SHAPE, _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.oneOfType([ANIMATION_TYPE, ANIMATION_SHAPE]))]).description('Animation effect(s) to use. \'duration\' and \'delay\' should\n        be in milliseconds. \'jiggle\' and \'pulse\' types are intended for\n        small elements, like icons.'),
     background: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.string, _reactDesc.PropTypes.shape({
       color: _reactDesc.PropTypes.string,
-      dark: _reactDesc.PropTypes.bool,
+      dark: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.bool, _reactDesc.PropTypes.string]),
       image: _reactDesc.PropTypes.string,
       position: _reactDesc.PropTypes.string,
-      opacity: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['weak', 'medium', 'strong']), _reactDesc.PropTypes.bool])
+      opacity: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['weak', 'medium', 'strong']), _reactDesc.PropTypes.bool]),
+      ligh: _reactDesc.PropTypes.string
     })]).description('Either a color identifier to use for the background\n        color. For example: \'neutral-1\'. Or, a \'url()\' for an image. Dark\n        is not needed if color is provided.'),
-    basis: _reactDesc.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'full', '1/2', '1/3', '2/3', '1/4', '3/4', 'auto']).description('A fixed or relative size along its container\'s main axis.'),
-    border: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['top', 'left', 'bottom', 'right', 'horizontal', 'vertical', 'all']), _reactDesc.PropTypes.shape({
-      color: _reactDesc.PropTypes.string,
+    basis: _reactDesc.PropTypes.oneOf(['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'full', '1/2', '1/3', '2/3', '1/4', '3/4', 'auto']).description('A fixed or relative size along its container\'s main axis.'),
+    border: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.bool, _reactDesc.PropTypes.oneOf(['top', 'left', 'bottom', 'right', 'horizontal', 'vertical', 'all']), _reactDesc.PropTypes.shape({
+      color: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.string, _reactDesc.PropTypes.shape({
+        dark: _reactDesc.PropTypes.string,
+        light: _reactDesc.PropTypes.string
+      })]),
       side: _reactDesc.PropTypes.oneOf(['top', 'left', 'bottom', 'right', 'horizontal', 'vertical', 'all']),
       size: _reactDesc.PropTypes.oneOf(['small', 'medium', 'large'])
     })]).description('Include a border.'),

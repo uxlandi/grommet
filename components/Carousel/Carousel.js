@@ -170,7 +170,7 @@ var Carousel = function (_Component) {
             { fill: 'vertical' },
             _react2.default.createElement(
               _.Button,
-              { fill: 'true', onClick: onLeft, hoverIndicator: true },
+              { fill: true, onClick: onLeft, hoverIndicator: true },
               _react2.default.createElement(
                 _.Box,
                 { justify: 'center' },
@@ -192,7 +192,7 @@ var Carousel = function (_Component) {
             { fill: 'vertical' },
             _react2.default.createElement(
               _.Button,
-              { fill: 'true', onClick: onRight, hoverIndicator: true },
+              { fill: true, onClick: onRight, hoverIndicator: true },
               _react2.default.createElement(
                 _.Box,
                 { justify: 'center' },

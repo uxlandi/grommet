@@ -60,7 +60,7 @@ var Stack = function (_Component) {
         if (childIndex === guidingIndex) {
           layer = _react2.default.createElement(
             _StyledStack.StyledStackLayer,
-            { guiding: true, fill: fill },
+            { guiding: true, fillContainer: fill },
             child
           );
         } else {

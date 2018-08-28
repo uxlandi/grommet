@@ -36,5 +36,5 @@ export var StyledStackLayer = styled.div.withConfig({
 }, function (props) {
   return !props.guiding && styleMap[props.anchor || 'fill'] + ';';
 }, function (props) {
-  return props.fill && '\n    width: 100%;\n    height: 100%;\n  ';
+  return props.fillContainer && '\n    width: 100%;\n    height: 100%;\n  ';
 });

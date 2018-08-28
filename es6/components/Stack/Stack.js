@@ -49,7 +49,7 @@ var Stack = function (_Component) {
         if (childIndex === guidingIndex) {
           layer = React.createElement(
             StyledStackLayer,
-            { guiding: true, fill: fill },
+            { guiding: true, fillContainer: fill },
             child
           );
         } else {

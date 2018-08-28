@@ -119,6 +119,7 @@ var Components = function (_Component) {
       { key: 'input', gap: 'small' },
       React.createElement(Select, { placeholder: 'Select', options: ['One', 'Two'], onChange: function onChange() {} }),
       React.createElement(CheckBox, {
+        name: 'check',
         checked: checkBox,
         label: 'CheckBox',
         onChange: function onChange(event) {
@@ -126,6 +127,7 @@ var Components = function (_Component) {
         }
       }),
       React.createElement(CheckBox, {
+        name: 'toggle',
         toggle: true,
         checked: checkBox,
         label: 'CheckBox toggle',
@@ -134,6 +136,7 @@ var Components = function (_Component) {
         }
       }),
       React.createElement(RadioButton, {
+        name: 'radio',
         checked: radioButton,
         label: 'RadioButton',
         onChange: function onChange(event) {
@@ -152,7 +155,7 @@ var Components = function (_Component) {
           [0, 1, 2, 3].map(function (value) {
             return React.createElement(
               Box,
-              { key: value, pad: 'small', border: false },
+              { key: value, pad: 'small' },
               React.createElement(
                 Text,
                 { style: { fontFamily: 'monospace' } },
