@@ -52,7 +52,7 @@ var textAlignStyle = css(['text-align:', ';'], function (props) {
 var truncateStyle = '\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n';
 
 var colorStyle = css(['color:', ';'], function (props) {
-  return colorForName(props.color, props.theme);
+  return colorForName(props.colorValue, props.theme);
 });
 
 var weightStyle = css(['font-weight:', ';'], function (props) {
@@ -70,7 +70,7 @@ export var StyledText = styled.span.withConfig({
 }, function (props) {
   return props.truncate && truncateStyle;
 }, function (props) {
-  return props.color && colorStyle;
+  return props.colorValue && colorStyle;
 }, function (props) {
   return props.weight && weightStyle;
 }).extend(_templateObject, function (props) {

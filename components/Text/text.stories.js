@@ -50,6 +50,32 @@ var All = function (_Component) {
   return All;
 }(_react.Component);
 
+var Color = function (_Component2) {
+  _inherits(Color, _Component2);
+
+  function Color() {
+    _classCallCheck(this, Color);
+
+    return _possibleConstructorReturn(this, _Component2.apply(this, arguments));
+  }
+
+  Color.prototype.render = function render() {
+    return _react2.default.createElement(
+      _.Grommet,
+      { theme: _themes.grommet },
+      _react2.default.createElement(
+        _.Text,
+        { color: 'accent-1' },
+        'Colored Text'
+      )
+    );
+  };
+
+  return Color;
+}(_react.Component);
+
 (0, _react3.storiesOf)('Text', module).add('All', function () {
   return _react2.default.createElement(All, null);
+}).add('Color', function () {
+  return _react2.default.createElement(Color, null);
 });

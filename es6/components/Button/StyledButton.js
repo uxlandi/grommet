@@ -7,11 +7,11 @@ import styled, { css } from 'styled-components';
 import { activeStyle, backgroundStyle, colorForName, colorIsDark, focusStyle, lapAndUp, normalizeColor } from '../../utils';
 
 var basicStyle = function basicStyle(props) {
-  return css(['border:', ' solid ', ';border-radius:', ';color:', ';'], props.theme.button.border.width, colorForName(normalizeColor(props.color || props.theme.button.border.color || props.theme.global.control.color || 'brand', props.theme), props.theme), props.theme.button.border.radius, (props.theme.button.color || props.theme.global.text.color)[props.theme.dark ? 'dark' : 'light']);
+  return css(['border:', ' solid ', ';border-radius:', ';color:', ';'], props.theme.button.border.width, colorForName(normalizeColor(props.colorValue || props.theme.button.border.color || props.theme.global.control.color || 'brand', props.theme), props.theme), props.theme.button.border.radius, (props.theme.button.color || props.theme.global.text.color)[props.theme.dark ? 'dark' : 'light']);
 };
 
 var primaryStyle = function primaryStyle(props) {
-  return css(['', ' border-radius:', ';svg{fill:', ';stroke:', ';transition:none;}'], backgroundStyle(normalizeColor(props.color || props.theme.button.primary.color || props.theme.global.control.color || 'brand', props.theme), props.theme), props.theme.button.border.radius, props.theme.global.text.color[colorIsDark(colorForName('brand', props.theme)) ? 'dark' : 'light'], props.theme.global.text.color[colorIsDark(colorForName('brand', props.theme)) ? 'dark' : 'light']);
+  return css(['', ' border-radius:', ';svg{fill:', ';stroke:', ';transition:none;}'], backgroundStyle(normalizeColor(props.colorValue || props.theme.button.primary.color || props.theme.global.control.color || 'brand', props.theme), props.theme), props.theme.button.border.radius, props.theme.global.text.color[colorIsDark(colorForName('brand', props.theme)) ? 'dark' : 'light'], props.theme.global.text.color[colorIsDark(colorForName('brand', props.theme)) ? 'dark' : 'light']);
 };
 
 var disabledStyle = css(['opacity:', ';cursor:default;'], function (props) {
@@ -19,8 +19,8 @@ var disabledStyle = css(['opacity:', ';cursor:default;'], function (props) {
 });
 
 function getHoverColor(props) {
-  if (props.color) {
-    return colorForName(props.color, props.theme);
+  if (props.colorValue) {
+    return colorForName(props.colorValue, props.theme);
   }
   return normalizeColor(props.theme.button.border.color || props.theme.global.control.color, props.theme);
 }
@@ -68,7 +68,7 @@ export var StyledButton = styled.button.withConfig({
 }, lapAndUp('\n    transition: 0.1s ease-in-out;\n  '), function (props) {
   return props.fillContainer && fillStyle;
 }, function (props) {
-  return props.hasIcon && !props.label && !props.plain && '\n    padding: ' + props.theme.global.edgeSize.small + ';\n  ';
+  return props.hasIcon && !props.hasLabel && !props.plain && '\n    padding: ' + props.theme.global.edgeSize.small + ';\n  ';
 }).extend(_templateObject, function (props) {
   return props.theme.button.extend;
 });

@@ -61,7 +61,7 @@ var textAlignStyle = (0, _styledComponents.css)(['text-align:', ';'], function (
 var truncateStyle = '\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n';
 
 var colorStyle = (0, _styledComponents.css)(['color:', ';'], function (props) {
-  return (0, _utils.colorForName)(props.color, props.theme);
+  return (0, _utils.colorForName)(props.colorValue, props.theme);
 });
 
 var weightStyle = (0, _styledComponents.css)(['font-weight:', ';'], function (props) {
@@ -79,7 +79,7 @@ var StyledText = exports.StyledText = _styledComponents2.default.span.withConfig
 }, function (props) {
   return props.truncate && truncateStyle;
 }, function (props) {
-  return props.color && colorStyle;
+  return props.colorValue && colorStyle;
 }, function (props) {
   return props.weight && weightStyle;
 }).extend(_templateObject, function (props) {

@@ -16,11 +16,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
 
 var basicStyle = function basicStyle(props) {
-  return (0, _styledComponents.css)(['border:', ' solid ', ';border-radius:', ';color:', ';'], props.theme.button.border.width, (0, _utils.colorForName)((0, _utils.normalizeColor)(props.color || props.theme.button.border.color || props.theme.global.control.color || 'brand', props.theme), props.theme), props.theme.button.border.radius, (props.theme.button.color || props.theme.global.text.color)[props.theme.dark ? 'dark' : 'light']);
+  return (0, _styledComponents.css)(['border:', ' solid ', ';border-radius:', ';color:', ';'], props.theme.button.border.width, (0, _utils.colorForName)((0, _utils.normalizeColor)(props.colorValue || props.theme.button.border.color || props.theme.global.control.color || 'brand', props.theme), props.theme), props.theme.button.border.radius, (props.theme.button.color || props.theme.global.text.color)[props.theme.dark ? 'dark' : 'light']);
 };
 
 var primaryStyle = function primaryStyle(props) {
-  return (0, _styledComponents.css)(['', ' border-radius:', ';svg{fill:', ';stroke:', ';transition:none;}'], (0, _utils.backgroundStyle)((0, _utils.normalizeColor)(props.color || props.theme.button.primary.color || props.theme.global.control.color || 'brand', props.theme), props.theme), props.theme.button.border.radius, props.theme.global.text.color[(0, _utils.colorIsDark)((0, _utils.colorForName)('brand', props.theme)) ? 'dark' : 'light'], props.theme.global.text.color[(0, _utils.colorIsDark)((0, _utils.colorForName)('brand', props.theme)) ? 'dark' : 'light']);
+  return (0, _styledComponents.css)(['', ' border-radius:', ';svg{fill:', ';stroke:', ';transition:none;}'], (0, _utils.backgroundStyle)((0, _utils.normalizeColor)(props.colorValue || props.theme.button.primary.color || props.theme.global.control.color || 'brand', props.theme), props.theme), props.theme.button.border.radius, props.theme.global.text.color[(0, _utils.colorIsDark)((0, _utils.colorForName)('brand', props.theme)) ? 'dark' : 'light'], props.theme.global.text.color[(0, _utils.colorIsDark)((0, _utils.colorForName)('brand', props.theme)) ? 'dark' : 'light']);
 };
 
 var disabledStyle = (0, _styledComponents.css)(['opacity:', ';cursor:default;'], function (props) {
@@ -28,8 +28,8 @@ var disabledStyle = (0, _styledComponents.css)(['opacity:', ';cursor:default;'],
 });
 
 function getHoverColor(props) {
-  if (props.color) {
-    return (0, _utils.colorForName)(props.color, props.theme);
+  if (props.colorValue) {
+    return (0, _utils.colorForName)(props.colorValue, props.theme);
   }
   return (0, _utils.normalizeColor)(props.theme.button.border.color || props.theme.global.control.color, props.theme);
 }
@@ -77,7 +77,7 @@ var StyledButton = exports.StyledButton = _styledComponents2.default.button.with
 }, (0, _utils.lapAndUp)('\n    transition: 0.1s ease-in-out;\n  '), function (props) {
   return props.fillContainer && fillStyle;
 }, function (props) {
-  return props.hasIcon && !props.label && !props.plain && '\n    padding: ' + props.theme.global.edgeSize.small + ';\n  ';
+  return props.hasIcon && !props.hasLabel && !props.plain && '\n    padding: ' + props.theme.global.edgeSize.small + ';\n  ';
 }).extend(_templateObject, function (props) {
   return props.theme.button.extend;
 });

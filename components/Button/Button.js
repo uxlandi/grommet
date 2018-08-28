@@ -54,6 +54,7 @@ var Button = function (_Component) {
   Button.prototype.render = function render() {
     var _props = this.props,
         a11yTitle = _props.a11yTitle,
+        color = _props.color,
         forwardRef = _props.forwardRef,
         children = _props.children,
         icon = _props.icon,
@@ -66,7 +67,7 @@ var Button = function (_Component) {
         reverse = _props.reverse,
         theme = _props.theme,
         type = _props.type,
-        rest = _objectWithoutProperties(_props, ['a11yTitle', 'forwardRef', 'children', 'icon', 'fill', 'focus', 'href', 'label', 'onClick', 'plain', 'reverse', 'theme', 'type']);
+        rest = _objectWithoutProperties(_props, ['a11yTitle', 'color', 'forwardRef', 'children', 'icon', 'fill', 'focus', 'href', 'label', 'onClick', 'plain', 'reverse', 'theme', 'type']);
 
     var Tag = href ? AnchorStyledButton : _StyledButton.StyledButton;
 
@@ -90,12 +91,13 @@ var Button = function (_Component) {
       _extends({}, rest, {
         innerRef: forwardRef,
         'aria-label': a11yTitle,
+        colorValue: color,
         disabled: disabled,
         hasIcon: !!icon,
+        hasLabel: !!label,
         fillContainer: fill,
         focus: focus,
         href: href,
-        label: label,
         onClick: onClick,
         plain: typeof plain !== 'undefined' ? plain : _react.Children.count(children) > 0 || icon && !label,
         theme: theme,

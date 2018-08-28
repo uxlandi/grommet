@@ -3,6 +3,8 @@
 exports.__esModule = true;
 exports.Text = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -40,8 +42,9 @@ var Text = function (_Component) {
 
   Text.prototype.render = function render() {
     var _props = this.props,
+        color = _props.color,
         tag = _props.tag,
-        rest = _objectWithoutProperties(_props, ['tag']);
+        rest = _objectWithoutProperties(_props, ['color', 'tag']);
 
     var StyledComponent = styledComponents[tag];
     if (!StyledComponent) {
@@ -49,7 +52,7 @@ var Text = function (_Component) {
       styledComponents[tag] = StyledComponent;
     }
 
-    return _react2.default.createElement(StyledComponent, rest);
+    return _react2.default.createElement(StyledComponent, _extends({ colorValue: color }, rest));
   };
 
   return Text;

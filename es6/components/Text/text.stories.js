@@ -42,6 +42,32 @@ var All = function (_Component) {
   return All;
 }(Component);
 
+var Color = function (_Component2) {
+  _inherits(Color, _Component2);
+
+  function Color() {
+    _classCallCheck(this, Color);
+
+    return _possibleConstructorReturn(this, _Component2.apply(this, arguments));
+  }
+
+  Color.prototype.render = function render() {
+    return React.createElement(
+      Grommet,
+      { theme: grommet },
+      React.createElement(
+        Text,
+        { color: 'accent-1' },
+        'Colored Text'
+      )
+    );
+  };
+
+  return Color;
+}(Component);
+
 storiesOf('Text', module).add('All', function () {
   return React.createElement(All, null);
+}).add('Color', function () {
+  return React.createElement(Color, null);
 });

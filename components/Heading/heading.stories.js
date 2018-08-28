@@ -8,8 +8,6 @@ var _react3 = require('@storybook/react');
 
 var _ = require('../');
 
-var _contexts = require('../../contexts');
-
 var _themes = require('../../themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -31,13 +29,12 @@ var H = function H(_ref) {
 };
 
 var Set = function Set(_ref2) {
-  var size = _ref2.size,
-      theme = _ref2.theme;
+  var size = _ref2.size;
   return _react2.default.createElement(
     'div',
     null,
     [1, 2, 3, 4].map(function (level) {
-      return _react2.default.createElement(H, { key: level, level: level, size: size, theme: theme });
+      return _react2.default.createElement(H, { key: level, level: level, size: size });
     })
   );
 };
@@ -56,17 +53,11 @@ var All = function (_Component) {
       _.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _contexts.ThemeContext.Consumer,
-        null,
-        function (theme) {
-          return _react2.default.createElement(
-            _.Grid,
-            { columns: 'large', gap: 'medium' },
-            _react2.default.createElement(Set, { size: 'medium', theme: theme }),
-            _react2.default.createElement(Set, { size: 'small', theme: theme }),
-            _react2.default.createElement(Set, { size: 'large', theme: theme })
-          );
-        }
+        _.Grid,
+        { columns: 'large', gap: 'medium' },
+        _react2.default.createElement(Set, { size: 'medium' }),
+        _react2.default.createElement(Set, { size: 'small' }),
+        _react2.default.createElement(Set, { size: 'large' })
       )
     );
   };
@@ -74,6 +65,32 @@ var All = function (_Component) {
   return All;
 }(_react.Component);
 
+var Color = function (_Component2) {
+  _inherits(Color, _Component2);
+
+  function Color() {
+    _classCallCheck(this, Color);
+
+    return _possibleConstructorReturn(this, _Component2.apply(this, arguments));
+  }
+
+  Color.prototype.render = function render() {
+    return _react2.default.createElement(
+      _.Grommet,
+      { theme: _themes.grommet },
+      _react2.default.createElement(
+        _.Heading,
+        { color: 'accent-1' },
+        'Colored Heading'
+      )
+    );
+  };
+
+  return Color;
+}(_react.Component);
+
 (0, _react3.storiesOf)('Heading', module).add('All', function () {
   return _react2.default.createElement(All, null);
+}).add('Color', function () {
+  return _react2.default.createElement(Color, null);
 });

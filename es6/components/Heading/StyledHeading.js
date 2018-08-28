@@ -57,7 +57,7 @@ var textAlignStyle = css(['text-align:', ';'], function (props) {
 var truncateStyle = '\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n';
 
 var colorStyle = css(['color:', ';'], function (props) {
-  return colorForName(props.color, props.theme);
+  return colorForName(props.colorValue, props.theme);
 });
 
 export var StyledHeading = styled.h1.withConfig({
@@ -73,7 +73,7 @@ export var StyledHeading = styled.h1.withConfig({
 }, function (props) {
   return props.truncate && truncateStyle;
 }, function (props) {
-  return props.color && colorStyle;
+  return props.colorValue && colorStyle;
 }).extend(_templateObject, function (props) {
   return props.theme.heading && props.theme.heading.extend;
 });

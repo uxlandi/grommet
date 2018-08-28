@@ -42,8 +42,9 @@ var Heading = function (_Component) {
 
   Heading.prototype.render = function render() {
     var _props = this.props,
+        color = _props.color,
         level = _props.level,
-        rest = _objectWithoutProperties(_props, ['level']);
+        rest = _objectWithoutProperties(_props, ['color', 'level']);
 
     var tag = 'h' + level;
     var StyledComponent = styledComponents[tag];
@@ -53,7 +54,7 @@ var Heading = function (_Component) {
     }
 
     // enforce level to be a number
-    return _react2.default.createElement(StyledComponent, _extends({ level: +level }, rest));
+    return _react2.default.createElement(StyledComponent, _extends({ colorValue: color, level: +level }, rest));
   };
 
   return Heading;

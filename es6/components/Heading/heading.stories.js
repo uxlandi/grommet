@@ -8,7 +8,6 @@ import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
 import { Grommet, Grid, Heading } from '../';
-import { ThemeContext } from '../../contexts';
 import { grommet } from '../../themes';
 
 var H = function H(_ref) {
@@ -22,13 +21,12 @@ var H = function H(_ref) {
 };
 
 var Set = function Set(_ref2) {
-  var size = _ref2.size,
-      theme = _ref2.theme;
+  var size = _ref2.size;
   return React.createElement(
     'div',
     null,
     [1, 2, 3, 4].map(function (level) {
-      return React.createElement(H, { key: level, level: level, size: size, theme: theme });
+      return React.createElement(H, { key: level, level: level, size: size });
     })
   );
 };
@@ -47,17 +45,11 @@ var All = function (_Component) {
       Grommet,
       { theme: grommet },
       React.createElement(
-        ThemeContext.Consumer,
-        null,
-        function (theme) {
-          return React.createElement(
-            Grid,
-            { columns: 'large', gap: 'medium' },
-            React.createElement(Set, { size: 'medium', theme: theme }),
-            React.createElement(Set, { size: 'small', theme: theme }),
-            React.createElement(Set, { size: 'large', theme: theme })
-          );
-        }
+        Grid,
+        { columns: 'large', gap: 'medium' },
+        React.createElement(Set, { size: 'medium' }),
+        React.createElement(Set, { size: 'small' }),
+        React.createElement(Set, { size: 'large' })
       )
     );
   };
@@ -65,6 +57,32 @@ var All = function (_Component) {
   return All;
 }(Component);
 
+var Color = function (_Component2) {
+  _inherits(Color, _Component2);
+
+  function Color() {
+    _classCallCheck(this, Color);
+
+    return _possibleConstructorReturn(this, _Component2.apply(this, arguments));
+  }
+
+  Color.prototype.render = function render() {
+    return React.createElement(
+      Grommet,
+      { theme: grommet },
+      React.createElement(
+        Heading,
+        { color: 'accent-1' },
+        'Colored Heading'
+      )
+    );
+  };
+
+  return Color;
+}(Component);
+
 storiesOf('Heading', module).add('All', function () {
   return React.createElement(All, null);
+}).add('Color', function () {
+  return React.createElement(Color, null);
 });
