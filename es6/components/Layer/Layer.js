@@ -11,11 +11,9 @@ import { createPortal } from 'react-dom';
 import { compose } from 'recompose';
 
 import { getNewContainer } from '../../utils';
-
 import { withTheme } from '../hocs';
 
 import { LayerContainer } from './LayerContainer';
-import { doc } from './doc';
 
 var Layer = function (_Component) {
   _inherits(Layer, _Component);
@@ -70,6 +68,10 @@ Layer.defaultProps = {
 };
 
 
-var LayerWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Layer) : Layer);
+var LayerDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  LayerDoc = require('./doc').doc(Layer); // eslint-disable-line global-require
+}
+var LayerWrapper = compose(withTheme)(LayerDoc || Layer);
 
 export { LayerWrapper as Layer };

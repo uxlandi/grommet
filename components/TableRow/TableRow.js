@@ -9,14 +9,16 @@ var _react2 = _interopRequireDefault(_react);
 
 var _StyledTable = require('../Table/StyledTable');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TableRow = function TableRow(props) {
   return _react2.default.createElement(_StyledTable.StyledTableRow, props);
 };
 
-var TableRowWrapper = process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(TableRow) : TableRow;
+var TableRowDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TableRowDoc = require('./doc').doc(TableRow); // eslint-disable-line global-require
+}
+var TableRowWrapper = TableRowDoc || TableRow;
 
 exports.TableRow = TableRowWrapper;

@@ -13,8 +13,6 @@ var _reactWaypoint = require('react-waypoint');
 
 var _reactWaypoint2 = _interopRequireDefault(_reactWaypoint);
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -130,6 +128,10 @@ InfiniteScroll.defaultProps = {
 };
 
 
-var InfiniteScrollWrapper = process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(InfiniteScroll) : InfiniteScroll;
+var InfiniteScrollDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  InfiniteScrollDoc = require('./doc').doc(InfiniteScroll); // eslint-disable-line global-require
+}
+var InfiniteScrollWrapper = InfiniteScrollDoc || InfiniteScroll;
 
 exports.InfiniteScroll = InfiniteScrollWrapper;

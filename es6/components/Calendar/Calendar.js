@@ -19,7 +19,6 @@ import { Keyboard } from '../Keyboard';
 import { withTheme } from '../hocs';
 
 import { StyledCalendar, StyledDay, StyledDayContainer, StyledWeek, StyledWeeks, StyledWeeksContainer } from './StyledCalendar';
-import { doc } from './doc';
 import { addDays, addMonths, betweenDates, daysApart, sameDay, subtractDays, subtractMonths, withinDates } from './utils';
 
 var buildStartEnd = function buildStartEnd(reference, firstDayOfWeek) {
@@ -338,6 +337,10 @@ Calendar.defaultProps = {
 };
 
 
-var CalendarWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Calendar) : Calendar);
+var CalendarDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  CalendarDoc = require('./doc').doc(Calendar); // eslint-disable-line global-require
+}
+var CalendarWrapper = compose(withTheme)(CalendarDoc || Calendar);
 
 export { CalendarWrapper as Calendar };

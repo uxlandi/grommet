@@ -18,8 +18,6 @@ import { withTheme } from '../hocs';
 
 import { StyledWorldMap } from './StyledWorldMap';
 
-import { doc } from './doc';
-
 // The graphic is drawn as a rectangular grid using coordinates spaced
 // by FACTOR pixels. The contents have both an area boundary for interaction
 // and dots described as rows where each row is described by three values:
@@ -400,6 +398,10 @@ var WorldMap = function (_Component) {
   return WorldMap;
 }(Component);
 
-var WorldMapWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(WorldMap) : WorldMap);
+var WorldMapDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  WorldMapDoc = require('./doc').doc(WorldMap); // eslint-disable-line global-require
+}
+var WorldMapWrapper = compose(withTheme)(WorldMapDoc || WorldMap);
 
 export { WorldMapWrapper as WorldMap };

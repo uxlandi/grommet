@@ -16,7 +16,6 @@ import { Footer } from './Footer';
 import { Body } from './Body';
 import { GroupedBody } from './GroupedBody';
 import { buildState } from './buildState';
-import { doc } from './doc';
 import { StyledDataTable } from './StyledDataTable';
 
 var DataTable = function (_Component) {
@@ -161,6 +160,10 @@ DataTable.defaultProps = {
 };
 
 
-var DataTableWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(DataTable) : DataTable);
+var DataTableDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  DataTableDoc = require('./doc').doc(DataTable); // eslint-disable-line global-require
+}
+var DataTableWrapper = compose(withTheme)(DataTableDoc || DataTable);
 
 export { DataTableWrapper as DataTable };

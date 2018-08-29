@@ -15,8 +15,6 @@ var _hocs = require('../hocs');
 
 var _StyledGrid = require('./StyledGrid');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -67,7 +65,11 @@ Grid.defaultProps = {
 };
 
 
-var GridWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Grid) : Grid);
+var GridDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  GridDoc = require('./doc').doc(Grid); // eslint-disable-line global-require
+}
+var GridWrapper = (0, _recompose.compose)(_hocs.withTheme)(GridDoc || Grid);
 
 GridWrapper.available = typeof window !== 'undefined' && window.CSS && window.CSS.supports && window.CSS.supports('display', 'grid');
 

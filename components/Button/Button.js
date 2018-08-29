@@ -19,8 +19,6 @@ var _hocs = require('../hocs');
 
 var _StyledButton = require('./StyledButton');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -127,6 +125,10 @@ Button.defaultProps = {
 };
 
 
-var ButtonWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Button) : Button);
+var ButtonDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  ButtonDoc = require('./doc').doc(Button); // eslint-disable-line global-require
+}
+var ButtonWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(ButtonDoc || Button);
 
 exports.Button = ButtonWrapper;

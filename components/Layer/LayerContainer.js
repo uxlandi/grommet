@@ -11,7 +11,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = require('react-dom');
 
-var _grommetIcons = require('grommet-icons');
+var _contexts = require('grommet-icons/contexts');
 
 var _FocusedContainer = require('../FocusedContainer');
 
@@ -154,7 +154,7 @@ var LayerContainer = function (_Component) {
         _FocusedContainer.FocusedContainer,
         { hidden: position === 'hidden', restrictScroll: true },
         _react2.default.createElement(
-          _grommetIcons.ThemeContext.Provider,
+          _contexts.ThemeContext.Provider,
           { value: theme.icon },
           content
         )

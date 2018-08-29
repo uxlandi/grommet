@@ -17,8 +17,6 @@ var _object = require('../../utils/object');
 
 var _StyledRadioButton = require('./StyledRadioButton');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -87,6 +85,10 @@ var RadioButton = function (_Component) {
   return RadioButton;
 }(_react.Component);
 
-var RadioButtonWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(RadioButton) : RadioButton);
+var RadioButtonDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  RadioButtonDoc = require('./doc').doc(RadioButton); // eslint-disable-line global-require
+}
+var RadioButtonWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(RadioButtonDoc || RadioButton);
 
 exports.RadioButton = RadioButtonWrapper;

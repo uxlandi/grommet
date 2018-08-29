@@ -16,7 +16,6 @@ import { Text } from '../Text';
 import { withFocus, withForwardRef, withTheme } from '../hocs';
 
 import { StyledAnchor } from './StyledAnchor';
-import { doc } from './doc';
 
 var Anchor = function (_Component) {
   _inherits(Anchor, _Component);
@@ -92,6 +91,10 @@ var Anchor = function (_Component) {
   return Anchor;
 }(Component);
 
-var AnchorWrapper = compose(withFocus, withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(Anchor) : Anchor);
+var AnchorDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  AnchorDoc = require('./doc').doc(Anchor); // eslint-disable-line global-require
+}
+var AnchorWrapper = compose(withFocus, withTheme, withForwardRef)(AnchorDoc || Anchor);
 
 export { AnchorWrapper as Anchor };

@@ -15,8 +15,6 @@ var _Box = require('../Box');
 
 var _hocs = require('../hocs');
 
-var _doc = require('./doc');
-
 var _AccordionContext = require('./AccordionContext');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -132,6 +130,10 @@ Accordion.defaultProps = {
 };
 
 
-var AccordionWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Accordion) : Accordion);
+var AccordionDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  AccordionDoc = require('./doc').doc(Accordion); // eslint-disable-line global-require
+}
+var AccordionWrapper = (0, _recompose.compose)(_hocs.withTheme)(AccordionDoc || Accordion);
 
 exports.Accordion = AccordionWrapper;

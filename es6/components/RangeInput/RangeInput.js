@@ -14,7 +14,6 @@ import { compose } from 'recompose';
 import { withFocus, withForwardRef, withTheme } from '../hocs';
 
 import { StyledRangeInput } from './StyledRangeInput';
-import { doc } from './doc';
 
 var RangeInput = function (_Component) {
   _inherits(RangeInput, _Component);
@@ -39,6 +38,10 @@ var RangeInput = function (_Component) {
   return RangeInput;
 }(Component);
 
-var RangeInputWrapper = compose(withFocus, withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(RangeInput) : RangeInput);
+var RangeInputDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  RangeInputDoc = require('./doc').doc(RangeInput); // eslint-disable-line global-require
+}
+var RangeInputWrapper = compose(withFocus, withTheme, withForwardRef)(RangeInputDoc || RangeInput);
 
 export { RangeInputWrapper as RangeInput };

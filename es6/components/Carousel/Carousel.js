@@ -11,11 +11,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Children, Component } from 'react';
 import { compose } from 'recompose';
 
-import { Box, Button, Keyboard, Stack } from '../';
+import { Box } from '../Box';
+import { Button } from '../Button';
+import { Keyboard } from '../Keyboard';
+import { Stack } from '../Stack';
 import { withFocus, withTheme } from '../hocs';
 import { evalStyle } from '../../utils';
-
-import { doc } from './doc';
 
 var Carousel = function (_Component) {
   _inherits(Carousel, _Component);
@@ -196,6 +197,10 @@ var Carousel = function (_Component) {
   return Carousel;
 }(Component);
 
-var CarouselWrapper = compose(withTheme, withFocus)(process.env.NODE_ENV !== 'production' ? doc(Carousel) : Carousel);
+var CarouselDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  CarouselDoc = require('./doc').doc(Carousel); // eslint-disable-line global-require
+}
+var CarouselWrapper = compose(withFocus, withTheme)(CarouselDoc || Carousel);
 
 export { CarouselWrapper as Carousel };

@@ -15,7 +15,6 @@ import { withTheme } from '../hocs';
 
 import { Bar } from './Bar';
 import { Circle } from './Circle';
-import { doc } from './doc';
 
 var deriveMax = function deriveMax(values) {
   var max = 100;
@@ -82,6 +81,10 @@ Meter.defaultProps = {
 };
 
 
-var MeterWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Meter) : Meter);
+var MeterDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  MeterDoc = require('./doc').doc(Meter); // eslint-disable-line global-require
+}
+var MeterWrapper = compose(withTheme)(MeterDoc || Meter);
 
 export { MeterWrapper as Meter };

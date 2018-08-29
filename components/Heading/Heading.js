@@ -15,8 +15,6 @@ var _hocs = require('../hocs');
 
 var _StyledHeading = require('./StyledHeading');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -66,6 +64,10 @@ Heading.defaultProps = {
 };
 
 
-var HeadingWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Heading) : Heading);
+var HeadingDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  HeadingDoc = require('./doc').doc(Heading); // eslint-disable-line global-require
+}
+var HeadingWrapper = (0, _recompose.compose)(_hocs.withTheme)(HeadingDoc || Heading);
 
 exports.Heading = HeadingWrapper;

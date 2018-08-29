@@ -16,7 +16,6 @@ import { Box } from '../Box';
 import { withForwardRef, withTheme } from '../hocs';
 
 import { EdgeControl } from './EdgeControl';
-import { doc } from './doc';
 
 var RangeSelector = function (_Component) {
   _inherits(RangeSelector, _Component);
@@ -222,6 +221,10 @@ RangeSelector.defaultProps = {
 };
 
 
-var RangeSelectorWrapper = compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(RangeSelector) : RangeSelector);
+var RangeSelectorDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  RangeSelectorDoc = require('./doc').doc(RangeSelector); // eslint-disable-line global-require
+}
+var RangeSelectorWrapper = compose(withTheme, withForwardRef)(RangeSelectorDoc || RangeSelector);
 
 export { RangeSelectorWrapper as RangeSelector };

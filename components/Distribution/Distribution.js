@@ -15,8 +15,6 @@ var _Box = require('../Box');
 
 var _hocs = require('../hocs');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -143,6 +141,10 @@ Distribution.defaultProps = {
 };
 
 
-var DistributionWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Distribution) : Distribution);
+var DistributionDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  DistributionDoc = require('./doc').doc(Distribution); // eslint-disable-line global-require
+}
+var DistributionWrapper = (0, _recompose.compose)(_hocs.withTheme)(DistributionDoc || Distribution);
 
 exports.Distribution = DistributionWrapper;

@@ -15,8 +15,6 @@ var _hocs = require('../hocs');
 
 var _StyledStack = require('./StyledStack');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -87,6 +85,10 @@ var Stack = function (_Component) {
   return Stack;
 }(_react.Component);
 
-var StackWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Stack) : Stack);
+var StackDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  StackDoc = require('./doc').doc(Stack); // eslint-disable-line global-require
+}
+var StackWrapper = (0, _recompose.compose)(_hocs.withTheme)(StackDoc || Stack);
 
 exports.Stack = StackWrapper;

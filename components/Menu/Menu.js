@@ -17,13 +17,19 @@ var _styledComponents = require('styled-components');
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _ = require('../');
+var _Box = require('../Box');
+
+var _Button = require('../Button');
+
+var _DropButton = require('../DropButton');
+
+var _Keyboard = require('../Keyboard');
+
+var _Text = require('../Text');
 
 var _hocs = require('../hocs');
 
 var _utils = require('../../utils');
-
-var _doc = require('./doc');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35,7 +41,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ContainerBox = (0, _styledComponents2.default)(_.Box).withConfig({
+var ContainerBox = (0, _styledComponents2.default)(_Box.Box).withConfig({
   displayName: 'Menu__ContainerBox'
 })(['max-height:inherit;@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){width:100%;}']);
 
@@ -133,7 +139,7 @@ var Menu = function (_Component) {
     var iconColor = (0, _utils.evalStyle)(theme.global.control.color[theme.dark ? 'dark' : 'light'], theme) || 'brand';
 
     var content = children || _react2.default.createElement(
-      _.Box,
+      _Box.Box,
       {
         direction: 'row',
         justify: 'start',
@@ -142,7 +148,7 @@ var Menu = function (_Component) {
         gap: label && icon !== false ? 'small' : undefined
       },
       _react2.default.createElement(
-        _.Text,
+        _Text.Text,
         { size: size },
         label
       ),
@@ -150,10 +156,10 @@ var Menu = function (_Component) {
     );
 
     var controlMirror = _react2.default.createElement(
-      _.Box,
+      _Box.Box,
       { flex: false },
       _react2.default.createElement(
-        _.Button,
+        _Button.Button,
         {
           a11yTitle: messages.closeMenu || 'Close Menu',
           onClick: this.onDropClose
@@ -163,7 +169,7 @@ var Menu = function (_Component) {
     );
 
     return _react2.default.createElement(
-      _.Keyboard,
+      _Keyboard.Keyboard,
       {
         onEnter: this.onSelectMenuItem,
         onSpace: this.onSelectMenuItem,
@@ -177,7 +183,7 @@ var Menu = function (_Component) {
         'div',
         null,
         _react2.default.createElement(
-          _.DropButton,
+          _DropButton.DropButton,
           _extends({
             ref: forwardRef
           }, rest, {
@@ -197,14 +203,14 @@ var Menu = function (_Component) {
               { background: dropBackground },
               dropAlign.top === 'top' ? controlMirror : undefined,
               _react2.default.createElement(
-                _.Box,
+                _Box.Box,
                 { overflow: 'auto' },
                 items.map(function (item, index) {
                   return _react2.default.createElement(
-                    _.Box,
+                    _Box.Box,
                     { key: 'menuItem_' + index, flex: false },
                     _react2.default.createElement(
-                      _.Button,
+                      _Button.Button,
                       {
                         ref: function ref(_ref) {
                           _this2.buttonRefs[index] = _ref;
@@ -220,7 +226,7 @@ var Menu = function (_Component) {
                         href: item.href
                       },
                       _react2.default.createElement(
-                        _.Box,
+                        _Box.Box,
                         { align: 'start', pad: 'small', direction: 'row' },
                         item.icon,
                         item.label
@@ -248,6 +254,10 @@ Menu.defaultProps = {
 };
 
 
-var MenuWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Menu) : Menu);
+var MenuDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  MenuDoc = require('./doc').doc(Menu); // eslint-disable-line global-require
+}
+var MenuWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(MenuDoc || Menu);
 
 exports.Menu = MenuWrapper;

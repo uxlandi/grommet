@@ -15,13 +15,10 @@ import { findDOMNode } from 'react-dom';
 import { compose } from 'recompose';
 
 import { colorForName, parseMetricToNum } from '../../utils';
-
 import { withTheme } from '../hocs';
 
 import { StyledChart } from './StyledChart';
 import { normalizeValues, normalizeBounds } from './utils';
-
-import { doc } from './doc';
 
 var renderBars = function renderBars(values, bounds, scale, height) {
   return (values || []).map(function (valueArg, index) {
@@ -266,6 +263,10 @@ Chart.defaultProps = {
 };
 
 
-var ChartWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Chart) : Chart);
+var ChartDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  ChartDoc = require('./doc').doc(Chart); // eslint-disable-line global-require
+}
+var ChartWrapper = compose(withTheme)(ChartDoc || Chart);
 
 export { ChartWrapper as Chart };

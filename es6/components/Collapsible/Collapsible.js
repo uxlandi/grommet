@@ -10,10 +10,7 @@ import { compose } from 'recompose';
 import styled from 'styled-components';
 
 import { withTheme } from '../hocs';
-
 import { Box } from '../Box';
-
-import { doc } from './doc';
 
 var AnimatedBox = styled(Box).withConfig({
   displayName: 'Collapsible__AnimatedBox'
@@ -128,6 +125,10 @@ var Collapsible = function (_Component) {
   return Collapsible;
 }(Component);
 
-var CollapsibleWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Collapsible) : Collapsible);
+var CollapsibleDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  CollapsibleDoc = require('./doc').doc(Collapsible); // eslint-disable-line global-require
+}
+var CollapsibleWrapper = compose(withTheme)(CollapsibleDoc || Collapsible);
 
 export { CollapsibleWrapper as Collapsible };

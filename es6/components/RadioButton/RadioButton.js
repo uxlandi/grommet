@@ -15,7 +15,6 @@ import { withForwardRef, withTheme } from '../hocs';
 import { removeUndefined } from '../../utils/object';
 
 import { StyledRadioButton, StyledRadioButtonContainer, StyledRadioButtonInput, StyledRadioButtonButton } from './StyledRadioButton';
-import { doc } from './doc';
 
 var RadioButton = function (_Component) {
   _inherits(RadioButton, _Component);
@@ -75,6 +74,10 @@ var RadioButton = function (_Component) {
   return RadioButton;
 }(Component);
 
-var RadioButtonWrapper = compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(RadioButton) : RadioButton);
+var RadioButtonDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  RadioButtonDoc = require('./doc').doc(RadioButton); // eslint-disable-line global-require
+}
+var RadioButtonWrapper = compose(withTheme, withForwardRef)(RadioButtonDoc || RadioButton);
 
 export { RadioButtonWrapper as RadioButton };

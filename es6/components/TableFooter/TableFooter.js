@@ -8,7 +8,6 @@ import React, { Component } from 'react';
 
 import { TableContext } from '../Table/TableContext';
 import { StyledTableFooter } from '../Table/StyledTable';
-import { doc } from './doc';
 
 var TableFooter = function (_Component) {
   _inherits(TableFooter, _Component);
@@ -30,6 +29,10 @@ var TableFooter = function (_Component) {
   return TableFooter;
 }(Component);
 
-var TableFooterWrapper = process.env.NODE_ENV !== 'production' ? doc(TableFooter) : TableFooter;
+var TableFooterDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TableFooterDoc = require('./doc').doc(TableFooter); // eslint-disable-line global-require
+}
+var TableFooterWrapper = TableFooterDoc || TableFooter;
 
 export { TableFooterWrapper as TableFooter };

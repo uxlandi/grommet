@@ -13,11 +13,13 @@ import { findDOMNode } from 'react-dom';
 import { compose } from 'recompose';
 import styled from 'styled-components';
 
-import { Box, Button, DropButton, Keyboard, Text } from '../';
+import { Box } from '../Box';
+import { Button } from '../Button';
+import { DropButton } from '../DropButton';
+import { Keyboard } from '../Keyboard';
+import { Text } from '../Text';
 import { withForwardRef, withTheme } from '../hocs';
 import { evalStyle } from '../../utils';
-
-import { doc } from './doc';
 
 var ContainerBox = styled(Box).withConfig({
   displayName: 'Menu__ContainerBox'
@@ -232,6 +234,10 @@ Menu.defaultProps = {
 };
 
 
-var MenuWrapper = compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(Menu) : Menu);
+var MenuDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  MenuDoc = require('./doc').doc(Menu); // eslint-disable-line global-require
+}
+var MenuWrapper = compose(withTheme, withForwardRef)(MenuDoc || Menu);
 
 export { MenuWrapper as Menu };

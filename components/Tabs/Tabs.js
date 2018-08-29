@@ -9,9 +9,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ = require('../');
-
-var _doc = require('./doc');
+var _Box = require('../Box');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -101,7 +99,7 @@ var Tabs = function (_Component) {
       'div',
       { role: 'tablist' },
       _react2.default.createElement(
-        _.Box,
+        _Box.Box,
         _extends({
           direction: 'row',
           justify: justify
@@ -128,6 +126,10 @@ Tabs.defaultProps = {
 };
 
 
-var TabsWrapper = process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Tabs) : Tabs;
+var TabsDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TabsDoc = require('./doc').doc(Tabs); // eslint-disable-line global-require
+}
+var TabsWrapper = TabsDoc || Tabs;
 
 exports.Tabs = TabsWrapper;

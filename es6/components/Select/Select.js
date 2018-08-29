@@ -20,7 +20,6 @@ import { withForwardRef, withTheme } from '../hocs';
 import { controlBorderStyle, colorIsDark, evalStyle } from '../../utils';
 
 import { SelectContainer } from './SelectContainer';
-import { doc } from './doc';
 
 var SelectTextInput = styled(TextInput).withConfig({
   displayName: 'Select__SelectTextInput'
@@ -199,6 +198,10 @@ Select.defaultProps = {
 };
 
 
-var SelectWrapper = compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(Select) : Select);
+var SelectDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  SelectDoc = require('./doc').doc(Select); // eslint-disable-line global-require
+}
+var SelectWrapper = compose(withTheme, withForwardRef)(SelectDoc || Select);
 
 export { SelectWrapper as Select };

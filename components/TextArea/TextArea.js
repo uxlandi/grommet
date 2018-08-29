@@ -15,8 +15,6 @@ var _hocs = require('../hocs');
 
 var _StyledTextArea = require('./StyledTextArea');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -47,6 +45,10 @@ var TextArea = function (_Component) {
   return TextArea;
 }(_react.Component);
 
-var TextAreaWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(TextArea) : TextArea);
+var TextAreaDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TextAreaDoc = require('./doc').doc(TextArea); // eslint-disable-line global-require
+}
+var TextAreaWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(TextAreaDoc || TextArea);
 
 exports.TextArea = TextAreaWrapper;

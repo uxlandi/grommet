@@ -15,8 +15,6 @@ var _hocs = require('../hocs');
 
 var _StyledRangeInput = require('./StyledRangeInput');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -50,6 +48,10 @@ var RangeInput = function (_Component) {
   return RangeInput;
 }(_react.Component);
 
-var RangeInputWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(RangeInput) : RangeInput);
+var RangeInputDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  RangeInputDoc = require('./doc').doc(RangeInput); // eslint-disable-line global-require
+}
+var RangeInputWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(RangeInputDoc || RangeInput);
 
 exports.RangeInput = RangeInputWrapper;

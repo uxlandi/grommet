@@ -14,8 +14,6 @@ import { compose } from 'recompose';
 import { Box } from '../Box';
 import { withTheme } from '../hocs';
 
-import { doc } from './doc';
-
 import { AccordionContext } from './AccordionContext';
 
 var activeAsArray = function activeAsArray(active) {
@@ -121,6 +119,10 @@ Accordion.defaultProps = {
 };
 
 
-var AccordionWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Accordion) : Accordion);
+var AccordionDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  AccordionDoc = require('./doc').doc(Accordion); // eslint-disable-line global-require
+}
+var AccordionWrapper = compose(withTheme)(AccordionDoc || Accordion);
 
 export { AccordionWrapper as Accordion };

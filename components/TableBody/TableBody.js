@@ -11,8 +11,6 @@ var _TableContext = require('../Table/TableContext');
 
 var _StyledTable = require('../Table/StyledTable');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TableBody = function TableBody(props) {
@@ -23,6 +21,10 @@ var TableBody = function TableBody(props) {
   );
 };
 
-var TableBodyWrapper = process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(TableBody) : TableBody;
+var TableBodyDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TableBodyDoc = require('./doc').doc(TableBody); // eslint-disable-line global-require
+}
+var TableBodyWrapper = TableBodyDoc || TableBody;
 
 exports.TableBody = TableBodyWrapper;

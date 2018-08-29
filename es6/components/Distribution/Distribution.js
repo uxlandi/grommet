@@ -15,8 +15,6 @@ import { Box } from '../Box';
 
 import { withTheme } from '../hocs';
 
-import { doc } from './doc';
-
 var Value = function Value(_ref) {
   var basis = _ref.basis,
       children = _ref.children;
@@ -133,6 +131,10 @@ Distribution.defaultProps = {
 };
 
 
-var DistributionWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Distribution) : Distribution);
+var DistributionDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  DistributionDoc = require('./doc').doc(Distribution); // eslint-disable-line global-require
+}
+var DistributionWrapper = compose(withTheme)(DistributionDoc || Distribution);
 
 export { DistributionWrapper as Distribution };

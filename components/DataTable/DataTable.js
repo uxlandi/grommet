@@ -23,8 +23,6 @@ var _GroupedBody = require('./GroupedBody');
 
 var _buildState = require('./buildState');
 
-var _doc = require('./doc');
-
 var _StyledDataTable = require('./StyledDataTable');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -177,6 +175,10 @@ DataTable.defaultProps = {
 };
 
 
-var DataTableWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(DataTable) : DataTable);
+var DataTableDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  DataTableDoc = require('./doc').doc(DataTable); // eslint-disable-line global-require
+}
+var DataTableWrapper = (0, _recompose.compose)(_hocs.withTheme)(DataTableDoc || DataTable);
 
 exports.DataTable = DataTableWrapper;

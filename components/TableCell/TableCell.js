@@ -19,8 +19,6 @@ var _TableContext = require('../Table/TableContext');
 
 var _StyledTable = require('../Table/StyledTable');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -63,6 +61,10 @@ TableCell.defaultProps = {
   pad: { horizontal: 'small', vertical: 'xsmall' }
 };
 
-var TableCellWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(TableCell) : TableCell);
+var TableCellDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TableCellDoc = require('./doc').doc(TableCell); // eslint-disable-line global-require
+}
+var TableCellWrapper = (0, _recompose.compose)(_hocs.withTheme)(TableCellDoc || TableCell);
 
 exports.TableCell = TableCellWrapper;

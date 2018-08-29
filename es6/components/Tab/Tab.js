@@ -17,8 +17,6 @@ import { Text } from '../Text';
 import { withForwardRef, withTheme } from '../hocs';
 import { evalStyle, normalizeColor } from '../../utils';
 
-import { doc } from './doc';
-
 var Tab = function (_Component) {
   _inherits(Tab, _Component);
 
@@ -135,6 +133,10 @@ var Tab = function (_Component) {
   return Tab;
 }(Component);
 
-var TabWrapper = compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(Tab) : Tab);
+var TabDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TabDoc = require('./doc').doc(Tab); // eslint-disable-line global-require
+}
+var TabWrapper = compose(withTheme, withForwardRef)(TabDoc || Tab);
 
 export { TabWrapper as Tab };

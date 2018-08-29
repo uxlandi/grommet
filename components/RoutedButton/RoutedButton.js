@@ -15,8 +15,6 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _Button = require('../Button');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -98,6 +96,10 @@ var _initialiseProps = function _initialiseProps() {
   };
 };
 
-var RoutedButtonWrapper = process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(RoutedButton) : RoutedButton;
+var RoutedButtonDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  RoutedButtonDoc = require('./doc').doc(RoutedButton); // eslint-disable-line global-require
+}
+var RoutedButtonWrapper = RoutedButtonDoc || RoutedButton;
 
 exports.RoutedButton = RoutedButtonWrapper;

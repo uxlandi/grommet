@@ -11,17 +11,15 @@ var _react2 = _interopRequireDefault(_react);
 
 var _recompose = require('recompose');
 
-var _grommetIcons = require('grommet-icons');
+var _contexts = require('grommet-icons/contexts');
 
-var _contexts = require('../../contexts');
+var _contexts2 = require('../../contexts');
 
 var _utils = require('../../utils');
 
 var _hocs = require('../hocs');
 
 var _StyledBox = require('./StyledBox');
-
-var _doc = require('./doc');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -149,13 +147,13 @@ var Box = function (_Component) {
     if (stateTheme) {
       if (stateTheme.dark !== propsTheme.dark && stateTheme.icon) {
         content = _react2.default.createElement(
-          _grommetIcons.ThemeContext.Provider,
+          _contexts.ThemeContext.Provider,
           { value: stateTheme.icon },
           content
         );
       }
       content = _react2.default.createElement(
-        _contexts.ThemeContext.Provider,
+        _contexts2.ThemeContext.Provider,
         { value: stateTheme },
         content
       );
@@ -176,7 +174,10 @@ Box.defaultProps = {
 };
 
 
-var BoxWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef // needed for RangeSelector
-)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Box) : Box);
+var BoxDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  BoxDoc = require('./doc').doc(Box); // eslint-disable-line global-require
+}
+var BoxWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(BoxDoc || Box);
 
 exports.Box = BoxWrapper;

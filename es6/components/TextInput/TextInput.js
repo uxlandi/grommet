@@ -22,7 +22,6 @@ import { Keyboard } from '../Keyboard';
 import { withAnnounce, withForwardRef, withTheme } from '../hocs';
 
 import { StyledTextInput, StyledTextInputContainer, StyledPlaceholder, StyledSuggestions } from './StyledTextInput';
-import { doc } from './doc';
 
 function renderLabel(suggestion) {
   if (suggestion && (typeof suggestion === 'undefined' ? 'undefined' : _typeof(suggestion)) === 'object') {
@@ -113,21 +112,14 @@ var TextInput = function (_Component) {
       });
       return suggestionValues.indexOf(value);
     }, _this.onShowSuggestions = function () {
-      var onSuggestionsOpen = _this.props.onSuggestionsOpen;
       // Get values of suggestions, so we can highlight selected suggestion
-
       var selectedSuggestionIndex = _this.getSelectedSuggestionIndex();
 
       _this.setState({
         showDrop: true,
         activeSuggestionIndex: -1,
         selectedSuggestionIndex: selectedSuggestionIndex
-      }, function () {
-        _this.announceSuggestionsIsOpen();
-        if (onSuggestionsOpen) {
-          onSuggestionsOpen();
-        }
-      });
+      }, _this.announceSuggestionsIsOpen);
     }, _this.onNextSuggestion = function (event) {
       var suggestions = _this.props.suggestions;
       var _this$state = _this.state,
@@ -391,6 +383,10 @@ TextInput.defaultProps = {
 };
 
 
-var TextInputWrapper = compose(withTheme, withAnnounce, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(TextInput) : TextInput);
+var TextInputDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TextInputDoc = require('./doc').doc(TextInput); // eslint-disable-line global-require
+}
+var TextInputWrapper = compose(withTheme, withAnnounce, withForwardRef)(TextInputDoc || TextInput);
 
 export { TextInputWrapper as TextInput };

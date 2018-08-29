@@ -9,7 +9,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 import React, { Component } from 'react';
-import { ThemeContext as IconThemeContext } from 'grommet-icons';
+import { ThemeContext as IconThemeContext } from 'grommet-icons/es6/contexts/ThemeContext';
+
 import { compose } from 'recompose';
 
 import { ResponsiveContext, ThemeContext } from '../../contexts';
@@ -18,7 +19,6 @@ import { colorIsDark, deepMerge } from '../../utils';
 import { withIconTheme } from '../hocs';
 
 import { StyledGrommet } from './StyledGrommet';
-import { doc } from './doc';
 
 var Grommet = function (_Component) {
   _inherits(Grommet, _Component);
@@ -127,6 +127,10 @@ var Grommet = function (_Component) {
   return Grommet;
 }(Component);
 
-var GrommetWrapper = compose(withIconTheme)(process.env.NODE_ENV !== 'production' ? doc(Grommet) : Grommet);
+var GrommetDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  GrommetDoc = require('./doc').doc(Grommet); // eslint-disable-line global-require
+}
+var GrommetWrapper = compose(withIconTheme)(GrommetDoc || Grommet);
 
 export { GrommetWrapper as Grommet };

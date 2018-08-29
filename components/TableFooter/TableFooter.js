@@ -11,8 +11,6 @@ var _TableContext = require('../Table/TableContext');
 
 var _StyledTable = require('../Table/StyledTable');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -41,6 +39,10 @@ var TableFooter = function (_Component) {
   return TableFooter;
 }(_react.Component);
 
-var TableFooterWrapper = process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(TableFooter) : TableFooter;
+var TableFooterDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TableFooterDoc = require('./doc').doc(TableFooter); // eslint-disable-line global-require
+}
+var TableFooterWrapper = TableFooterDoc || TableFooter;
 
 exports.TableFooter = TableFooterWrapper;

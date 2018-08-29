@@ -15,7 +15,6 @@ import { withTheme } from '../hocs';
 
 import { Analog } from './Analog';
 import { Digital } from './Digital';
-import { doc } from './doc';
 
 var TIME_REGEXP = /T([0-9]{2}):([0-9]{2})(?::([0-9.,]{2,}))?/;
 var DURATION_REGEXP = /^(-|\+)?P.*T(?:([-+]?[0-9,.]*)H)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)S)?$/;
@@ -220,6 +219,10 @@ Clock.defaultProps = {
 };
 
 
-var ClockWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Clock) : Clock);
+var ClockDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  ClockDoc = require('./doc').doc(Clock); // eslint-disable-line global-require
+}
+var ClockWrapper = compose(withTheme)(ClockDoc || Clock);
 
 export { ClockWrapper as Clock };

@@ -14,7 +14,6 @@ import { compose } from 'recompose';
 import { withTheme } from '../hocs';
 
 import { StyledText } from './StyledText';
-import { doc } from './doc';
 
 var styledComponents = {
   span: StyledText
@@ -53,6 +52,10 @@ Text.defaultProps = {
 };
 
 
-var TextWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Text) : Text);
+var TextDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TextDoc = require('./doc').doc(Text); // eslint-disable-line global-require
+}
+var TextWrapper = compose(withTheme)(TextDoc || Text);
 
 export { TextWrapper as Text };

@@ -9,11 +9,11 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _grommetIcons = require('grommet-icons');
+var _contexts = require('grommet-icons/contexts');
 
 var _recompose = require('recompose');
 
-var _contexts = require('../../contexts');
+var _contexts2 = require('../../contexts');
 
 var _base = require('../../themes/base');
 
@@ -22,8 +22,6 @@ var _utils = require('../../utils');
 var _hocs = require('../hocs');
 
 var _StyledGrommet = require('./StyledGrommet');
-
-var _doc = require('./doc');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -121,13 +119,13 @@ var Grommet = function (_Component) {
 
 
     return _react2.default.createElement(
-      _contexts.ThemeContext.Provider,
+      _contexts2.ThemeContext.Provider,
       { value: theme },
       _react2.default.createElement(
-        _grommetIcons.ThemeContext.Provider,
+        _contexts.ThemeContext.Provider,
         { value: theme.icon },
         _react2.default.createElement(
-          _contexts.ResponsiveContext.Provider,
+          _contexts2.ResponsiveContext.Provider,
           { value: responsive },
           _react2.default.createElement(
             _StyledGrommet.StyledGrommet,
@@ -142,6 +140,10 @@ var Grommet = function (_Component) {
   return Grommet;
 }(_react.Component);
 
-var GrommetWrapper = (0, _recompose.compose)(_hocs.withIconTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Grommet) : Grommet);
+var GrommetDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  GrommetDoc = require('./doc').doc(Grommet); // eslint-disable-line global-require
+}
+var GrommetWrapper = (0, _recompose.compose)(_hocs.withIconTheme)(GrommetDoc || Grommet);
 
 exports.Grommet = GrommetWrapper;

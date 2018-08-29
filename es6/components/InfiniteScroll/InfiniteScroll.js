@@ -8,8 +8,6 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import Waypoint from 'react-waypoint';
 
-import { doc } from './doc';
-
 var InfiniteScroll = function (_Component) {
   _inherits(InfiniteScroll, _Component);
 
@@ -117,6 +115,10 @@ InfiniteScroll.defaultProps = {
 };
 
 
-var InfiniteScrollWrapper = process.env.NODE_ENV !== 'production' ? doc(InfiniteScroll) : InfiniteScroll;
+var InfiniteScrollDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  InfiniteScrollDoc = require('./doc').doc(InfiniteScroll); // eslint-disable-line global-require
+}
+var InfiniteScrollWrapper = InfiniteScrollDoc || InfiniteScroll;
 
 export { InfiniteScrollWrapper as InfiniteScroll };

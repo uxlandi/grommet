@@ -13,15 +13,23 @@ var _reactDom = require('react-dom');
 
 var _recompose = require('recompose');
 
-var _ = require('../');
+var _Box = require('../Box');
+
+var _Button = require('../Button');
+
+var _Menu = require('../Menu');
+
+var _Meter = require('../Meter');
+
+var _Stack = require('../Stack');
+
+var _Text = require('../Text');
 
 var _hocs = require('../hocs');
 
 var _utils = require('../../utils');
 
 var _StyledVideo = require('./StyledVideo');
-
-var _doc = require('./doc');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -368,28 +376,28 @@ var Video = function (_Component) {
         active: !this.hasPlayed || controls === 'below' || over && interacting
       },
       _react2.default.createElement(
-        _.Box,
+        _Box.Box,
         {
           direction: 'row',
           align: 'center',
           justify: 'between',
           background: background
         },
-        _react2.default.createElement(_.Button, {
+        _react2.default.createElement(_Button.Button, {
           icon: playing ? _react2.default.createElement(Icons.Pause, { color: iconColor }) : _react2.default.createElement(Icons.Play, { color: iconColor }),
           hoverIndicator: 'background',
           onClick: playing ? this.pause : this.play
         }),
         _react2.default.createElement(
-          _.Box,
+          _Box.Box,
           { direction: 'row', align: 'center', flex: true },
           _react2.default.createElement(
-            _.Box,
+            _Box.Box,
             { flex: true },
             _react2.default.createElement(
-              _.Stack,
+              _Stack.Stack,
               null,
-              _react2.default.createElement(_.Meter, {
+              _react2.default.createElement(_Meter.Meter, {
                 'aria-label': 'Video progress',
                 background: over && (theme.video.scrubber && theme.video.scrubber.track.color || 'dark-3'),
                 size: 'full',
@@ -411,16 +419,16 @@ var Video = function (_Component) {
             )
           ),
           _react2.default.createElement(
-            _.Box,
+            _Box.Box,
             { pad: { horizontal: 'small' } },
             _react2.default.createElement(
-              _.Text,
+              _Text.Text,
               { margin: 'none' },
               formattedTime
             )
           )
         ),
-        _react2.default.createElement(_.Menu, {
+        _react2.default.createElement(_Menu.Menu, {
           icon: _react2.default.createElement(Icons.Configure, { color: iconColor }),
           dropAlign: { bottom: 'top', right: 'right' },
           dropBackground: background,
@@ -503,6 +511,10 @@ Video.defaultProps = {
 };
 
 
-var VideoWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Video) : Video);
+var VideoDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  VideoDoc = require('./doc').doc(Video); // eslint-disable-line global-require
+}
+var VideoWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(VideoDoc || Video);
 
 exports.Video = VideoWrapper;

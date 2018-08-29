@@ -10,15 +10,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 import React, { Children, Component } from 'react';
 import { compose } from 'recompose';
-import { ThemeContext as IconThemeContext } from 'grommet-icons';
+import { ThemeContext as IconThemeContext } from 'grommet-icons/es6/contexts/ThemeContext';
+
 
 import { ThemeContext } from '../../contexts';
 import { backgroundIsDark } from '../../utils';
 import { withForwardRef, withTheme } from '../hocs';
 
 import { StyledBox, StyledBoxGap } from './StyledBox';
-
-import { doc } from './doc';
 
 var styledComponents = {
   div: StyledBox
@@ -163,7 +162,10 @@ Box.defaultProps = {
 };
 
 
-var BoxWrapper = compose(withTheme, withForwardRef // needed for RangeSelector
-)(process.env.NODE_ENV !== 'production' ? doc(Box) : Box);
+var BoxDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  BoxDoc = require('./doc').doc(Box); // eslint-disable-line global-require
+}
+var BoxWrapper = compose(withTheme, withForwardRef)(BoxDoc || Box);
 
 export { BoxWrapper as Box };

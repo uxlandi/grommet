@@ -16,8 +16,6 @@ import { Box } from '../Box';
 import { Text } from '../Text';
 import { withFocus, withTheme } from '../hocs';
 
-import { doc } from './doc';
-
 var FormField = function (_Component) {
   _inherits(FormField, _Component);
 
@@ -136,6 +134,10 @@ var FormField = function (_Component) {
   return FormField;
 }(Component);
 
-var FormFieldWrapper = compose(withFocus, withTheme)(process.env.NODE_ENV !== 'production' ? doc(FormField) : FormField);
+var FormFieldDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  FormFieldDoc = require('./doc').doc(FormField); // eslint-disable-line global-require
+}
+var FormFieldWrapper = compose(withFocus, withTheme)(FormFieldDoc || FormField);
 
 export { FormFieldWrapper as FormField };

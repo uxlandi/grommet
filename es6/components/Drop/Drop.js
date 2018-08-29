@@ -13,11 +13,9 @@ import { createPortal } from 'react-dom';
 import { compose } from 'recompose';
 
 import { getNewContainer, setFocusWithoutScroll } from '../../utils';
-
 import { withTheme } from '../hocs';
 
 import { DropContainer } from './DropContainer';
-import { doc } from './doc';
 
 var Drop = function (_Component) {
   _inherits(Drop, _Component);
@@ -67,6 +65,10 @@ Drop.defaultProps = {
 };
 
 
-var DropWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Drop) : Drop);
+var DropDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  DropDoc = require('./doc').doc(Drop); // eslint-disable-line global-require
+}
+var DropWrapper = compose(withTheme)(DropDoc || Drop);
 
 export { DropWrapper as Drop };

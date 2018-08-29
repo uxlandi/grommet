@@ -3,7 +3,21 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 import { rgba } from 'polished';
 import { css } from 'styled-components';
 
-import { Actions, ClosedCaption, Expand, FormDown, FormNext, FormPrevious, FormUp, Next, Pause, Play, Previous, Subtract, Volume, VolumeLow } from 'grommet-icons';
+import { Actions } from 'grommet-icons/es6/icons/Actions';
+import { ClosedCaption } from 'grommet-icons/es6/icons/ClosedCaption';
+import { Expand } from 'grommet-icons/es6/icons/Expand';
+import { FormDown } from 'grommet-icons/es6/icons/FormDown';
+import { FormNext } from 'grommet-icons/es6/icons/FormNext';
+import { FormPrevious } from 'grommet-icons/es6/icons/FormPrevious';
+import { FormUp } from 'grommet-icons/es6/icons/FormUp';
+import { Next } from 'grommet-icons/es6/icons/Next';
+import { Pause } from 'grommet-icons/es6/icons/Pause';
+import { Play } from 'grommet-icons/es6/icons/Play';
+import { Previous } from 'grommet-icons/es6/icons/Previous';
+import { Subtract } from 'grommet-icons/es6/icons/Subtract';
+import { Volume } from 'grommet-icons/es6/icons/Volume';
+import { VolumeLow } from 'grommet-icons/es6/icons/VolumeLow';
+
 
 import { colorForName, deepFreeze } from '../utils';
 

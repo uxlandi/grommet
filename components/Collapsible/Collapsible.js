@@ -19,8 +19,6 @@ var _hocs = require('../hocs');
 
 var _Box = require('../Box');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -142,6 +140,10 @@ var Collapsible = function (_Component) {
   return Collapsible;
 }(_react.Component);
 
-var CollapsibleWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Collapsible) : Collapsible);
+var CollapsibleDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  CollapsibleDoc = require('./doc').doc(Collapsible); // eslint-disable-line global-require
+}
+var CollapsibleWrapper = (0, _recompose.compose)(_hocs.withTheme)(CollapsibleDoc || Collapsible);
 
 exports.Collapsible = CollapsibleWrapper;

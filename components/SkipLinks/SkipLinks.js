@@ -15,8 +15,6 @@ var _Heading = require('../Heading');
 
 var _Layer = require('../Layer');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -107,6 +105,10 @@ SkipLinks.defaultProps = {
 };
 
 
-var SkipLinksWrapper = process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(SkipLinks) : SkipLinks;
+var SkipLinksDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  SkipLinksDoc = require('./doc').doc(SkipLinks); // eslint-disable-line global-require
+}
+var SkipLinksWrapper = SkipLinksDoc || SkipLinks;
 
 exports.SkipLinks = SkipLinksWrapper;

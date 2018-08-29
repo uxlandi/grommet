@@ -17,8 +17,6 @@ var _Analog = require('./Analog');
 
 var _Digital = require('./Digital');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -232,6 +230,10 @@ Clock.defaultProps = {
 };
 
 
-var ClockWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Clock) : Clock);
+var ClockDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  ClockDoc = require('./doc').doc(Clock); // eslint-disable-line global-require
+}
+var ClockWrapper = (0, _recompose.compose)(_hocs.withTheme)(ClockDoc || Clock);
 
 exports.Clock = ClockWrapper;

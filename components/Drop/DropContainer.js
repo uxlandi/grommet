@@ -11,9 +11,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = require('react-dom');
 
-var _grommetIcons = require('grommet-icons');
+var _contexts = require('grommet-icons/contexts');
 
-var _contexts = require('../../contexts');
+var _contexts2 = require('../../contexts');
 
 var _FocusedContainer = require('../FocusedContainer');
 
@@ -270,13 +270,13 @@ var DropContainer = exports.DropContainer = function (_Component) {
     if (stateTheme) {
       if (stateTheme.dark !== propsTheme.dark && stateTheme.icon) {
         content = _react2.default.createElement(
-          _grommetIcons.ThemeContext.Provider,
+          _contexts.ThemeContext.Provider,
           { value: stateTheme.icon },
           content
         );
       }
       content = _react2.default.createElement(
-        _contexts.ThemeContext.Provider,
+        _contexts2.ThemeContext.Provider,
         { value: stateTheme },
         content
       );

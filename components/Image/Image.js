@@ -13,8 +13,6 @@ var _hocs = require('../hocs');
 
 var _StyledImage = require('./StyledImage');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -39,6 +37,10 @@ var Image = function (_Component) {
   return Image;
 }(_react.Component);
 
-var ImageWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Image) : Image);
+var ImageDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  ImageDoc = require('./doc').doc(Image); // eslint-disable-line global-require
+}
+var ImageWrapper = (0, _recompose.compose)(_hocs.withTheme)(ImageDoc || Image);
 
 exports.Image = ImageWrapper;

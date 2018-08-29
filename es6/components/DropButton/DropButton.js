@@ -16,8 +16,6 @@ import { Drop } from '../Drop';
 import { withForwardRef, withTheme } from '../hocs';
 import { setFocusWithoutScroll } from '../../utils';
 
-import { doc } from './doc';
-
 var DropButton = function (_Component) {
   _inherits(DropButton, _Component);
 
@@ -142,6 +140,10 @@ DropButton.defaultProps = {
 };
 
 
-var DropButtonWrapper = compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(DropButton) : DropButton);
+var DropButtonDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  DropButtonDoc = require('./doc').doc(DropButton); // eslint-disable-line global-require
+}
+var DropButtonWrapper = compose(withTheme, withForwardRef)(DropButtonDoc || DropButton);
 
 export { DropButtonWrapper as DropButton };

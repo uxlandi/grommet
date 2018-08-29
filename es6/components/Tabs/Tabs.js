@@ -10,8 +10,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 import React, { cloneElement, Children, Component } from 'react';
 
-import { Box } from '../';
-import { doc } from './doc';
+import { Box } from '../Box';
 
 var Tabs = function (_Component) {
   _inherits(Tabs, _Component);
@@ -118,6 +117,10 @@ Tabs.defaultProps = {
 };
 
 
-var TabsWrapper = process.env.NODE_ENV !== 'production' ? doc(Tabs) : Tabs;
+var TabsDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TabsDoc = require('./doc').doc(Tabs); // eslint-disable-line global-require
+}
+var TabsWrapper = TabsDoc || Tabs;
 
 export { TabsWrapper as Tabs };

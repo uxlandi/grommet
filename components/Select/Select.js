@@ -29,8 +29,6 @@ var _utils = require('../../utils');
 
 var _SelectContainer = require('./SelectContainer');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -218,6 +216,10 @@ Select.defaultProps = {
 };
 
 
-var SelectWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Select) : Select);
+var SelectDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  SelectDoc = require('./doc').doc(Select); // eslint-disable-line global-require
+}
+var SelectWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(SelectDoc || Select);
 
 exports.Select = SelectWrapper;

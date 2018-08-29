@@ -14,7 +14,6 @@ import { compose } from 'recompose';
 import { withTheme } from '../hocs';
 
 import { StyledHeading } from './StyledHeading';
-import { doc } from './doc';
 
 var styledComponents = {
   div: StyledHeading
@@ -55,6 +54,10 @@ Heading.defaultProps = {
 };
 
 
-var HeadingWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Heading) : Heading);
+var HeadingDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  HeadingDoc = require('./doc').doc(Heading); // eslint-disable-line global-require
+}
+var HeadingWrapper = compose(withTheme)(HeadingDoc || Heading);
 
 export { HeadingWrapper as Heading };

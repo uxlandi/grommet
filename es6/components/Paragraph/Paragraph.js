@@ -12,7 +12,6 @@ import { compose } from 'recompose';
 import { withTheme } from '../hocs';
 
 import { StyledParagraph } from './StyledParagraph';
-import { doc } from './doc';
 
 var Paragraph = function (_Component) {
   _inherits(Paragraph, _Component);
@@ -32,6 +31,10 @@ var Paragraph = function (_Component) {
   return Paragraph;
 }(Component);
 
-var ParagraphWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Paragraph) : Paragraph);
+var ParagraphDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  ParagraphDoc = require('./doc').doc(Paragraph); // eslint-disable-line global-require
+}
+var ParagraphWrapper = compose(withTheme)(ParagraphDoc || Paragraph);
 
 export { ParagraphWrapper as Paragraph };

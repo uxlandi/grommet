@@ -12,7 +12,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Anchor } from '../Anchor';
-import { doc } from './doc';
 
 var RoutedAnchor = function (_Component) {
   _inherits(RoutedAnchor, _Component);
@@ -71,6 +70,10 @@ RoutedAnchor.defaultProps = {
 };
 
 
-var RoutedAnchorWrapper = process.env.NODE_ENV !== 'production' ? doc(RoutedAnchor) : RoutedAnchor;
+var RoutedAnchorDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  RoutedAnchorDoc = require('./doc').doc(RoutedAnchor); // eslint-disable-line global-require
+}
+var RoutedAnchorWrapper = RoutedAnchorDoc || RoutedAnchor;
 
 export { RoutedAnchorWrapper as RoutedAnchor };

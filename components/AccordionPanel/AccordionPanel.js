@@ -23,8 +23,6 @@ var _hocs = require('../hocs');
 
 var _utils = require('../../utils');
 
-var _doc = require('./doc');
-
 var _AccordionContext = require('../Accordion/AccordionContext');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -160,6 +158,10 @@ var AccordionPanel = function (_Component) {
   return AccordionPanel;
 }(_react.Component);
 
-var AccordionPanelWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(AccordionPanel) : AccordionPanel);
+var AccordionPanelDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  AccordionPanelDoc = require('./doc').doc(AccordionPanel); // eslint-disable-line global-require
+}
+var AccordionPanelWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(AccordionPanelDoc || AccordionPanel);
 
 exports.AccordionPanel = AccordionPanelWrapper;

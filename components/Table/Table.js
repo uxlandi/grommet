@@ -13,8 +13,6 @@ var _hocs = require('../hocs');
 
 var _StyledTable = require('./StyledTable');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -55,6 +53,10 @@ var Table = function (_Component) {
   return Table;
 }(_react.Component);
 
-var TableWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Table) : Table);
+var TableDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TableDoc = require('./doc').doc(Table); // eslint-disable-line global-require
+}
+var TableWrapper = (0, _recompose.compose)(_hocs.withTheme)(TableDoc || Table);
 
 exports.Table = TableWrapper;

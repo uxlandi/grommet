@@ -11,7 +11,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import getDisplayName from 'recompose/getDisplayName';
-import { ThemeContext as IconThemeContext } from 'grommet-icons';
+import { ThemeContext as IconThemeContext } from 'grommet-icons/es6/contexts/ThemeContext';
+
 
 import { AnnounceContext, ThemeContext } from '../contexts';
 

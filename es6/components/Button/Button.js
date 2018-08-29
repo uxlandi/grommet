@@ -16,7 +16,6 @@ import { Text } from '../Text';
 import { withFocus, withForwardRef, withTheme } from '../hocs';
 
 import { StyledButton } from './StyledButton';
-import { doc } from './doc';
 
 var AnchorStyledButton = StyledButton.withComponent('a');
 
@@ -114,6 +113,10 @@ Button.defaultProps = {
 };
 
 
-var ButtonWrapper = compose(withFocus, withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(Button) : Button);
+var ButtonDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  ButtonDoc = require('./doc').doc(Button); // eslint-disable-line global-require
+}
+var ButtonWrapper = compose(withFocus, withTheme, withForwardRef)(ButtonDoc || Button);
 
 export { ButtonWrapper as Button };

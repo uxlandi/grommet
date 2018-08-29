@@ -8,7 +8,6 @@ import React, { Component } from 'react';
 
 import { TableContext } from '../Table/TableContext';
 import { StyledTableHeader } from '../Table/StyledTable';
-import { doc } from './doc';
 
 var TableHeader = function (_Component) {
   _inherits(TableHeader, _Component);
@@ -30,6 +29,10 @@ var TableHeader = function (_Component) {
   return TableHeader;
 }(Component);
 
-var TableHeaderWrapper = process.env.NODE_ENV !== 'production' ? doc(TableHeader) : TableHeader;
+var TableHeaderDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TableHeaderDoc = require('./doc').doc(TableHeader); // eslint-disable-line global-require
+}
+var TableHeaderWrapper = TableHeaderDoc || TableHeader;
 
 export { TableHeaderWrapper as TableHeader };

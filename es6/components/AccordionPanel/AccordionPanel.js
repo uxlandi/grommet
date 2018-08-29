@@ -18,7 +18,6 @@ import { Heading } from '../Heading';
 import { withTheme, withForwardRef } from '../hocs';
 import { evalStyle, normalizeColor } from '../../utils';
 
-import { doc } from './doc';
 import { AccordionContext } from '../Accordion/AccordionContext';
 
 var AccordionPanel = function (_Component) {
@@ -144,6 +143,10 @@ var AccordionPanel = function (_Component) {
   return AccordionPanel;
 }(Component);
 
-var AccordionPanelWrapper = compose(withTheme, withForwardRef)(process.env.NODE_ENV !== 'production' ? doc(AccordionPanel) : AccordionPanel);
+var AccordionPanelDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  AccordionPanelDoc = require('./doc').doc(AccordionPanel); // eslint-disable-line global-require
+}
+var AccordionPanelWrapper = compose(withTheme, withForwardRef)(AccordionPanelDoc || AccordionPanel);
 
 export { AccordionPanelWrapper as AccordionPanel };

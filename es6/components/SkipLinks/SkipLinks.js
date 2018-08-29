@@ -11,8 +11,6 @@ import { Box } from '../Box';
 import { Heading } from '../Heading';
 import { Layer } from '../Layer';
 
-import { doc } from './doc';
-
 var SkipLinks = function (_Component) {
   _inherits(SkipLinks, _Component);
 
@@ -95,6 +93,10 @@ SkipLinks.defaultProps = {
 };
 
 
-var SkipLinksWrapper = process.env.NODE_ENV !== 'production' ? doc(SkipLinks) : SkipLinks;
+var SkipLinksDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  SkipLinksDoc = require('./doc').doc(SkipLinks); // eslint-disable-line global-require
+}
+var SkipLinksWrapper = SkipLinksDoc || SkipLinks;
 
 export { SkipLinksWrapper as SkipLinks };

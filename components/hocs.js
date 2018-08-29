@@ -15,9 +15,9 @@ var _getDisplayName = require('recompose/getDisplayName');
 
 var _getDisplayName2 = _interopRequireDefault(_getDisplayName);
 
-var _grommetIcons = require('grommet-icons');
+var _contexts = require('grommet-icons/contexts');
 
-var _contexts = require('../contexts');
+var _contexts2 = require('../contexts');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -183,7 +183,7 @@ var withTheme = function withTheme(WrappedComponent) {
 
   var ForwardRef = _react2.default.forwardRef(function (props, ref) {
     return _react2.default.createElement(
-      _contexts.ThemeContext.Consumer,
+      _contexts2.ThemeContext.Consumer,
       null,
       function (theme) {
         return _react2.default.createElement(ThemedComponent, _extends({}, props, { theme: theme, withThemeRef: ref }));
@@ -212,7 +212,7 @@ var withForwardRef = exports.withForwardRef = function withForwardRef(WrappedCom
 var withAnnounce = exports.withAnnounce = function withAnnounce(WrappedComponent) {
   var ForwardRef = _react2.default.forwardRef(function (props, ref) {
     return _react2.default.createElement(
-      _contexts.AnnounceContext.Consumer,
+      _contexts2.AnnounceContext.Consumer,
       null,
       function (announce) {
         return _react2.default.createElement(WrappedComponent, _extends({}, props, { announce: announce, ref: ref }));
@@ -229,7 +229,7 @@ var withAnnounce = exports.withAnnounce = function withAnnounce(WrappedComponent
 var withIconTheme = exports.withIconTheme = function withIconTheme(WrappedComponent) {
   var IconThemeComponent = function IconThemeComponent(props) {
     return _react2.default.createElement(
-      _grommetIcons.ThemeContext.Consumer,
+      _contexts.ThemeContext.Consumer,
       null,
       function (iconTheme) {
         return _react2.default.createElement(WrappedComponent, _extends({}, props, { iconTheme: iconTheme }));

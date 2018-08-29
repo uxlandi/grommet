@@ -21,8 +21,6 @@ var _hocs = require('../hocs');
 
 var _utils = require('../../utils');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -149,6 +147,10 @@ var Tab = function (_Component) {
   return Tab;
 }(_react.Component);
 
-var TabWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Tab) : Tab);
+var TabDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TabDoc = require('./doc').doc(Tab); // eslint-disable-line global-require
+}
+var TabWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(TabDoc || Tab);
 
 exports.Tab = TabWrapper;

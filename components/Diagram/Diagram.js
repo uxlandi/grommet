@@ -19,8 +19,6 @@ var _hocs = require('../hocs');
 
 var _StyledDiagram = require('./StyledDiagram');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -243,6 +241,10 @@ var Diagram = function (_Component) {
 Diagram.defaultProps = { connections: [] };
 
 
-var DiagramWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Diagram) : Diagram);
+var DiagramDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  DiagramDoc = require('./doc').doc(Diagram); // eslint-disable-line global-require
+}
+var DiagramWrapper = (0, _recompose.compose)(_hocs.withTheme)(DiagramDoc || Diagram);
 
 exports.Diagram = DiagramWrapper;

@@ -25,8 +25,6 @@ var _hocs = require('../hocs');
 
 var _StyledCalendar = require('./StyledCalendar');
 
-var _doc = require('./doc');
-
 var _utils = require('./utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -355,6 +353,10 @@ Calendar.defaultProps = {
 };
 
 
-var CalendarWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Calendar) : Calendar);
+var CalendarDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  CalendarDoc = require('./doc').doc(Calendar); // eslint-disable-line global-require
+}
+var CalendarWrapper = (0, _recompose.compose)(_hocs.withTheme)(CalendarDoc || Calendar);
 
 exports.Calendar = CalendarWrapper;

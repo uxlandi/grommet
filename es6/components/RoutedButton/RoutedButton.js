@@ -12,7 +12,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { Button } from '../Button';
-import { doc } from './doc';
 
 var RoutedButton = function (_Component) {
   _inherits(RoutedButton, _Component);
@@ -85,6 +84,10 @@ var _initialiseProps = function _initialiseProps() {
   };
 };
 
-var RoutedButtonWrapper = process.env.NODE_ENV !== 'production' ? doc(RoutedButton) : RoutedButton;
+var RoutedButtonDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  RoutedButtonDoc = require('./doc').doc(RoutedButton); // eslint-disable-line global-require
+}
+var RoutedButtonWrapper = RoutedButtonDoc || RoutedButton;
 
 export { RoutedButtonWrapper as RoutedButton };

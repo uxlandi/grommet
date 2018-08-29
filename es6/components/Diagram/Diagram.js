@@ -13,12 +13,9 @@ import { findDOMNode } from 'react-dom';
 import { compose } from 'recompose';
 
 import { colorForName, parseMetricToNum } from '../../utils';
-
 import { withTheme } from '../hocs';
 
 import { StyledDiagram } from './StyledDiagram';
-
-import { doc } from './doc';
 
 var computeMidPoint = function computeMidPoint(fromPoint, toPoint) {
   return [fromPoint[0] > toPoint[0] ? toPoint[0] + (fromPoint[0] - toPoint[0]) / 2 : fromPoint[0] + (toPoint[0] - fromPoint[0]) / 2, fromPoint[1] > toPoint[1] ? toPoint[1] + (fromPoint[1] - toPoint[1]) / 2 : fromPoint[1] + (toPoint[1] - fromPoint[1]) / 2];
@@ -232,6 +229,10 @@ var Diagram = function (_Component) {
 Diagram.defaultProps = { connections: [] };
 
 
-var DiagramWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Diagram) : Diagram);
+var DiagramDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  DiagramDoc = require('./doc').doc(Diagram); // eslint-disable-line global-require
+}
+var DiagramWrapper = compose(withTheme)(DiagramDoc || Diagram);
 
 export { DiagramWrapper as Diagram };

@@ -11,13 +11,17 @@ var _react2 = _interopRequireDefault(_react);
 
 var _recompose = require('recompose');
 
-var _ = require('../');
+var _Box = require('../Box');
+
+var _Button = require('../Button');
+
+var _Keyboard = require('../Keyboard');
+
+var _Stack = require('../Stack');
 
 var _hocs = require('../hocs');
 
 var _utils = require('../../utils');
-
-var _doc = require('./doc');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -119,7 +123,7 @@ var Carousel = function (_Component) {
 
     var selectors = [];
     var wrappedChildren = _react.Children.map(children, function (child, index) {
-      selectors.push(_react2.default.createElement(_.Button, {
+      selectors.push(_react2.default.createElement(_Button.Button, {
         key: index,
         icon: _react2.default.createElement(CurrentIcon, {
           color: activeIndex === index ? iconColor : undefined
@@ -142,10 +146,10 @@ var Carousel = function (_Component) {
       }
 
       return _react2.default.createElement(
-        _.Box,
+        _Box.Box,
         { overflow: 'hidden' },
         _react2.default.createElement(
-          _.Box,
+          _Box.Box,
           { animation: animation },
           child
         )
@@ -156,45 +160,45 @@ var Carousel = function (_Component) {
     var PreviousIcon = theme.carousel.icons.previous;
 
     return _react2.default.createElement(
-      _.Keyboard,
+      _Keyboard.Keyboard,
       { onLeft: onLeft, onRight: onRight },
       _react2.default.createElement(
-        _.Stack,
+        _Stack.Stack,
         _extends({ guidingChild: activeIndex, fill: fill }, rest),
         wrappedChildren,
         _react2.default.createElement(
-          _.Box,
+          _Box.Box,
           { tabIndex: '0', focus: focus, fill: true, direction: 'row', justify: 'between' },
           _react2.default.createElement(
-            _.Box,
+            _Box.Box,
             { fill: 'vertical' },
             _react2.default.createElement(
-              _.Button,
+              _Button.Button,
               { fill: true, onClick: onLeft, hoverIndicator: true },
               _react2.default.createElement(
-                _.Box,
+                _Box.Box,
                 { justify: 'center' },
                 _react2.default.createElement(PreviousIcon, null)
               )
             )
           ),
           _react2.default.createElement(
-            _.Box,
+            _Box.Box,
             { justify: 'end' },
             _react2.default.createElement(
-              _.Box,
+              _Box.Box,
               { direction: 'row', justify: 'center' },
               selectors
             )
           ),
           _react2.default.createElement(
-            _.Box,
+            _Box.Box,
             { fill: 'vertical' },
             _react2.default.createElement(
-              _.Button,
+              _Button.Button,
               { fill: true, onClick: onRight, hoverIndicator: true },
               _react2.default.createElement(
-                _.Box,
+                _Box.Box,
                 { justify: 'center' },
                 _react2.default.createElement(NextIcon, null)
               )
@@ -208,6 +212,10 @@ var Carousel = function (_Component) {
   return Carousel;
 }(_react.Component);
 
-var CarouselWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withFocus)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(Carousel) : Carousel);
+var CarouselDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  CarouselDoc = require('./doc').doc(Carousel); // eslint-disable-line global-require
+}
+var CarouselWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme)(CarouselDoc || Carousel);
 
 exports.Carousel = CarouselWrapper;

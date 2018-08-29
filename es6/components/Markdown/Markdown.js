@@ -18,8 +18,6 @@ import { Heading } from '../Heading';
 import { Paragraph } from '../Paragraph';
 import { withTheme } from '../hocs';
 
-import { doc } from './doc';
-
 var GrommetMarkdown = function (_Component) {
   _inherits(GrommetMarkdown, _Component);
 
@@ -54,6 +52,10 @@ var GrommetMarkdown = function (_Component) {
   return GrommetMarkdown;
 }(Component);
 
-var GrommetMarkdownWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(GrommetMarkdown) : GrommetMarkdown);
+var GrommetMarkdownDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  GrommetMarkdownDoc = require('./doc').doc(GrommetMarkdown); // eslint-disable-line global-require
+}
+var GrommetMarkdownWrapper = compose(withTheme)(GrommetMarkdownDoc || GrommetMarkdown);
 
 export { GrommetMarkdownWrapper as Markdown };

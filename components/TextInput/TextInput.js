@@ -31,8 +31,6 @@ var _hocs = require('../hocs');
 
 var _StyledTextInput = require('./StyledTextInput');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -132,21 +130,14 @@ var TextInput = function (_Component) {
       });
       return suggestionValues.indexOf(value);
     }, _this.onShowSuggestions = function () {
-      var onSuggestionsOpen = _this.props.onSuggestionsOpen;
       // Get values of suggestions, so we can highlight selected suggestion
-
       var selectedSuggestionIndex = _this.getSelectedSuggestionIndex();
 
       _this.setState({
         showDrop: true,
         activeSuggestionIndex: -1,
         selectedSuggestionIndex: selectedSuggestionIndex
-      }, function () {
-        _this.announceSuggestionsIsOpen();
-        if (onSuggestionsOpen) {
-          onSuggestionsOpen();
-        }
-      });
+      }, _this.announceSuggestionsIsOpen);
     }, _this.onNextSuggestion = function (event) {
       var suggestions = _this.props.suggestions;
       var _this$state = _this.state,
@@ -410,6 +401,10 @@ TextInput.defaultProps = {
 };
 
 
-var TextInputWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withAnnounce, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(TextInput) : TextInput);
+var TextInputDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TextInputDoc = require('./doc').doc(TextInput); // eslint-disable-line global-require
+}
+var TextInputWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withAnnounce, _hocs.withForwardRef)(TextInputDoc || TextInput);
 
 exports.TextInput = TextInputWrapper;

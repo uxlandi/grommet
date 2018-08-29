@@ -10,7 +10,6 @@ import { withTheme } from '../hocs';
 
 import { TableContext } from '../Table/TableContext';
 import { StyledTableCell } from '../Table/StyledTable';
-import { doc } from './doc';
 
 var TableCell = function TableCell(_ref) {
   var children = _ref.children,
@@ -50,6 +49,10 @@ TableCell.defaultProps = {
   pad: { horizontal: 'small', vertical: 'xsmall' }
 };
 
-var TableCellWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(TableCell) : TableCell);
+var TableCellDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TableCellDoc = require('./doc').doc(TableCell); // eslint-disable-line global-require
+}
+var TableCellWrapper = compose(withTheme)(TableCellDoc || TableCell);
 
 export { TableCellWrapper as TableCell };

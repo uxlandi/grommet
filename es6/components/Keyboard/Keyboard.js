@@ -6,8 +6,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 import { Children, Component, cloneElement } from 'react';
 
-import { doc } from './doc';
-
 var KEYS = {
   8: 'onBackspace',
   9: 'onTab',
@@ -84,6 +82,10 @@ var Keyboard = function (_Component) {
   return Keyboard;
 }(Component);
 
-var KeyboardWrapper = process.env.NODE_ENV !== 'production' ? doc(Keyboard) : Keyboard;
+var KeyboardDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  KeyboardDoc = require('./doc').doc(Keyboard); // eslint-disable-line global-require
+}
+var KeyboardWrapper = KeyboardDoc || Keyboard;
 
 export { KeyboardWrapper as Keyboard };

@@ -19,8 +19,6 @@ var _hocs = require('../hocs');
 
 var _StyledWorldMap = require('./StyledWorldMap');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -411,6 +409,10 @@ var WorldMap = function (_Component) {
   return WorldMap;
 }(_react.Component);
 
-var WorldMapWrapper = (0, _recompose.compose)(_hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(WorldMap) : WorldMap);
+var WorldMapDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  WorldMapDoc = require('./doc').doc(WorldMap); // eslint-disable-line global-require
+}
+var WorldMapWrapper = (0, _recompose.compose)(_hocs.withTheme)(WorldMapDoc || WorldMap);
 
 exports.WorldMap = WorldMapWrapper;

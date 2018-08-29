@@ -19,8 +19,6 @@ var _Text = require('../Text');
 
 var _hocs = require('../hocs');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -149,6 +147,10 @@ var FormField = function (_Component) {
   return FormField;
 }(_react.Component);
 
-var FormFieldWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(FormField) : FormField);
+var FormFieldDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  FormFieldDoc = require('./doc').doc(FormField); // eslint-disable-line global-require
+}
+var FormFieldWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme)(FormFieldDoc || FormField);
 
 exports.FormField = FormFieldWrapper;

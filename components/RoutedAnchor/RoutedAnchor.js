@@ -15,8 +15,6 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _Anchor = require('../Anchor');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -84,6 +82,10 @@ RoutedAnchor.defaultProps = {
 };
 
 
-var RoutedAnchorWrapper = process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(RoutedAnchor) : RoutedAnchor;
+var RoutedAnchorDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  RoutedAnchorDoc = require('./doc').doc(RoutedAnchor); // eslint-disable-line global-require
+}
+var RoutedAnchorWrapper = RoutedAnchorDoc || RoutedAnchor;
 
 exports.RoutedAnchor = RoutedAnchorWrapper;

@@ -1,12 +1,15 @@
 import React from 'react';
 
 import { StyledTableRow } from '../Table/StyledTable';
-import { doc } from './doc';
 
 var TableRow = function TableRow(props) {
   return React.createElement(StyledTableRow, props);
 };
 
-var TableRowWrapper = process.env.NODE_ENV !== 'production' ? doc(TableRow) : TableRow;
+var TableRowDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TableRowDoc = require('./doc').doc(TableRow); // eslint-disable-line global-require
+}
+var TableRowWrapper = TableRowDoc || TableRow;
 
 export { TableRowWrapper as TableRow };

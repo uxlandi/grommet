@@ -19,8 +19,6 @@ var _hocs = require('../hocs');
 
 var _utils = require('../../utils');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -155,6 +153,10 @@ DropButton.defaultProps = {
 };
 
 
-var DropButtonWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(DropButton) : DropButton);
+var DropButtonDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  DropButtonDoc = require('./doc').doc(DropButton); // eslint-disable-line global-require
+}
+var DropButtonWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(DropButtonDoc || DropButton);
 
 exports.DropButton = DropButtonWrapper;

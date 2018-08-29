@@ -12,7 +12,6 @@ import { compose } from 'recompose';
 import { withTheme } from '../hocs';
 
 import { StyledTable, StyledTableDataCaption } from './StyledTable';
-import { doc } from './doc';
 
 var Table = function (_Component) {
   _inherits(Table, _Component);
@@ -44,6 +43,10 @@ var Table = function (_Component) {
   return Table;
 }(Component);
 
-var TableWrapper = compose(withTheme)(process.env.NODE_ENV !== 'production' ? doc(Table) : Table);
+var TableDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  TableDoc = require('./doc').doc(Table); // eslint-disable-line global-require
+}
+var TableWrapper = compose(withTheme)(TableDoc || Table);
 
 export { TableWrapper as Table };

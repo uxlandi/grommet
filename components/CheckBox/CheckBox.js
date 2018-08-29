@@ -17,8 +17,6 @@ var _object = require('../../utils/object');
 
 var _StyledCheckBox = require('./StyledCheckBox');
 
-var _doc = require('./doc');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -104,6 +102,10 @@ var CheckBox = function (_Component) {
   return CheckBox;
 }(_react.Component);
 
-var CheckBoxWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(process.env.NODE_ENV !== 'production' ? (0, _doc.doc)(CheckBox) : CheckBox);
+var CheckBoxDoc = void 0;
+if (process.env.NODE_ENV !== 'production') {
+  CheckBoxDoc = require('./doc').doc(CheckBox); // eslint-disable-line global-require
+}
+var CheckBoxWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(CheckBoxDoc || CheckBox);
 
 exports.CheckBox = CheckBoxWrapper;
