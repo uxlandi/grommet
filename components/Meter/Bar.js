@@ -68,7 +68,7 @@ var Bar = exports.Bar = function (_Component) {
       var key = 'p-' + index;
       var delta = value * (width - 2 * capOffset) / max;
       var d = 'M ' + start + ',' + mid + ' L ' + (start + delta) + ',' + mid;
-      var colorName = color || (index === values.length - 1 ? 'accent-1' : 'neutral-' + (index + 1));
+      var colorName = color || (index === values.length - 1 ? 'accent-1' : (0, _utils2.defaultColor)(index, theme));
       var hoverProps = void 0;
       if (onHover) {
         hoverProps = {

@@ -13,7 +13,7 @@ import React, { Component } from 'react';
 import { arcCommands, parseMetricToNum, translateEndAngle } from '../../utils';
 
 import { StyledMeter } from './StyledMeter';
-import { strokeProps } from './utils';
+import { strokeProps, defaultColor } from './utils';
 
 export var Circle = function (_Component) {
   _inherits(Circle, _Component);
@@ -59,7 +59,7 @@ export var Circle = function (_Component) {
           pathRest = _objectWithoutProperties(valueArg, ['color', 'highlight', 'label', 'onHover', 'value']);
 
       var key = 'p-' + index;
-      var colorName = color || (index === values.length - 1 ? 'accent-1' : 'neutral-' + (index + 1));
+      var colorName = color || (index === values.length - 1 ? 'accent-1' : defaultColor(index, theme));
 
       var endAngle = void 0;
       if (startValue + value >= max) {

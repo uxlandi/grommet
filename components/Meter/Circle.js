@@ -69,7 +69,7 @@ var Circle = exports.Circle = function (_Component) {
           pathRest = _objectWithoutProperties(valueArg, ['color', 'highlight', 'label', 'onHover', 'value']);
 
       var key = 'p-' + index;
-      var colorName = color || (index === values.length - 1 ? 'accent-1' : 'neutral-' + (index + 1));
+      var colorName = color || (index === values.length - 1 ? 'accent-1' : (0, _utils2.defaultColor)(index, theme));
 
       var endAngle = void 0;
       if (startValue + value >= max) {

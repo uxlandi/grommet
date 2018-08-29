@@ -16,3 +16,12 @@ export var strokeProps = function strokeProps(color, theme) {
   }
   return result;
 };
+
+var neutralExp = /^neutral-\d+/;
+
+export var defaultColor = function defaultColor(index, theme) {
+  var neutralColors = Object.keys(theme.global.colors).filter(function (k) {
+    return neutralExp.test(k);
+  });
+  return neutralColors[index % neutralColors.length];
+};
