@@ -31,5 +31,5 @@ export var StyledDrop = styled.div.withConfig({
 }, function (props) {
   return getTransformOriginStyle(props.align);
 }, dropKeyFrames).extend(_templateObject, function (props) {
-  return props.theme.drop && props.theme.drop.extend;
+  return props.theme.global.drop && props.theme.global.drop.extend;
 });

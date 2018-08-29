@@ -37,6 +37,8 @@ var doc = exports.doc = function doc(TextInput) {
     name: _reactDesc.PropTypes.string.description('The name attribute of the input.'),
     onInput: _reactDesc.PropTypes.func.description('Function that will be called when the user types in the input.'),
     onSelect: _reactDesc.PropTypes.func.description('Function that will be called when the user selects a suggestion.\nThe suggestion contains the object chosen from the supplied suggestions.'),
+    onSuggestionsOpen: _reactDesc.PropTypes.func.description('Function that will be called when the suggestions drop is opened.'),
+    onSuggestionsClose: _reactDesc.PropTypes.func.description('Function that will be called when the suggestions drop is closed.'),
     placeholder: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.string, _reactDesc.PropTypes.node]).description('Placeholder to use when no value is provided.'),
     plain: _reactDesc.PropTypes.bool.description('Whether this is a plain input with no border or padding.\nOnly use this when the containing context provides sufficient affordance'),
     size: _reactDesc.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']).description('The size of the TextInput.'),

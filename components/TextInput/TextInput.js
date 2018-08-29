@@ -132,14 +132,21 @@ var TextInput = function (_Component) {
       });
       return suggestionValues.indexOf(value);
     }, _this.onShowSuggestions = function () {
+      var onSuggestionsOpen = _this.props.onSuggestionsOpen;
       // Get values of suggestions, so we can highlight selected suggestion
+
       var selectedSuggestionIndex = _this.getSelectedSuggestionIndex();
 
       _this.setState({
         showDrop: true,
         activeSuggestionIndex: -1,
         selectedSuggestionIndex: selectedSuggestionIndex
-      }, _this.announceSuggestionsIsOpen);
+      }, function () {
+        _this.announceSuggestionsIsOpen();
+        if (onSuggestionsOpen) {
+          onSuggestionsOpen();
+        }
+      });
     }, _this.onNextSuggestion = function (event) {
       var suggestions = _this.props.suggestions;
       var _this$state = _this.state,
@@ -238,6 +245,7 @@ var TextInput = function (_Component) {
           _InfiniteScroll.InfiniteScroll,
           { items: suggestions, step: theme.select.step },
           function (suggestion, index) {
+            var plain = (typeof suggestion === 'undefined' ? 'undefined' : _typeof(suggestion)) === 'object' && _typeof((0, _react.isValidElement)(suggestion.label));
             return _react2.default.createElement(
               'li',
               { key: stringLabel(suggestion) + '-' + index },
@@ -251,7 +259,7 @@ var TextInput = function (_Component) {
                     return _this.onClickSuggestion(suggestion);
                   }
                 },
-                _react2.default.createElement(
+                plain ? renderLabel(suggestion) : _react2.default.createElement(
                   _Box.Box,
                   { align: 'start', pad: 'small' },
                   renderLabel(suggestion)
@@ -279,10 +287,24 @@ var TextInput = function (_Component) {
     clearTimeout(this.resetTimer);
   };
 
-  TextInput.prototype.announceSuggestion = function announceSuggestion(index) {
+  TextInput.prototype.componentDidUpdate = function componentDidUpdate(prevProps, prevState) {
     var _props = this.props,
-        suggestions = _props.suggestions,
-        enterSelect = _props.messages.enterSelect;
+        onSuggestionsOpen = _props.onSuggestionsOpen,
+        onSuggestionsClose = _props.onSuggestionsClose;
+
+    if (this.state.showDrop !== prevState.showDrop) {
+      if (this.state.showDrop && onSuggestionsOpen) {
+        onSuggestionsOpen();
+      } else if (onSuggestionsClose) {
+        onSuggestionsClose();
+      }
+    }
+  };
+
+  TextInput.prototype.announceSuggestion = function announceSuggestion(index) {
+    var _props2 = this.props,
+        suggestions = _props2.suggestions,
+        enterSelect = _props2.messages.enterSelect;
 
     if (suggestions && suggestions.length > 0) {
       var labelMessage = stringLabel(suggestions[index]);
@@ -293,17 +315,17 @@ var TextInput = function (_Component) {
   TextInput.prototype.render = function render() {
     var _this2 = this;
 
-    var _props2 = this.props,
-        defaultValue = _props2.defaultValue,
-        dropAlign = _props2.dropAlign,
-        dropTarget = _props2.dropTarget,
-        id = _props2.id,
-        placeholder = _props2.placeholder,
-        plain = _props2.plain,
-        theme = _props2.theme,
-        value = _props2.value,
-        onKeyDown = _props2.onKeyDown,
-        rest = _objectWithoutProperties(_props2, ['defaultValue', 'dropAlign', 'dropTarget', 'id', 'placeholder', 'plain', 'theme', 'value', 'onKeyDown']);
+    var _props3 = this.props,
+        defaultValue = _props3.defaultValue,
+        dropAlign = _props3.dropAlign,
+        dropTarget = _props3.dropTarget,
+        id = _props3.id,
+        placeholder = _props3.placeholder,
+        plain = _props3.plain,
+        theme = _props3.theme,
+        value = _props3.value,
+        onKeyDown = _props3.onKeyDown,
+        rest = _objectWithoutProperties(_props3, ['defaultValue', 'dropAlign', 'dropTarget', 'id', 'placeholder', 'plain', 'theme', 'value', 'onKeyDown']);
 
     delete rest.onInput; // se we can manage in onInputChange()
     delete rest.forwardRef;
