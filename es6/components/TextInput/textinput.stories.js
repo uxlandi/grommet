@@ -93,7 +93,7 @@ var myCustomTheme = deepMerge(grommet, {
         dark: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
         light: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)'
       },
-      extend: '\n        border-bottom-left-radius: 12px;\n        border-bottom-right-radius: 12px;\n      '
+      extend: '\n        border-bottom-left-radius: 12px;\n        border-bottom-right-radius: 12px;\n\n        overflow: hidden;\n      '
     },
     elevation: {
       dark: {

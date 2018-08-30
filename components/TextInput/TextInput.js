@@ -264,14 +264,23 @@ var TextInput = function (_Component) {
   }
 
   TextInput.getDerivedStateFromProps = function getDerivedStateFromProps(nextProps, prevState) {
-    var forwardRef = nextProps.forwardRef;
-    var inputRef = prevState.inputRef;
+    var forwardRef = nextProps.forwardRef,
+        suggestions = nextProps.suggestions;
+    var inputRef = prevState.inputRef,
+        showDrop = prevState.showDrop;
 
     var nextInputRef = forwardRef || inputRef;
+
+    var newState = {};
     if (nextInputRef !== inputRef) {
-      return { inputRef: nextInputRef };
+      newState.inputRef = nextInputRef;
     }
-    return null;
+
+    if (showDrop && (!suggestions || !suggestions.length)) {
+      newState.showDrop = false;
+    }
+
+    return Object.keys(newState) ? newState : null;
   };
 
   TextInput.prototype.componentWillUnmount = function componentWillUnmount() {
