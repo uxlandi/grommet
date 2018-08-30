@@ -77,6 +77,8 @@ var SimpleSelect = function (_Component) {
       Grommet,
       { theme: theme || grommet },
       React.createElement(Select, {
+        id: 'select',
+        name: 'select',
         placeholder: 'Select',
         value: value,
         options: options,

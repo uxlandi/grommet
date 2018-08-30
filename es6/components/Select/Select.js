@@ -74,6 +74,7 @@ var Select = function (_Component) {
         dropAlign = _props.dropAlign,
         dropTarget = _props.dropTarget,
         forwardRef = _props.forwardRef,
+        id = _props.id,
         messages = _props.messages,
         onChange = _props.onChange,
         onClose = _props.onClose,
@@ -82,7 +83,7 @@ var Select = function (_Component) {
         size = _props.size,
         theme = _props.theme,
         value = _props.value,
-        rest = _objectWithoutProperties(_props, ['a11yTitle', 'children', 'closeOnChange', 'disabled', 'dropAlign', 'dropTarget', 'forwardRef', 'messages', 'onChange', 'onClose', 'placeholder', 'plain', 'size', 'theme', 'value']);
+        rest = _objectWithoutProperties(_props, ['a11yTitle', 'children', 'closeOnChange', 'disabled', 'dropAlign', 'dropTarget', 'forwardRef', 'id', 'messages', 'onChange', 'onClose', 'placeholder', 'plain', 'size', 'theme', 'value']);
 
     var open = this.state.open;
 
@@ -135,18 +136,17 @@ var Select = function (_Component) {
       { onDown: this.onOpen, onUp: this.onOpen },
       React.createElement(
         DropButton,
-        _extends({
+        {
           ref: forwardRef,
+          id: id,
           disabled: disabled,
           dropAlign: dropAlign,
-          dropTarget: dropTarget
-        }, rest, {
+          dropTarget: dropTarget,
           open: open,
           onOpen: this.onOpen,
           onClose: this.onClose,
-          a11yTitle: '' + a11yTitle + (typeof value === 'string' ? ', ' + value : ''),
           dropContent: React.createElement(SelectContainer, _extends({}, this.props, { onChange: onSelectChange }))
-        }),
+        },
         React.createElement(
           StyledSelectBox,
           {
@@ -161,9 +161,8 @@ var Select = function (_Component) {
             Box,
             { direction: 'row', flex: true, basis: 'auto' },
             selectValue || React.createElement(SelectTextInput, _extends({
-              ref: function ref(_ref) {
-                _this2.inputRef = _ref;
-              }
+              a11yTitle: a11yTitle && '' + a11yTitle + (typeof value === 'string' ? ', ' + value : ''),
+              id: id ? id + '__input' : undefined
             }, rest, {
               tabIndex: '-1',
               type: 'text',
@@ -171,7 +170,8 @@ var Select = function (_Component) {
               plain: true,
               readOnly: true,
               value: textValue,
-              size: size
+              size: size,
+              onClick: disabled ? undefined : this.onOpen
             }))
           ),
           React.createElement(
