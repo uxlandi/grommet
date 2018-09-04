@@ -31,7 +31,7 @@ var doc = exports.doc = function doc(Box) {
       image: _reactDesc.PropTypes.string,
       position: _reactDesc.PropTypes.string,
       opacity: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['weak', 'medium', 'strong']), _reactDesc.PropTypes.bool]),
-      ligh: _reactDesc.PropTypes.string
+      light: _reactDesc.PropTypes.string
     })]).description('Either a color identifier to use for the background\n        color. For example: \'neutral-1\'. Or, a \'url()\' for an image. Dark\n        is not needed if color is provided.'),
     basis: _reactDesc.PropTypes.oneOf(['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'full', '1/2', '1/3', '2/3', '1/4', '3/4', 'auto']).description('A fixed or relative size along its container\'s main axis.'),
     border: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.bool, _reactDesc.PropTypes.oneOf(['top', 'left', 'bottom', 'right', 'horizontal', 'vertical', 'all']), _reactDesc.PropTypes.shape({
@@ -40,7 +40,7 @@ var doc = exports.doc = function doc(Box) {
         light: _reactDesc.PropTypes.string
       })]),
       side: _reactDesc.PropTypes.oneOf(['top', 'left', 'bottom', 'right', 'horizontal', 'vertical', 'all']),
-      size: _reactDesc.PropTypes.oneOf(['small', 'medium', 'large'])
+      size: _reactDesc.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large'])
     })]).description('Include a border.'),
     direction: _reactDesc.PropTypes.oneOf(['row', 'column', 'row-responsive']).description('The orientation to layout the child components in.').defaultValue('column'),
     elevation: _reactDesc.PropTypes.oneOf(['none', 'xsmall', 'small', 'medium', 'large', 'xlarge']).description('Elevated height above the underlying context, indicated\n        via a drop shadow.').defaultValue('none'),

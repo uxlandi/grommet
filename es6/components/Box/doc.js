@@ -26,7 +26,7 @@ export var doc = function doc(Box) {
       image: PropTypes.string,
       position: PropTypes.string,
       opacity: PropTypes.oneOfType([PropTypes.oneOf(['weak', 'medium', 'strong']), PropTypes.bool]),
-      ligh: PropTypes.string
+      light: PropTypes.string
     })]).description('Either a color identifier to use for the background\n        color. For example: \'neutral-1\'. Or, a \'url()\' for an image. Dark\n        is not needed if color is provided.'),
     basis: PropTypes.oneOf(['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'full', '1/2', '1/3', '2/3', '1/4', '3/4', 'auto']).description('A fixed or relative size along its container\'s main axis.'),
     border: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['top', 'left', 'bottom', 'right', 'horizontal', 'vertical', 'all']), PropTypes.shape({
@@ -35,7 +35,7 @@ export var doc = function doc(Box) {
         light: PropTypes.string
       })]),
       side: PropTypes.oneOf(['top', 'left', 'bottom', 'right', 'horizontal', 'vertical', 'all']),
-      size: PropTypes.oneOf(['small', 'medium', 'large'])
+      size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large'])
     })]).description('Include a border.'),
     direction: PropTypes.oneOf(['row', 'column', 'row-responsive']).description('The orientation to layout the child components in.').defaultValue('column'),
     elevation: PropTypes.oneOf(['none', 'xsmall', 'small', 'medium', 'large', 'xlarge']).description('Elevated height above the underlying context, indicated\n        via a drop shadow.').defaultValue('none'),
