@@ -72,7 +72,7 @@ var focusStyle = exports.focusStyle = (0, _styledComponents.css)(['> circle,> el
   return props.theme.global.focus.border.color;
 });
 
-var inputStyle = exports.inputStyle = (0, _styledComponents.css)(['box-sizing:border-box;font-size:inherit;padding:', 'px;outline:none;background:transparent;color:inherit;', ' margin:0;', ' ', ''], function (props) {
+var inputStyle = exports.inputStyle = (0, _styledComponents.css)(['box-sizing:border-box;font-size:inherit;border:none;-webkit-appearance:none;padding:', 'px;outline:none;background:transparent;color:inherit;', ' margin:0;', ' ', '::-webkit-search-decoration{-webkit-appearance:none;}'], function (props) {
   return (0, _mixins.parseMetricToNum)(props.theme.global.spacing) / 2 - (0, _mixins.parseMetricToNum)(props.theme.global.control.border.width);
 }, function (props) {
   return props.theme.global.input.weight && (0, _styledComponents.css)(['font-weight:', ';'], props.theme.global.input.weight);
