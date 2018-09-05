@@ -50,12 +50,11 @@ var Grommet = function (_Component) {
           theme = _this$state.theme,
           responsive = _this$state.responsive;
 
-      if (window.innerWidth > theme.global.breakpoints.narrow) {
-        if (responsive !== 'wide') {
-          _this.setState({ responsive: 'wide' });
-        }
-      } else if (responsive !== 'narrow') {
-        _this.setState({ responsive: 'narrow' });
+
+      var breakpoint = (0, _utils.getBreakpoint)(window.innerWidth, theme);
+
+      if (breakpoint !== responsive) {
+        _this.setState({ responsive: breakpoint });
       }
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }

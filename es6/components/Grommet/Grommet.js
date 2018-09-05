@@ -15,7 +15,7 @@ import { compose } from 'recompose';
 
 import { ResponsiveContext, ThemeContext } from '../../contexts';
 import { base as baseTheme } from '../../themes/base';
-import { colorIsDark, deepMerge } from '../../utils';
+import { colorIsDark, deepMerge, getBreakpoint } from '../../utils';
 import { withIconTheme } from '../hocs';
 
 import { StyledGrommet } from './StyledGrommet';
@@ -37,12 +37,11 @@ var Grommet = function (_Component) {
           theme = _this$state.theme,
           responsive = _this$state.responsive;
 
-      if (window.innerWidth > theme.global.breakpoints.narrow) {
-        if (responsive !== 'wide') {
-          _this.setState({ responsive: 'wide' });
-        }
-      } else if (responsive !== 'narrow') {
-        _this.setState({ responsive: 'narrow' });
+
+      var breakpoint = getBreakpoint(window.innerWidth, theme);
+
+      if (breakpoint !== responsive) {
+        _this.setState({ responsive: breakpoint });
       }
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
