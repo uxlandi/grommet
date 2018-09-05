@@ -7,7 +7,7 @@ export var doc = function doc(Tabs) {
 
   DocumentedTabs.propTypes = {
     activeIndex: PropTypes.number.description('Active tab index. If specified, Tabs will be a controlled component. This means that future\ntab changes will not work unless you subscribe to onActive function and update activeIndex\naccordingly.'),
-    children: PropTypes.arrayOf(PropTypes.node).description('Array of Tab.').isRequired,
+    children: PropTypes.node.description('Array of Tab.').isRequired,
     justify: PropTypes.oneOf(['start', 'center', 'end']).description('How to align the tabs along the main axis.').defaultValue('center'),
     messages: PropTypes.shape({
       tabContents: PropTypes.string

@@ -12,7 +12,7 @@ var doc = exports.doc = function doc(Tabs) {
 
   DocumentedTabs.propTypes = {
     activeIndex: _reactDesc.PropTypes.number.description('Active tab index. If specified, Tabs will be a controlled component. This means that future\ntab changes will not work unless you subscribe to onActive function and update activeIndex\naccordingly.'),
-    children: _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.node).description('Array of Tab.').isRequired,
+    children: _reactDesc.PropTypes.node.description('Array of Tab.').isRequired,
     justify: _reactDesc.PropTypes.oneOf(['start', 'center', 'end']).description('How to align the tabs along the main axis.').defaultValue('center'),
     messages: _reactDesc.PropTypes.shape({
       tabContents: _reactDesc.PropTypes.string
