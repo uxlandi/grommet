@@ -18,7 +18,7 @@ var doc = exports.doc = function doc(Calendar) {
     firstDayOfWeek: _reactDesc.PropTypes.oneOf([0, 1]).description('The first day of the week. 0 for Sunday. 1 for Monday.'),
     locale: _reactDesc.PropTypes.string.description('The locale to use.'),
     onSelect: _reactDesc.PropTypes.func.description('Called with an ISO8601 date when\n      the user selects a day.\n      For single select, make this the subsequent `date` property value.\n      For multiple select or ranges, toggle values in `dates`.\n      Not specifying this property makes the component read only.'),
-    size: _reactDesc.PropTypes.oneOf(['small', 'medium', 'large']).description('What size to make it.')
+    size: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['small', 'medium', 'large']), _reactDesc.PropTypes.string]).description('What size to make it.')
   };
 
   return DocumentedCalendar;

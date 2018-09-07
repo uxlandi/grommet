@@ -10,15 +10,15 @@ export var doc = function doc(Layer) {
   DocumentedLayer.propTypes = {
     full: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['vertical', 'horizontal'])]).description('Whether the width and/or height should fill the current viewport size.'),
     margin: PropTypes.oneOfType([PropTypes.oneOf(['none'].concat(PAD_SIZES)), PropTypes.shape({
-      bottom: PropTypes.oneOf(PAD_SIZES),
-      horizontal: PropTypes.oneOf(PAD_SIZES),
-      left: PropTypes.oneOf(PAD_SIZES),
-      right: PropTypes.oneOf(PAD_SIZES),
-      top: PropTypes.oneOf(PAD_SIZES),
-      vertical: PropTypes.oneOf(PAD_SIZES)
-    })]).description('The amount of margin around the Layer. An object can be specified to\ndistinguish horizontal margin, vertical margin, and margin on a\nparticular side of the layer'),
+      bottom: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string]),
+      horizontal: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string]),
+      left: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string]),
+      right: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string]),
+      top: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string]),
+      vertical: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string])
+    }), PropTypes.string]).description('The amount of margin around the Layer. An object can be specified to\ndistinguish horizontal margin, vertical margin, and margin on a\nparticular side of the layer'),
     modal: PropTypes.bool.description('Whether there should be an overlay preventing interaction underneath the layer.').defaultValue(true),
-    onClickOutside: PropTypes.bool.description('Function that will be invoked when the user clicks outside the layer.'),
+    onClickOutside: PropTypes.func.description('Function that will be invoked when the user clicks outside the layer.'),
     onEsc: PropTypes.func.description('Function that will be called when the user presses the escape key inside the layer.'),
     plain: PropTypes.bool.description('Whether this is a plain Layer with no background color or border.'),
     position: PropTypes.oneOf(['bottom', 'center', 'hidden', 'left', 'right', 'top']).description('Position of the layer content.').defaultValue('center'),

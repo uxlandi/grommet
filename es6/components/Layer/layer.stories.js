@@ -219,7 +219,7 @@ var FormLayer = function (_Component2) {
             ),
             React.createElement(
               Box,
-              { flex: 'grow', overflow: true, pad: { vertical: 'medium' } },
+              { flex: 'grow', overflow: 'auto', pad: { vertical: 'medium' } },
               React.createElement(
                 FormField,
                 { label: 'First' },

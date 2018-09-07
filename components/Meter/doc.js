@@ -13,8 +13,8 @@ var doc = exports.doc = function doc(Meter) {
   DocumentedMeter.propTypes = {
     background: _utils.backgroundPropType,
     round: _reactDesc.PropTypes.bool.description('Whether to round the line ends'),
-    size: _reactDesc.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'full']).description('The size of the Meter.').defaultValue('medium'),
-    thickness: _reactDesc.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge']).description('The size of the Meter.').defaultValue('medium'),
+    size: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'full']), _reactDesc.PropTypes.string]).description('The size of the Meter.').defaultValue('medium'),
+    thickness: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge']), _reactDesc.PropTypes.string]).description('The size of the Meter.').defaultValue('medium'),
     type: _reactDesc.PropTypes.oneOf(['bar', 'circle']).description('The visual type of meter.'),
     values: _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.shape({
       color: _reactDesc.PropTypes.string,

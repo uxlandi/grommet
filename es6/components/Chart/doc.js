@@ -16,10 +16,10 @@ export var doc = function doc(Chart) {
     overflow: PropTypes.bool.description('Whether the chart strokes should overflow the component. Set this\n      to true for precise positioning when stacking charts or including\n      precise axes. Set this to false to have the graphical elements\n      align with the component boundaries.').defaultValue(false),
     round: PropTypes.bool.description('Whether to round the line ends.'),
     size: PropTypes.oneOfType([PropTypes.oneOf(['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'full']), PropTypes.shape({
-      height: PropTypes.oneOf(['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'full']),
-      width: PropTypes.oneOf(['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'full'])
-    })]).description('The size of the Chart.').defaultValue({ width: 'medium', height: 'small' }),
-    thickness: PropTypes.oneOf(['hair', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'none']).description('The width of the stroke.').defaultValue('medium'),
+      height: PropTypes.oneOfType([PropTypes.oneOf(['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'full']), PropTypes.string]),
+      width: PropTypes.oneOfType([PropTypes.oneOf(['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'full']), PropTypes.string])
+    }), PropTypes.string]).description('The size of the Chart.').defaultValue({ width: 'medium', height: 'small' }),
+    thickness: PropTypes.oneOfType([PropTypes.oneOf(['hair', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'none']), PropTypes.string]).description('The width of the stroke.').defaultValue('medium'),
     type: PropTypes.oneOf(['bar', 'line', 'area']).description('The visual type of meter.').defaultValue('bar'),
     values: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number), PropTypes.shape({
       label: PropTypes.string, // for accessibility of bars

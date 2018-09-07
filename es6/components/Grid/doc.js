@@ -17,18 +17,18 @@ export var doc = function doc(Grid) {
       start: PropTypes.arrayOf(PropTypes.number),
       end: PropTypes.arrayOf(PropTypes.number)
     })).description('Area names and column,row coordinates.'),
-    columns: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.oneOf(sizes), PropTypes.arrayOf(PropTypes.oneOf(sizes))])), PropTypes.oneOf(fixedSizes), PropTypes.shape({
+    columns: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.oneOf(sizes), PropTypes.arrayOf(PropTypes.oneOf(sizes)), PropTypes.string])), PropTypes.oneOf(fixedSizes), PropTypes.shape({
       count: PropTypes.oneOf(['fit', 'fill']),
-      size: PropTypes.oneOfType([PropTypes.oneOf(fixedSizes), PropTypes.arrayOf(PropTypes.oneOf(sizes))])
-    })]).description('Column sizes.\n      If an array value is an array, the inner array indicates the\n      minimum and maximum sizes for the column.\n      Specifying a single string will repeat multiple columns\n      of that size, as long as there is room for more.\n      Specifying an object allows indicating how the columns\n      stretch to fit the available space.'),
+      size: PropTypes.oneOfType([PropTypes.oneOf(fixedSizes), PropTypes.arrayOf(PropTypes.oneOf(sizes)), PropTypes.string])
+    }), PropTypes.string]).description('Column sizes.\n      If an array value is an array, the inner array indicates the\n      minimum and maximum sizes for the column.\n      Specifying a single string will repeat multiple columns\n      of that size, as long as there is room for more.\n      Specifying an object allows indicating how the columns\n      stretch to fit the available space.'),
     fill: PropTypes.oneOf(['horizontal', 'vertical', true, false]).description('Whether the width and/or height should fill the container.'),
     gap: PropTypes.oneOfType([PropTypes.oneOf(edgeSizes), PropTypes.shape({
-      row: PropTypes.oneOf(edgeSizes),
-      column: PropTypes.oneOf(edgeSizes)
-    })]).description('Gap sizes between rows and/or columns.'),
+      row: PropTypes.oneOfType([PropTypes.oneOf(edgeSizes), PropTypes.string]),
+      column: PropTypes.oneOfType([PropTypes.oneOf(edgeSizes), PropTypes.string])
+    }), PropTypes.string]).description('Gap sizes between rows and/or columns.'),
     justify: PropTypes.oneOf(['start', 'center', 'end', 'stretch']).description('How to align the individual items inside the grid when there is extra\nspace in the row axis.').defaultValue('stretch'),
     justifyContent: PropTypes.oneOf(['start', 'center', 'end', 'between', 'around', 'stretch']).description('How to align the contents along the row axis.'),
-    rows: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.oneOf(sizes), PropTypes.arrayOf(PropTypes.oneOf(sizes))])), PropTypes.oneOf(fixedSizes)]).description('Row sizes.\n      If an array value is an array, the inner array indicates the\n      minimum and maximum sizes for the row.\n      Specifying a single string will cause automatically added rows to be\n      the specified size.'),
+    rows: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.oneOf(sizes), PropTypes.arrayOf(PropTypes.oneOf(sizes)), PropTypes.string])), PropTypes.oneOf(fixedSizes), PropTypes.string]).description('Row sizes.\n      If an array value is an array, the inner array indicates the\n      minimum and maximum sizes for the row.\n      Specifying a single string will cause automatically added rows to be\n      the specified size.'),
     tag: PropTypes.string.description('The DOM tag to use for the element.').defaultValue('div')
   };
 

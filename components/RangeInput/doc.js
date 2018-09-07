@@ -12,12 +12,12 @@ var doc = exports.doc = function doc(RangeInput) {
 
   DocumentedRangeInput.propTypes = {
     id: _reactDesc.PropTypes.string.description('The id attribute of the range input.'),
-    min: _reactDesc.PropTypes.number.description('The minimum value permitted.'),
-    max: _reactDesc.PropTypes.number.description('The maximum value permitted.'),
+    min: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.number, _reactDesc.PropTypes.string]).description('The minimum value permitted.'),
+    max: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.number, _reactDesc.PropTypes.string]).description('The maximum value permitted.'),
     name: _reactDesc.PropTypes.string.description('The name attribute of the range input.'),
     onChange: _reactDesc.PropTypes.func.description('Function that will be called when the user changes the value. It will\n      be passed an event object. The new input value will be available\n      via \'event.target.value\'.'),
     step: _reactDesc.PropTypes.number.description('The step interval between values.'),
-    value: _reactDesc.PropTypes.number.description('The current value.')
+    value: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.number, _reactDesc.PropTypes.string]).description('The current value.')
   };
 
   return DocumentedRangeInput;

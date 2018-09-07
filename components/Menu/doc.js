@@ -33,7 +33,7 @@ var doc = exports.doc = function doc(Menu) {
       closeMenu: _reactDesc.PropTypes.string,
       openMenu: _reactDesc.PropTypes.string
     }).description('Custom messages. Used for accessibility by screen readers.'),
-    size: _reactDesc.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']).description('The size of the menu.')
+    size: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']), _reactDesc.PropTypes.string]).description('The size of the menu.')
   };
 
   return DocumentedMenu;

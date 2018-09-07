@@ -17,8 +17,8 @@ export var doc = function doc(RangeSelector) {
     min: PropTypes.number.description('The minimum value permitted.').defaultValue(0),
     onChange: PropTypes.func.description('Function that will be called when the user changes one of the\n      values. It will be passed an array of two numbers indicating\n      the new values selected.'),
     opacity: PropTypes.oneOf(['weak', 'medium', 'strong']).description('').defaultValue('medium'),
-    round: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'full']).description('How much to round the corners.'),
-    size: PropTypes.oneOf(['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'full']).description('How thick to make the selection indicator.').defaultValue('medium'),
+    round: PropTypes.oneOfType([PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'full']), PropTypes.string]).description('How much to round the corners.'),
+    size: PropTypes.oneOfType([PropTypes.oneOf(['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'full']), PropTypes.string]).description('How thick to make the selection indicator.').defaultValue('medium'),
     step: PropTypes.number.description('The step interval between values.').defaultValue(1),
     values: PropTypes.arrayOf(PropTypes.number).description('The current values.').isRequired
   };

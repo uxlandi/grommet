@@ -7,7 +7,7 @@ export var doc = function doc(Distribution) {
 
   DocumentedDistribution.propTypes = {
     children: PropTypes.func.description('Function that will be called when each value is rendered.'),
-    gap: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge']).description('The amount of spacing between child elements.'),
+    gap: PropTypes.oneOfType([PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge']), PropTypes.string]).description('The amount of spacing between child elements.'),
     values: PropTypes.arrayOf(PropTypes.shape({
       value: PropTypes.number.isRequired
     })).description('Array of objects containing a value. The array should already be\n      sorted from largest to smallest value. The caller can put other\n      properties in the object. The children function will be called to\n      render the contents of each value.').isRequired
