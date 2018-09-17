@@ -19,7 +19,7 @@ var StyledLayer = exports.StyledLayer = _styledComponents2.default.div.withConfi
   displayName: 'StyledLayer',
   componentId: 'rmtehz-0'
 })(['', ' background:unset;position:relative;z-index:10;pointer-events:none;outline:none;', ' ', ' ', ''], _utils.baseStyle, function (props) {
-  return props.responsive && (0, _utils.palm)('\n    position: absolute;\n    height: 100%;\n    width: 100%;\n    overflow: auto;\n    ');
+  return props.responsive && (0, _utils.palm)('\n    position: absolute;\n    top: 0;\n    height: 100%;\n    width: 100%;\n    overflow: auto;\n  ');
 }, function (props) {
   if (props.position === 'hidden') {
     return hiddenPositionStyle;
@@ -103,8 +103,8 @@ var POSITIONS = {
     true: function _true(margin, theme) {
       return (0, _styledComponents.css)(['top:', ';bottom:', ';left:', ';right:', ';animation:', ' 0.2s ease-in-out forwards;'], MARGINS.top(margin, theme), MARGINS.bottom(margin, theme), MARGINS.left(margin, theme), MARGINS.right(margin, theme), KEYFRAMES.center.true);
     },
-    false: function _false(margin, theme) {
-      return (0, _styledComponents.css)(['top:50%;left:50%;transform:translate(-50%,-50%);animation:', ' 0.2s ease-in-out forwards;', ''], KEYFRAMES.center.false, (0, _utils.edgeStyle)('margin', margin, false, theme));
+    false: function _false() {
+      return (0, _styledComponents.css)(['top:50%;left:50%;transform:translate(-50%,-50%);animation:', ' 0.2s ease-in-out forwards;'], KEYFRAMES.center.false);
     }
   },
 
@@ -169,8 +169,12 @@ var POSITIONS = {
   }
 };
 
-var desktopContainerStyle = (0, _styledComponents.css)(['position:', ';max-height:100%;max-width:100%;border-radius:', ';', ''], function (props) {
+var desktopContainerStyle = (0, _styledComponents.css)(['position:', ';max-height:', ';max-width:', ';border-radius:', ';', ''], function (props) {
   return props.modal ? 'absolute' : 'fixed';
+}, function (props) {
+  return 'calc(100% - ' + MARGINS.top(props.margin, props.theme) + ' - ' + MARGINS.bottom(props.margin, props.theme) + ')';
+}, function (props) {
+  return 'calc(100% - ' + MARGINS.left(props.margin, props.theme) + ' - ' + MARGINS.right(props.margin, props.theme) + ')';
 }, function (props) {
   return props.plain ? 'none' : props.theme.layer.border.radius;
 }, function (props) {

@@ -341,10 +341,71 @@ var NotificationLayer = function (_Component3) {
   return NotificationLayer;
 }(Component);
 
+var MarginLayer = function (_Component4) {
+  _inherits(MarginLayer, _Component4);
+
+  function MarginLayer() {
+    _classCallCheck(this, MarginLayer);
+
+    return _possibleConstructorReturn(this, _Component4.apply(this, arguments));
+  }
+
+  MarginLayer.prototype.render = function render() {
+    return React.createElement(
+      Grommet,
+      { theme: grommet },
+      React.createElement(
+        Layer,
+        {
+          margin: 'large'
+        },
+        React.createElement(
+          Box,
+          { overflow: 'auto' },
+          React.createElement(
+            Box,
+            { pad: 'xlarge' },
+            'text'
+          ),
+          React.createElement(
+            Box,
+            { pad: 'xlarge' },
+            'text'
+          ),
+          React.createElement(
+            Box,
+            { pad: 'xlarge' },
+            'text'
+          ),
+          React.createElement(
+            Box,
+            { pad: 'xlarge' },
+            'text'
+          ),
+          React.createElement(
+            Box,
+            { pad: 'xlarge' },
+            'text'
+          ),
+          React.createElement(
+            Box,
+            { pad: 'xlarge' },
+            'text'
+          )
+        )
+      )
+    );
+  };
+
+  return MarginLayer;
+}(Component);
+
 storiesOf('Layer', module).add('Center', function () {
   return React.createElement(CenterLayer, null);
 }).add('Form', function () {
   return React.createElement(FormLayer, null);
 }).add('Notification', function () {
   return React.createElement(NotificationLayer, null);
+}).add('Margin', function () {
+  return React.createElement(MarginLayer, null);
 });

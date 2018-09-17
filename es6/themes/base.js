@@ -43,7 +43,6 @@ var activeColor = rgba('#DDDDDD', 0.5);
 var colors = {
   'active': activeColor,
   'black': '#000000',
-  'border': borderColor,
   'border-light': borderColor,
   'border-dark': borderColorDark,
   'brand': brandColor,

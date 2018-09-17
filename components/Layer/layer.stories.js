@@ -344,10 +344,71 @@ var NotificationLayer = function (_Component3) {
   return NotificationLayer;
 }(_react.Component);
 
+var MarginLayer = function (_Component4) {
+  _inherits(MarginLayer, _Component4);
+
+  function MarginLayer() {
+    _classCallCheck(this, MarginLayer);
+
+    return _possibleConstructorReturn(this, _Component4.apply(this, arguments));
+  }
+
+  MarginLayer.prototype.render = function render() {
+    return _react2.default.createElement(
+      _.Grommet,
+      { theme: _themes.grommet },
+      _react2.default.createElement(
+        _.Layer,
+        {
+          margin: 'large'
+        },
+        _react2.default.createElement(
+          _.Box,
+          { overflow: 'auto' },
+          _react2.default.createElement(
+            _.Box,
+            { pad: 'xlarge' },
+            'text'
+          ),
+          _react2.default.createElement(
+            _.Box,
+            { pad: 'xlarge' },
+            'text'
+          ),
+          _react2.default.createElement(
+            _.Box,
+            { pad: 'xlarge' },
+            'text'
+          ),
+          _react2.default.createElement(
+            _.Box,
+            { pad: 'xlarge' },
+            'text'
+          ),
+          _react2.default.createElement(
+            _.Box,
+            { pad: 'xlarge' },
+            'text'
+          ),
+          _react2.default.createElement(
+            _.Box,
+            { pad: 'xlarge' },
+            'text'
+          )
+        )
+      )
+    );
+  };
+
+  return MarginLayer;
+}(_react.Component);
+
 (0, _react3.storiesOf)('Layer', module).add('Center', function () {
   return _react2.default.createElement(CenterLayer, null);
 }).add('Form', function () {
   return _react2.default.createElement(FormLayer, null);
 }).add('Notification', function () {
   return _react2.default.createElement(NotificationLayer, null);
+}).add('Margin', function () {
+  return _react2.default.createElement(MarginLayer, null);
 });
