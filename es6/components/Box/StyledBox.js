@@ -239,7 +239,8 @@ var animationEnding = function animationEnding(type) {
 var animationObjectStyle = function animationObjectStyle(animation, theme) {
   var bounds = animationBounds(animation.type, animation.size);
   if (bounds) {
-    return css(['', ' ', ' ', ' ', ''], keyframes(['from{', '}to{', '}'], bounds[0], bounds[1]), normalizeTiming(animation.duration, (theme.global.animation[animation.type] ? theme.global.animation[animation.type].duration : undefined) || theme.global.animation.duration), normalizeTiming(animation.delay, '0s'), animationEnding(animation.type));
+    var animationTransition = css(['from{', '}to{', '}'], bounds[0], bounds[1]);
+    return css(['', ' ', ' ', ' ', ''], keyframes(['', ''], animationTransition), normalizeTiming(animation.duration, (theme.global.animation[animation.type] ? theme.global.animation[animation.type].duration : undefined) || theme.global.animation.duration), normalizeTiming(animation.delay, '0s'), animationEnding(animation.type));
   }
   return '';
 };

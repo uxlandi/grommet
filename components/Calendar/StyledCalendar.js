@@ -43,7 +43,11 @@ var slideStyle = function slideStyle(props) {
       slideDuration = _theme$calendar$size.slideDuration;
 
   var amount = (0, _utils.parseMetricToNum)(daySize) * weeks;
-  return (0, _styledComponents.css)(['animation:', ' ', ' forwards;'], (0, _styledComponents.keyframes)(['from{transform:translateY(', ')}to{transform:translateY(', ')}'], direction === 'down' ? '-' + amount + 'px' : '0', direction === 'up' ? '-' + amount + 'px' : '0'), slideDuration);
+
+  var translateYFrom = direction === 'down' ? '-' + amount + 'px' : '0';
+  var translateYTo = direction === 'up' ? '-' + amount + 'px' : '0';
+  var slideTransition = (0, _styledComponents.css)(['0%{transform:translateY(', ')}100%{transform:translateY(', ')}'], translateYFrom, translateYTo);
+  return (0, _styledComponents.css)(['animation:', ' ', ' forwards;'], (0, _styledComponents.keyframes)(['', ''], slideTransition), slideDuration);
 };
 
 var StyledWeeks = exports.StyledWeeks = _styledComponents2.default.div.withConfig({
