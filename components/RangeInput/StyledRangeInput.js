@@ -3,8 +3,6 @@
 exports.__esModule = true;
 exports.StyledRangeInput = undefined;
 
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
 var _styledComponents = require('styled-components');
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
@@ -12,8 +10,6 @@ var _styledComponents2 = _interopRequireDefault(_styledComponents);
 var _utils = require('../../utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
 
 var rangeTrackStyle = (0, _styledComponents.css)(['box-sizing:border-box;width:100%;height:', ';background:', ';'], function (props) {
   return props.theme.rangeInput.track.height;
@@ -38,8 +34,9 @@ var firefoxMicrosoftThumbStyle = (0, _styledComponents.css)(['', ' margin-top:0p
 });
 
 var StyledRangeInput = exports.StyledRangeInput = _styledComponents2.default.input.withConfig({
-  displayName: 'StyledRangeInput'
-})(['box-sizing:border-box;position:relative;-webkit-appearance:none;border-color:transparent;height:', ';width:100%;padding:0px;cursor:pointer;background:transparent;&:focus{outline:none;}&::-moz-focus-inner{border:none;}&::-moz-focus-outer{border:none;}&::-webkit-slider-runnable-track{', '}&::-webkit-slider-thumb{', ' margin-top:-', 'px;', '}&::-moz-range-track{', '}&::-moz-range-thumb{', '}&::-ms-thumb{', '}', ' &::-ms-track{', ' border-color:transparent;color:transparent;}&::-ms-fill-lower{background:', ';border-color:transparent;}&::-ms-fill-upper{background:', ';border-color:transparent;}', ''], function (props) {
+  displayName: 'StyledRangeInput',
+  componentId: 'sc-15st9ck-0'
+})(['box-sizing:border-box;position:relative;-webkit-appearance:none;border-color:transparent;height:', ';width:100%;padding:0px;cursor:pointer;background:transparent;&:focus{outline:none;}&::-moz-focus-inner{border:none;}&::-moz-focus-outer{border:none;}&::-webkit-slider-runnable-track{', '}&::-webkit-slider-thumb{', ' margin-top:-', 'px;', '}&::-moz-range-track{', '}&::-moz-range-thumb{', '}&::-ms-thumb{', '}', ' &::-ms-track{', ' border-color:transparent;color:transparent;}&::-ms-fill-lower{background:', ';border-color:transparent;}&::-ms-fill-upper{background:', ';border-color:transparent;}', ' ', ''], function (props) {
   return props.theme.global.spacing;
 }, rangeTrackStyle, rangeThumbStyle, function (props) {
   return (0, _utils.parseMetricToNum)(props.theme.global.spacing) * 0.425;
@@ -53,6 +50,6 @@ var StyledRangeInput = exports.StyledRangeInput = _styledComponents2.default.inp
   return (0, _utils.normalizeColor)(props.theme.rangeInput.track.color, props.theme);
 }, function (props) {
   return props.focus && _utils.focusStyle;
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.rangeInput && props.theme.rangeInput.extend;
 });

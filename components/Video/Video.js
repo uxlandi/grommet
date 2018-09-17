@@ -405,7 +405,7 @@ var Video = function (_Component) {
                 values: [{ value: percentagePlayed || 0 }]
               }),
               _react2.default.createElement(_StyledVideo.StyledVideoScrubber, {
-                innerRef: scrubberRef,
+                ref: scrubberRef,
                 tabIndex: 0,
                 role: 'button',
                 value: scrubTime ? Math.round(scrubTime / duration * 100) : undefined,
@@ -491,7 +491,7 @@ var Video = function (_Component) {
       _react2.default.createElement(
         _StyledVideo.StyledVideo,
         _extends({}, rest, {
-          innerRef: videoRef,
+          ref: videoRef,
           theme: theme
         }, this.mediaEventProps, {
           autoPlay: autoPlay || false,

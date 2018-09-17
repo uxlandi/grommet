@@ -85,6 +85,8 @@ var Accordion = function (_Component) {
     var activeIndexes = this.state.activeIndexes;
 
 
+    delete rest.onActive;
+
     return React.createElement(
       Box,
       _extends({ role: 'tablist' }, rest, { overflow: 'auto' }),

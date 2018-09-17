@@ -1,7 +1,3 @@
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 import styled, { css } from 'styled-components';
 
 var FIT_MAP = {
@@ -14,9 +10,10 @@ var fitStyle = css(['flex:1 1;overflow:hidden;object-fit:', ';'], function (prop
 });
 
 export var StyledImage = styled.img.withConfig({
-  displayName: 'StyledImage'
-})(['', ''], function (props) {
+  displayName: 'StyledImage',
+  componentId: 'ey4zx9-0'
+})(['', ' ', ''], function (props) {
   return props.fit && fitStyle;
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.image && props.theme.image.extend;
 });

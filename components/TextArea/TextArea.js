@@ -39,7 +39,7 @@ var TextArea = function (_Component) {
         forwardRef = _props.forwardRef,
         rest = _objectWithoutProperties(_props, ['forwardRef']);
 
-    return _react2.default.createElement(_StyledTextArea.StyledTextArea, _extends({ innerRef: forwardRef }, rest));
+    return _react2.default.createElement(_StyledTextArea.StyledTextArea, _extends({ ref: forwardRef }, rest));
   };
 
   return TextArea;

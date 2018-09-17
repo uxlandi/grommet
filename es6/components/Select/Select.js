@@ -22,10 +22,12 @@ import { controlBorderStyle, colorIsDark, evalStyle } from '../../utils';
 import { SelectContainer } from './SelectContainer';
 
 var SelectTextInput = styled(TextInput).withConfig({
-  displayName: 'Select__SelectTextInput'
+  displayName: 'Select__SelectTextInput',
+  componentId: 'sc-17idtfo-0'
 })(['cursor:pointer;']);
 var StyledSelectBox = styled(Box).withConfig({
-  displayName: 'Select__StyledSelectBox'
+  displayName: 'Select__StyledSelectBox',
+  componentId: 'sc-17idtfo-1'
 })(['', ';', ''], function (props) {
   return !props.plain && controlBorderStyle;
 }, function (props) {
@@ -87,6 +89,8 @@ var Select = function (_Component) {
 
     var open = this.state.open;
 
+
+    delete rest.onSearch;
 
     var onSelectChange = function onSelectChange(event) {
       for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {

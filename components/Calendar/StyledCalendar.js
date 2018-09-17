@@ -3,8 +3,6 @@
 exports.__esModule = true;
 exports.StyledDay = exports.StyledDayContainer = exports.StyledWeek = exports.StyledWeeks = exports.StyledWeeksContainer = exports.StyledCalendar = undefined;
 
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
 var _styledComponents = require('styled-components');
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
@@ -13,23 +11,23 @@ var _utils = require('../../utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 var sizeStyle = function sizeStyle(props) {
   var data = props.theme.calendar[props.size];
   return (0, _styledComponents.css)(['font-size:', ';line-height:', ';width:', ';'], data.fontSize, data.lineHeight, props.theme.global.size[props.size]);
 };
 
 var StyledCalendar = exports.StyledCalendar = _styledComponents2.default.div.withConfig({
-  displayName: 'StyledCalendar'
-})(['', ''], function (props) {
+  displayName: 'StyledCalendar',
+  componentId: 'sc-1y4xhmp-0'
+})(['', ' ', ''], function (props) {
   return sizeStyle(props);
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.calendar && props.theme.calendar.extend;
 });
 
 var StyledWeeksContainer = exports.StyledWeeksContainer = _styledComponents2.default.div.withConfig({
-  displayName: 'StyledCalendar__StyledWeeksContainer'
+  displayName: 'StyledCalendar__StyledWeeksContainer',
+  componentId: 'sc-1y4xhmp-1'
 })(['overflow:hidden;', ''], function (props) {
   return 'height: ' + (0, _utils.parseMetricToNum)(props.theme.calendar[props.size].daySize) * 6 + 'px;';
 });
@@ -45,21 +43,24 @@ var slideStyle = function slideStyle(props) {
       slideDuration = _theme$calendar$size.slideDuration;
 
   var amount = (0, _utils.parseMetricToNum)(daySize) * weeks;
-  return (0, _styledComponents.css)(['animation ', ' ', ' forwards;'], (0, _styledComponents.keyframes)(['from{transform:translateY(', ')}to{transform:translateY(', ')}'], direction === 'down' ? '-' + amount + 'px' : '0', direction === 'up' ? '-' + amount + 'px' : '0'), slideDuration);
+  return (0, _styledComponents.css)(['animation:', ' ', ' forwards;'], (0, _styledComponents.keyframes)(['from{transform:translateY(', ')}to{transform:translateY(', ')}'], direction === 'down' ? '-' + amount + 'px' : '0', direction === 'up' ? '-' + amount + 'px' : '0'), slideDuration);
 };
 
 var StyledWeeks = exports.StyledWeeks = _styledComponents2.default.div.withConfig({
-  displayName: 'StyledCalendar__StyledWeeks'
+  displayName: 'StyledCalendar__StyledWeeks',
+  componentId: 'sc-1y4xhmp-2'
 })(['position:relative;', ''], function (props) {
   return props.slide && slideStyle(props);
 });
 
 var StyledWeek = exports.StyledWeek = _styledComponents2.default.div.withConfig({
-  displayName: 'StyledCalendar__StyledWeek'
+  displayName: 'StyledCalendar__StyledWeek',
+  componentId: 'sc-1y4xhmp-3'
 })(['display:flex;flex-direction:row;flex-justify:between;']);
 
 var StyledDayContainer = exports.StyledDayContainer = _styledComponents2.default.div.withConfig({
-  displayName: 'StyledCalendar__StyledDayContainer'
+  displayName: 'StyledCalendar__StyledDayContainer',
+  componentId: 'sc-1y4xhmp-4'
 })(['flex:0 0 auto;']);
 
 var daySizeStyle = function daySizeStyle(props) {
@@ -68,7 +69,8 @@ var daySizeStyle = function daySizeStyle(props) {
 };
 
 var StyledDay = exports.StyledDay = _styledComponents2.default.div.withConfig({
-  displayName: 'StyledCalendar__StyledDay'
+  displayName: 'StyledCalendar__StyledDay',
+  componentId: 'sc-1y4xhmp-5'
 })(['display:flex;justify-content:center;align-items:center;', ' ', ' ', ' ', ''], function (props) {
   return daySizeStyle(props);
 }, function (props) {

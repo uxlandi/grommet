@@ -1,7 +1,3 @@
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 import styled, { css } from 'styled-components';
 
 import { baseStyle } from '../../utils';
@@ -9,11 +5,12 @@ import { baseStyle } from '../../utils';
 var fullStyle = css(['width:100vw;height:100vh;overflow:auto;']);
 
 export var StyledGrommet = styled.div.withConfig({
-  displayName: 'StyledGrommet'
-})(['', ' ', ' ', ''], baseStyle, function (props) {
+  displayName: 'StyledGrommet',
+  componentId: 'sc-19lkkz7-0'
+})(['', ' ', ' ', ' ', ''], baseStyle, function (props) {
   return props.full && fullStyle;
 }, function (props) {
   return props.theme.global.font.face;
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.grommet.extend;
 });

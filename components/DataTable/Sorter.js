@@ -20,7 +20,8 @@ var _Box = require('../Box');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SorterButton = (0, _styledComponents2.default)(_Button.Button).withConfig({
-  displayName: 'Sorter__SorterButton'
+  displayName: 'Sorter__SorterButton',
+  componentId: 'fzr2yb-0'
 })(['flex-shrink:1;height:100%;']);
 
 var Sorter = exports.Sorter = function Sorter(_ref) {

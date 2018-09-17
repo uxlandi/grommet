@@ -1,16 +1,13 @@
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 import styled from 'styled-components';
 
 var fillStyle = '\n  width: 100%;\n  height: 100%;\n  max-width: none;\n  flex-grow: 1;\n  display: flex;\n';
 
 export var StyledStack = styled.div.withConfig({
-  displayName: 'StyledStack'
-})(['position:relative;', ''], function (props) {
+  displayName: 'StyledStack',
+  componentId: 'ajspsk-0'
+})(['position:relative;', ' ', ''], function (props) {
   return props.fillContainer && fillStyle;
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.stack && props.theme.stack.extend;
 });
 
@@ -28,7 +25,8 @@ var styleMap = {
 };
 
 export var StyledStackLayer = styled.div.withConfig({
-  displayName: 'StyledStack__StyledStackLayer'
+  displayName: 'StyledStack__StyledStackLayer',
+  componentId: 'ajspsk-1'
 })(['position:', ';', ' ', ' ', ''], function (props) {
   return props.guiding ? 'relative' : 'absolute';
 }, function (props) {

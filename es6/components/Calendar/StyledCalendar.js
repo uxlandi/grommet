@@ -1,7 +1,3 @@
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 import styled, { css, keyframes } from 'styled-components';
 import { backgroundStyle, parseMetricToNum } from '../../utils';
 
@@ -11,15 +7,17 @@ var sizeStyle = function sizeStyle(props) {
 };
 
 export var StyledCalendar = styled.div.withConfig({
-  displayName: 'StyledCalendar'
-})(['', ''], function (props) {
+  displayName: 'StyledCalendar',
+  componentId: 'sc-1y4xhmp-0'
+})(['', ' ', ''], function (props) {
   return sizeStyle(props);
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.calendar && props.theme.calendar.extend;
 });
 
 export var StyledWeeksContainer = styled.div.withConfig({
-  displayName: 'StyledCalendar__StyledWeeksContainer'
+  displayName: 'StyledCalendar__StyledWeeksContainer',
+  componentId: 'sc-1y4xhmp-1'
 })(['overflow:hidden;', ''], function (props) {
   return 'height: ' + parseMetricToNum(props.theme.calendar[props.size].daySize) * 6 + 'px;';
 });
@@ -35,21 +33,24 @@ var slideStyle = function slideStyle(props) {
       slideDuration = _theme$calendar$size.slideDuration;
 
   var amount = parseMetricToNum(daySize) * weeks;
-  return css(['animation ', ' ', ' forwards;'], keyframes(['from{transform:translateY(', ')}to{transform:translateY(', ')}'], direction === 'down' ? '-' + amount + 'px' : '0', direction === 'up' ? '-' + amount + 'px' : '0'), slideDuration);
+  return css(['animation:', ' ', ' forwards;'], keyframes(['from{transform:translateY(', ')}to{transform:translateY(', ')}'], direction === 'down' ? '-' + amount + 'px' : '0', direction === 'up' ? '-' + amount + 'px' : '0'), slideDuration);
 };
 
 export var StyledWeeks = styled.div.withConfig({
-  displayName: 'StyledCalendar__StyledWeeks'
+  displayName: 'StyledCalendar__StyledWeeks',
+  componentId: 'sc-1y4xhmp-2'
 })(['position:relative;', ''], function (props) {
   return props.slide && slideStyle(props);
 });
 
 export var StyledWeek = styled.div.withConfig({
-  displayName: 'StyledCalendar__StyledWeek'
+  displayName: 'StyledCalendar__StyledWeek',
+  componentId: 'sc-1y4xhmp-3'
 })(['display:flex;flex-direction:row;flex-justify:between;']);
 
 export var StyledDayContainer = styled.div.withConfig({
-  displayName: 'StyledCalendar__StyledDayContainer'
+  displayName: 'StyledCalendar__StyledDayContainer',
+  componentId: 'sc-1y4xhmp-4'
 })(['flex:0 0 auto;']);
 
 var daySizeStyle = function daySizeStyle(props) {
@@ -58,7 +59,8 @@ var daySizeStyle = function daySizeStyle(props) {
 };
 
 export var StyledDay = styled.div.withConfig({
-  displayName: 'StyledCalendar__StyledDay'
+  displayName: 'StyledCalendar__StyledDay',
+  componentId: 'sc-1y4xhmp-5'
 })(['display:flex;justify-content:center;align-items:center;', ' ', ' ', ' ', ''], function (props) {
   return daySizeStyle(props);
 }, function (props) {

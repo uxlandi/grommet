@@ -3,8 +3,6 @@
 exports.__esModule = true;
 exports.StyledHeading = undefined;
 
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
 var _styledComponents = require('styled-components');
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
@@ -12,8 +10,6 @@ var _styledComponents2 = _interopRequireDefault(_styledComponents);
 var _utils = require('../../utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
 
 var marginStyle = function marginStyle(props) {
   if (typeof props.margin === 'string') {
@@ -70,8 +66,9 @@ var colorStyle = (0, _styledComponents.css)(['color:', ';'], function (props) {
 });
 
 var StyledHeading = exports.StyledHeading = _styledComponents2.default.h1.withConfig({
-  displayName: 'StyledHeading'
-})(['', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
+  displayName: 'StyledHeading',
+  componentId: 'sc-1rdh4aw-0'
+})(['', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return props.theme.heading.font && (0, _styledComponents.css)(['font-family:', ';'], props.theme.heading.font.family);
 }, function (props) {
   return sizeStyle(props);
@@ -83,6 +80,6 @@ var StyledHeading = exports.StyledHeading = _styledComponents2.default.h1.withCo
   return props.truncate && truncateStyle;
 }, function (props) {
   return props.colorValue && colorStyle;
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.heading && props.theme.heading.extend;
 });

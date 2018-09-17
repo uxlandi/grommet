@@ -38,11 +38,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var ContainerBox = (0, _styledComponents2.default)(_Box.Box).withConfig({
-  displayName: 'SelectContainer__ContainerBox'
+  displayName: 'SelectContainer__ContainerBox',
+  componentId: 'sc-1wi0ul8-0'
 })(['max-height:inherit;@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){width:100%;}']);
 
 var OptionsBox = (0, _styledComponents2.default)(_Box.Box).withConfig({
-  displayName: 'SelectContainer__OptionsBox'
+  displayName: 'SelectContainer__OptionsBox',
+  componentId: 'sc-1wi0ul8-1'
 })(['scroll-behavior:smooth;']);
 
 var SelectContainer = function (_Component) {

@@ -166,10 +166,13 @@ var Chart = function (_Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = { containerWidth: 0, containerHeight: 0 }, _this.onResize = function () {
-      var parent = (0, _reactDom.findDOMNode)(_this.containerRef).parentNode;
-      if (parent) {
-        var rect = parent.getBoundingClientRect();
-        _this.setState({ containerWidth: rect.width, containerHeight: rect.height });
+      var containerNode = (0, _reactDom.findDOMNode)(_this.containerRef);
+      if (containerNode) {
+        var parentNode = containerNode.parentNode;
+        if (parentNode) {
+          var rect = parentNode.getBoundingClientRect();
+          _this.setState({ containerWidth: rect.width, containerHeight: rect.height });
+        }
       }
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }

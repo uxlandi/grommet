@@ -13,7 +13,8 @@ import styled from 'styled-components';
 import { Box } from '../Box';
 
 var ResizerBox = styled(Box).withConfig({
-  displayName: 'Resizer__ResizerBox'
+  displayName: 'Resizer__ResizerBox',
+  componentId: 'sc-8l808w-0'
 })(['cursor:col-resize;']);
 
 export var Resizer = function (_Component) {

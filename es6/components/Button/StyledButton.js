@@ -1,7 +1,3 @@
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 import styled, { css } from 'styled-components';
 
 import { activeStyle, backgroundStyle, colorForName, colorIsDark, focusStyle, lapAndUp, normalizeColor } from '../../utils';
@@ -48,8 +44,9 @@ var fillStyle = '\n  width: 100%;\n  height: 100%;\n  max-width: none;\n  flex: 
 var plainStyle = css(['color:inherit;border:none;padding:0;text-align:inherit;']);
 
 export var StyledButton = styled.button.withConfig({
-  displayName: 'StyledButton'
-})(['display:inline-block;box-sizing:border-box;cursor:pointer;outline:none;font:inherit;text-decoration:none;margin:0;background:transparent;overflow:visible;text-transform:none;', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
+  displayName: 'StyledButton',
+  componentId: 'sc-323bzc-0'
+})(['display:inline-block;box-sizing:border-box;cursor:pointer;outline:none;font:inherit;text-decoration:none;margin:0;background:transparent;overflow:visible;text-transform:none;', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return props.plain && plainStyle;
 }, function (props) {
   return !props.plain && basicStyle(props);
@@ -69,6 +66,6 @@ export var StyledButton = styled.button.withConfig({
   return props.fillContainer && fillStyle;
 }, function (props) {
   return props.hasIcon && !props.hasLabel && !props.plain && '\n    padding: ' + props.theme.global.edgeSize.small + ';\n  ';
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.button.extend;
 });

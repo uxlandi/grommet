@@ -116,6 +116,9 @@ var DropButton = function (_Component) {
         show = _state2.show;
 
 
+    delete rest.onClose;
+    delete rest.onOpen;
+
     var drop = void 0;
     if (show && buttonRef.current) {
       drop = _react2.default.createElement(

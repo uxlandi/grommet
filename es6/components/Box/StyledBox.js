@@ -2,10 +2,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _FLEX_MAP;
 
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 import styled, { css, keyframes } from 'styled-components';
 
 import { backgroundStyle, colorForName, edgeStyle, palm, focusStyle } from '../../utils';
@@ -243,20 +239,20 @@ var animationEnding = function animationEnding(type) {
 var animationObjectStyle = function animationObjectStyle(animation, theme) {
   var bounds = animationBounds(animation.type, animation.size);
   if (bounds) {
-    return keyframes(['from{', '}to{', '}'], bounds[0], bounds[1]) + '\n    ' + normalizeTiming(animation.duration, (theme.global.animation[animation.type] ? theme.global.animation[animation.type].duration : undefined) || theme.global.animation.duration) + '\n    ' + normalizeTiming(animation.delay, '0s') + '\n    ' + animationEnding(animation.type);
+    return css(['', ' ', ' ', ' ', ''], keyframes(['from{', '}to{', '}'], bounds[0], bounds[1]), normalizeTiming(animation.duration, (theme.global.animation[animation.type] ? theme.global.animation[animation.type].duration : undefined) || theme.global.animation.duration), normalizeTiming(animation.delay, '0s'), animationEnding(animation.type));
   }
   return '';
 };
 
 var animationItemStyle = function animationItemStyle(item, theme) {
   if (typeof item === 'string') {
-    return animationObjectStyle({ type: item }, theme);
+    return css(['', ''], animationObjectStyle({ type: item }, theme));
   } else if (Array.isArray(item)) {
-    return item.map(function (a) {
-      return animationItemStyle(a, theme);
-    }).join(', ');
+    return item.reduce(function (style, a, index) {
+      return css(['', '', ' ', ''], style, index > 0 ? ',' : '', animationItemStyle(a, theme));
+    }, '');
   } else if ((typeof item === 'undefined' ? 'undefined' : _typeof(item)) === 'object') {
-    return animationObjectStyle(item, theme);
+    return css(['', ''], animationObjectStyle(item, theme));
   }
   return '';
 };
@@ -290,13 +286,14 @@ var animationInitialStyle = function animationInitialStyle(item) {
 };
 
 var animationStyle = css(['', ''], function (props) {
-  return '\n    ' + animationInitialStyle(props.animation) + '\n    animation: ' + animationItemStyle(props.animation, props.theme) + ';\n  ';
+  return css(['', ' animation:', ';'], animationInitialStyle(props.animation), animationItemStyle(props.animation, props.theme));
 });
 
 // NOTE: basis must be after flex! Otherwise, flex overrides basis
 export var StyledBox = styled.div.withConfig({
-  displayName: 'StyledBox'
-})(['display:flex;box-sizing:border-box;outline:none;', ';', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
+  displayName: 'StyledBox',
+  componentId: 'sc-13pk1d4-0'
+})(['display:flex;box-sizing:border-box;outline:none;', ';', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return !props.basis && 'max-width: 100%;';
 }, function (props) {
   return props.height && 'height: ' + props.theme.global.size[props.height] + ';';
@@ -340,7 +337,7 @@ export var StyledBox = styled.div.withConfig({
   return props.animation && animationStyle;
 }, function (props) {
   return props.focus && focusStyle;
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.box && props.theme.box.extend;
 });
 
@@ -363,7 +360,8 @@ var gapStyle = function gapStyle(directionProp, gap, responsive, _ref) {
 };
 
 export var StyledBoxGap = styled.div.withConfig({
-  displayName: 'StyledBox__StyledBoxGap'
+  displayName: 'StyledBox__StyledBoxGap',
+  componentId: 'sc-13pk1d4-1'
 })(['flex:0 0 auto;', ';'], function (props) {
   return props.gap && gapStyle(props.directionProp, props.gap, props.responsive, props.theme);
 });

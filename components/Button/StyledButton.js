@@ -3,8 +3,6 @@
 exports.__esModule = true;
 exports.StyledButton = undefined;
 
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
 var _styledComponents = require('styled-components');
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
@@ -12,8 +10,6 @@ var _styledComponents2 = _interopRequireDefault(_styledComponents);
 var _utils = require('../../utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
 
 var basicStyle = function basicStyle(props) {
   return (0, _styledComponents.css)(['border:', ' solid ', ';border-radius:', ';color:', ';'], props.theme.button.border.width, (0, _utils.colorForName)((0, _utils.normalizeColor)(props.colorValue || props.theme.button.border.color || props.theme.global.control.color || 'brand', props.theme), props.theme), props.theme.button.border.radius, (props.theme.button.color || props.theme.global.text.color)[props.theme.dark ? 'dark' : 'light']);
@@ -57,8 +53,9 @@ var fillStyle = '\n  width: 100%;\n  height: 100%;\n  max-width: none;\n  flex: 
 var plainStyle = (0, _styledComponents.css)(['color:inherit;border:none;padding:0;text-align:inherit;']);
 
 var StyledButton = exports.StyledButton = _styledComponents2.default.button.withConfig({
-  displayName: 'StyledButton'
-})(['display:inline-block;box-sizing:border-box;cursor:pointer;outline:none;font:inherit;text-decoration:none;margin:0;background:transparent;overflow:visible;text-transform:none;', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
+  displayName: 'StyledButton',
+  componentId: 'sc-323bzc-0'
+})(['display:inline-block;box-sizing:border-box;cursor:pointer;outline:none;font:inherit;text-decoration:none;margin:0;background:transparent;overflow:visible;text-transform:none;', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return props.plain && plainStyle;
 }, function (props) {
   return !props.plain && basicStyle(props);
@@ -78,6 +75,6 @@ var StyledButton = exports.StyledButton = _styledComponents2.default.button.with
   return props.fillContainer && fillStyle;
 }, function (props) {
   return props.hasIcon && !props.hasLabel && !props.plain && '\n    padding: ' + props.theme.global.edgeSize.small + ';\n  ';
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.button.extend;
 });

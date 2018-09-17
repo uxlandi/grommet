@@ -120,7 +120,7 @@ var Box = function (_Component) {
       StyledComponent,
       _extends({
         'aria-label': a11yTitle,
-        innerRef: forwardRef,
+        ref: forwardRef,
         directionProp: direction,
         elevationProp: elevation,
         fillProp: fill,

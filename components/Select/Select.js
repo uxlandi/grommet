@@ -40,10 +40,12 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var SelectTextInput = (0, _styledComponents2.default)(_TextInput.TextInput).withConfig({
-  displayName: 'Select__SelectTextInput'
+  displayName: 'Select__SelectTextInput',
+  componentId: 'sc-17idtfo-0'
 })(['cursor:pointer;']);
 var StyledSelectBox = (0, _styledComponents2.default)(_Box.Box).withConfig({
-  displayName: 'Select__StyledSelectBox'
+  displayName: 'Select__StyledSelectBox',
+  componentId: 'sc-17idtfo-1'
 })(['', ';', ''], function (props) {
   return !props.plain && _utils.controlBorderStyle;
 }, function (props) {
@@ -105,6 +107,8 @@ var Select = function (_Component) {
 
     var open = this.state.open;
 
+
+    delete rest.onSearch;
 
     var onSelectChange = function onSelectChange(event) {
       for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {

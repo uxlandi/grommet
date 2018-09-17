@@ -1,7 +1,3 @@
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 import styled from 'styled-components';
 
 import { focusStyle, normalizeColor } from '../../utils';
@@ -9,8 +5,9 @@ import { focusStyle, normalizeColor } from '../../utils';
 var disabledStyle = '\n  opacity: 0.3;\n  cursor: default;\n  text-decoration: none;\n';
 
 export var StyledAnchor = styled.a.withConfig({
-  displayName: 'StyledAnchor'
-})(['box-sizing:border-box;font-size:inherit;line-height:inherit;color:', ';text-decoration:', ';cursor:pointer;outline:none;', ' ', ' ', ' ', ' ', ''], function (props) {
+  displayName: 'StyledAnchor',
+  componentId: 'sc-1rp7lwl-0'
+})(['box-sizing:border-box;font-size:inherit;line-height:inherit;color:', ';text-decoration:', ';cursor:pointer;outline:none;', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return normalizeColor(props.theme.anchor.color, props.theme);
 }, function (props) {
   return props.hasIcon ? 'none' : props.theme.anchor.textDecoration;
@@ -24,6 +21,6 @@ export var StyledAnchor = styled.a.withConfig({
   return props.disabled && disabledStyle;
 }, function (props) {
   return props.focus && focusStyle;
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.anchor.extend;
 });

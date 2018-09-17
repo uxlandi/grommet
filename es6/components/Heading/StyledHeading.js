@@ -1,7 +1,3 @@
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 import styled, { css } from 'styled-components';
 
 import { colorForName, palm } from '../../utils';
@@ -61,8 +57,9 @@ var colorStyle = css(['color:', ';'], function (props) {
 });
 
 export var StyledHeading = styled.h1.withConfig({
-  displayName: 'StyledHeading'
-})(['', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
+  displayName: 'StyledHeading',
+  componentId: 'sc-1rdh4aw-0'
+})(['', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return props.theme.heading.font && css(['font-family:', ';'], props.theme.heading.font.family);
 }, function (props) {
   return sizeStyle(props);
@@ -74,6 +71,6 @@ export var StyledHeading = styled.h1.withConfig({
   return props.truncate && truncateStyle;
 }, function (props) {
   return props.colorValue && colorStyle;
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.heading && props.theme.heading.extend;
 });

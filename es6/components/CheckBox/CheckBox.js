@@ -76,7 +76,7 @@ var CheckBox = function (_Component) {
         StyledCheckBox,
         { theme: theme },
         React.createElement(StyledCheckBoxInput, _extends({}, rest, {
-          innerRef: forwardRef,
+          ref: forwardRef,
           type: 'checkbox'
         }, removeUndefined({ id: id, name: name, checked: checked, disabled: disabled, onChange: onChange }), {
           theme: theme

@@ -3,8 +3,6 @@
 exports.__esModule = true;
 exports.StyledParagraph = undefined;
 
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
 var _styledComponents = require('styled-components');
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
@@ -12,8 +10,6 @@ var _styledComponents2 = _interopRequireDefault(_styledComponents);
 var _utils = require('../../utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
 
 var colorStyle = (0, _styledComponents.css)(['color:', ';'], function (props) {
   return (0, _utils.colorForName)(props.color, props.theme);
@@ -50,8 +46,9 @@ var textAlignStyle = (0, _styledComponents.css)(['text-align:', ';'], function (
 });
 
 var StyledParagraph = exports.StyledParagraph = _styledComponents2.default.p.withConfig({
-  displayName: 'StyledParagraph'
-})(['', ' ', ' ', ' ', ''], function (props) {
+  displayName: 'StyledParagraph',
+  componentId: 'tbetod-0'
+})(['', ' ', ' ', ' ', ' ', ''], function (props) {
   return sizeStyle(props);
 }, function (props) {
   return props.margin && marginStyle(props);
@@ -59,6 +56,6 @@ var StyledParagraph = exports.StyledParagraph = _styledComponents2.default.p.wit
   return props.textAlign && textAlignStyle;
 }, function (props) {
   return props.color && colorStyle;
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.paragraph && props.theme.paragraph.extend;
 });

@@ -19,11 +19,13 @@ import { Text } from '../Text';
 import { TextInput } from '../TextInput';
 
 var ContainerBox = styled(Box).withConfig({
-  displayName: 'SelectContainer__ContainerBox'
+  displayName: 'SelectContainer__ContainerBox',
+  componentId: 'sc-1wi0ul8-0'
 })(['max-height:inherit;@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){width:100%;}']);
 
 var OptionsBox = styled(Box).withConfig({
-  displayName: 'SelectContainer__OptionsBox'
+  displayName: 'SelectContainer__OptionsBox',
+  componentId: 'sc-1wi0ul8-1'
 })(['scroll-behavior:smooth;']);
 
 var SelectContainer = function (_Component) {

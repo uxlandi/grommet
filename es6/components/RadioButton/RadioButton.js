@@ -52,7 +52,7 @@ var RadioButton = function (_Component) {
         StyledRadioButton,
         { theme: theme },
         React.createElement(StyledRadioButtonInput, _extends({}, rest, {
-          innerRef: forwardRef,
+          ref: forwardRef,
           type: 'radio'
         }, removeUndefined({ id: id, name: name, checked: checked, disabled: disabled, onChange: onChange }), {
           theme: theme

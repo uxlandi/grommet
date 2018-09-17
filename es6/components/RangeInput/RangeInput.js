@@ -30,7 +30,7 @@ var RangeInput = function (_Component) {
         rest = _objectWithoutProperties(_props, ['forwardRef']);
 
     return React.createElement(StyledRangeInput, _extends({}, rest, {
-      innerRef: forwardRef,
+      ref: forwardRef,
       type: 'range'
     }));
   };

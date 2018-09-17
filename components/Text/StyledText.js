@@ -3,8 +3,6 @@
 exports.__esModule = true;
 exports.StyledText = undefined;
 
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
 var _styledComponents = require('styled-components');
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
@@ -12,8 +10,6 @@ var _styledComponents2 = _interopRequireDefault(_styledComponents);
 var _utils = require('../../utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
 
 var marginStyle = function marginStyle(props) {
   if (typeof props.margin === 'string') {
@@ -69,8 +65,9 @@ var weightStyle = (0, _styledComponents.css)(['font-weight:', ';'], function (pr
 });
 
 var StyledText = exports.StyledText = _styledComponents2.default.span.withConfig({
-  displayName: 'StyledText'
-})(['', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
+  displayName: 'StyledText',
+  componentId: 'sc-1sadyjn-0'
+})(['', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return sizeStyle(props);
 }, function (props) {
   return props.margin && marginStyle(props);
@@ -82,6 +79,6 @@ var StyledText = exports.StyledText = _styledComponents2.default.span.withConfig
   return props.colorValue && colorStyle;
 }, function (props) {
   return props.weight && weightStyle;
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.text && props.theme.text.extend;
 });

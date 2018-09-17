@@ -1,7 +1,3 @@
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 import styled, { css, keyframes } from 'styled-components';
 
 import { backgroundStyle, baseStyle, edgeStyle, lapAndUp, palm } from '../../utils';
@@ -11,8 +7,9 @@ var hiddenPositionStyle = css(['left:-100%;right:100%;z-index:-1;position:fixed;
 var desktopLayerStyle = '\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  right: 0px;\n  bottom: 0px;\n  width: 100vw;\n  height: 100vh;\n';
 
 export var StyledLayer = styled.div.withConfig({
-  displayName: 'StyledLayer'
-})(['', ' background:unset;position:relative;z-index:10;pointer-events:none;outline:none;', ' ', ''], baseStyle, function (props) {
+  displayName: 'StyledLayer',
+  componentId: 'rmtehz-0'
+})(['', ' background:unset;position:relative;z-index:10;pointer-events:none;outline:none;', ' ', ' ', ''], baseStyle, function (props) {
   return props.responsive && palm('\n    position: absolute;\n    height: 100%;\n    width: 100%;\n    overflow: auto;\n    ');
 }, function (props) {
   if (props.position === 'hidden') {
@@ -21,12 +18,13 @@ export var StyledLayer = styled.div.withConfig({
     return lapAndUp(desktopLayerStyle);
   }
   return desktopLayerStyle;
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.layer && props.theme.layer.extend;
 });
 
 export var StyledOverlay = styled.div.withConfig({
-  displayName: 'StyledLayer__StyledOverlay'
+  displayName: 'StyledLayer__StyledOverlay',
+  componentId: 'rmtehz-1'
 })(['', ' top:0px;left:0px;right:0px;bottom:0px;', ' pointer-events:all;'], lapAndUp('position: absolute;'), function (props) {
   return props.theme.layer.overlay.background && backgroundStyle(props.theme.layer.overlay.background, props.theme);
 });
@@ -88,13 +86,13 @@ var KEYFRAMES = {
 var POSITIONS = {
   center: {
     vertical: function vertical(margin, theme) {
-      return '\n      top: ' + MARGINS.top(margin, theme) + ';\n      bottom: ' + MARGINS.bottom(margin, theme) + ';\n      left: 50%;\n      transform: translateX(-50%);\n      animation: ' + KEYFRAMES.center.vertical + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['top:', ';bottom:', ';left:50%;transform:translateX(-50%);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.top(margin, theme), MARGINS.bottom(margin, theme), KEYFRAMES.center.vertical);
     },
     horizontal: function horizontal(margin, theme) {
-      return '\n      left: ' + MARGINS.left(margin, theme) + ';\n      right: ' + MARGINS.right(margin, theme) + ';\n      top: 50%;\n      transform: translateY(-50%);\n      animation: ' + KEYFRAMES.center.horizontal + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['left:', ';right:', ';top:50%;transform:translateY(-50%);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.left(margin, theme), MARGINS.right(margin, theme), KEYFRAMES.center.horizontal);
     },
     true: function _true(margin, theme) {
-      return '\n      top: ' + MARGINS.top(margin, theme) + ';\n      bottom: ' + MARGINS.bottom(margin, theme) + ';\n      left: ' + MARGINS.left(margin, theme) + ';\n      right: ' + MARGINS.right(margin, theme) + ';\n      animation: ' + KEYFRAMES.center.true + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['top:', ';bottom:', ';left:', ';right:', ';animation:', ' 0.2s ease-in-out forwards;'], MARGINS.top(margin, theme), MARGINS.bottom(margin, theme), MARGINS.left(margin, theme), MARGINS.right(margin, theme), KEYFRAMES.center.true);
     },
     false: function _false(margin, theme) {
       return css(['top:50%;left:50%;transform:translate(-50%,-50%);animation:', ' 0.2s ease-in-out forwards;', ''], KEYFRAMES.center.false, edgeStyle('margin', margin, false, theme));
@@ -103,61 +101,61 @@ var POSITIONS = {
 
   top: {
     vertical: function vertical(margin, theme) {
-      return '\n      top: ' + MARGINS.top(margin, theme) + ';\n      bottom: ' + MARGINS.bottom(margin, theme) + ';\n      left: 50%;\n      transform: translate(-50%, 0%);\n      animation: ' + KEYFRAMES.top.vertical + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['top:', ';bottom:', ';left:50%;transform:translate(-50%,0%);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.top(margin, theme), MARGINS.bottom(margin, theme), KEYFRAMES.top.vertical);
     },
     horizontal: function horizontal(margin, theme) {
-      return '\n      left: ' + MARGINS.left(margin, theme) + ';\n      right: ' + MARGINS.right(margin, theme) + ';\n      top: ' + MARGINS.top(margin, theme) + ';\n      transform: translateY(0);\n      animation: ' + KEYFRAMES.top.horizontal + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['left:', ';right:', ';top:', ';transform:translateY(0);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.left(margin, theme), MARGINS.right(margin, theme), MARGINS.top(margin, theme), KEYFRAMES.top.horizontal);
     },
     true: function _true(margin, theme) {
-      return '\n      top: ' + MARGINS.top(margin, theme) + ';\n      bottom: ' + MARGINS.bottom(margin, theme) + ';\n      left: ' + MARGINS.left(margin, theme) + ';\n      right: ' + MARGINS.right(margin, theme) + ';\n      transform: translateY(0);\n      animation: ' + KEYFRAMES.top.true + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['top:', ';bottom:', ';left:', ';right:', ';transform:translateY(0);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.top(margin, theme), MARGINS.bottom(margin, theme), MARGINS.left(margin, theme), MARGINS.right(margin, theme), KEYFRAMES.top.true);
     },
     false: function _false(margin, theme) {
-      return '\n      top: ' + MARGINS.top(margin, theme) + ';\n      left: 50%;\n      transform: translate(-50%, 0);\n      animation: ' + KEYFRAMES.top.false + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['top:', ';left:50%;transform:translate(-50%,0);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.top(margin, theme), KEYFRAMES.top.false);
     }
   },
 
   bottom: {
     vertical: function vertical(margin, theme) {
-      return '\n      top: ' + MARGINS.top(margin, theme) + ';\n      bottom: ' + MARGINS.bottom(margin, theme) + ';\n      left: 50%;\n      transform: translate(-50%, 0);\n      animation: ' + KEYFRAMES.bottom.vertical + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['top:', ';bottom:', ';left:50%;transform:translate(-50%,0);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.top(margin, theme), MARGINS.bottom(margin, theme), KEYFRAMES.bottom.vertical);
     },
     horizontal: function horizontal(margin, theme) {
-      return '\n      left: ' + MARGINS.left(margin, theme) + ';\n      right: ' + MARGINS.right(margin, theme) + ';\n      bottom: ' + MARGINS.bottom(margin, theme) + ';\n      transform: translateY(0);\n      animation: ' + KEYFRAMES.bottom.horizontal + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['left:', ';right:', ';bottom:', ';transform:translateY(0);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.left(margin, theme), MARGINS.right(margin, theme), MARGINS.bottom(margin, theme), KEYFRAMES.bottom.horizontal);
     },
     true: function _true(margin, theme) {
-      return '\n      top: ' + MARGINS.top(margin, theme) + ';\n      bottom: ' + MARGINS.bottom(margin, theme) + ';\n      left: ' + MARGINS.left(margin, theme) + ';\n      right: ' + MARGINS.right(margin, theme) + ';\n      transform: translateY(0);\n      animation: ' + KEYFRAMES.bottom.true + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['top:', ';bottom:', ';left:', ';right:', ';transform:translateY(0);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.top(margin, theme), MARGINS.bottom(margin, theme), MARGINS.left(margin, theme), MARGINS.right(margin, theme), KEYFRAMES.bottom.true);
     },
     false: function _false(margin, theme) {
-      return '\n      bottom: ' + MARGINS.bottom(margin, theme) + ';\n      left: 50%;\n      transform: translate(-50%, 0);\n      animation: ' + KEYFRAMES.bottom.false + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['bottom:', ';left:50%;transform:translate(-50%,0);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.bottom(margin, theme), KEYFRAMES.bottom.false);
     }
   },
 
   left: {
     vertical: function vertical(margin, theme) {
-      return '\n      top: ' + MARGINS.top(margin, theme) + ';\n      bottom: ' + MARGINS.bottom(margin, theme) + ';\n      left: ' + MARGINS.left(margin, theme) + ';\n      transform: translateX(0);\n      animation: ' + KEYFRAMES.left.vertical + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['top:', ';bottom:', ';left:', ';transform:translateX(0);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.top(margin, theme), MARGINS.bottom(margin, theme), MARGINS.left(margin, theme), KEYFRAMES.left.vertical);
     },
     horizontal: function horizontal(margin, theme) {
-      return '\n      left: ' + MARGINS.left(margin, theme) + ';\n      right: ' + MARGINS.right(margin, theme) + ';\n      top: 50%;\n      transform: translate(0, -50%);\n      animation: ' + KEYFRAMES.left.horizontal + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['left:', ';right:', ';top:50%;transform:translate(0,-50%);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.left(margin, theme), MARGINS.right(margin, theme), KEYFRAMES.left.horizontal);
     },
     true: function _true(margin, theme) {
-      return '\n      top: ' + MARGINS.top(margin, theme) + ';\n      bottom: ' + MARGINS.bottom(margin, theme) + ';\n      left: ' + MARGINS.left(margin, theme) + ';\n      right: ' + MARGINS.right(margin, theme) + ';\n      transform: translateX(0);\n      animation: ' + KEYFRAMES.left.true + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['top:', ';bottom:', ';left:', ';right:', ';transform:translateX(0);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.top(margin, theme), MARGINS.bottom(margin, theme), MARGINS.left(margin, theme), MARGINS.right(margin, theme), KEYFRAMES.left.true);
     },
     false: function _false(margin, theme) {
-      return '\n      left: ' + MARGINS.left(margin, theme) + ';\n      top: 50%;\n      transform: translate(0, -50%);\n      animation: ' + KEYFRAMES.left.false + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['left:', ';top:50%;transform:translate(0,-50%);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.left(margin, theme), KEYFRAMES.left.false);
     }
   },
 
   right: {
     vertical: function vertical(margin, theme) {
-      return '\n      top: ' + MARGINS.top(margin, theme) + ';\n      bottom: ' + MARGINS.bottom(margin, theme) + ';\n      right: ' + MARGINS.right(margin, theme) + ';\n      transform: translateX(0);\n      animation: ' + KEYFRAMES.right.vertical + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['top:', ';bottom:', ';right:', ';transform:translateX(0);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.top(margin, theme), MARGINS.bottom(margin, theme), MARGINS.right(margin, theme), KEYFRAMES.right.vertical);
     },
     horizontal: function horizontal(margin, theme) {
-      return '\n      left: ' + MARGINS.left(margin, theme) + ';\n      right: ' + MARGINS.right(margin, theme) + ';\n      top: 50%;\n      transform: translate(0, -50%);\n      animation: ' + KEYFRAMES.right.horizontal + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['left:', ';right:', ';top:50%;transform:translate(0,-50%);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.left(margin, theme), MARGINS.right(margin, theme), KEYFRAMES.right.horizontal);
     },
     true: function _true(margin, theme) {
-      return '\n      top: ' + MARGINS.top(margin, theme) + ';\n      bottom: ' + MARGINS.bottom(margin, theme) + ';\n      left: ' + MARGINS.left(margin, theme) + ';\n      right: ' + MARGINS.right(margin, theme) + ';\n      transform: translateX(0);\n      animation: ' + KEYFRAMES.right.true + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['top:', ';bottom:', ';left:', ';right:', ';transform:translateX(0);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.top(margin, theme), MARGINS.bottom(margin, theme), MARGINS.left(margin, theme), MARGINS.right(margin, theme), KEYFRAMES.right.true);
     },
     false: function _false(margin, theme) {
-      return '\n      right: ' + MARGINS.right(margin, theme) + ';\n      top: 50%;\n      transform: translate(0, -50%);\n      animation: ' + KEYFRAMES.right.false + ' 0.2s ease-in-out forwards;\n    ';
+      return css(['right:', ';top:50%;transform:translate(0,-50%);animation:', ' 0.2s ease-in-out forwards;'], MARGINS.right(margin, theme), KEYFRAMES.right.false);
     }
   }
 };
@@ -171,7 +169,8 @@ var desktopContainerStyle = css(['position:', ';max-height:100%;max-width:100%;b
 });
 
 export var StyledContainer = styled.div.withConfig({
-  displayName: 'StyledLayer__StyledContainer'
+  displayName: 'StyledLayer__StyledContainer',
+  componentId: 'rmtehz-2'
 })(['', ' display:flex;flex-direction:column;min-height:', ';', ' outline:none;pointer-events:all;z-index:15;', ' ', ''], function (props) {
   return !props.modal ? baseStyle : '';
 }, function (props) {

@@ -1,9 +1,5 @@
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 import styled, { css } from 'styled-components';
 
 var fillStyle = function fillStyle(fill) {
@@ -145,8 +141,9 @@ var areasStyle = function areasStyle(props) {
 };
 
 export var StyledGrid = styled.div.withConfig({
-  displayName: 'StyledGrid'
-})(['display:grid;box-sizing:border-box;', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
+  displayName: 'StyledGrid',
+  componentId: 'sc-1wofa1l-0'
+})(['display:grid;box-sizing:border-box;', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return props.fillContainer && fillStyle(props.fillContainer);
 }, function (props) {
   return props.align && alignStyle;
@@ -164,6 +161,6 @@ export var StyledGrid = styled.div.withConfig({
   return props.justifyContent && justifyContentStyle;
 }, function (props) {
   return props.rowsProp && rowsStyle(props);
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.grid && props.theme.grid.extend;
 });

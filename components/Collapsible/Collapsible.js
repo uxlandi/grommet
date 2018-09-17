@@ -28,7 +28,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var AnimatedBox = (0, _styledComponents2.default)(_Box.Box).withConfig({
-  displayName: 'Collapsible__AnimatedBox'
+  displayName: 'Collapsible__AnimatedBox',
+  componentId: 'sc-15kniua-0'
 })(['', ''], function (props) {
   return !props.animate && (props.open ? '\n    max-height: unset;\n    visibility: visible;\n  ' : '\n    max-height: 0;\n    visibility: hidden;\n  ');
 });

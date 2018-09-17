@@ -1,7 +1,3 @@
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 import styled, { css } from 'styled-components';
 
 import { colorForName } from '../../utils';
@@ -60,8 +56,9 @@ var weightStyle = css(['font-weight:', ';'], function (props) {
 });
 
 export var StyledText = styled.span.withConfig({
-  displayName: 'StyledText'
-})(['', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
+  displayName: 'StyledText',
+  componentId: 'sc-1sadyjn-0'
+})(['', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return sizeStyle(props);
 }, function (props) {
   return props.margin && marginStyle(props);
@@ -73,6 +70,6 @@ export var StyledText = styled.span.withConfig({
   return props.colorValue && colorStyle;
 }, function (props) {
   return props.weight && weightStyle;
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.text && props.theme.text.extend;
 });

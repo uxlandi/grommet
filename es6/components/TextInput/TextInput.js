@@ -41,7 +41,8 @@ function stringLabel(suggestion) {
 }
 
 var ContainerBox = styled(Box).withConfig({
-  displayName: 'TextInput__ContainerBox'
+  displayName: 'TextInput__ContainerBox',
+  componentId: 'sc-1ai0c08-0'
 })(['max-height:inherit;@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){width:100%;}']);
 
 var TextInput = function (_Component) {
@@ -311,6 +312,8 @@ var TextInput = function (_Component) {
 
     delete rest.onInput; // se we can manage in onInputChange()
     delete rest.forwardRef;
+    delete rest.onSuggestionsOpen;
+    delete rest.onSuggestionsClose;
     var _state = this.state,
         inputRef = _state.inputRef,
         showDrop = _state.showDrop;
@@ -361,7 +364,7 @@ var TextInput = function (_Component) {
         },
         React.createElement(StyledTextInput, _extends({
           id: id,
-          innerRef: inputRef,
+          ref: inputRef,
           autoComplete: 'off',
           plain: plain,
           placeholder: typeof placeholder === 'string' ? placeholder : undefined,

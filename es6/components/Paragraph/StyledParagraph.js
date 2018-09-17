@@ -1,7 +1,3 @@
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 import styled, { css } from 'styled-components';
 
 import { colorForName } from '../../utils';
@@ -41,8 +37,9 @@ var textAlignStyle = css(['text-align:', ';'], function (props) {
 });
 
 export var StyledParagraph = styled.p.withConfig({
-  displayName: 'StyledParagraph'
-})(['', ' ', ' ', ' ', ''], function (props) {
+  displayName: 'StyledParagraph',
+  componentId: 'tbetod-0'
+})(['', ' ', ' ', ' ', ' ', ''], function (props) {
   return sizeStyle(props);
 }, function (props) {
   return props.margin && marginStyle(props);
@@ -50,6 +47,6 @@ export var StyledParagraph = styled.p.withConfig({
   return props.textAlign && textAlignStyle;
 }, function (props) {
   return props.color && colorStyle;
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.paragraph && props.theme.paragraph.extend;
 });

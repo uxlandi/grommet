@@ -13,7 +13,8 @@ import { withTheme } from '../hocs';
 import { Box } from '../Box';
 
 var AnimatedBox = styled(Box).withConfig({
-  displayName: 'Collapsible__AnimatedBox'
+  displayName: 'Collapsible__AnimatedBox',
+  componentId: 'sc-15kniua-0'
 })(['', ''], function (props) {
   return !props.animate && (props.open ? '\n    max-height: unset;\n    visibility: visible;\n  ' : '\n    max-height: 0;\n    visibility: hidden;\n  ');
 });

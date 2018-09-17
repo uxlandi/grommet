@@ -79,7 +79,7 @@ var Anchor = function (_Component) {
     return _react2.default.createElement(
       _StyledAnchor.StyledAnchor,
       _extends({}, rest, {
-        innerRef: forwardRef,
+        ref: forwardRef,
         'aria-label': a11yTitle,
         disabled: disabled,
         hasIcon: !!icon,

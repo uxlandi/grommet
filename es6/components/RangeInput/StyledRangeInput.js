@@ -1,7 +1,3 @@
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 import styled, { css } from 'styled-components';
 
 import { focusStyle, normalizeColor, parseMetricToNum } from '../../utils';
@@ -29,8 +25,9 @@ var firefoxMicrosoftThumbStyle = css(['', ' margin-top:0px;height:', ';width:', 
 });
 
 export var StyledRangeInput = styled.input.withConfig({
-  displayName: 'StyledRangeInput'
-})(['box-sizing:border-box;position:relative;-webkit-appearance:none;border-color:transparent;height:', ';width:100%;padding:0px;cursor:pointer;background:transparent;&:focus{outline:none;}&::-moz-focus-inner{border:none;}&::-moz-focus-outer{border:none;}&::-webkit-slider-runnable-track{', '}&::-webkit-slider-thumb{', ' margin-top:-', 'px;', '}&::-moz-range-track{', '}&::-moz-range-thumb{', '}&::-ms-thumb{', '}', ' &::-ms-track{', ' border-color:transparent;color:transparent;}&::-ms-fill-lower{background:', ';border-color:transparent;}&::-ms-fill-upper{background:', ';border-color:transparent;}', ''], function (props) {
+  displayName: 'StyledRangeInput',
+  componentId: 'sc-15st9ck-0'
+})(['box-sizing:border-box;position:relative;-webkit-appearance:none;border-color:transparent;height:', ';width:100%;padding:0px;cursor:pointer;background:transparent;&:focus{outline:none;}&::-moz-focus-inner{border:none;}&::-moz-focus-outer{border:none;}&::-webkit-slider-runnable-track{', '}&::-webkit-slider-thumb{', ' margin-top:-', 'px;', '}&::-moz-range-track{', '}&::-moz-range-thumb{', '}&::-ms-thumb{', '}', ' &::-ms-track{', ' border-color:transparent;color:transparent;}&::-ms-fill-lower{background:', ';border-color:transparent;}&::-ms-fill-upper{background:', ';border-color:transparent;}', ' ', ''], function (props) {
   return props.theme.global.spacing;
 }, rangeTrackStyle, rangeThumbStyle, function (props) {
   return parseMetricToNum(props.theme.global.spacing) * 0.425;
@@ -44,6 +41,6 @@ export var StyledRangeInput = styled.input.withConfig({
   return normalizeColor(props.theme.rangeInput.track.color, props.theme);
 }, function (props) {
   return props.focus && focusStyle;
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.rangeInput && props.theme.rangeInput.extend;
 });

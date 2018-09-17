@@ -75,7 +75,7 @@ var Button = function (_Component) {
     return React.createElement(
       Tag,
       _extends({}, rest, {
-        innerRef: forwardRef,
+        ref: forwardRef,
         'aria-label': a11yTitle,
         colorValue: color,
         disabled: disabled,

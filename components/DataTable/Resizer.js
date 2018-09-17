@@ -26,7 +26,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var ResizerBox = (0, _styledComponents2.default)(_Box.Box).withConfig({
-  displayName: 'Resizer__ResizerBox'
+  displayName: 'Resizer__ResizerBox',
+  componentId: 'sc-8l808w-0'
 })(['cursor:col-resize;']);
 
 var Resizer = exports.Resizer = function (_Component) {

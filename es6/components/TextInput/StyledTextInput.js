@@ -1,7 +1,3 @@
-var _templateObject = _taggedTemplateLiteralLoose(['\n', '\n'], ['\n', '\n']);
-
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 import styled, { css } from 'styled-components';
 
 import { inputStyle, parseMetricToNum } from '../../utils';
@@ -18,25 +14,29 @@ var sizeStyle = function sizeStyle(props) {
 var plainStyle = css(['border:none;']);
 
 export var StyledTextInput = styled.input.withConfig({
-  displayName: 'StyledTextInput'
-})(['', ' width:100%;', ' ', ' &::-webkit-input-placeholder{', '}&::-moz-placeholder{', '}&:-ms-input-placeholder{', '}&::-moz-focus-inner{border:none;outline:none;}'], inputStyle, function (props) {
+  displayName: 'StyledTextInput',
+  componentId: 'sc-1x30a0s-0'
+})(['', ' width:100%;', ' ', ' &::-webkit-input-placeholder{', '}&::-moz-placeholder{', '}&:-ms-input-placeholder{', '}&::-moz-focus-inner{border:none;outline:none;}', ''], inputStyle, function (props) {
   return props.size && sizeStyle(props);
 }, function (props) {
   return props.plain && plainStyle;
-}, placeholderColor, placeholderColor, placeholderColor).extend(_templateObject, function (props) {
+}, placeholderColor, placeholderColor, placeholderColor, function (props) {
   return props.theme.textInput && props.theme.textInput.extend;
 });
 
 export var StyledTextInputContainer = styled.div.withConfig({
-  displayName: 'StyledTextInput__StyledTextInputContainer'
+  displayName: 'StyledTextInput__StyledTextInputContainer',
+  componentId: 'sc-1x30a0s-1'
 })(['position:relative;width:100%;']);
 
 export var StyledPlaceholder = styled.div.withConfig({
-  displayName: 'StyledTextInput__StyledPlaceholder'
+  displayName: 'StyledTextInput__StyledPlaceholder',
+  componentId: 'sc-1x30a0s-2'
 })(['position:absolute;left:', 'px;top:50%;transform:translateY(-50%);display:flex;justify-content:center;'], function (props) {
   return parseMetricToNum(props.theme.global.spacing) / 2 - parseMetricToNum(props.theme.global.control.border.width);
 });
 
 export var StyledSuggestions = styled.ol.withConfig({
-  displayName: 'StyledTextInput__StyledSuggestions'
+  displayName: 'StyledTextInput__StyledSuggestions',
+  componentId: 'sc-1x30a0s-3'
 })(['border-top-left-radius:0;border-top-right-radius:0;margin:0;padding:0;list-style-type:none;']);

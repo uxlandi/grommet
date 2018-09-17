@@ -3,23 +3,20 @@
 exports.__esModule = true;
 exports.StyledStackLayer = exports.StyledStack = undefined;
 
-var _templateObject = _taggedTemplateLiteralLoose(['\n  ', '\n'], ['\n  ', '\n']);
-
 var _styledComponents = require('styled-components');
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
-
 var fillStyle = '\n  width: 100%;\n  height: 100%;\n  max-width: none;\n  flex-grow: 1;\n  display: flex;\n';
 
 var StyledStack = exports.StyledStack = _styledComponents2.default.div.withConfig({
-  displayName: 'StyledStack'
-})(['position:relative;', ''], function (props) {
+  displayName: 'StyledStack',
+  componentId: 'ajspsk-0'
+})(['position:relative;', ' ', ''], function (props) {
   return props.fillContainer && fillStyle;
-}).extend(_templateObject, function (props) {
+}, function (props) {
   return props.theme.stack && props.theme.stack.extend;
 });
 
@@ -37,7 +34,8 @@ var styleMap = {
 };
 
 var StyledStackLayer = exports.StyledStackLayer = _styledComponents2.default.div.withConfig({
-  displayName: 'StyledStack__StyledStackLayer'
+  displayName: 'StyledStack__StyledStackLayer',
+  componentId: 'ajspsk-1'
 })(['position:', ';', ' ', ' ', ''], function (props) {
   return props.guiding ? 'relative' : 'absolute';
 }, function (props) {

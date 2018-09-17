@@ -22,7 +22,8 @@ import { withForwardRef, withTheme } from '../hocs';
 import { evalStyle } from '../../utils';
 
 var ContainerBox = styled(Box).withConfig({
-  displayName: 'Menu__ContainerBox'
+  displayName: 'Menu__ContainerBox',
+  componentId: 'sc-17fcys9-0'
 })(['max-height:inherit;@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){width:100%;}']);
 
 var Menu = function (_Component) {
