@@ -14,7 +14,7 @@ import { StatusGood } from 'grommet-icons/es6/icons/StatusGood';
 import { Trash } from 'grommet-icons/es6/icons/Trash';
 
 
-import { Box, Button, FormField, Grommet, Heading, Layer, Text, TextInput } from '../';
+import { Box, Button, FormField, Grommet, Heading, Layer, Select, Text, TextInput } from '../';
 import { grommet } from '../../themes';
 
 var CenterLayer = function (_Component) {
@@ -167,7 +167,10 @@ var FormLayer = function (_Component2) {
       args[_key2] = arguments[_key2];
     }
 
-    return _ret2 = (_temp2 = (_this2 = _possibleConstructorReturn(this, _Component2.call.apply(_Component2, [this].concat(args))), _this2), _this2.state = {}, _this2.onOpen = function () {
+    return _ret2 = (_temp2 = (_this2 = _possibleConstructorReturn(this, _Component2.call.apply(_Component2, [this].concat(args))), _this2), _this2.state = {
+      fourthOption: 'one',
+      open: false
+    }, _this2.onOpen = function () {
       return _this2.setState({ open: true });
     }, _this2.onClose = function () {
       return _this2.setState({ open: undefined });
@@ -175,7 +178,11 @@ var FormLayer = function (_Component2) {
   }
 
   FormLayer.prototype.render = function render() {
-    var open = this.state.open;
+    var _this3 = this;
+
+    var _state2 = this.state,
+        open = _state2.open,
+        fourthOption = _state2.fourthOption;
 
     return React.createElement(
       Grommet,
@@ -238,7 +245,14 @@ var FormLayer = function (_Component2) {
               React.createElement(
                 FormField,
                 { label: 'Fourth' },
-                React.createElement(TextInput, null)
+                React.createElement(Select, {
+                  options: ['one', 'two', 'three'],
+                  value: fourthOption,
+                  onChange: function onChange(_ref) {
+                    var option = _ref.option;
+                    return _this3.setState({ fourthOption: option });
+                  }
+                })
               )
             ),
             React.createElement(
@@ -264,7 +278,7 @@ var NotificationLayer = function (_Component3) {
   _inherits(NotificationLayer, _Component3);
 
   function NotificationLayer() {
-    var _temp3, _this3, _ret3;
+    var _temp3, _this4, _ret3;
 
     _classCallCheck(this, NotificationLayer);
 
@@ -272,11 +286,11 @@ var NotificationLayer = function (_Component3) {
       args[_key3] = arguments[_key3];
     }
 
-    return _ret3 = (_temp3 = (_this3 = _possibleConstructorReturn(this, _Component3.call.apply(_Component3, [this].concat(args))), _this3), _this3.state = {}, _this3.onOpen = function () {
-      return _this3.setState({ open: true });
-    }, _this3.onClose = function () {
-      return _this3.setState({ open: undefined });
-    }, _temp3), _possibleConstructorReturn(_this3, _ret3);
+    return _ret3 = (_temp3 = (_this4 = _possibleConstructorReturn(this, _Component3.call.apply(_Component3, [this].concat(args))), _this4), _this4.state = {}, _this4.onOpen = function () {
+      return _this4.setState({ open: true });
+    }, _this4.onClose = function () {
+      return _this4.setState({ open: undefined });
+    }, _temp3), _possibleConstructorReturn(_this4, _ret3);
   }
 
   NotificationLayer.prototype.render = function render() {

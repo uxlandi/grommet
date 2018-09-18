@@ -100,6 +100,8 @@ var DropButton = function (_Component) {
   };
 
   DropButton.prototype.render = function render() {
+    var _this2 = this;
+
     var _props = this.props,
         disabled = _props.disabled,
         dropAlign = _props.dropAlign,
@@ -129,7 +131,12 @@ var DropButton = function (_Component) {
           align: dropAlign,
           target: dropTarget || buttonRef.current,
           onClickOutside: this.onDropClose,
-          onEsc: this.onDropClose
+          onEsc: function onEsc(event) {
+            // prevents layer to close on esc
+            event.stopPropagation();
+            event.nativeEvent.stopImmediatePropagation();
+            _this2.onDropClose();
+          }
         },
         dropContent
       );
