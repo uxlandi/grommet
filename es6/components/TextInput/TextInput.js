@@ -273,7 +273,8 @@ var TextInput = function (_Component) {
   TextInput.prototype.componentDidUpdate = function componentDidUpdate(prevProps, prevState) {
     var _props = this.props,
         onSuggestionsOpen = _props.onSuggestionsOpen,
-        onSuggestionsClose = _props.onSuggestionsClose;
+        onSuggestionsClose = _props.onSuggestionsClose,
+        suggestions = _props.suggestions;
 
     if (this.state.showDrop !== prevState.showDrop) {
       if (this.state.showDrop && onSuggestionsOpen) {
@@ -281,6 +282,10 @@ var TextInput = function (_Component) {
       } else if (onSuggestionsClose) {
         onSuggestionsClose();
       }
+    }
+
+    if (!this.state.showDrop && suggestions && (!prevProps.suggestions || !prevProps.suggestions.length)) {
+      this.resetSuggestions();
     }
   };
 

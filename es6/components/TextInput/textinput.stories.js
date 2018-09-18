@@ -144,15 +144,26 @@ var CustomSuggestionsTextInput = function (_Component3) {
       args[_key3] = arguments[_key3];
     }
 
-    return _ret3 = (_temp3 = (_this3 = _possibleConstructorReturn(this, _Component3.call.apply(_Component3, [this].concat(args))), _this3), _this3.state = { value: '', suggestionOpen: false }, _this3.boxRef = createRef(), _this3.onChange = function (event) {
-      return _this3.setState({ value: event.target.value });
+    return _ret3 = (_temp3 = (_this3 = _possibleConstructorReturn(this, _Component3.call.apply(_Component3, [this].concat(args))), _this3), _this3.state = { value: '', suggestionOpen: false, suggestedFolks: [] }, _this3.boxRef = createRef(), _this3.onChange = function (event) {
+      return _this3.setState({ value: event.target.value }, function () {
+        if (!_this3.state.value.trim()) {
+          _this3.setState({ suggestedFolks: [] });
+        } else {
+          // simulate an async call to the backend
+          setTimeout(function () {
+            return _this3.setState({ suggestedFolks: folks });
+          }, 300);
+        }
+      });
     }, _this3.onSelect = function (event) {
       return _this3.setState({ value: event.suggestion.value });
     }, _this3.renderSuggestions = function () {
-      var value = _this3.state.value;
+      var _this3$state = _this3.state,
+          value = _this3$state.value,
+          suggestedFolks = _this3$state.suggestedFolks;
 
 
-      return folks.filter(function (_ref) {
+      return suggestedFolks.filter(function (_ref) {
         var name = _ref.name;
         return name.toLowerCase().indexOf(value.toLowerCase()) >= 0;
       }).map(function (_ref2, index, list) {
