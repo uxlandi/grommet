@@ -40,16 +40,16 @@ var StyledOverlay = exports.StyledOverlay = _styledComponents2.default.div.withC
 
 var MARGINS = {
   top: function top(margin, theme) {
-    return theme.global.edgeSize[margin.top || margin.vertical || margin] || 0;
+    return theme.global.edgeSize[margin.top || margin.vertical || margin] || '0px';
   },
   bottom: function bottom(margin, theme) {
-    return theme.global.edgeSize[margin.bottom || margin.vertical || margin] || 0;
+    return theme.global.edgeSize[margin.bottom || margin.vertical || margin] || '0px';
   },
   left: function left(margin, theme) {
-    return theme.global.edgeSize[margin.left || margin.horizontal || margin] || 0;
+    return theme.global.edgeSize[margin.left || margin.horizontal || margin] || '0px';
   },
   right: function right(margin, theme) {
-    return theme.global.edgeSize[margin.right || margin.horizontal || margin] || 0;
+    return theme.global.edgeSize[margin.right || margin.horizontal || margin] || '0px';
   }
 };
 

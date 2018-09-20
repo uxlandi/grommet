@@ -137,7 +137,7 @@ var generate = exports.generate = function generate() {
         }
       },
       edgeSize: {
-        none: '0',
+        none: '0px',
         hair: '1px', // for Chart
         xxsmall: baseSpacing / 8 + 'px', // 3
         xsmall: baseSpacing / 4 + 'px', // 6
@@ -146,7 +146,7 @@ var generate = exports.generate = function generate() {
         large: baseSpacing * 2 + 'px', // 48
         xlarge: baseSpacing * 4 + 'px', // 96
         narrow: {
-          none: '0',
+          none: '0px',
           hair: '1px', // for Chart
           xxsmall: '2px',
           xsmall: baseSpacing / 8 + 'px', // 3
