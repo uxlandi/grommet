@@ -87,7 +87,7 @@ var Collapsible = function (_Component) {
           container.style['max-height'] = open ? height + 'px' : '0px';
 
           _this2.animationTimeout = setTimeout(function () {
-            container.style = '';
+            container.removeAttribute('style');
             _this2.setState({
               animate: false
             });
