@@ -132,8 +132,69 @@ var CustomColorBox = function (_Component2) {
   return CustomColorBox;
 }(Component);
 
+var FixedSizesBox = function (_Component3) {
+  _inherits(FixedSizesBox, _Component3);
+
+  function FixedSizesBox() {
+    _classCallCheck(this, FixedSizesBox);
+
+    return _possibleConstructorReturn(this, _Component3.apply(this, arguments));
+  }
+
+  FixedSizesBox.prototype.render = function render() {
+    return React.createElement(
+      Grommet,
+      { theme: grommet },
+      React.createElement(
+        Box,
+        { pad: 'small', gap: 'small' },
+        React.createElement(
+          Box,
+          {
+            width: 'small',
+            height: 'small',
+            round: 'small',
+            align: 'center',
+            justify: 'center',
+            background: 'brand'
+          },
+          'Small'
+        ),
+        React.createElement(
+          Box,
+          {
+            width: 'medium',
+            height: 'medium',
+            round: 'small',
+            align: 'center',
+            justify: 'center',
+            background: 'brand'
+          },
+          'Medium'
+        ),
+        React.createElement(
+          Box,
+          {
+            width: 'large',
+            height: 'large',
+            round: 'small',
+            align: 'center',
+            justify: 'center',
+            background: 'brand'
+          },
+          'Large'
+        )
+      )
+    );
+  };
+
+  return FixedSizesBox;
+}(Component);
+
 storiesOf('Box', module).add('Simple Box', function () {
   return React.createElement(SimpleBox, null);
 }).add('Custom color', function () {
   return React.createElement(CustomColorBox, null);
+}).add('Fixed sizes', function () {
+  return React.createElement(FixedSizesBox, null);
 });

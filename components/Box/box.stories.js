@@ -138,8 +138,69 @@ var CustomColorBox = function (_Component2) {
   return CustomColorBox;
 }(_react.Component);
 
+var FixedSizesBox = function (_Component3) {
+  _inherits(FixedSizesBox, _Component3);
+
+  function FixedSizesBox() {
+    _classCallCheck(this, FixedSizesBox);
+
+    return _possibleConstructorReturn(this, _Component3.apply(this, arguments));
+  }
+
+  FixedSizesBox.prototype.render = function render() {
+    return _react2.default.createElement(
+      _.Grommet,
+      { theme: _themes.grommet },
+      _react2.default.createElement(
+        _.Box,
+        { pad: 'small', gap: 'small' },
+        _react2.default.createElement(
+          _.Box,
+          {
+            width: 'small',
+            height: 'small',
+            round: 'small',
+            align: 'center',
+            justify: 'center',
+            background: 'brand'
+          },
+          'Small'
+        ),
+        _react2.default.createElement(
+          _.Box,
+          {
+            width: 'medium',
+            height: 'medium',
+            round: 'small',
+            align: 'center',
+            justify: 'center',
+            background: 'brand'
+          },
+          'Medium'
+        ),
+        _react2.default.createElement(
+          _.Box,
+          {
+            width: 'large',
+            height: 'large',
+            round: 'small',
+            align: 'center',
+            justify: 'center',
+            background: 'brand'
+          },
+          'Large'
+        )
+      )
+    );
+  };
+
+  return FixedSizesBox;
+}(_react.Component);
+
 (0, _react3.storiesOf)('Box', module).add('Simple Box', function () {
   return _react2.default.createElement(SimpleBox, null);
 }).add('Custom color', function () {
   return _react2.default.createElement(CustomColorBox, null);
+}).add('Fixed sizes', function () {
+  return _react2.default.createElement(FixedSizesBox, null);
 });

@@ -82,7 +82,9 @@ var Box = function (_Component) {
         tag = _props.tag,
         propsTheme = _props.theme,
         wrap = _props.wrap,
-        rest = _objectWithoutProperties(_props, ['a11yTitle', 'children', 'direction', 'elevation', 'fill', 'forwardRef', 'gap', 'overflow', 'responsive', 'tag', 'theme', 'wrap']);
+        width = _props.width,
+        height = _props.height,
+        rest = _objectWithoutProperties(_props, ['a11yTitle', 'children', 'direction', 'elevation', 'fill', 'forwardRef', 'gap', 'overflow', 'responsive', 'tag', 'theme', 'wrap', 'width', 'height']);
 
     var stateTheme = this.state.theme;
 
@@ -126,6 +128,8 @@ var Box = function (_Component) {
         fillProp: fill,
         overflowProp: overflow,
         wrapProp: wrap,
+        widthProp: width,
+        heightProp: height,
         responsive: responsive,
         theme: theme
       }, rest),
