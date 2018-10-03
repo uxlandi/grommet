@@ -136,7 +136,7 @@ var LayerContainer = function (_Component) {
           tabIndex: '-1',
           ref: this.layerRef
         },
-        _react2.default.createElement(_StyledLayer.StyledOverlay, { onClick: onClickOutside, theme: theme }),
+        _react2.default.createElement(_StyledLayer.StyledOverlay, { onClick: onClickOutside, responsive: responsive, theme: theme }),
         content
       );
     }

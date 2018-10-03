@@ -25,7 +25,9 @@ export var StyledLayer = styled.div.withConfig({
 export var StyledOverlay = styled.div.withConfig({
   displayName: 'StyledLayer__StyledOverlay',
   componentId: 'rmtehz-1'
-})(['', ' top:0px;left:0px;right:0px;bottom:0px;', ' pointer-events:all;'], lapAndUp('position: absolute;'), function (props) {
+})(['', ' top:0px;left:0px;right:0px;bottom:0px;', ' pointer-events:all;'], function (props) {
+  return props.responsive ? lapAndUp('position: absolute;') : 'position: absolute;';
+}, function (props) {
   return props.theme.layer.overlay.background && backgroundStyle(props.theme.layer.overlay.background, props.theme);
 });
 

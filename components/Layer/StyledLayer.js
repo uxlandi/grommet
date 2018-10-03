@@ -34,7 +34,9 @@ var StyledLayer = exports.StyledLayer = _styledComponents2.default.div.withConfi
 var StyledOverlay = exports.StyledOverlay = _styledComponents2.default.div.withConfig({
   displayName: 'StyledLayer__StyledOverlay',
   componentId: 'rmtehz-1'
-})(['', ' top:0px;left:0px;right:0px;bottom:0px;', ' pointer-events:all;'], (0, _utils.lapAndUp)('position: absolute;'), function (props) {
+})(['', ' top:0px;left:0px;right:0px;bottom:0px;', ' pointer-events:all;'], function (props) {
+  return props.responsive ? (0, _utils.lapAndUp)('position: absolute;') : 'position: absolute;';
+}, function (props) {
   return props.theme.layer.overlay.background && (0, _utils.backgroundStyle)(props.theme.layer.overlay.background, props.theme);
 });
 
