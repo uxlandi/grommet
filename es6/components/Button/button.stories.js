@@ -12,7 +12,11 @@ var SimpleButton = function SimpleButton(props) {
   return React.createElement(
     Grommet,
     { theme: grommet },
-    React.createElement(Button, _extends({ fill: true, label: 'Submit', onClick: function onClick() {} }, props))
+    React.createElement(
+      Box,
+      { align: 'start' },
+      React.createElement(Button, _extends({ label: 'Submit', onClick: function onClick() {} }, props))
+    )
   );
 };
 
@@ -21,6 +25,19 @@ var IconButton = function IconButton() {
     Grommet,
     { theme: grommet },
     React.createElement(Button, { icon: React.createElement(Add, null), hoverIndicator: true, onClick: function onClick() {} })
+  );
+};
+
+var IconLabelButton = function IconLabelButton() {
+  return React.createElement(
+    Grommet,
+    { theme: grommet },
+    React.createElement(
+      Box,
+      { align: 'start', gap: 'small' },
+      React.createElement(Button, { icon: React.createElement(Add, null), label: 'Add', onClick: function onClick() {}, primary: true }),
+      React.createElement(Button, { icon: React.createElement(Add, null), label: 'Add', onClick: function onClick() {} })
+    )
   );
 };
 
@@ -84,7 +101,7 @@ var customTheme = {
       if (props.primary) {
         extraStyles = '\n          text-transform: uppercase;\n        ';
       }
-      return '\n        color: white;\n\n        span {\n          font-size: 12px;\n        }\n\n        ' + extraStyles + '\n      ';
+      return '\n        color: white;\n        font-size: 12px;\n        font-weight: bold;\n\n        ' + extraStyles + '\n      ';
     }
   }
 };
@@ -97,12 +114,68 @@ var CustomThemeButton = function CustomThemeButton() {
   );
 };
 
+var MultipleButton = function MultipleButton() {
+  return React.createElement(
+    Grommet,
+    { theme: grommet },
+    React.createElement(
+      Box,
+      { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
+      React.createElement(Button, { label: 'Cancel', onClick: function onClick() {} }),
+      React.createElement(Button, {
+        color: 'dark-1',
+        primary: true,
+        icon: React.createElement(Add, { color: 'accent-1' }),
+        label: 'Add',
+        onClick: function onClick() {}
+      })
+    ),
+    React.createElement(
+      Box,
+      { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
+      React.createElement(Button, { label: 'Cancel', onClick: function onClick() {} }),
+      React.createElement(Button, {
+        color: 'dark-1',
+        primary: true,
+        icon: React.createElement(Add, null),
+        label: 'Add',
+        onClick: function onClick() {}
+      })
+    ),
+    React.createElement(
+      Box,
+      { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
+      React.createElement(Button, { label: 'Cancel', onClick: function onClick() {} }),
+      React.createElement(Button, {
+        primary: true,
+        icon: React.createElement(Add, null),
+        label: 'Add',
+        onClick: function onClick() {}
+      })
+    ),
+    React.createElement(
+      Box,
+      { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
+      React.createElement(Button, { label: 'Cancel', onClick: function onClick() {} }),
+      React.createElement(Button, {
+        color: 'light-2',
+        primary: true,
+        icon: React.createElement(Add, null),
+        label: 'Add',
+        onClick: function onClick() {}
+      })
+    )
+  );
+};
+
 storiesOf('Button', module).add('Default', function () {
   return React.createElement(SimpleButton, null);
 }).add('Primary', function () {
   return React.createElement(SimpleButton, { primary: true });
 }).add('Icon', function () {
   return React.createElement(IconButton, null);
+}).add('Icon Label', function () {
+  return React.createElement(IconLabelButton, null);
 }).add('Plain', function () {
   return React.createElement(PlainButton, null);
 }).add('Anchor', function () {
@@ -113,4 +186,6 @@ storiesOf('Button', module).add('Default', function () {
   return React.createElement(PlainButton, { active: true });
 }).add('Custom theme', function () {
   return React.createElement(CustomThemeButton, null);
+}).add('Multiple Same Line', function () {
+  return React.createElement(MultipleButton, null);
 });

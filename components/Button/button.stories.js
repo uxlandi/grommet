@@ -20,7 +20,11 @@ var SimpleButton = function SimpleButton(props) {
   return _react2.default.createElement(
     _.Grommet,
     { theme: _themes.grommet },
-    _react2.default.createElement(_.Button, _extends({ fill: true, label: 'Submit', onClick: function onClick() {} }, props))
+    _react2.default.createElement(
+      _.Box,
+      { align: 'start' },
+      _react2.default.createElement(_.Button, _extends({ label: 'Submit', onClick: function onClick() {} }, props))
+    )
   );
 };
 
@@ -29,6 +33,19 @@ var IconButton = function IconButton() {
     _.Grommet,
     { theme: _themes.grommet },
     _react2.default.createElement(_.Button, { icon: _react2.default.createElement(_grommetIcons.Add, null), hoverIndicator: true, onClick: function onClick() {} })
+  );
+};
+
+var IconLabelButton = function IconLabelButton() {
+  return _react2.default.createElement(
+    _.Grommet,
+    { theme: _themes.grommet },
+    _react2.default.createElement(
+      _.Box,
+      { align: 'start', gap: 'small' },
+      _react2.default.createElement(_.Button, { icon: _react2.default.createElement(_grommetIcons.Add, null), label: 'Add', onClick: function onClick() {}, primary: true }),
+      _react2.default.createElement(_.Button, { icon: _react2.default.createElement(_grommetIcons.Add, null), label: 'Add', onClick: function onClick() {} })
+    )
   );
 };
 
@@ -92,7 +109,7 @@ var customTheme = {
       if (props.primary) {
         extraStyles = '\n          text-transform: uppercase;\n        ';
       }
-      return '\n        color: white;\n\n        span {\n          font-size: 12px;\n        }\n\n        ' + extraStyles + '\n      ';
+      return '\n        color: white;\n        font-size: 12px;\n        font-weight: bold;\n\n        ' + extraStyles + '\n      ';
     }
   }
 };
@@ -105,12 +122,68 @@ var CustomThemeButton = function CustomThemeButton() {
   );
 };
 
+var MultipleButton = function MultipleButton() {
+  return _react2.default.createElement(
+    _.Grommet,
+    { theme: _themes.grommet },
+    _react2.default.createElement(
+      _.Box,
+      { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
+      _react2.default.createElement(_.Button, { label: 'Cancel', onClick: function onClick() {} }),
+      _react2.default.createElement(_.Button, {
+        color: 'dark-1',
+        primary: true,
+        icon: _react2.default.createElement(_grommetIcons.Add, { color: 'accent-1' }),
+        label: 'Add',
+        onClick: function onClick() {}
+      })
+    ),
+    _react2.default.createElement(
+      _.Box,
+      { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
+      _react2.default.createElement(_.Button, { label: 'Cancel', onClick: function onClick() {} }),
+      _react2.default.createElement(_.Button, {
+        color: 'dark-1',
+        primary: true,
+        icon: _react2.default.createElement(_grommetIcons.Add, null),
+        label: 'Add',
+        onClick: function onClick() {}
+      })
+    ),
+    _react2.default.createElement(
+      _.Box,
+      { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
+      _react2.default.createElement(_.Button, { label: 'Cancel', onClick: function onClick() {} }),
+      _react2.default.createElement(_.Button, {
+        primary: true,
+        icon: _react2.default.createElement(_grommetIcons.Add, null),
+        label: 'Add',
+        onClick: function onClick() {}
+      })
+    ),
+    _react2.default.createElement(
+      _.Box,
+      { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
+      _react2.default.createElement(_.Button, { label: 'Cancel', onClick: function onClick() {} }),
+      _react2.default.createElement(_.Button, {
+        color: 'light-2',
+        primary: true,
+        icon: _react2.default.createElement(_grommetIcons.Add, null),
+        label: 'Add',
+        onClick: function onClick() {}
+      })
+    )
+  );
+};
+
 (0, _react3.storiesOf)('Button', module).add('Default', function () {
   return _react2.default.createElement(SimpleButton, null);
 }).add('Primary', function () {
   return _react2.default.createElement(SimpleButton, { primary: true });
 }).add('Icon', function () {
   return _react2.default.createElement(IconButton, null);
+}).add('Icon Label', function () {
+  return _react2.default.createElement(IconLabelButton, null);
 }).add('Plain', function () {
   return _react2.default.createElement(PlainButton, null);
 }).add('Anchor', function () {
@@ -121,4 +194,6 @@ var CustomThemeButton = function CustomThemeButton() {
   return _react2.default.createElement(PlainButton, { active: true });
 }).add('Custom theme', function () {
   return _react2.default.createElement(CustomThemeButton, null);
+}).add('Multiple Same Line', function () {
+  return _react2.default.createElement(MultipleButton, null);
 });

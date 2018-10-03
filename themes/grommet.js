@@ -3,6 +3,8 @@
 exports.__esModule = true;
 exports.grommet = undefined;
 
+var _styledComponents = require('styled-components');
+
 var _utils = require('../utils');
 
 var workSansPath = 'https://fonts.gstatic.com/s/worksans/v2';
@@ -21,6 +23,11 @@ var grommet = exports.grommet = (0, _utils.deepFreeze)({
       dark: '#9060EB',
       light: '#9060EB'
     }
+  },
+  button: {
+    extend: (0, _styledComponents.css)(['', ''], function (props) {
+      return !props.plain && 'font-weight: bold;';
+    })
   },
   checkBox: {
     check: {

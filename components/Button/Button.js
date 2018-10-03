@@ -13,9 +13,9 @@ var _recompose = require('recompose');
 
 var _Box = require('../Box');
 
-var _Text = require('../Text');
-
 var _hocs = require('../hocs');
+
+var _utils = require('../../utils');
 
 var _StyledButton = require('./StyledButton');
 
@@ -29,7 +29,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var AnchorStyledButton = _StyledButton.StyledButton.withComponent('a');
+var isDarkBackground = function isDarkBackground(props) {
+  var backgroundColor = (0, _utils.normalizeBackground)((0, _utils.normalizeColor)(props.color || props.theme.button.primary.color || props.theme.global.control.color || 'brand', props.theme), props.theme);
+
+  return (0, _utils.colorIsDark)((0, _utils.colorForName)(backgroundColor, props.theme));
+};
 
 var Button = function (_Component) {
   _inherits(Button, _Component);
@@ -62,31 +66,28 @@ var Button = function (_Component) {
         label = _props.label,
         onClick = _props.onClick,
         plain = _props.plain,
+        primary = _props.primary,
         reverse = _props.reverse,
         theme = _props.theme,
         type = _props.type,
-        rest = _objectWithoutProperties(_props, ['a11yTitle', 'color', 'forwardRef', 'children', 'icon', 'fill', 'focus', 'href', 'label', 'onClick', 'plain', 'reverse', 'theme', 'type']);
+        rest = _objectWithoutProperties(_props, ['a11yTitle', 'color', 'forwardRef', 'children', 'icon', 'fill', 'focus', 'href', 'label', 'onClick', 'plain', 'primary', 'reverse', 'theme', 'type']);
 
-    var Tag = href ? AnchorStyledButton : _StyledButton.StyledButton;
-
-    var buttonLabel = typeof label === 'string' ? _react2.default.createElement(
-      _Text.Text,
-      null,
-      _react2.default.createElement(
-        'strong',
-        null,
-        label
-      )
-    ) : label;
-
-    var first = reverse ? buttonLabel : icon;
-    var second = reverse ? icon : buttonLabel;
+    var buttonIcon = icon;
+    // only change color if user did not specify the color themselves...
+    if (primary && icon && !icon.props.color) {
+      buttonIcon = (0, _react.cloneElement)(icon, {
+        color: this.props.theme.global.text.color[isDarkBackground(this.props) ? 'dark' : 'light']
+      });
+    }
+    var first = reverse ? label : buttonIcon;
+    var second = reverse ? buttonIcon : label;
 
     var disabled = !href && !onClick && ['reset', 'submit'].indexOf(type) === -1;
 
     return _react2.default.createElement(
-      Tag,
+      _StyledButton.StyledButton,
       _extends({}, rest, {
+        as: href ? 'a' : undefined,
         ref: forwardRef,
         'aria-label': a11yTitle,
         colorValue: color,
@@ -98,6 +99,7 @@ var Button = function (_Component) {
         href: href,
         onClick: onClick,
         plain: typeof plain !== 'undefined' ? plain : _react.Children.count(children) > 0 || icon && !label,
+        primary: primary,
         theme: theme,
         type: !href ? type : undefined
       }),
@@ -107,8 +109,7 @@ var Button = function (_Component) {
           direction: 'row',
           align: 'center',
           justify: 'center',
-          gap: 'small',
-          pad: icon && !plain ? 'small' : undefined
+          gap: 'small'
         },
         first,
         second
