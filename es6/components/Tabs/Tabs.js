@@ -93,7 +93,8 @@ var Tabs = function (_Component) {
         Box,
         _extends({
           direction: 'row',
-          justify: justify
+          justify: justify,
+          wrap: true
         }, rest),
         tabs
       ),

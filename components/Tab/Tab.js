@@ -136,7 +136,7 @@ var Tab = function (_Component) {
         _Box.Box,
         {
           pad: { bottom: 'xsmall' },
-          margin: { horizontal: 'small' },
+          margin: { vertical: 'xxsmall', horizontal: 'small' },
           border: { side: 'bottom', size: 'small', color: borderColor }
         },
         normalizedTitle

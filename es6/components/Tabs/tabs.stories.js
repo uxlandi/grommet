@@ -112,8 +112,223 @@ var ControlledTabs = function (_Component) {
   return ControlledTabs;
 }(Component);
 
+var ResponsiveTabs = function (_Component2) {
+  _inherits(ResponsiveTabs, _Component2);
+
+  function ResponsiveTabs() {
+    var _temp2, _this2, _ret2;
+
+    _classCallCheck(this, ResponsiveTabs);
+
+    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    return _ret2 = (_temp2 = (_this2 = _possibleConstructorReturn(this, _Component2.call.apply(_Component2, [this].concat(args))), _this2), _this2.state = {}, _this2.onActive = function (index) {
+      return _this2.setState({ index: index });
+    }, _temp2), _possibleConstructorReturn(_this2, _ret2);
+  }
+
+  ResponsiveTabs.prototype.render = function render() {
+    var index = this.state.index;
+
+    return React.createElement(
+      Grommet,
+      { theme: grommet },
+      React.createElement(
+        Tabs,
+        { activeIndex: index, onActive: this.onActive },
+        React.createElement(
+          Tab,
+          { title: 'Tab 1' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
+            React.createElement(Attraction, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 2' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
+            React.createElement(TreeOption, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 3' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
+            React.createElement(Car, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 4' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
+            React.createElement(Attraction, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 5' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
+            React.createElement(TreeOption, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 6' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
+            React.createElement(Car, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 7' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
+            React.createElement(Attraction, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 8' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
+            React.createElement(TreeOption, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 9' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
+            React.createElement(Car, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 10' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
+            React.createElement(Attraction, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 11' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
+            React.createElement(Attraction, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 12' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
+            React.createElement(TreeOption, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 13' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
+            React.createElement(Car, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 14' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
+            React.createElement(Attraction, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 15' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
+            React.createElement(TreeOption, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 16' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
+            React.createElement(Car, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 17' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
+            React.createElement(Attraction, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 18' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
+            React.createElement(TreeOption, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 19' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
+            React.createElement(Car, { size: 'xlarge' })
+          )
+        ),
+        React.createElement(
+          Tab,
+          { title: 'Tab 20' },
+          React.createElement(
+            Box,
+            { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
+            React.createElement(Attraction, { size: 'xlarge' })
+          )
+        )
+      )
+    );
+  };
+
+  return ResponsiveTabs;
+}(Component);
+
 storiesOf('Tabs', module).add('Uncontrolled Tabs', function () {
   return React.createElement(UncontrolledTabs, null);
 }).add('Controlled Tabs', function () {
   return React.createElement(ControlledTabs, null);
+}).add('Responsive Tabs', function () {
+  return React.createElement(ResponsiveTabs, null);
 });
