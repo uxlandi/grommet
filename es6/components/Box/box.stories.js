@@ -11,7 +11,7 @@ import { Car } from 'grommet-icons/es6/icons/Car';
 import { TreeOption } from 'grommet-icons/es6/icons/TreeOption';
 
 
-import { Grommet, Anchor, Box, Button, Text } from '../';
+import { Grommet, Anchor, Box, Button, Grid, Text } from '../';
 import { grommet } from '../../themes';
 
 var SimpleBox = function (_Component) {
@@ -191,10 +191,119 @@ var FixedSizesBox = function (_Component3) {
   return FixedSizesBox;
 }(Component);
 
+var BorderBox = function (_Component4) {
+  _inherits(BorderBox, _Component4);
+
+  function BorderBox() {
+    _classCallCheck(this, BorderBox);
+
+    return _possibleConstructorReturn(this, _Component4.apply(this, arguments));
+  }
+
+  BorderBox.prototype.render = function render() {
+    return React.createElement(
+      Grommet,
+      { theme: grommet },
+      React.createElement(
+        Box,
+        { pad: 'small', gap: 'small', align: 'start' },
+        React.createElement(
+          Box,
+          { pad: 'small', border: true },
+          'true'
+        ),
+        React.createElement(
+          Box,
+          { direction: 'row-responsive', gap: 'small' },
+          ['horizontal', 'vertical', 'left', 'top', 'right', 'bottom'].map(function (border) {
+            return React.createElement(
+              Box,
+              { pad: 'small', border: border },
+              border
+            );
+          })
+        ),
+        React.createElement(
+          Box,
+          { pad: 'small', border: { color: 'brand' } },
+          'color'
+        ),
+        React.createElement(
+          Box,
+          { direction: 'row-responsive', gap: 'small', align: 'start' },
+          ['small', 'medium', 'large'].map(function (size) {
+            return React.createElement(
+              Box,
+              { pad: 'small', border: { size: size } },
+              size
+            );
+          })
+        )
+      )
+    );
+  };
+
+  return BorderBox;
+}(Component);
+
+var RoundBox = function (_Component5) {
+  _inherits(RoundBox, _Component5);
+
+  function RoundBox() {
+    _classCallCheck(this, RoundBox);
+
+    return _possibleConstructorReturn(this, _Component5.apply(this, arguments));
+  }
+
+  RoundBox.prototype.render = function render() {
+    return React.createElement(
+      Grommet,
+      { theme: grommet },
+      React.createElement(
+        Box,
+        { pad: 'small', gap: 'small' },
+        React.createElement(
+          Box,
+          { pad: 'small', background: 'brand', round: true, alignSelf: 'start' },
+          'true'
+        ),
+        React.createElement(
+          Grid,
+          { columns: 'small', gap: 'small' },
+          ['xsmall', 'small', 'medium', 'large', 'xlarge', 'full'].map(function (size) {
+            return React.createElement(
+              Box,
+              { key: size, pad: 'large', background: 'brand', round: { size: size } },
+              size
+            );
+          })
+        ),
+        React.createElement(
+          Grid,
+          { columns: 'small', gap: 'small' },
+          ['left', 'top', 'right', 'bottom', 'top-left', 'top-right', 'bottom-left', 'bottom-right'].map(function (corner) {
+            return React.createElement(
+              Box,
+              { key: corner, pad: 'small', background: 'brand', round: { corner: corner } },
+              corner
+            );
+          })
+        )
+      )
+    );
+  };
+
+  return RoundBox;
+}(Component);
+
 storiesOf('Box', module).add('Simple Box', function () {
   return React.createElement(SimpleBox, null);
 }).add('Custom color', function () {
   return React.createElement(CustomColorBox, null);
 }).add('Fixed sizes', function () {
   return React.createElement(FixedSizesBox, null);
+}).add('Border', function () {
+  return React.createElement(BorderBox, null);
+}).add('Round', function () {
+  return React.createElement(RoundBox, null);
 });

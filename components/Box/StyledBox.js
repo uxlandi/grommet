@@ -150,11 +150,51 @@ var ROUND_MAP = {
   'full': '100%'
 };
 
-var roundStyle = (0, _styledComponents.css)(['border-radius:', ';', ''], function (props) {
-  return ROUND_MAP[props.round] || props.theme.global.edgeSize[props.round];
-}, function (props) {
-  return props.responsive ? (0, _utils.palm)('\n    border-radius: ' + (ROUND_MAP[props.round] || props.theme.global.edgeSize.narrow[props.round]) + ';\n  ') : '';
-});
+var roundStyle = function roundStyle(data, responsive, theme) {
+  var styles = [];
+  if ((typeof data === 'undefined' ? 'undefined' : _typeof(data)) === 'object') {
+    var size = ROUND_MAP[data.size] || theme.global.edgeSize[data.size || 'medium'];
+    var narrowSize = ROUND_MAP[data] || theme.global.edgeSize.narrow[data.size || 'medium'];
+    if (data.corner === 'top') {
+      styles.push((0, _styledComponents.css)(['border-top-left-radius:', ';border-top-right-radius:', ';'], size, size));
+      if (responsive) {
+        styles.push((0, _utils.palm)('\n          border-top-left-radius: ' + narrowSize + ';\n          border-top-right-radius: ' + narrowSize + ';\n        '));
+      }
+    } else if (data.corner === 'bottom') {
+      styles.push((0, _styledComponents.css)(['border-bottom-left-radius:', ';border-bottom-right-radius:', ';'], size, size));
+      if (responsive) {
+        styles.push((0, _utils.palm)('\n          border-bottom-left-radius: ' + narrowSize + ';\n          border-bottom-right-radius: ' + narrowSize + ';\n        '));
+      }
+    } else if (data.corner === 'left') {
+      styles.push((0, _styledComponents.css)(['border-top-left-radius:', ';border-bottom-left-radius:', ';'], size, size));
+      if (responsive) {
+        styles.push((0, _utils.palm)('\n          border-top-left-radius: ' + narrowSize + ';\n          border-bottom-left-radius: ' + narrowSize + ';\n        '));
+      }
+    } else if (data.corner === 'right') {
+      styles.push((0, _styledComponents.css)(['border-top-right-radius:', ';border-bottom-right-radius:', ';'], size, size));
+      if (responsive) {
+        styles.push((0, _utils.palm)('\n          border-top-right-radius: ' + narrowSize + ';\n          border-bottom-right-radius: ' + narrowSize + ';\n        '));
+      }
+    } else if (data.corner) {
+      styles.push((0, _styledComponents.css)(['border-', '-radius:', ';'], data.corner, size));
+      if (responsive) {
+        styles.push((0, _utils.palm)('\n          border-' + data.corner + '-radius: ' + narrowSize + ';\n        '));
+      }
+    } else {
+      styles.push((0, _styledComponents.css)(['border-radius:', ';'], size));
+      if (responsive) {
+        styles.push((0, _utils.palm)('\n          border-radius: ' + narrowSize + ';\n        '));
+      }
+    }
+  } else {
+    var _size = data === true ? 'medium' : data;
+    styles.push((0, _styledComponents.css)(['border-radius:', ';'], ROUND_MAP[_size] || theme.global.edgeSize[_size] || _size));
+    if (responsive) {
+      styles.push((0, _utils.palm)('\n        border-radius: ' + (ROUND_MAP[_size] || theme.global.edgeSize.narrow[_size] || _size) + ';\n      '));
+    }
+  }
+  return styles;
+};
 
 var SLIDE_SIZES = {
   xsmall: 1,
@@ -336,7 +376,7 @@ var StyledBox = exports.StyledBox = _styledComponents2.default.div.withConfig({
 }, function (props) {
   return props.pad && (0, _utils.edgeStyle)('padding', props.pad, props.responsive, props.theme);
 }, function (props) {
-  return props.round && roundStyle;
+  return props.round && roundStyle(props.round, props.responsive, props.theme);
 }, function (props) {
   return props.wrapProp && wrapStyle;
 }, function (props) {

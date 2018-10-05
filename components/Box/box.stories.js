@@ -197,10 +197,119 @@ var FixedSizesBox = function (_Component3) {
   return FixedSizesBox;
 }(_react.Component);
 
+var BorderBox = function (_Component4) {
+  _inherits(BorderBox, _Component4);
+
+  function BorderBox() {
+    _classCallCheck(this, BorderBox);
+
+    return _possibleConstructorReturn(this, _Component4.apply(this, arguments));
+  }
+
+  BorderBox.prototype.render = function render() {
+    return _react2.default.createElement(
+      _.Grommet,
+      { theme: _themes.grommet },
+      _react2.default.createElement(
+        _.Box,
+        { pad: 'small', gap: 'small', align: 'start' },
+        _react2.default.createElement(
+          _.Box,
+          { pad: 'small', border: true },
+          'true'
+        ),
+        _react2.default.createElement(
+          _.Box,
+          { direction: 'row-responsive', gap: 'small' },
+          ['horizontal', 'vertical', 'left', 'top', 'right', 'bottom'].map(function (border) {
+            return _react2.default.createElement(
+              _.Box,
+              { pad: 'small', border: border },
+              border
+            );
+          })
+        ),
+        _react2.default.createElement(
+          _.Box,
+          { pad: 'small', border: { color: 'brand' } },
+          'color'
+        ),
+        _react2.default.createElement(
+          _.Box,
+          { direction: 'row-responsive', gap: 'small', align: 'start' },
+          ['small', 'medium', 'large'].map(function (size) {
+            return _react2.default.createElement(
+              _.Box,
+              { pad: 'small', border: { size: size } },
+              size
+            );
+          })
+        )
+      )
+    );
+  };
+
+  return BorderBox;
+}(_react.Component);
+
+var RoundBox = function (_Component5) {
+  _inherits(RoundBox, _Component5);
+
+  function RoundBox() {
+    _classCallCheck(this, RoundBox);
+
+    return _possibleConstructorReturn(this, _Component5.apply(this, arguments));
+  }
+
+  RoundBox.prototype.render = function render() {
+    return _react2.default.createElement(
+      _.Grommet,
+      { theme: _themes.grommet },
+      _react2.default.createElement(
+        _.Box,
+        { pad: 'small', gap: 'small' },
+        _react2.default.createElement(
+          _.Box,
+          { pad: 'small', background: 'brand', round: true, alignSelf: 'start' },
+          'true'
+        ),
+        _react2.default.createElement(
+          _.Grid,
+          { columns: 'small', gap: 'small' },
+          ['xsmall', 'small', 'medium', 'large', 'xlarge', 'full'].map(function (size) {
+            return _react2.default.createElement(
+              _.Box,
+              { key: size, pad: 'large', background: 'brand', round: { size: size } },
+              size
+            );
+          })
+        ),
+        _react2.default.createElement(
+          _.Grid,
+          { columns: 'small', gap: 'small' },
+          ['left', 'top', 'right', 'bottom', 'top-left', 'top-right', 'bottom-left', 'bottom-right'].map(function (corner) {
+            return _react2.default.createElement(
+              _.Box,
+              { key: corner, pad: 'small', background: 'brand', round: { corner: corner } },
+              corner
+            );
+          })
+        )
+      )
+    );
+  };
+
+  return RoundBox;
+}(_react.Component);
+
 (0, _react3.storiesOf)('Box', module).add('Simple Box', function () {
   return _react2.default.createElement(SimpleBox, null);
 }).add('Custom color', function () {
   return _react2.default.createElement(CustomColorBox, null);
 }).add('Fixed sizes', function () {
   return _react2.default.createElement(FixedSizesBox, null);
+}).add('Border', function () {
+  return _react2.default.createElement(BorderBox, null);
+}).add('Round', function () {
+  return _react2.default.createElement(RoundBox, null);
 });

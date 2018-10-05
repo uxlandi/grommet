@@ -63,7 +63,10 @@ export var doc = function doc(Box) {
       vertical: PropTypes.oneOf(PAD_SIZES)
     }), PropTypes.string]).description('The amount of padding around the box contents. An\n        object can be specified to distinguish horizontal padding, vertical\n        padding, and padding on a particular side of the box'),
     responsive: PropTypes.bool.description('Whether margin, pad, and border\n      sizes should be scaled for mobile environments.').defaultValue(true),
-    round: PropTypes.oneOfType([PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'full']), PropTypes.string]).description('How much to round the corners.'),
+    round: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'full']), PropTypes.string, PropTypes.shape({
+      corner: PropTypes.oneOf(['top', 'left', 'bottom', 'right', 'top-left', 'top-right', 'bottom-left', 'bottom-right']),
+      size: PropTypes.oneOfType([PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge']), PropTypes.string])
+    })]).description('How much to round the corners.'),
     tag: PropTypes.string.description('The DOM tag to use for the element.').defaultValue('div'),
     width: PropTypes.oneOfType([PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge']), PropTypes.string]).description('A fixed width.'),
     wrap: PropTypes.bool.description('Whether children can wrap if they\n      can\'t all fit.')
