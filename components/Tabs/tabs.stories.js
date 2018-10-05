@@ -331,10 +331,60 @@ var ResponsiveTabs = function (_Component2) {
   return ResponsiveTabs;
 }(_react.Component);
 
+var RichTabTitle = function RichTabTitle(_ref) {
+  var icon = _ref.icon,
+      label = _ref.label;
+  return _react2.default.createElement(
+    _.Box,
+    { direction: 'row', align: 'center', gap: 'xsmall', margin: 'xsmall' },
+    icon,
+    _react2.default.createElement(
+      _.Text,
+      { size: 'small' },
+      _react2.default.createElement(
+        'strong',
+        null,
+        label
+      )
+    )
+  );
+};
+
+var RichTabs = function RichTabs() {
+  return _react2.default.createElement(
+    _.Grommet,
+    { theme: _themes.grommet },
+    _react2.default.createElement(
+      _.Tabs,
+      null,
+      _react2.default.createElement(
+        _.Tab,
+        { title: _react2.default.createElement(RichTabTitle, { icon: _react2.default.createElement(_grommetIcons.CircleInformation, { color: 'accent-1' }), label: 'Personal Data' }) },
+        _react2.default.createElement(
+          _.FormField,
+          { label: 'Name' },
+          _react2.default.createElement(_.TextInput, { placeholder: 'Enter your name...' })
+        )
+      ),
+      _react2.default.createElement(
+        _.Tab,
+        { title: _react2.default.createElement(RichTabTitle, { icon: _react2.default.createElement(_grommetIcons.Currency, { color: 'neutral-5' }), label: 'Payment' }) },
+        _react2.default.createElement(
+          _.FormField,
+          { label: 'Card Number' },
+          _react2.default.createElement(_.TextInput, { placeholder: 'Enter your card number...' })
+        )
+      )
+    )
+  );
+};
+
 (0, _react3.storiesOf)('Tabs', module).add('Uncontrolled Tabs', function () {
   return _react2.default.createElement(UncontrolledTabs, null);
 }).add('Controlled Tabs', function () {
   return _react2.default.createElement(ControlledTabs, null);
 }).add('Responsive Tabs', function () {
   return _react2.default.createElement(ResponsiveTabs, null);
+}).add('Rich Tabs', function () {
+  return _react2.default.createElement(RichTabs, null);
 });

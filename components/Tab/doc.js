@@ -9,7 +9,7 @@ var doc = exports.doc = function doc(Tab) {
   var DocumentedTab = (0, _reactDesc.describe)(Tab).description('One tab within Tabs.').usage('import { Tab } from \'grommet\';\n<Tab />');
 
   DocumentedTab.propTypes = {
-    title: _reactDesc.PropTypes.string.description('The title of the tab.')
+    title: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.string, _reactDesc.PropTypes.node]).description('The title of the tab.')
   };
 
   return DocumentedTab;

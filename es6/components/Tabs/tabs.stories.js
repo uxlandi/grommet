@@ -8,10 +8,12 @@ import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Attraction } from 'grommet-icons/es6/icons/Attraction';
 import { Car } from 'grommet-icons/es6/icons/Car';
+import { CircleInformation } from 'grommet-icons/es6/icons/CircleInformation';
+import { Currency } from 'grommet-icons/es6/icons/Currency';
 import { TreeOption } from 'grommet-icons/es6/icons/TreeOption';
 
 
-import { Grommet, Box, Tab, Tabs } from '../';
+import { Box, Grommet, FormField, Tab, Tabs, Text, TextInput } from '../';
 import { grommet } from '../../themes';
 
 var UncontrolledTabs = function UncontrolledTabs() {
@@ -325,10 +327,60 @@ var ResponsiveTabs = function (_Component2) {
   return ResponsiveTabs;
 }(Component);
 
+var RichTabTitle = function RichTabTitle(_ref) {
+  var icon = _ref.icon,
+      label = _ref.label;
+  return React.createElement(
+    Box,
+    { direction: 'row', align: 'center', gap: 'xsmall', margin: 'xsmall' },
+    icon,
+    React.createElement(
+      Text,
+      { size: 'small' },
+      React.createElement(
+        'strong',
+        null,
+        label
+      )
+    )
+  );
+};
+
+var RichTabs = function RichTabs() {
+  return React.createElement(
+    Grommet,
+    { theme: grommet },
+    React.createElement(
+      Tabs,
+      null,
+      React.createElement(
+        Tab,
+        { title: React.createElement(RichTabTitle, { icon: React.createElement(CircleInformation, { color: 'accent-1' }), label: 'Personal Data' }) },
+        React.createElement(
+          FormField,
+          { label: 'Name' },
+          React.createElement(TextInput, { placeholder: 'Enter your name...' })
+        )
+      ),
+      React.createElement(
+        Tab,
+        { title: React.createElement(RichTabTitle, { icon: React.createElement(Currency, { color: 'neutral-5' }), label: 'Payment' }) },
+        React.createElement(
+          FormField,
+          { label: 'Card Number' },
+          React.createElement(TextInput, { placeholder: 'Enter your card number...' })
+        )
+      )
+    )
+  );
+};
+
 storiesOf('Tabs', module).add('Uncontrolled Tabs', function () {
   return React.createElement(UncontrolledTabs, null);
 }).add('Controlled Tabs', function () {
   return React.createElement(ControlledTabs, null);
 }).add('Responsive Tabs', function () {
   return React.createElement(ResponsiveTabs, null);
+}).add('Rich Tabs', function () {
+  return React.createElement(RichTabs, null);
 });
