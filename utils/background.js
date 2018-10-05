@@ -55,6 +55,7 @@ var backgroundStyle = exports.backgroundStyle = function backgroundStyle(backgro
   var background = normalizeBackground(backgroundArg, theme);
 
   if ((typeof background === 'undefined' ? 'undefined' : _typeof(background)) === 'object') {
+    var styles = [];
     if (background.image) {
       var color = void 0;
       if (background.dark === false) {
@@ -64,17 +65,20 @@ var backgroundStyle = exports.backgroundStyle = function backgroundStyle(backgro
       } else {
         color = 'inherit';
       }
-      return (0, _styledComponents.css)(['background:', ' no-repeat;background-position:', ';background-size:cover;color:', ';'], background.image, background.position || 'center center', color);
-    } else if (background.color) {
+      styles.push((0, _styledComponents.css)(['background-image:', ';background-repeat:no-repeat;background-position:', ';background-size:cover;color:', ';'], background.image, background.position || 'center center', color));
+    }
+    if (background.color) {
       var _color2 = (0, _colors.colorForName)(background.color, theme);
       var backgroundColor = (0, _colors.getRGBA)(_color2, background.opacity === true ? theme.global.opacity.medium : theme.global.opacity[background.opacity]) || _color2;
-      return (0, _styledComponents.css)(['background:', ';', ''], backgroundColor, (!background.opacity || background.opacity !== 'weak') && 'color: ' + theme.global.text.color[background.dark || (0, _colors.colorIsDark)(backgroundColor) ? 'dark' : 'light'] + ';');
-    } else if (background.dark === false) {
-      return (0, _styledComponents.css)(['color:', ';'], theme.global.text.color.light);
-    } else if (background.dark) {
-      return (0, _styledComponents.css)(['color:', ';'], theme.global.text.color.dark);
+      styles.push((0, _styledComponents.css)(['background-color:', ';', ''], backgroundColor, (!background.opacity || background.opacity !== 'weak') && 'color: ' + theme.global.text.color[background.dark || (0, _colors.colorIsDark)(backgroundColor) ? 'dark' : 'light'] + ';'));
     }
-    return undefined;
+    if (background.dark === false) {
+      styles.push((0, _styledComponents.css)(['color:', ';'], theme.global.text.color.light));
+    }
+    if (background.dark) {
+      styles.push((0, _styledComponents.css)(['color:', ';'], theme.global.text.color.dark));
+    }
+    return styles;
   }
 
   if (background) {

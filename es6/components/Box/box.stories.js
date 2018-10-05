@@ -8,7 +8,6 @@ import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 import { Attraction } from 'grommet-icons/es6/icons/Attraction';
 import { Car } from 'grommet-icons/es6/icons/Car';
-import { TreeOption } from 'grommet-icons/es6/icons/TreeOption';
 
 
 import { Grommet, Anchor, Box, Button, Grid, Text } from '../';
@@ -34,16 +33,19 @@ var SimpleBox = function (_Component) {
           justify: 'center',
           align: 'center',
           pad: 'xlarge',
-          background: 'dark-2'
+          background: 'dark-2',
+          gap: 'medium'
         },
         React.createElement(
           Box,
           {
-            pad: 'xlarge',
+            pad: 'large',
             align: 'center',
-            background: { color: 'light-2', opacity: 'strong' }
+            background: { color: 'light-2', opacity: 'strong' },
+            round: true,
+            gap: 'small'
           },
-          React.createElement(Attraction, { size: 'xlarge' }),
+          React.createElement(Attraction, { size: 'large' }),
           React.createElement(
             Text,
             null,
@@ -55,23 +57,13 @@ var SimpleBox = function (_Component) {
         React.createElement(
           Box,
           {
-            pad: 'xlarge',
+            pad: 'large',
             align: 'center',
-            background: { color: 'accent-2', opacity: 'weak' }
+            background: 'dark-3',
+            round: true,
+            gap: 'small'
           },
-          React.createElement(TreeOption, { size: 'xlarge' }),
-          React.createElement(
-            Text,
-            null,
-            'Nature'
-          ),
-          React.createElement(Anchor, { href: '', label: 'Link' }),
-          React.createElement(Button, { label: 'Button', onClick: function onClick() {} })
-        ),
-        React.createElement(
-          Box,
-          { pad: 'xlarge', align: 'center', background: 'dark-3' },
-          React.createElement(Car, { size: 'xlarge', color: 'light-2' }),
+          React.createElement(Car, { size: 'large', color: 'light-2' }),
           React.createElement(
             Text,
             null,
@@ -218,7 +210,7 @@ var BorderBox = function (_Component4) {
           ['horizontal', 'vertical', 'left', 'top', 'right', 'bottom'].map(function (border) {
             return React.createElement(
               Box,
-              { pad: 'small', border: border },
+              { key: border, pad: 'small', border: border },
               border
             );
           })
@@ -234,7 +226,7 @@ var BorderBox = function (_Component4) {
           ['small', 'medium', 'large'].map(function (size) {
             return React.createElement(
               Box,
-              { pad: 'small', border: { size: size } },
+              { key: size, pad: 'small', border: { size: size } },
               size
             );
           })
@@ -296,6 +288,55 @@ var RoundBox = function (_Component5) {
   return RoundBox;
 }(Component);
 
+var BackgroundBox = function (_Component6) {
+  _inherits(BackgroundBox, _Component6);
+
+  function BackgroundBox() {
+    _classCallCheck(this, BackgroundBox);
+
+    return _possibleConstructorReturn(this, _Component6.apply(this, arguments));
+  }
+
+  BackgroundBox.prototype.render = function render() {
+    return React.createElement(
+      Grommet,
+      { theme: grommet },
+      React.createElement(
+        Box,
+        { pad: 'small', gap: 'small', align: 'start' },
+        React.createElement(
+          Box,
+          { pad: 'small', background: 'brand' },
+          'brand'
+        ),
+        React.createElement(
+          Box,
+          {
+            pad: 'small',
+            background: {
+              image: 'url(http://librelogo.org/wp-content/uploads/2014/04/gradient2.png)'
+            }
+          },
+          'image'
+        ),
+        React.createElement(
+          Box,
+          {
+            pad: 'small',
+            background: {
+              color: 'accent-2',
+              image: 'url(http://librelogo.org/wp-content/uploads/2014/04/gradient2.png)'
+            }
+          },
+          'image + color'
+        )
+      )
+    );
+  };
+
+  return BackgroundBox;
+}(Component);
+
 storiesOf('Box', module).add('Simple Box', function () {
   return React.createElement(SimpleBox, null);
 }).add('Custom color', function () {
@@ -306,4 +347,6 @@ storiesOf('Box', module).add('Simple Box', function () {
   return React.createElement(BorderBox, null);
 }).add('Round', function () {
   return React.createElement(RoundBox, null);
+}).add('Background', function () {
+  return React.createElement(BackgroundBox, null);
 });

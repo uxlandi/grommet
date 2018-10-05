@@ -49,6 +49,7 @@ export var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
   var background = normalizeBackground(backgroundArg, theme);
 
   if ((typeof background === 'undefined' ? 'undefined' : _typeof(background)) === 'object') {
+    var styles = [];
     if (background.image) {
       var color = void 0;
       if (background.dark === false) {
@@ -58,17 +59,20 @@ export var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
       } else {
         color = 'inherit';
       }
-      return css(['background:', ' no-repeat;background-position:', ';background-size:cover;color:', ';'], background.image, background.position || 'center center', color);
-    } else if (background.color) {
+      styles.push(css(['background-image:', ';background-repeat:no-repeat;background-position:', ';background-size:cover;color:', ';'], background.image, background.position || 'center center', color));
+    }
+    if (background.color) {
       var _color2 = colorForName(background.color, theme);
       var backgroundColor = getRGBA(_color2, background.opacity === true ? theme.global.opacity.medium : theme.global.opacity[background.opacity]) || _color2;
-      return css(['background:', ';', ''], backgroundColor, (!background.opacity || background.opacity !== 'weak') && 'color: ' + theme.global.text.color[background.dark || colorIsDark(backgroundColor) ? 'dark' : 'light'] + ';');
-    } else if (background.dark === false) {
-      return css(['color:', ';'], theme.global.text.color.light);
-    } else if (background.dark) {
-      return css(['color:', ';'], theme.global.text.color.dark);
+      styles.push(css(['background-color:', ';', ''], backgroundColor, (!background.opacity || background.opacity !== 'weak') && 'color: ' + theme.global.text.color[background.dark || colorIsDark(backgroundColor) ? 'dark' : 'light'] + ';'));
     }
-    return undefined;
+    if (background.dark === false) {
+      styles.push(css(['color:', ';'], theme.global.text.color.light));
+    }
+    if (background.dark) {
+      styles.push(css(['color:', ';'], theme.global.text.color.dark));
+    }
+    return styles;
   }
 
   if (background) {

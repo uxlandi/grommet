@@ -40,16 +40,19 @@ var SimpleBox = function (_Component) {
           justify: 'center',
           align: 'center',
           pad: 'xlarge',
-          background: 'dark-2'
+          background: 'dark-2',
+          gap: 'medium'
         },
         _react2.default.createElement(
           _.Box,
           {
-            pad: 'xlarge',
+            pad: 'large',
             align: 'center',
-            background: { color: 'light-2', opacity: 'strong' }
+            background: { color: 'light-2', opacity: 'strong' },
+            round: true,
+            gap: 'small'
           },
-          _react2.default.createElement(_grommetIcons.Attraction, { size: 'xlarge' }),
+          _react2.default.createElement(_grommetIcons.Attraction, { size: 'large' }),
           _react2.default.createElement(
             _.Text,
             null,
@@ -61,23 +64,13 @@ var SimpleBox = function (_Component) {
         _react2.default.createElement(
           _.Box,
           {
-            pad: 'xlarge',
+            pad: 'large',
             align: 'center',
-            background: { color: 'accent-2', opacity: 'weak' }
+            background: 'dark-3',
+            round: true,
+            gap: 'small'
           },
-          _react2.default.createElement(_grommetIcons.TreeOption, { size: 'xlarge' }),
-          _react2.default.createElement(
-            _.Text,
-            null,
-            'Nature'
-          ),
-          _react2.default.createElement(_.Anchor, { href: '', label: 'Link' }),
-          _react2.default.createElement(_.Button, { label: 'Button', onClick: function onClick() {} })
-        ),
-        _react2.default.createElement(
-          _.Box,
-          { pad: 'xlarge', align: 'center', background: 'dark-3' },
-          _react2.default.createElement(_grommetIcons.Car, { size: 'xlarge', color: 'light-2' }),
+          _react2.default.createElement(_grommetIcons.Car, { size: 'large', color: 'light-2' }),
           _react2.default.createElement(
             _.Text,
             null,
@@ -224,7 +217,7 @@ var BorderBox = function (_Component4) {
           ['horizontal', 'vertical', 'left', 'top', 'right', 'bottom'].map(function (border) {
             return _react2.default.createElement(
               _.Box,
-              { pad: 'small', border: border },
+              { key: border, pad: 'small', border: border },
               border
             );
           })
@@ -240,7 +233,7 @@ var BorderBox = function (_Component4) {
           ['small', 'medium', 'large'].map(function (size) {
             return _react2.default.createElement(
               _.Box,
-              { pad: 'small', border: { size: size } },
+              { key: size, pad: 'small', border: { size: size } },
               size
             );
           })
@@ -302,6 +295,55 @@ var RoundBox = function (_Component5) {
   return RoundBox;
 }(_react.Component);
 
+var BackgroundBox = function (_Component6) {
+  _inherits(BackgroundBox, _Component6);
+
+  function BackgroundBox() {
+    _classCallCheck(this, BackgroundBox);
+
+    return _possibleConstructorReturn(this, _Component6.apply(this, arguments));
+  }
+
+  BackgroundBox.prototype.render = function render() {
+    return _react2.default.createElement(
+      _.Grommet,
+      { theme: _themes.grommet },
+      _react2.default.createElement(
+        _.Box,
+        { pad: 'small', gap: 'small', align: 'start' },
+        _react2.default.createElement(
+          _.Box,
+          { pad: 'small', background: 'brand' },
+          'brand'
+        ),
+        _react2.default.createElement(
+          _.Box,
+          {
+            pad: 'small',
+            background: {
+              image: 'url(http://librelogo.org/wp-content/uploads/2014/04/gradient2.png)'
+            }
+          },
+          'image'
+        ),
+        _react2.default.createElement(
+          _.Box,
+          {
+            pad: 'small',
+            background: {
+              color: 'accent-2',
+              image: 'url(http://librelogo.org/wp-content/uploads/2014/04/gradient2.png)'
+            }
+          },
+          'image + color'
+        )
+      )
+    );
+  };
+
+  return BackgroundBox;
+}(_react.Component);
+
 (0, _react3.storiesOf)('Box', module).add('Simple Box', function () {
   return _react2.default.createElement(SimpleBox, null);
 }).add('Custom color', function () {
@@ -312,4 +354,6 @@ var RoundBox = function (_Component5) {
   return _react2.default.createElement(BorderBox, null);
 }).add('Round', function () {
   return _react2.default.createElement(RoundBox, null);
+}).add('Background', function () {
+  return _react2.default.createElement(BackgroundBox, null);
 });
