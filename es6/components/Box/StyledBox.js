@@ -337,9 +337,9 @@ export var StyledBox = styled.div.withConfig({
 })(['display:flex;box-sizing:border-box;outline:none;', ';', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ''], function (props) {
   return !props.basis && 'max-width: 100%;';
 }, function (props) {
-  return props.heightProp && 'height: ' + props.theme.global.size[props.heightProp] + ';';
+  return props.heightProp && 'height: ' + (props.theme.global.size[props.heightProp] || props.heightProp) + ';';
 }, function (props) {
-  return props.widthProp && 'width: ' + props.theme.global.size[props.widthProp] + ';';
+  return props.widthProp && 'width: ' + (props.theme.global.size[props.widthProp] || props.widthProp) + ';';
 }, function (props) {
   return props.align && alignStyle;
 }, function (props) {
