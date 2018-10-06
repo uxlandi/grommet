@@ -7,7 +7,7 @@ var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-var PAD_SIZES = ['xsmall', 'small', 'medium', 'large'];
+var PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large'];
 
 var doc = exports.doc = function doc(Layer) {
   var DocumentedLayer = (0, _reactDesc.describe)(Layer).availableAt((0, _utils.getAvailableAtBadge)('Layer')).description('A modal overlay. It is the caller\'s responsibility to provide a control for\n      the user to close the layer.').usage('import { Layer } from \'grommet\';\n<Layer />');

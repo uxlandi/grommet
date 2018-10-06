@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { a11yTitlePropType, getAvailableAtBadge } from '../../utils';
 
-var PAD_SIZES = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
+var PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 
 var ANIMATION_TYPE = PropTypes.oneOf(['fadeIn', 'fadeOut', 'jiggle', 'pulse', 'slideUp', 'slideDown', 'slideLeft', 'slideRight', 'zoomIn', 'zoomOut']);
 var ANIMATION_SHAPE = PropTypes.shape({

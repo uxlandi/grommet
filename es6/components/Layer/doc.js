@@ -2,7 +2,7 @@ import { describe, PropTypes } from 'react-desc';
 
 import { getAvailableAtBadge } from '../../utils';
 
-var PAD_SIZES = ['xsmall', 'small', 'medium', 'large'];
+var PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large'];
 
 export var doc = function doc(Layer) {
   var DocumentedLayer = describe(Layer).availableAt(getAvailableAtBadge('Layer')).description('A modal overlay. It is the caller\'s responsibility to provide a control for\n      the user to close the layer.').usage('import { Layer } from \'grommet\';\n<Layer />');

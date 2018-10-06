@@ -7,7 +7,7 @@ var _reactDesc = require('react-desc');
 
 var _utils = require('../../utils');
 
-var PAD_SIZES = ['xsmall', 'small', 'medium', 'large', 'xlarge'];
+var PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 
 var ANIMATION_TYPE = _reactDesc.PropTypes.oneOf(['fadeIn', 'fadeOut', 'jiggle', 'pulse', 'slideUp', 'slideDown', 'slideLeft', 'slideRight', 'zoomIn', 'zoomOut']);
 var ANIMATION_SHAPE = _reactDesc.PropTypes.shape({
