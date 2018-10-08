@@ -43,7 +43,10 @@ var hpe = exports.hpe = (0, _utils.deepFreeze)({
   },
   anchor: {
     textDecoration: 'underline',
-    color: '#000000'
+    color: {
+      dark: '#FFFFFF',
+      light: '#000000'
+    }
   },
   button: {
     border: {
