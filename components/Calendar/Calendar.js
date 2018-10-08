@@ -312,7 +312,7 @@ var Calendar = function (_Component) {
             ),
             _react2.default.createElement(
               _Box.Box,
-              { direction: 'row', align: 'center' },
+              { flex: 'false', direction: 'row', align: 'center' },
               _react2.default.createElement(_Button.Button, {
                 a11yTitle: previousMonth.toLocaleDateString(locale, { month: 'long', year: 'numeric' }),
                 icon: _react2.default.createElement(PreviousIcon, { size: size !== 'small' ? size : undefined }),
