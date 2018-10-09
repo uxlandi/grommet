@@ -41,7 +41,7 @@ var SimpleCalendar = function (_Component) {
     return _react2.default.createElement(
       _.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.Calendar, { date: date, onSelect: this.onSelect, size: 'small' })
+      _react2.default.createElement(_.Calendar, { date: date, onSelect: this.onSelect })
     );
   };
 

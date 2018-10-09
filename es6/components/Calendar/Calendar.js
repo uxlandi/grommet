@@ -19,7 +19,7 @@ import { Keyboard } from '../Keyboard';
 import { withTheme } from '../hocs';
 
 import { StyledCalendar, StyledDay, StyledDayContainer, StyledWeek, StyledWeeks, StyledWeeksContainer } from './StyledCalendar';
-import { addDays, addMonths, betweenDates, daysApart, sameDay, subtractDays, subtractMonths, withinDates } from './utils';
+import { addDays, addMonths, betweenDates, daysApart, endOfMonth, sameDay, startOfMonth, subtractDays, subtractMonths, withinDates } from './utils';
 
 var buildStartEnd = function buildStartEnd(reference, firstDayOfWeek) {
   var start = new Date(reference);
@@ -66,40 +66,55 @@ var Calendar = function (_Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {}, _this.setReference = function (reference) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {}, _this.clearSlideStateLater = function () {
+      clearTimeout(_this.timer);
+      _this.timer = setTimeout(function () {
+        var targetStartEnd = _this.state.targetStartEnd;
+
+        if (targetStartEnd) {
+          _this.setState({
+            start: targetStartEnd.start,
+            end: targetStartEnd.end,
+            targetStartEnd: undefined,
+            slide: undefined
+          });
+        }
+        // Wait for animation to finish before cleaning up. Empirically determined.
+      }, 1000);
+    }, _this.setReference = function (reference) {
       var _this$props = _this.props,
           bounds = _this$props.bounds,
           firstDayOfWeek = _this$props.firstDayOfWeek;
       var _this$state = _this.state,
           start = _this$state.start,
-          end = _this$state.end;
+          end = _this$state.end,
+          targetStartEnd = _this$state.targetStartEnd;
 
       if (betweenDates(reference, bounds)) {
         var nextStartEnd = buildStartEnd(reference, firstDayOfWeek);
-        var nextState = {
-          reference: reference,
-          active: undefined
-        };
-        if (nextStartEnd.start.getTime() < start.getTime()) {
+        var nextState = { reference: reference, active: undefined };
+        // if we're changing too fast, bypass animation
+        if (targetStartEnd) {
           nextState.start = nextStartEnd.start;
-          nextState.slide = {
-            direction: 'down',
-            weeks: daysApart(start, nextStartEnd.start) / 7
-          };
-          clearTimeout(_this.timer);
-          _this.timer = setTimeout(function () {
-            return _this.setState({ end: nextStartEnd.end, slide: undefined });
-          }, 1000);
-        } else if (nextStartEnd.end.getTime() > end.getTime()) {
           nextState.end = nextStartEnd.end;
-          nextState.slide = {
-            direction: 'up',
-            weeks: daysApart(nextStartEnd.end, end) / 7
-          };
-          clearTimeout(_this.timer);
-          _this.timer = setTimeout(function () {
-            return _this.setState({ start: nextStartEnd.start, slide: undefined });
-          }, 1000);
+          nextState.targetStartEnd = undefined;
+          nextState.slide = undefined;
+        } else {
+          nextState.targetStartEnd = nextStartEnd;
+          if (nextStartEnd.start.getTime() < start.getTime()) {
+            nextState.start = nextStartEnd.start;
+            nextState.slide = {
+              direction: 'down',
+              weeks: daysApart(start, nextStartEnd.start) / 7
+            };
+          } else if (nextStartEnd.end.getTime() > end.getTime()) {
+            nextState.end = nextStartEnd.end;
+            nextState.slide = {
+              direction: 'up',
+              weeks: daysApart(nextStartEnd.end, end) / 7
+            };
+          }
+          _this.clearSlideStateLater();
         }
         _this.setState(nextState);
       }
@@ -181,9 +196,12 @@ var Calendar = function (_Component) {
         end = _state.end,
         slide = _state.slide;
 
+    // We have to deal with reference being the end of a month with more
+    // days than the month we are changing to. So, we always set reference
+    // to the first of the month before changing the month.
 
-    var previousMonth = subtractMonths(reference, 1);
-    var nextMonth = addMonths(reference, 1);
+    var previousMonth = endOfMonth(subtractMonths(startOfMonth(reference), 1));
+    var nextMonth = startOfMonth(addMonths(startOfMonth(reference), 1));
 
     var weeks = [];
     var day = new Date(start);
@@ -212,7 +230,7 @@ var Calendar = function (_Component) {
       } else if (selectedState === 1) {
         inRange = true;
       }
-      var dayDisabled = withinDates(day, disabled);
+      var dayDisabled = withinDates(day, disabled) || bounds && !betweenDates(day, bounds);
 
       days.push(React.createElement(
         StyledDayContainer,
@@ -290,13 +308,13 @@ var Calendar = function (_Component) {
               { pad: { horizontal: 'small' } },
               React.createElement(
                 Heading,
-                { level: 3, size: size, margin: 'none' },
+                { level: size === 'small' ? 4 : 3, size: size, margin: 'none' },
                 reference.toLocaleDateString(locale, { month: 'long', year: 'numeric' })
               )
             ),
             React.createElement(
               Box,
-              { flex: 'false', direction: 'row', align: 'center' },
+              { flex: false, direction: 'row', align: 'center' },
               React.createElement(Button, {
                 a11yTitle: previousMonth.toLocaleDateString(locale, { month: 'long', year: 'numeric' }),
                 icon: React.createElement(PreviousIcon, { size: size !== 'small' ? size : undefined }),
