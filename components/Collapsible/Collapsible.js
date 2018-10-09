@@ -27,11 +27,15 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var animatedBoxProperty = function animatedBoxProperty(direction) {
+  return direction === 'horizontal' ? 'width' : 'height';
+};
+
 var AnimatedBox = (0, _styledComponents2.default)(_Box.Box).withConfig({
   displayName: 'Collapsible__AnimatedBox',
   componentId: 'sc-15kniua-0'
 })(['', ''], function (props) {
-  return !props.animate && (props.open ? '\n    max-height: unset;\n    visibility: visible;\n  ' : '\n    max-height: 0;\n    visibility: hidden;\n  ');
+  return !props.animate && (props.open ? '\n    max-' + animatedBoxProperty(props.collapsibleDirection) + ': unset;\n    visibility: visible;\n  ' : '\n    max-' + animatedBoxProperty(props.collapsibleDirection) + ': 0;\n    visibility: hidden;\n  ');
 });
 
 var Collapsible = function (_Component) {
@@ -70,19 +74,24 @@ var Collapsible = function (_Component) {
   Collapsible.prototype.componentDidUpdate = function componentDidUpdate(prevProps, prevState, snapshot) {
     var _this2 = this;
 
-    var _props$theme$collapsi = this.props.theme.collapsible,
+    var _props = this.props,
+        direction = _props.direction,
+        _props$theme$collapsi = _props.theme.collapsible,
         minSpeed = _props$theme$collapsi.minSpeed,
-        baseHeight = _props$theme$collapsi.baseHeight;
+        baseline = _props$theme$collapsi.baseline;
     var _state = this.state,
         animate = _state.animate,
         open = _state.open;
 
 
     var container = (0, _reactDom.findDOMNode)(this.ref.current);
+    var dimension = animatedBoxProperty(direction);
+    var boudingClientRect = container.getBoundingClientRect();
+    var dimensionSize = boudingClientRect[dimension];
 
     var shouldAnimate = animate && prevState.open !== open;
 
-    if (open && snapshot.height && container.getBoundingClientRect().height !== snapshot.height) {
+    if (open && snapshot[dimension] && dimensionSize !== snapshot[dimension]) {
       shouldAnimate = true;
     }
 
@@ -91,15 +100,15 @@ var Collapsible = function (_Component) {
         clearTimeout(this.animationTimeout);
       }
 
-      var height = container.clientHeight;
-      var speed = Math.max(height / baseHeight * minSpeed, minSpeed);
+      var speed = Math.max(dimensionSize / baseline * minSpeed, minSpeed);
 
-      container.style['max-height'] = snapshot.height + 'px';
+      container.style['max-' + dimension] = snapshot[dimension] + 'px';
+      container.style.overflow = 'hidden';
 
       requestAnimationFrame(function () {
         requestAnimationFrame(function () {
-          container.style.transition = 'max-height ' + speed + 'ms, visibility 50ms';
-          container.style['max-height'] = open ? height + 'px' : '0px';
+          container.style.transition = 'max-' + dimension + ' ' + speed + 'ms, visibility 50ms';
+          container.style['max-' + dimension] = open ? dimensionSize + 'px' : '0px';
 
           _this2.animationTimeout = setTimeout(function () {
             container.removeAttribute('style');
@@ -119,7 +128,9 @@ var Collapsible = function (_Component) {
   };
 
   Collapsible.prototype.render = function render() {
-    var children = this.props.children;
+    var _props2 = this.props,
+        children = _props2.children,
+        direction = _props2.direction;
     var _state2 = this.state,
         animate = _state2.animate,
         open = _state2.open;
@@ -128,11 +139,11 @@ var Collapsible = function (_Component) {
     return _react2.default.createElement(
       AnimatedBox,
       {
-        overflow: 'hidden',
         'aria-hidden': !open,
         ref: this.ref,
         open: open,
-        animate: animate
+        animate: animate,
+        collapsibleDirection: direction
       },
       children
     );

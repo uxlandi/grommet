@@ -57,10 +57,16 @@ var SimpleCollapsible = function (_Component) {
           }, label: 'Toggle' }),
         _react2.default.createElement(
           _.Collapsible,
-          { open: open },
+          _extends({ open: open }, this.props),
           _react2.default.createElement(
             _.Box,
-            { background: 'light-2', round: 'medium', pad: 'medium', align: 'center', justify: 'center' },
+            {
+              background: 'light-2',
+              round: 'medium',
+              pad: 'medium',
+              align: 'center',
+              justify: 'center'
+            },
             _react2.default.createElement(
               _.Text,
               null,
@@ -238,8 +244,97 @@ var NestedCollapsible = function (_Component2) {
   return NestedCollapsible;
 }(_react.Component);
 
+var HorizontalCollapsible = function (_Component3) {
+  _inherits(HorizontalCollapsible, _Component3);
+
+  function HorizontalCollapsible() {
+    var _temp3, _this5, _ret3;
+
+    _classCallCheck(this, HorizontalCollapsible);
+
+    for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+      args[_key3] = arguments[_key3];
+    }
+
+    return _ret3 = (_temp3 = (_this5 = _possibleConstructorReturn(this, _Component3.call.apply(_Component3, [this].concat(args))), _this5), _this5.state = {
+      openNotification: false
+    }, _temp3), _possibleConstructorReturn(_this5, _ret3);
+  }
+
+  HorizontalCollapsible.prototype.render = function render() {
+    var _this6 = this;
+
+    var openNotification = this.state.openNotification;
+
+    return _react2.default.createElement(
+      _.Grommet,
+      { full: true, theme: _themes.grommet },
+      _react2.default.createElement(
+        _.Box,
+        { fill: true },
+        _react2.default.createElement(
+          _.Box,
+          {
+            tag: 'header',
+            direction: 'row',
+            align: 'center',
+            pad: { vertical: 'small', horizontal: 'medium' },
+            justify: 'between',
+            background: 'neutral-4',
+            elevation: 'large',
+            style: { zIndex: '1000' }
+          },
+          _react2.default.createElement(
+            _.Heading,
+            { level: 3, margin: 'none', color: 'white' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              'My App'
+            )
+          ),
+          _react2.default.createElement(_.Button, {
+            onClick: function onClick() {
+              return _this6.setState({ openNotification: !_this6.state.openNotification });
+            },
+            icon: _react2.default.createElement(_grommetIcons.Notification, { color: 'white' })
+          })
+        ),
+        _react2.default.createElement(
+          _.Box,
+          { flex: true, direction: 'row' },
+          _react2.default.createElement(
+            _.Box,
+            { flex: true, align: 'center', justify: 'center' },
+            'Dashboard content goes here'
+          ),
+          _react2.default.createElement(
+            _.Collapsible,
+            { direction: 'horizontal', open: openNotification },
+            _react2.default.createElement(
+              _.Box,
+              {
+                flex: true,
+                width: 'medium',
+                background: 'light-2',
+                pad: 'small',
+                elevation: 'small'
+              },
+              'Sidebar'
+            )
+          )
+        )
+      )
+    );
+  };
+
+  return HorizontalCollapsible;
+}(_react.Component);
+
 (0, _react3.storiesOf)('Collapsible', module).add('Default', function () {
   return _react2.default.createElement(SimpleCollapsible, null);
 }).add('Nested', function () {
   return _react2.default.createElement(NestedCollapsible, null);
+}).add('Horizontal', function () {
+  return _react2.default.createElement(HorizontalCollapsible, null);
 });

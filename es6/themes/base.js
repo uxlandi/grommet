@@ -413,7 +413,7 @@ export var generate = function generate() {
     },
     collapsible: {
       minSpeed: 200,
-      baseHeight: 500
+      baseline: 500
     },
     dataTable: {
       body: {

@@ -13,9 +13,10 @@ import { storiesOf } from '@storybook/react';
 
 import { FormDown } from 'grommet-icons/es6/icons/FormDown';
 import { FormNext } from 'grommet-icons/es6/icons/FormNext';
+import { Notification } from 'grommet-icons/es6/icons/Notification';
 
 
-import { Box, Button, Collapsible, Grommet, Text } from '../';
+import { Box, Button, Collapsible, Heading, Grommet, Text } from '../';
 import { grommet } from '../../themes';
 
 var SimpleCollapsible = function (_Component) {
@@ -51,10 +52,16 @@ var SimpleCollapsible = function (_Component) {
           }, label: 'Toggle' }),
         React.createElement(
           Collapsible,
-          { open: open },
+          _extends({ open: open }, this.props),
           React.createElement(
             Box,
-            { background: 'light-2', round: 'medium', pad: 'medium', align: 'center', justify: 'center' },
+            {
+              background: 'light-2',
+              round: 'medium',
+              pad: 'medium',
+              align: 'center',
+              justify: 'center'
+            },
             React.createElement(
               Text,
               null,
@@ -232,8 +239,97 @@ var NestedCollapsible = function (_Component2) {
   return NestedCollapsible;
 }(Component);
 
+var HorizontalCollapsible = function (_Component3) {
+  _inherits(HorizontalCollapsible, _Component3);
+
+  function HorizontalCollapsible() {
+    var _temp3, _this5, _ret3;
+
+    _classCallCheck(this, HorizontalCollapsible);
+
+    for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+      args[_key3] = arguments[_key3];
+    }
+
+    return _ret3 = (_temp3 = (_this5 = _possibleConstructorReturn(this, _Component3.call.apply(_Component3, [this].concat(args))), _this5), _this5.state = {
+      openNotification: false
+    }, _temp3), _possibleConstructorReturn(_this5, _ret3);
+  }
+
+  HorizontalCollapsible.prototype.render = function render() {
+    var _this6 = this;
+
+    var openNotification = this.state.openNotification;
+
+    return React.createElement(
+      Grommet,
+      { full: true, theme: grommet },
+      React.createElement(
+        Box,
+        { fill: true },
+        React.createElement(
+          Box,
+          {
+            tag: 'header',
+            direction: 'row',
+            align: 'center',
+            pad: { vertical: 'small', horizontal: 'medium' },
+            justify: 'between',
+            background: 'neutral-4',
+            elevation: 'large',
+            style: { zIndex: '1000' }
+          },
+          React.createElement(
+            Heading,
+            { level: 3, margin: 'none', color: 'white' },
+            React.createElement(
+              'strong',
+              null,
+              'My App'
+            )
+          ),
+          React.createElement(Button, {
+            onClick: function onClick() {
+              return _this6.setState({ openNotification: !_this6.state.openNotification });
+            },
+            icon: React.createElement(Notification, { color: 'white' })
+          })
+        ),
+        React.createElement(
+          Box,
+          { flex: true, direction: 'row' },
+          React.createElement(
+            Box,
+            { flex: true, align: 'center', justify: 'center' },
+            'Dashboard content goes here'
+          ),
+          React.createElement(
+            Collapsible,
+            { direction: 'horizontal', open: openNotification },
+            React.createElement(
+              Box,
+              {
+                flex: true,
+                width: 'medium',
+                background: 'light-2',
+                pad: 'small',
+                elevation: 'small'
+              },
+              'Sidebar'
+            )
+          )
+        )
+      )
+    );
+  };
+
+  return HorizontalCollapsible;
+}(Component);
+
 storiesOf('Collapsible', module).add('Default', function () {
   return React.createElement(SimpleCollapsible, null);
 }).add('Nested', function () {
   return React.createElement(NestedCollapsible, null);
+}).add('Horizontal', function () {
+  return React.createElement(HorizontalCollapsible, null);
 });

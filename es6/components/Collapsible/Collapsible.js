@@ -12,11 +12,15 @@ import styled from 'styled-components';
 import { withTheme } from '../hocs';
 import { Box } from '../Box';
 
+var animatedBoxProperty = function animatedBoxProperty(direction) {
+  return direction === 'horizontal' ? 'width' : 'height';
+};
+
 var AnimatedBox = styled(Box).withConfig({
   displayName: 'Collapsible__AnimatedBox',
   componentId: 'sc-15kniua-0'
 })(['', ''], function (props) {
-  return !props.animate && (props.open ? '\n    max-height: unset;\n    visibility: visible;\n  ' : '\n    max-height: 0;\n    visibility: hidden;\n  ');
+  return !props.animate && (props.open ? '\n    max-' + animatedBoxProperty(props.collapsibleDirection) + ': unset;\n    visibility: visible;\n  ' : '\n    max-' + animatedBoxProperty(props.collapsibleDirection) + ': 0;\n    visibility: hidden;\n  ');
 });
 
 var Collapsible = function (_Component) {
@@ -55,19 +59,24 @@ var Collapsible = function (_Component) {
   Collapsible.prototype.componentDidUpdate = function componentDidUpdate(prevProps, prevState, snapshot) {
     var _this2 = this;
 
-    var _props$theme$collapsi = this.props.theme.collapsible,
+    var _props = this.props,
+        direction = _props.direction,
+        _props$theme$collapsi = _props.theme.collapsible,
         minSpeed = _props$theme$collapsi.minSpeed,
-        baseHeight = _props$theme$collapsi.baseHeight;
+        baseline = _props$theme$collapsi.baseline;
     var _state = this.state,
         animate = _state.animate,
         open = _state.open;
 
 
     var container = findDOMNode(this.ref.current);
+    var dimension = animatedBoxProperty(direction);
+    var boudingClientRect = container.getBoundingClientRect();
+    var dimensionSize = boudingClientRect[dimension];
 
     var shouldAnimate = animate && prevState.open !== open;
 
-    if (open && snapshot.height && container.getBoundingClientRect().height !== snapshot.height) {
+    if (open && snapshot[dimension] && dimensionSize !== snapshot[dimension]) {
       shouldAnimate = true;
     }
 
@@ -76,15 +85,15 @@ var Collapsible = function (_Component) {
         clearTimeout(this.animationTimeout);
       }
 
-      var height = container.clientHeight;
-      var speed = Math.max(height / baseHeight * minSpeed, minSpeed);
+      var speed = Math.max(dimensionSize / baseline * minSpeed, minSpeed);
 
-      container.style['max-height'] = snapshot.height + 'px';
+      container.style['max-' + dimension] = snapshot[dimension] + 'px';
+      container.style.overflow = 'hidden';
 
       requestAnimationFrame(function () {
         requestAnimationFrame(function () {
-          container.style.transition = 'max-height ' + speed + 'ms, visibility 50ms';
-          container.style['max-height'] = open ? height + 'px' : '0px';
+          container.style.transition = 'max-' + dimension + ' ' + speed + 'ms, visibility 50ms';
+          container.style['max-' + dimension] = open ? dimensionSize + 'px' : '0px';
 
           _this2.animationTimeout = setTimeout(function () {
             container.removeAttribute('style');
@@ -104,7 +113,9 @@ var Collapsible = function (_Component) {
   };
 
   Collapsible.prototype.render = function render() {
-    var children = this.props.children;
+    var _props2 = this.props,
+        children = _props2.children,
+        direction = _props2.direction;
     var _state2 = this.state,
         animate = _state2.animate,
         open = _state2.open;
@@ -113,11 +124,11 @@ var Collapsible = function (_Component) {
     return React.createElement(
       AnimatedBox,
       {
-        overflow: 'hidden',
         'aria-hidden': !open,
         ref: this.ref,
         open: open,
-        animate: animate
+        animate: animate,
+        collapsibleDirection: direction
       },
       children
     );
