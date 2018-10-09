@@ -6,9 +6,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,7 +22,7 @@ var H = function H(_ref) {
   var level = _ref.level,
       size = _ref.size;
   return _react2.default.createElement(
-    _.Heading,
+    _grommet.Heading,
     { level: level, size: size },
     'Heading ' + level + ' ' + size
   );
@@ -50,10 +50,10 @@ var All = function (_Component) {
 
   All.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Grid,
+        _grommet.Grid,
         { columns: 'large', gap: 'medium' },
         _react2.default.createElement(Set, { size: 'medium' }),
         _react2.default.createElement(Set, { size: 'small' }),
@@ -76,10 +76,10 @@ var Color = function (_Component2) {
 
   Color.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Heading,
+        _grommet.Heading,
         { color: 'accent-1' },
         'Colored Heading'
       )

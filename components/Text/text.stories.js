@@ -6,9 +6,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31,14 +31,14 @@ var All = function (_Component) {
 
   All.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       sizes.map(function (size) {
         return _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { key: size, margin: 'small' },
           _react2.default.createElement(
-            _.Text,
+            _grommet.Text,
             { size: size },
             'Text ' + size
           )
@@ -61,10 +61,10 @@ var Color = function (_Component2) {
 
   Color.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Text,
+        _grommet.Text,
         { color: 'accent-1' },
         'Colored Text'
       )

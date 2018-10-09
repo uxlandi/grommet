@@ -8,9 +8,9 @@ var _react3 = require('@storybook/react');
 
 var _grommetIcons = require('grommet-icons');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -49,12 +49,12 @@ var CenterLayer = function (_Component) {
         open2 = _state.open2;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.Button, {
+      _react2.default.createElement(_grommet.Button, {
         icon: _react2.default.createElement(_grommetIcons.Trash, null),
         label: _react2.default.createElement(
-          _.Text,
+          _grommet.Text,
           null,
           _react2.default.createElement(
             'strong',
@@ -66,7 +66,7 @@ var CenterLayer = function (_Component) {
         plain: true
       }),
       open && _react2.default.createElement(
-        _.Layer,
+        _grommet.Layer,
         {
           position: 'center',
           modal: true,
@@ -74,20 +74,20 @@ var CenterLayer = function (_Component) {
           onEsc: this.onClose
         },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { pad: 'medium', gap: 'small', width: 'medium' },
           _react2.default.createElement(
-            _.Heading,
+            _grommet.Heading,
             { level: 3, margin: 'none' },
             'Confirm'
           ),
           _react2.default.createElement(
-            _.Text,
+            _grommet.Text,
             null,
             'Are you sure you want to delete?'
           ),
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             {
               tag: 'footer',
               gap: 'small',
@@ -96,14 +96,14 @@ var CenterLayer = function (_Component) {
               justify: 'end',
               pad: { top: 'medium', bottom: 'small' }
             },
-            _react2.default.createElement(_.Button, {
+            _react2.default.createElement(_grommet.Button, {
               label: 'Open 2',
               onClick: this.onOpen2,
               color: 'dark-6'
             }),
-            _react2.default.createElement(_.Button, {
+            _react2.default.createElement(_grommet.Button, {
               label: _react2.default.createElement(
-                _.Text,
+                _grommet.Text,
                 { color: 'white' },
                 _react2.default.createElement(
                   'strong',
@@ -119,7 +119,7 @@ var CenterLayer = function (_Component) {
         )
       ),
       open2 && _react2.default.createElement(
-        _.Layer,
+        _grommet.Layer,
         {
           position: 'top',
           modal: true,
@@ -127,15 +127,15 @@ var CenterLayer = function (_Component) {
           onEsc: this.onClose2
         },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { pad: 'medium', gap: 'small', width: 'medium' },
           _react2.default.createElement(
-            _.Heading,
+            _grommet.Heading,
             { level: 3, margin: 'none' },
             'Confirm 2'
           ),
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             {
               tag: 'footer',
               gap: 'small',
@@ -144,7 +144,7 @@ var CenterLayer = function (_Component) {
               justify: 'end',
               pad: { top: 'medium', bottom: 'small' }
             },
-            _react2.default.createElement(_.Button, {
+            _react2.default.createElement(_grommet.Button, {
               label: 'Close',
               onClick: this.onClose2,
               color: 'dark-6'
@@ -188,18 +188,18 @@ var FormLayer = function (_Component2) {
         fourthOption = _state2.fourthOption;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         { align: 'start' },
-        _react2.default.createElement(_.Button, {
+        _react2.default.createElement(_grommet.Button, {
           icon: _react2.default.createElement(_grommetIcons.Add, null),
           label: 'Add',
           onClick: this.onOpen
         }),
         open && _react2.default.createElement(
-          _.Layer,
+          _grommet.Layer,
           {
             position: 'right',
             full: 'vertical',
@@ -208,7 +208,7 @@ var FormLayer = function (_Component2) {
             onEsc: this.onClose
           },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             {
               tag: 'form',
               fill: 'vertical',
@@ -218,37 +218,37 @@ var FormLayer = function (_Component2) {
               onSubmit: this.onClose
             },
             _react2.default.createElement(
-              _.Box,
+              _grommet.Box,
               { flex: false, direction: 'row', justify: 'between' },
               _react2.default.createElement(
-                _.Heading,
+                _grommet.Heading,
                 { level: 2, margin: 'none' },
                 'Add'
               ),
-              _react2.default.createElement(_.Button, { icon: _react2.default.createElement(_grommetIcons.Close, null), onClick: this.onClose })
+              _react2.default.createElement(_grommet.Button, { icon: _react2.default.createElement(_grommetIcons.Close, null), onClick: this.onClose })
             ),
             _react2.default.createElement(
-              _.Box,
+              _grommet.Box,
               { flex: 'grow', overflow: 'auto', pad: { vertical: 'medium' } },
               _react2.default.createElement(
-                _.FormField,
+                _grommet.FormField,
                 { label: 'First' },
-                _react2.default.createElement(_.TextInput, null)
+                _react2.default.createElement(_grommet.TextInput, null)
               ),
               _react2.default.createElement(
-                _.FormField,
+                _grommet.FormField,
                 { label: 'Second' },
-                _react2.default.createElement(_.TextInput, null)
+                _react2.default.createElement(_grommet.TextInput, null)
               ),
               _react2.default.createElement(
-                _.FormField,
+                _grommet.FormField,
                 { label: 'Third' },
-                _react2.default.createElement(_.TextInput, null)
+                _react2.default.createElement(_grommet.TextInput, null)
               ),
               _react2.default.createElement(
-                _.FormField,
+                _grommet.FormField,
                 { label: 'Fourth' },
-                _react2.default.createElement(_.Select, {
+                _react2.default.createElement(_grommet.Select, {
                   options: ['one', 'two', 'three'],
                   value: fourthOption,
                   onChange: function onChange(_ref) {
@@ -259,9 +259,9 @@ var FormLayer = function (_Component2) {
               )
             ),
             _react2.default.createElement(
-              _.Box,
+              _grommet.Box,
               { flex: false, tag: 'footer', align: 'start' },
-              _react2.default.createElement(_.Button, {
+              _react2.default.createElement(_grommet.Button, {
                 type: 'submit',
                 label: 'Submit',
                 onClick: this.onClose,
@@ -300,12 +300,12 @@ var NotificationLayer = function (_Component3) {
     var open = this.state.open;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.Button, {
+      _react2.default.createElement(_grommet.Button, {
         icon: _react2.default.createElement(_grommetIcons.Add, { color: 'brand' }),
         label: _react2.default.createElement(
-          _.Text,
+          _grommet.Text,
           null,
           _react2.default.createElement(
             'strong',
@@ -317,7 +317,7 @@ var NotificationLayer = function (_Component3) {
         plain: true
       }),
       open && _react2.default.createElement(
-        _.Layer,
+        _grommet.Layer,
         {
           position: 'bottom',
           full: 'horizontal',
@@ -325,10 +325,10 @@ var NotificationLayer = function (_Component3) {
           responsive: false
         },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { align: 'start', pad: { vertical: 'medium', horizontal: 'small' } },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             {
               align: 'center',
               direction: 'row',
@@ -339,16 +339,16 @@ var NotificationLayer = function (_Component3) {
               background: 'status-ok'
             },
             _react2.default.createElement(
-              _.Box,
+              _grommet.Box,
               { align: 'center', direction: 'row', gap: 'xsmall' },
               _react2.default.createElement(_grommetIcons.StatusGood, null),
               _react2.default.createElement(
-                _.Text,
+                _grommet.Text,
                 null,
                 'A new virtual machine has been successfully added'
               )
             ),
-            _react2.default.createElement(_.Button, { icon: _react2.default.createElement(_grommetIcons.FormClose, null), onClick: this.onClose, plain: true })
+            _react2.default.createElement(_grommet.Button, { icon: _react2.default.createElement(_grommetIcons.FormClose, null), onClick: this.onClose, plain: true })
           )
         )
       )
@@ -369,43 +369,43 @@ var MarginLayer = function (_Component4) {
 
   MarginLayer.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Layer,
+        _grommet.Layer,
         {
           margin: 'large'
         },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { overflow: 'auto' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { pad: 'xlarge' },
             'text'
           ),
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { pad: 'xlarge' },
             'text'
           ),
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { pad: 'xlarge' },
             'text'
           ),
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { pad: 'xlarge' },
             'text'
           ),
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { pad: 'xlarge' },
             'text'
           ),
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { pad: 'xlarge' },
             'text'
           )

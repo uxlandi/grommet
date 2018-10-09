@@ -9,8 +9,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Grommet, Box, DataTable, Meter, Text } from '../';
-import { grommet } from '../../themes';
+import { Grommet, Box, DataTable, Meter, Text } from 'grommet';
+import { grommet } from 'grommet/themes';
 
 var amountFormatter = new Intl.NumberFormat('en-US', {
   style: 'currency',

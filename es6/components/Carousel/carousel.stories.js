@@ -11,7 +11,7 @@ import { Car } from 'grommet-icons/es6/icons/Car';
 import { TreeOption } from 'grommet-icons/es6/icons/TreeOption';
 
 
-import { Grommet, Box, Carousel } from '../';
+import { Grommet, Box, Carousel } from 'grommet';
 
 var SimpleCarousel = function (_Component) {
   _inherits(SimpleCarousel, _Component);

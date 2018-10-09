@@ -10,9 +10,9 @@ var _react3 = require('@storybook/react');
 
 var _grommetIcons = require('grommet-icons');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -47,19 +47,19 @@ var SimpleCollapsible = function (_Component) {
     var open = this.state.open;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         { align: 'start', gap: 'small' },
-        _react2.default.createElement(_.Button, { primary: true, onClick: function onClick() {
+        _react2.default.createElement(_grommet.Button, { primary: true, onClick: function onClick() {
             return _this2.setState({ open: !_this2.state.open });
           }, label: 'Toggle' }),
         _react2.default.createElement(
-          _.Collapsible,
+          _grommet.Collapsible,
           _extends({ open: open }, this.props),
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             {
               background: 'light-2',
               round: 'medium',
@@ -68,14 +68,14 @@ var SimpleCollapsible = function (_Component) {
               justify: 'center'
             },
             _react2.default.createElement(
-              _.Text,
+              _grommet.Text,
               null,
               'This is a box inside a Collapsible component'
             )
           )
         ),
         _react2.default.createElement(
-          _.Text,
+          _grommet.Text,
           null,
           'This is other content outside the Collapsible box'
         )
@@ -94,12 +94,12 @@ var MenuButton = function MenuButton(_ref) {
 
   var Icon = open ? _grommetIcons.FormDown : _grommetIcons.FormNext;
   return _react2.default.createElement(
-    _.Button,
+    _grommet.Button,
     _extends({
       hoverIndicator: 'background'
     }, rest),
     _react2.default.createElement(
-      _.Box,
+      _grommet.Box,
       {
         margin: submenu ? { left: 'small' } : undefined,
         direction: 'row',
@@ -108,7 +108,7 @@ var MenuButton = function MenuButton(_ref) {
       },
       _react2.default.createElement(Icon, { color: 'brand' }),
       _react2.default.createElement(
-        _.Text,
+        _grommet.Text,
         { size: 'small' },
         label
       )
@@ -144,10 +144,10 @@ var NestedCollapsible = function (_Component2) {
         openMenu2 = _state.openMenu2;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         { width: 'small' },
         _react2.default.createElement(MenuButton, {
           open: openMenu1,
@@ -162,7 +162,7 @@ var NestedCollapsible = function (_Component2) {
           }
         }),
         _react2.default.createElement(
-          _.Collapsible,
+          _grommet.Collapsible,
           { open: openMenu1 },
           _react2.default.createElement(MenuButton, {
             submenu: true,
@@ -175,33 +175,33 @@ var NestedCollapsible = function (_Component2) {
             }
           }),
           _react2.default.createElement(
-            _.Collapsible,
+            _grommet.Collapsible,
             { open: openSubmenu1 },
             _react2.default.createElement(
-              _.Button,
+              _grommet.Button,
               { hoverIndicator: 'background', onClick: function onClick() {
                   return alert('Submenu item 1 selected');
                 } },
               _react2.default.createElement(
-                _.Box,
+                _grommet.Box,
                 { margin: { left: 'medium' }, direction: 'row', align: 'center', pad: 'xsmall' },
                 _react2.default.createElement(
-                  _.Text,
+                  _grommet.Text,
                   { size: 'small' },
                   'Submenu item 1'
                 )
               )
             ),
             _react2.default.createElement(
-              _.Button,
+              _grommet.Button,
               { hoverIndicator: 'background', onClick: function onClick() {
                   return alert('Submenu item 2 selected');
                 } },
               _react2.default.createElement(
-                _.Box,
+                _grommet.Box,
                 { margin: { left: 'medium' }, direction: 'row', align: 'center', pad: 'xsmall' },
                 _react2.default.createElement(
-                  _.Text,
+                  _grommet.Text,
                   { size: 'small' },
                   'Submenu item 2'
                 )
@@ -219,18 +219,18 @@ var NestedCollapsible = function (_Component2) {
           }
         }),
         _react2.default.createElement(
-          _.Collapsible,
+          _grommet.Collapsible,
           { open: openMenu2 },
           _react2.default.createElement(
-            _.Button,
+            _grommet.Button,
             { hoverIndicator: 'background', onClick: function onClick() {
                 return alert('Submenu item 1 selected');
               } },
             _react2.default.createElement(
-              _.Box,
+              _grommet.Box,
               { margin: { left: 'medium' }, direction: 'row', align: 'center', pad: 'xsmall' },
               _react2.default.createElement(
-                _.Text,
+                _grommet.Text,
                 { size: 'small' },
                 'Submenu item 1'
               )
@@ -267,13 +267,13 @@ var HorizontalCollapsible = function (_Component3) {
     var openNotification = this.state.openNotification;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { full: true, theme: _themes.grommet },
       _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         { fill: true },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           {
             tag: 'header',
             direction: 'row',
@@ -285,7 +285,7 @@ var HorizontalCollapsible = function (_Component3) {
             style: { zIndex: '1000' }
           },
           _react2.default.createElement(
-            _.Heading,
+            _grommet.Heading,
             { level: 3, margin: 'none', color: 'white' },
             _react2.default.createElement(
               'strong',
@@ -293,7 +293,7 @@ var HorizontalCollapsible = function (_Component3) {
               'My App'
             )
           ),
-          _react2.default.createElement(_.Button, {
+          _react2.default.createElement(_grommet.Button, {
             onClick: function onClick() {
               return _this6.setState({ openNotification: !_this6.state.openNotification });
             },
@@ -301,18 +301,18 @@ var HorizontalCollapsible = function (_Component3) {
           })
         ),
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { flex: true, direction: 'row' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { flex: true, align: 'center', justify: 'center' },
             'Dashboard content goes here'
           ),
           _react2.default.createElement(
-            _.Collapsible,
+            _grommet.Collapsible,
             { direction: 'horizontal', open: openNotification },
             _react2.default.createElement(
-              _.Box,
+              _grommet.Box,
               {
                 flex: true,
                 width: 'medium',

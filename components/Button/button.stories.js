@@ -10,58 +10,58 @@ var _react3 = require('@storybook/react');
 
 var _grommetIcons = require('grommet-icons');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SimpleButton = function SimpleButton(props) {
   return _react2.default.createElement(
-    _.Grommet,
+    _grommet.Grommet,
     { theme: _themes.grommet },
     _react2.default.createElement(
-      _.Box,
+      _grommet.Box,
       { align: 'start' },
-      _react2.default.createElement(_.Button, _extends({ label: 'Submit', onClick: function onClick() {} }, props))
+      _react2.default.createElement(_grommet.Button, _extends({ label: 'Submit', onClick: function onClick() {} }, props))
     )
   );
 };
 
 var IconButton = function IconButton() {
   return _react2.default.createElement(
-    _.Grommet,
+    _grommet.Grommet,
     { theme: _themes.grommet },
-    _react2.default.createElement(_.Button, { icon: _react2.default.createElement(_grommetIcons.Add, null), hoverIndicator: true, onClick: function onClick() {} })
+    _react2.default.createElement(_grommet.Button, { icon: _react2.default.createElement(_grommetIcons.Add, null), hoverIndicator: true, onClick: function onClick() {} })
   );
 };
 
 var IconLabelButton = function IconLabelButton() {
   return _react2.default.createElement(
-    _.Grommet,
+    _grommet.Grommet,
     { theme: _themes.grommet },
     _react2.default.createElement(
-      _.Box,
+      _grommet.Box,
       { align: 'start', gap: 'small' },
-      _react2.default.createElement(_.Button, { icon: _react2.default.createElement(_grommetIcons.Add, null), label: 'Add', onClick: function onClick() {}, primary: true }),
-      _react2.default.createElement(_.Button, { icon: _react2.default.createElement(_grommetIcons.Add, null), label: 'Add', onClick: function onClick() {} })
+      _react2.default.createElement(_grommet.Button, { icon: _react2.default.createElement(_grommetIcons.Add, null), label: 'Add', onClick: function onClick() {}, primary: true }),
+      _react2.default.createElement(_grommet.Button, { icon: _react2.default.createElement(_grommetIcons.Add, null), label: 'Add', onClick: function onClick() {} })
     )
   );
 };
 
 var PlainButton = function PlainButton(props) {
   return _react2.default.createElement(
-    _.Grommet,
+    _grommet.Grommet,
     { theme: _themes.grommet },
     _react2.default.createElement(
-      _.Button,
+      _grommet.Button,
       _extends({ hoverIndicator: true, onClick: function onClick() {} }, props),
       _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         { pad: 'small', direction: 'row', align: 'center', gap: 'small' },
         _react2.default.createElement(_grommetIcons.Add, null),
         _react2.default.createElement(
-          _.Text,
+          _grommet.Text,
           null,
           'Add'
         )
@@ -72,17 +72,17 @@ var PlainButton = function PlainButton(props) {
 
 var AnchorButton = function AnchorButton() {
   return _react2.default.createElement(
-    _.Grommet,
+    _grommet.Grommet,
     { theme: _themes.grommet },
-    _react2.default.createElement(_.Button, { label: 'Go', href: '#' })
+    _react2.default.createElement(_grommet.Button, { label: 'Go', href: '#' })
   );
 };
 
 var RouteButton = function RouteButton() {
   return _react2.default.createElement(
-    _.Grommet,
+    _grommet.Grommet,
     { theme: _themes.grommet },
-    _react2.default.createElement(_.RoutedButton, { label: 'Go', path: '/' })
+    _react2.default.createElement(_grommet.RoutedButton, { label: 'Go', path: '/' })
   );
 };
 
@@ -116,21 +116,21 @@ var customTheme = {
 
 var CustomThemeButton = function CustomThemeButton() {
   return _react2.default.createElement(
-    _.Grommet,
+    _grommet.Grommet,
     { theme: customTheme },
-    _react2.default.createElement(_.Button, { label: 'Submit', onClick: function onClick() {}, primary: true })
+    _react2.default.createElement(_grommet.Button, { label: 'Submit', onClick: function onClick() {}, primary: true })
   );
 };
 
 var MultipleButton = function MultipleButton() {
   return _react2.default.createElement(
-    _.Grommet,
+    _grommet.Grommet,
     { theme: _themes.grommet },
     _react2.default.createElement(
-      _.Box,
+      _grommet.Box,
       { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
-      _react2.default.createElement(_.Button, { label: 'Cancel', onClick: function onClick() {} }),
-      _react2.default.createElement(_.Button, {
+      _react2.default.createElement(_grommet.Button, { label: 'Cancel', onClick: function onClick() {} }),
+      _react2.default.createElement(_grommet.Button, {
         color: 'dark-1',
         primary: true,
         icon: _react2.default.createElement(_grommetIcons.Add, { color: 'accent-1' }),
@@ -139,10 +139,10 @@ var MultipleButton = function MultipleButton() {
       })
     ),
     _react2.default.createElement(
-      _.Box,
+      _grommet.Box,
       { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
-      _react2.default.createElement(_.Button, { label: 'Cancel', onClick: function onClick() {} }),
-      _react2.default.createElement(_.Button, {
+      _react2.default.createElement(_grommet.Button, { label: 'Cancel', onClick: function onClick() {} }),
+      _react2.default.createElement(_grommet.Button, {
         color: 'dark-1',
         primary: true,
         icon: _react2.default.createElement(_grommetIcons.Add, null),
@@ -151,10 +151,10 @@ var MultipleButton = function MultipleButton() {
       })
     ),
     _react2.default.createElement(
-      _.Box,
+      _grommet.Box,
       { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
-      _react2.default.createElement(_.Button, { label: 'Cancel', onClick: function onClick() {} }),
-      _react2.default.createElement(_.Button, {
+      _react2.default.createElement(_grommet.Button, { label: 'Cancel', onClick: function onClick() {} }),
+      _react2.default.createElement(_grommet.Button, {
         primary: true,
         icon: _react2.default.createElement(_grommetIcons.Add, null),
         label: 'Add',
@@ -162,10 +162,10 @@ var MultipleButton = function MultipleButton() {
       })
     ),
     _react2.default.createElement(
-      _.Box,
+      _grommet.Box,
       { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
-      _react2.default.createElement(_.Button, { label: 'Cancel', onClick: function onClick() {} }),
-      _react2.default.createElement(_.Button, {
+      _react2.default.createElement(_grommet.Button, { label: 'Cancel', onClick: function onClick() {} }),
+      _react2.default.createElement(_grommet.Button, {
         color: 'light-2',
         primary: true,
         icon: _react2.default.createElement(_grommetIcons.Add, null),

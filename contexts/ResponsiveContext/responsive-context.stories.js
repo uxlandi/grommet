@@ -6,11 +6,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _utils = require('../../utils');
+var _utils = require('grommet/utils');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
-var _ = require('../../');
+var _grommet = require('grommet');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24,17 +24,17 @@ var customBreakpoints = (0, _utils.deepMerge)(_themes.grommet, {
 
 (0, _react3.storiesOf)('ResponsiveContext', module).add('Custom Breakpoints', function () {
   return _react2.default.createElement(
-    _.Grommet,
+    _grommet.Grommet,
     { theme: customBreakpoints, full: true },
     _react2.default.createElement(
-      _.ResponsiveContext.Consumer,
+      _grommet.ResponsiveContext.Consumer,
       null,
       function (size) {
         return _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { fill: true, background: 'brand' },
           _react2.default.createElement(
-            _.Heading,
+            _grommet.Heading,
             null,
             'Hi, I\'m ',
             size,

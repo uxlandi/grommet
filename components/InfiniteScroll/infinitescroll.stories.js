@@ -8,9 +8,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _2 = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20,20 +20,20 @@ var items = Array(200).fill().map(function (_, i) {
 
 var SimpleInfiniteScroll = function SimpleInfiniteScroll(props) {
   return _react2.default.createElement(
-    _2.Grommet,
+    _grommet.Grommet,
     { theme: _themes.grommet },
     _react2.default.createElement(
-      _2.Box,
+      _grommet.Box,
       null,
       _react2.default.createElement(
-        _2.InfiniteScroll,
+        _grommet.InfiniteScroll,
         _extends({ items: items }, props),
         function (item) {
           return _react2.default.createElement(
-            _2.Box,
+            _grommet.Box,
             { key: item, pad: 'medium', border: { side: 'bottom' }, align: 'center' },
             _react2.default.createElement(
-              _2.Text,
+              _grommet.Text,
               null,
               item
             )

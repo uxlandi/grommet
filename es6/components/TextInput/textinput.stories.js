@@ -10,9 +10,9 @@ import { storiesOf } from '@storybook/react';
 import { Search } from 'grommet-icons/es6/icons/Search';
 
 
-import { Box, Image, Grommet, Text, TextInput } from '../';
-import { grommet } from '../../themes';
-import { deepMerge } from '../../utils';
+import { Box, Image, Grommet, Text, TextInput } from 'grommet';
+import { grommet } from 'grommet/themes';
+import { deepMerge } from 'grommet/utils';
 
 var SimpleTextInput = function (_Component) {
   _inherits(SimpleTextInput, _Component);

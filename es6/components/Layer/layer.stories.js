@@ -14,8 +14,8 @@ import { StatusGood } from 'grommet-icons/es6/icons/StatusGood';
 import { Trash } from 'grommet-icons/es6/icons/Trash';
 
 
-import { Box, Button, FormField, Grommet, Heading, Layer, Select, Text, TextInput } from '../';
-import { grommet } from '../../themes';
+import { Box, Button, FormField, Grommet, Heading, Layer, Select, Text, TextInput } from 'grommet';
+import { grommet } from 'grommet/themes';
 
 var CenterLayer = function (_Component) {
   _inherits(CenterLayer, _Component);

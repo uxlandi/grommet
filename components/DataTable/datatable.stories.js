@@ -8,9 +8,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29,7 +29,7 @@ var amountFormatter = new Intl.NumberFormat('en-US', {
 var columns = [{
   property: 'name',
   header: _react2.default.createElement(
-    _.Text,
+    _grommet.Text,
     null,
     'Name with extra'
   ),
@@ -50,9 +50,9 @@ var columns = [{
   header: 'Percent Complete',
   render: function render(datum) {
     return _react2.default.createElement(
-      _.Box,
+      _grommet.Box,
       { pad: { vertical: 'xsmall' } },
-      _react2.default.createElement(_.Meter, { values: [{ value: datum.percent }], thickness: 'small', size: 'small' })
+      _react2.default.createElement(_grommet.Meter, { values: [{ value: datum.percent }], thickness: 'small', size: 'small' })
     );
   }
 }, {
@@ -90,9 +90,9 @@ var SimpleDataTable = function (_Component) {
 
   SimpleDataTable.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.DataTable, { columns: columns, data: DATA })
+      _react2.default.createElement(_grommet.DataTable, { columns: columns, data: DATA })
     );
   };
 
@@ -110,9 +110,9 @@ var SizedDataTable = function (_Component2) {
 
   SizedDataTable.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.DataTable, { columns: columns, data: data, size: 'medium' })
+      _react2.default.createElement(_grommet.DataTable, { columns: columns, data: data, size: 'medium' })
     );
   };
 
@@ -130,9 +130,9 @@ var TunableDataTable = function (_Component3) {
 
   TunableDataTable.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.DataTable, {
+      _react2.default.createElement(_grommet.DataTable, {
         columns: columns.map(function (c) {
           return _extends({}, c, { search: c.property === 'name' || c.property === 'location' });
         }),
@@ -164,9 +164,9 @@ var GroupedDataTable = function (_Component4) {
 
   GroupedDataTable.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.DataTable, {
+      _react2.default.createElement(_grommet.DataTable, {
         columns: groupColumns,
         data: DATA,
         groupBy: 'location',
@@ -215,9 +215,9 @@ var ServedDataTable = function (_Component5) {
     var servedData = this.state.data;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.DataTable, {
+      _react2.default.createElement(_grommet.DataTable, {
         columns: columns.map(function (column) {
           return _extends({}, column, {
             search: column.property === 'name' || column.property === 'location'

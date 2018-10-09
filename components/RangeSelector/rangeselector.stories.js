@@ -6,9 +6,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39,27 +39,27 @@ var SimpleRangeSelector = function (_Component) {
     var values = this.state.values;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Stack,
+        _grommet.Stack,
         null,
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { direction: 'row', justify: 'between' },
           [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (value) {
             return _react2.default.createElement(
-              _.Box,
+              _grommet.Box,
               { key: value, pad: 'small', border: false },
               _react2.default.createElement(
-                _.Text,
+                _grommet.Text,
                 { style: { fontFamily: 'monospace' } },
                 value
               )
             );
           })
         ),
-        _react2.default.createElement(_.RangeSelector, {
+        _react2.default.createElement(_grommet.RangeSelector, {
           direction: 'horizontal',
           invert: false,
           min: 0,

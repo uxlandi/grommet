@@ -13,12 +13,12 @@ import { storiesOf } from '@storybook/react';
 import { FormClose } from 'grommet-icons/es6/icons/FormClose';
 
 
-import { Box, Button, CheckBox, Grommet, Select, Text } from '../../';
-import { grommet } from '../../../themes';
+import { Box, Button, CheckBox, Grommet, Select, Text } from 'grommet';
+import { grommet } from 'grommet/themes';
+import { deepMerge } from 'grommet/utils';
 
 import { theme as customSearchTheme } from './theme';
 import { SearchInputContext } from './components/SearchInputContext';
-import { deepMerge } from '../../../utils';
 
 var customRoundedTheme = deepMerge(grommet, {
   global: {

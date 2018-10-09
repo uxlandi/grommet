@@ -16,8 +16,8 @@ import { FormNext } from 'grommet-icons/es6/icons/FormNext';
 import { Notification } from 'grommet-icons/es6/icons/Notification';
 
 
-import { Box, Button, Collapsible, Heading, Grommet, Text } from '../';
-import { grommet } from '../../themes';
+import { Box, Button, Collapsible, Heading, Grommet, Text } from 'grommet';
+import { grommet } from 'grommet/themes';
 
 var SimpleCollapsible = function (_Component) {
   _inherits(SimpleCollapsible, _Component);

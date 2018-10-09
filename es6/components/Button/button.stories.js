@@ -5,8 +5,8 @@ import { storiesOf } from '@storybook/react';
 import { Add } from 'grommet-icons/es6/icons/Add';
 
 
-import { Box, Button, Grommet, RoutedButton, Text } from '../';
-import { grommet } from '../../themes';
+import { Box, Button, Grommet, RoutedButton, Text } from 'grommet';
+import { grommet } from 'grommet/themes';
 
 var SimpleButton = function SimpleButton(props) {
   return React.createElement(

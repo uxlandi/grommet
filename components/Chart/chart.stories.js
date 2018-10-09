@@ -8,11 +8,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _ = require('../');
+var _grommet = require('grommet');
+
+var _themes = require('grommet/themes');
 
 var _calcs2 = require('../Chart/calcs');
-
-var _themes = require('../../themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33,9 +33,9 @@ var BarChart = function (_Component) {
 
   BarChart.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.Chart, {
+      _react2.default.createElement(_grommet.Chart, {
         type: 'bar',
         values: [[10, 20], [20, 30], [30, 15]]
       })
@@ -56,9 +56,9 @@ var LineChart = function (_Component2) {
 
   LineChart.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.Chart, {
+      _react2.default.createElement(_grommet.Chart, {
         type: 'line',
         values: [20, 30, 15]
       })
@@ -79,9 +79,9 @@ var AreaChart = function (_Component3) {
 
   AreaChart.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.Chart, {
+      _react2.default.createElement(_grommet.Chart, {
         type: 'area',
         values: [{ value: [10, 20] }, { value: [20, 30] }, { value: [30, 15] }]
       })
@@ -149,27 +149,27 @@ var RichChart = function (_Component4) {
       overflow: true
     };
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         { align: 'center' },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { direction: 'row', justify: 'between', width: 'medium', margin: { vertical: 'small' } },
           xAxis.map(function (x) {
             return _react2.default.createElement(
-              _.Text,
+              _grommet.Text,
               { key: x },
               x
             );
           })
         ),
         _react2.default.createElement(
-          _.Stack,
+          _grommet.Stack,
           { guidingChild: 'last' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { fill: true, justify: 'between' },
             yAxis.map(function (y, index) {
               var first = index === 0;
@@ -183,27 +183,27 @@ var RichChart = function (_Component4) {
                 align = 'center';
               }
               return _react2.default.createElement(
-                _.Box,
+                _grommet.Box,
                 { key: y, direction: 'row', align: align },
                 _react2.default.createElement(
-                  _.Box,
+                  _grommet.Box,
                   { pad: { horizontal: 'small' } },
                   _react2.default.createElement(
-                    _.Text,
+                    _grommet.Text,
                     null,
                     y
                   )
                 ),
-                _react2.default.createElement(_.Box, { border: 'top', flex: true })
+                _react2.default.createElement(_grommet.Box, { border: 'top', flex: true })
               );
             })
           ),
-          _react2.default.createElement(_.Chart, _extends({}, chartProps, {
+          _react2.default.createElement(_grommet.Chart, _extends({}, chartProps, {
             type: 'area',
             color: { color: 'accent-1', opacity: 'medium' },
             thickness: 'hair'
           })),
-          _react2.default.createElement(_.Chart, _extends({}, chartProps, {
+          _react2.default.createElement(_grommet.Chart, _extends({}, chartProps, {
             type: 'line',
             round: true,
             color: { color: 'accent-3', opacity: 'strong' },

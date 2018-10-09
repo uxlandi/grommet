@@ -6,13 +6,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _Text = require('../Text');
-
-var _Grommet = require('../Grommet');
-
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -77,23 +73,23 @@ var SimpleTable = function (_Component) {
 
   SimpleTable.prototype.render = function render() {
     return _react2.default.createElement(
-      _Grommet.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Table,
+        _grommet.Table,
         { caption: 'Simple Table' },
         _react2.default.createElement(
-          _.TableHeader,
+          _grommet.TableHeader,
           null,
           _react2.default.createElement(
-            _.TableRow,
+            _grommet.TableRow,
             null,
             COLUMNS.map(function (c) {
               return _react2.default.createElement(
-                _.TableCell,
+                _grommet.TableCell,
                 { key: c.property, scope: 'col', border: 'bottom', align: c.align },
                 _react2.default.createElement(
-                  _Text.Text,
+                  _grommet.Text,
                   null,
                   c.label
                 )
@@ -102,18 +98,18 @@ var SimpleTable = function (_Component) {
           )
         ),
         _react2.default.createElement(
-          _.TableBody,
+          _grommet.TableBody,
           null,
           DATA.map(function (datum) {
             return _react2.default.createElement(
-              _.TableRow,
+              _grommet.TableRow,
               { key: datum.id },
               COLUMNS.map(function (c) {
                 return _react2.default.createElement(
-                  _.TableCell,
+                  _grommet.TableCell,
                   { key: c.property, scope: c.dataScope, align: c.align },
                   _react2.default.createElement(
-                    _Text.Text,
+                    _grommet.Text,
                     null,
                     c.format ? c.format(datum) : datum[c.property]
                   )
@@ -123,17 +119,17 @@ var SimpleTable = function (_Component) {
           })
         ),
         _react2.default.createElement(
-          _.TableFooter,
+          _grommet.TableFooter,
           null,
           _react2.default.createElement(
-            _.TableRow,
+            _grommet.TableRow,
             null,
             COLUMNS.map(function (c) {
               return _react2.default.createElement(
-                _.TableCell,
+                _grommet.TableCell,
                 { key: c.property, border: 'top', align: c.align },
                 _react2.default.createElement(
-                  _Text.Text,
+                  _grommet.Text,
                   null,
                   c.footer
                 )

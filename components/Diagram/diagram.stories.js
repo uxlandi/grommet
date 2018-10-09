@@ -8,9 +8,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26,7 +26,7 @@ var Node = function Node(_ref) {
   var id = _ref.id,
       rest = _objectWithoutProperties(_ref, ['id']);
 
-  return _react2.default.createElement(_.Box, _extends({
+  return _react2.default.createElement(_grommet.Box, _extends({
     id: id,
     basis: 'xxsmall',
     margin: 'small',
@@ -64,30 +64,30 @@ var SimpleDiagram = function (_Component) {
 
   SimpleDiagram.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Stack,
+        _grommet.Stack,
         null,
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           null,
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { direction: 'row' },
             [1, 2, 3].map(function (id) {
               return _react2.default.createElement(Node, { key: id, id: id });
             })
           ),
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { direction: 'row' },
             [4, 5].map(function (id) {
               return _react2.default.createElement(Node, { key: id, id: id, background: 'neutral-2' });
             })
           )
         ),
-        _react2.default.createElement(_.Diagram, {
+        _react2.default.createElement(_grommet.Diagram, {
           connections: [connection('1', '5', { color: 'accent-2' }), connection('3', '5', { color: 'accent-2', anchor: 'horizontal' })]
         })
       )

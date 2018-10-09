@@ -6,9 +6,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29,9 +29,9 @@ var DigitalClock = function (_Component) {
 
   DigitalClock.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.Clock, { type: 'digital' })
+      _react2.default.createElement(_grommet.Clock, { type: 'digital' })
     );
   };
 
@@ -49,9 +49,9 @@ var AnalogClock = function (_Component2) {
 
   AnalogClock.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.Clock, { type: 'analog' })
+      _react2.default.createElement(_grommet.Clock, { type: 'analog' })
     );
   };
 

@@ -8,11 +8,11 @@ var _react3 = require('@storybook/react');
 
 var _grommetIcons = require('grommet-icons');
 
-var _2 = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
-var _utils = require('../../utils');
+var _utils = require('grommet/utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -43,9 +43,9 @@ var SimpleTextInput = function (_Component) {
     var value = this.state.value;
 
     return _react2.default.createElement(
-      _2.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_2.TextInput, { ref: this.ref, value: value, onChange: this.onChange })
+      _react2.default.createElement(_grommet.TextInput, { ref: this.ref, value: value, onChange: this.onChange })
     );
   };
 
@@ -79,9 +79,9 @@ var SuggestionsTextInput = function (_Component2) {
     var value = this.state.value;
 
     return _react2.default.createElement(
-      _2.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_2.TextInput, {
+      _react2.default.createElement(_grommet.TextInput, {
         value: value,
         onChange: this.onChange,
         onSelect: this.onSelect,
@@ -179,7 +179,7 @@ var CustomSuggestionsTextInput = function (_Component3) {
             imageUrl = _ref2.imageUrl;
         return {
           label: _react2.default.createElement(
-            _2.Box,
+            _grommet.Box,
             {
               direction: 'row',
               align: 'center',
@@ -187,13 +187,13 @@ var CustomSuggestionsTextInput = function (_Component3) {
               border: index < list.length - 1 ? 'bottom' : undefined,
               pad: 'small'
             },
-            _react2.default.createElement(_2.Image, {
+            _react2.default.createElement(_grommet.Image, {
               width: '48px',
               src: imageUrl,
               style: { borderRadius: '100%' }
             }),
             _react2.default.createElement(
-              _2.Text,
+              _grommet.Text,
               null,
               _react2.default.createElement(
                 'strong',
@@ -221,13 +221,13 @@ var CustomSuggestionsTextInput = function (_Component3) {
 
 
     return _react2.default.createElement(
-      _2.Grommet,
+      _grommet.Grommet,
       { theme: myCustomTheme, full: true },
       _react2.default.createElement(
-        _2.Box,
+        _grommet.Box,
         { background: 'dark-1', fill: true, align: 'center', pad: { top: 'large' } },
         _react2.default.createElement(
-          _2.Box,
+          _grommet.Box,
           {
             ref: this.boxRef,
             width: 'large',
@@ -240,7 +240,7 @@ var CustomSuggestionsTextInput = function (_Component3) {
             style: suggestionOpen ? { borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' } : undefined
           },
           _react2.default.createElement(_grommetIcons.Search, { color: 'brand' }),
-          _react2.default.createElement(_2.TextInput, {
+          _react2.default.createElement(_grommet.TextInput, {
             type: 'search',
             dropTarget: this.boxRef.current,
             plain: true,

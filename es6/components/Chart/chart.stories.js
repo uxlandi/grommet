@@ -9,9 +9,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Grommet, Box, Chart, Stack, Text } from '../';
+import { Grommet, Box, Chart, Stack, Text } from 'grommet';
+import { grommet } from 'grommet/themes';
+
 import { calcs } from '../Chart/calcs';
-import { grommet } from '../../themes';
 
 var BarChart = function (_Component) {
   _inherits(BarChart, _Component);

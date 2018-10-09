@@ -10,8 +10,8 @@ import { Close } from 'grommet-icons/es6/icons/Close';
 import { FormDown } from 'grommet-icons/es6/icons/FormDown';
 
 
-import { Grommet, Box, Button, Calendar, DropButton, Heading, Text } from '../';
-import { grommet } from '../../themes';
+import { Grommet, Box, Button, Calendar, DropButton, Heading, Text } from 'grommet';
+import { grommet } from 'grommet/themes';
 
 var DropContent = function DropContent(_ref) {
   var onClose = _ref.onClose;

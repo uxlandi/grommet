@@ -6,9 +6,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39,17 +39,17 @@ var AppGrid = function (_Component) {
     var sidebar = this.state.sidebar;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Grid,
+        _grommet.Grid,
         {
           rows: ['auto', 'medium'],
           columns: ['auto', 'flex'],
           areas: [{ name: 'header', start: [0, 0], end: [1, 0] }, { name: 'sidebar', start: [0, 1], end: [0, 1] }, { name: 'main', start: [1, 1], end: [1, 1] }]
         },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           {
             gridArea: 'header',
             direction: 'row',
@@ -59,24 +59,24 @@ var AppGrid = function (_Component) {
             background: 'dark-2'
           },
           _react2.default.createElement(
-            _.Button,
+            _grommet.Button,
             { onClick: function onClick() {
                 return _this2.setState({ sidebar: !sidebar });
               } },
             _react2.default.createElement(
-              _.Text,
+              _grommet.Text,
               { size: 'large' },
               'Title'
             )
           ),
           _react2.default.createElement(
-            _.Text,
+            _grommet.Text,
             null,
             'my@email'
           )
         ),
         sidebar && _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           {
             gridArea: 'sidebar',
             background: 'dark-5',
@@ -85,13 +85,13 @@ var AppGrid = function (_Component) {
           },
           ['First', 'Second', 'Third'].map(function (name) {
             return _react2.default.createElement(
-              _.Button,
+              _grommet.Button,
               { key: name, href: '#', hoverIndicator: true },
               _react2.default.createElement(
-                _.Box,
+                _grommet.Box,
                 { pad: { horizontal: 'medium', vertical: 'small' } },
                 _react2.default.createElement(
-                  _.Text,
+                  _grommet.Text,
                   null,
                   name
                 )
@@ -100,10 +100,10 @@ var AppGrid = function (_Component) {
           })
         ),
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { gridArea: 'main', justify: 'center', align: 'center' },
           _react2.default.createElement(
-            _.Text,
+            _grommet.Text,
             null,
             'main'
           )

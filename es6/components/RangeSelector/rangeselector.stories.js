@@ -7,8 +7,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Grommet, Box, RangeSelector, Stack, Text } from '../';
-import { grommet } from '../../themes';
+import { Grommet, Box, RangeSelector, Stack, Text } from 'grommet';
+import { grommet } from 'grommet/themes';
 
 var SimpleRangeSelector = function (_Component) {
   _inherits(SimpleRangeSelector, _Component);

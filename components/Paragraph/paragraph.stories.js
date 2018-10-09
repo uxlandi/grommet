@@ -6,9 +6,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33,18 +33,18 @@ var All = function (_Component) {
 
   All.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       sizes.map(function (size) {
         return _react2.default.createElement(
-          _.Paragraph,
+          _grommet.Paragraph,
           { key: size, size: size },
           'Paragraph ' + size,
           paragraphFiller
         );
       }),
       _react2.default.createElement(
-        _.Paragraph,
+        _grommet.Paragraph,
         { color: 'status-critical' },
         'This is an error message.'
       )

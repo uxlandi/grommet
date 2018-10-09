@@ -7,8 +7,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Box, Grommet, Text } from '../';
-import { grommet } from '../../themes';
+import { Box, Grommet, Text } from 'grommet';
+import { grommet } from 'grommet/themes';
 
 var sizes = ['xxlarge', 'xlarge', 'large', 'medium', 'small', 'xsmall'];
 

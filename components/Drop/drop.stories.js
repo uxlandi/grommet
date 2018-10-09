@@ -6,11 +6,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
-var _contexts = require('../../contexts');
+var _contexts = require('grommet/contexts');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -41,13 +41,13 @@ var SimpleDrop = function (_Component) {
 
   SimpleDrop.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         { align: 'start' },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           {
             background: 'dark-4',
             pad: 'medium',
@@ -58,13 +58,13 @@ var SimpleDrop = function (_Component) {
           'Target'
         ),
         this.targetRef.current && _react2.default.createElement(
-          _.Drop,
+          _grommet.Drop,
           {
             align: { top: 'bottom', left: 'left' },
             target: this.targetRef.current
           },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { pad: 'large' },
             'Drop Contents'
           )
@@ -80,13 +80,13 @@ var OneDrop = function OneDrop(_ref) {
   var align = _ref.align,
       target = _ref.target;
   return _react2.default.createElement(
-    _.Drop,
+    _grommet.Drop,
     {
       align: align,
       target: target,
       stretch: false
     },
-    _react2.default.createElement(_.Box, { pad: 'small' })
+    _react2.default.createElement(_grommet.Box, { pad: 'small' })
   );
 };
 
@@ -117,15 +117,15 @@ var Set = function (_Component2) {
         label = _props.label;
 
     return _react2.default.createElement(
-      _.Box,
+      _grommet.Box,
       { border: true, pad: 'small' },
       _react2.default.createElement(
-        _.Text,
+        _grommet.Text,
         null,
         label
       ),
       _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         {
           margin: 'xlarge',
           background: 'dark-4',
@@ -174,13 +174,13 @@ var AllDrops = function (_Component3) {
 
   AllDrops.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
         _contexts.ThemeContext.Extend,
         { value: { global: { drop: { background: { color: 'white', opacity: 'medium' } } } } },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { direction: 'row', wrap: true, pad: 'medium', align: 'center' },
           _react2.default.createElement(Set, {
             label: 'left: left',

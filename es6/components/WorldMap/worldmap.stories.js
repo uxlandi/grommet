@@ -7,8 +7,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Grommet, WorldMap } from '../';
-import { grommet } from '../../themes';
+import { Grommet, WorldMap } from 'grommet';
+import { grommet } from 'grommet/themes';
 
 var SimpleWorldMap = function (_Component) {
   _inherits(SimpleWorldMap, _Component);

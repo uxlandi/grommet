@@ -12,15 +12,15 @@ var _react3 = require('@storybook/react');
 
 var _grommetIcons = require('grommet-icons');
 
-var _ = require('../../');
+var _grommet = require('grommet');
 
-var _themes = require('../../../themes');
+var _themes = require('grommet/themes');
+
+var _utils = require('grommet/utils');
 
 var _theme = require('./theme');
 
 var _SearchInputContext = require('./components/SearchInputContext');
-
-var _utils = require('../../../utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -84,9 +84,9 @@ var SimpleSelect = function (_Component) {
         value = _state.value;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: theme || _themes.grommet },
-      _react2.default.createElement(_.Select, {
+      _react2.default.createElement(_grommet.Select, {
         id: 'select',
         name: 'select',
         placeholder: 'Select',
@@ -133,9 +133,9 @@ var SearchSelect = function (_Component2) {
         value = _state2.value;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.Select, {
+      _react2.default.createElement(_grommet.Select, {
         size: 'medium',
         placeholder: 'Select',
         value: value,
@@ -186,7 +186,7 @@ var SeasonsSelect = function (_Component3) {
       });
     }, _this5.renderSeason = function (season) {
       return _react2.default.createElement(
-        _.Button,
+        _grommet.Button,
         {
           key: 'season_tag_' + season,
           href: '#',
@@ -200,7 +200,7 @@ var SeasonsSelect = function (_Component3) {
           }
         },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           {
             align: 'center',
             direction: 'row',
@@ -211,12 +211,12 @@ var SeasonsSelect = function (_Component3) {
             round: 'large'
           },
           _react2.default.createElement(
-            _.Text,
+            _grommet.Text,
             { size: 'small', color: 'white' },
             season
           ),
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { background: 'white', round: 'full', margin: { left: 'xsmall' } },
             _react2.default.createElement(_grommetIcons.FormClose, {
               color: 'accent-1',
@@ -228,7 +228,7 @@ var SeasonsSelect = function (_Component3) {
       );
     }, _this5.renderOption = function (option) {
       return _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         {
           pad: 'small',
           background: _this5.state.selectedSeasons.indexOf(option) >= 0 ? 'active' : undefined
@@ -244,22 +244,22 @@ var SeasonsSelect = function (_Component3) {
     var selectedSeasons = this.state.selectedSeasons;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         { direction: 'row' },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { align: 'start', basis: 'medium', direction: 'row' },
           _react2.default.createElement(
-            _.Select,
+            _grommet.Select,
             {
               size: 'medium',
               placeholder: 'Select Season',
               multiple: true,
               value: selectedSeasons && selectedSeasons.length ? _react2.default.createElement(
-                _.Box,
+                _grommet.Box,
                 { wrap: true, direction: 'row', style: { width: '208px' } },
                 selectedSeasons.map(this.renderSeason)
               ) : undefined,
@@ -348,9 +348,9 @@ var CustomSearchSelect = function (_Component4) {
       var selectedContentPartners = _this7.state.selectedContentPartners;
 
       return _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         { direction: 'row', align: 'center', pad: 'small', flex: false },
-        _react2.default.createElement(_.CheckBox, {
+        _react2.default.createElement(_grommet.CheckBox, {
           tabIndex: '-1',
           checked: selectedContentPartners.some(function (partner) {
             return partner.name === name;
@@ -359,7 +359,7 @@ var CustomSearchSelect = function (_Component4) {
           onChange: function onChange() {}
         }),
         _react2.default.createElement(
-          _.Text,
+          _grommet.Text,
           { size: 'small' },
           name
         )
@@ -368,7 +368,7 @@ var CustomSearchSelect = function (_Component4) {
       var selectedContentPartners = _this7.state.selectedContentPartners;
 
       return _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         {
           direction: 'row',
           gap: 'xsmall',
@@ -377,7 +377,7 @@ var CustomSearchSelect = function (_Component4) {
           flex: true
         },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           {
             background: 'brand',
             round: 'medium',
@@ -387,16 +387,16 @@ var CustomSearchSelect = function (_Component4) {
             style: { minWidth: '21px' }
           },
           _react2.default.createElement(
-            _.Text,
+            _grommet.Text,
             { size: 'small' },
             selectedContentPartners.length
           )
         ),
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { flex: true },
           _react2.default.createElement(
-            _.Text,
+            _grommet.Text,
             { size: 'small', truncate: true },
             selectedContentPartners.map(function (_ref5) {
               var name = _ref5.name;
@@ -405,7 +405,7 @@ var CustomSearchSelect = function (_Component4) {
           )
         ),
         _react2.default.createElement(
-          _.Button,
+          _grommet.Button,
           {
             href: '#',
             onFocus: function onFocus(event) {
@@ -419,7 +419,7 @@ var CustomSearchSelect = function (_Component4) {
             }
           },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { background: 'gray', round: 'full' },
             _react2.default.createElement(_grommetIcons.FormClose, { style: { width: '12px', height: '12px' } })
           )
@@ -443,16 +443,16 @@ var CustomSearchSelect = function (_Component4) {
     });
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _theme.theme },
       _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         { align: 'start', width: 'medium', direction: 'row' },
         _react2.default.createElement(
           _SearchInputContext.SearchInputContext.Provider,
           { value: { searching: searching } },
           _react2.default.createElement(
-            _.Select,
+            _grommet.Select,
             {
               ref: this.selectRef,
               closeOnChange: false,
@@ -542,12 +542,12 @@ var DarkSelect = function (_Component5) {
         value = _state4.value;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       _extends({ full: true, theme: _themes.grommet }, this.props),
       _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         { fill: true, background: 'dark-1', align: 'center', justify: 'center' },
-        _react2.default.createElement(_.Select, {
+        _react2.default.createElement(_grommet.Select, {
           placeholder: 'Select',
           value: value,
           options: options,

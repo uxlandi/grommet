@@ -16,8 +16,8 @@ import { FormAdd } from 'grommet-icons/es6/icons/FormAdd';
 import { User } from 'grommet-icons/es6/icons/User';
 
 
-import { Accordion, AccordionPanel, Box, Grommet, Heading, Text, TextInput, ThemeContext } from '../../';
-import { grommet } from '../../themes';
+import { Accordion, AccordionPanel, Box, Grommet, Heading, Text, TextInput, ThemeContext } from 'grommet';
+import { grommet } from 'grommet/themes';
 
 var richAccordionTheme = {
   accordion: {
@@ -230,7 +230,7 @@ var RichAccordion = function (_Component3) {
                   if (activeIndexes.includes(1)) {
                     // give sometime to emulate an async call
                     setTimeout(function () {
-                      _this5.setState({ highlightLoaded: true }, _this5.reset);
+                      _this5.setState({ highlightLoaded: true });
                     }, 1000);
                   }
                 }

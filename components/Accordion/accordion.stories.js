@@ -8,9 +8,9 @@ var _react3 = require('@storybook/react');
 
 var _grommetIcons = require('grommet-icons');
 
-var _ = require('../../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -47,37 +47,37 @@ var SimpleAccordion = function (_Component) {
         rest = _objectWithoutProperties(_props, ['animate', 'multiple']);
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         rest,
         _react2.default.createElement(
-          _.Accordion,
+          _grommet.Accordion,
           { animate: animate, multiple: multiple },
           _react2.default.createElement(
-            _.AccordionPanel,
+            _grommet.AccordionPanel,
             { label: 'Panel 1' },
             _react2.default.createElement(
-              _.Box,
+              _grommet.Box,
               { background: 'light-2', style: { height: '800px' } },
               'Panel 1 contents'
             )
           ),
           _react2.default.createElement(
-            _.AccordionPanel,
+            _grommet.AccordionPanel,
             { label: 'Panel 2' },
             _react2.default.createElement(
-              _.Box,
+              _grommet.Box,
               { background: 'light-2', style: { height: '50px' } },
               'Panel 2 contents'
             )
           ),
           _react2.default.createElement(
-            _.AccordionPanel,
+            _grommet.AccordionPanel,
             { label: 'Panel 3' },
             _react2.default.createElement(
-              _.Box,
+              _grommet.Box,
               { background: 'light-2', style: { height: '300px' } },
               'Panel 3 contents'
             )
@@ -111,7 +111,7 @@ var RichPanel = function (_Component2) {
       var hovering = _this2.state.hovering;
 
       return _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         {
           direction: 'row',
           align: 'center',
@@ -120,7 +120,7 @@ var RichPanel = function (_Component2) {
         },
         icon,
         _react2.default.createElement(
-          _.Heading,
+          _grommet.Heading,
           { level: 4, color: hovering ? 'dark-1' : 'dark-5' },
           label
         )
@@ -134,7 +134,7 @@ var RichPanel = function (_Component2) {
     var children = this.props.children;
 
     return _react2.default.createElement(
-      _.AccordionPanel,
+      _grommet.AccordionPanel,
       {
         label: this.renderPanelTitle(),
         onMouseOver: function onMouseOver() {
@@ -163,7 +163,7 @@ var spinning = _react2.default.createElement(
 );
 
 var loading = _react2.default.createElement(
-  _.Box,
+  _grommet.Box,
   {
     align: 'center',
     justify: 'center',
@@ -195,16 +195,16 @@ var RichAccordion = function (_Component3) {
     var highlightLoaded = this.state.highlightLoaded;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { full: true, theme: _themes.grommet },
       _react2.default.createElement(
-        _.Box,
+        _grommet.Box,
         { fill: true, direction: 'row' },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { basis: 'medium', border: 'all' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             {
               flex: false,
               border: 'bottom',
@@ -213,7 +213,7 @@ var RichAccordion = function (_Component3) {
               pad: { horizontal: 'small' }
             },
             _react2.default.createElement(
-              _.Heading,
+              _grommet.Heading,
               { level: 3 },
               _react2.default.createElement(
                 'strong',
@@ -223,17 +223,17 @@ var RichAccordion = function (_Component3) {
             )
           ),
           _react2.default.createElement(
-            _.ThemeContext.Extend,
+            _grommet.ThemeContext.Extend,
             { value: richAccordionTheme },
             _react2.default.createElement(
-              _.Accordion,
+              _grommet.Accordion,
               {
                 multiple: true,
                 onActive: function onActive(activeIndexes) {
                   if (activeIndexes.includes(1)) {
                     // give sometime to emulate an async call
                     setTimeout(function () {
-                      _this5.setState({ highlightLoaded: true }, _this5.reset);
+                      _this5.setState({ highlightLoaded: true });
                     }, 1000);
                   }
                 }
@@ -242,16 +242,16 @@ var RichAccordion = function (_Component3) {
                 RichPanel,
                 { icon: _react2.default.createElement(_grommetIcons.CircleInformation, null), label: 'Channel Details' },
                 _react2.default.createElement(
-                  _.Box,
+                  _grommet.Box,
                   {
                     pad: { bottom: 'medium', horizontal: 'small', top: 'small' },
                     gap: 'medium'
                   },
                   _react2.default.createElement(
-                    _.Box,
+                    _grommet.Box,
                     { gap: 'xsmall' },
                     _react2.default.createElement(
-                      _.Text,
+                      _grommet.Text,
                       { color: 'dark-5' },
                       _react2.default.createElement(
                         'strong',
@@ -260,16 +260,16 @@ var RichAccordion = function (_Component3) {
                       )
                     ),
                     _react2.default.createElement(
-                      _.Text,
+                      _grommet.Text,
                       null,
                       'Used for general announcements like new releases, trainings...'
                     )
                   ),
                   _react2.default.createElement(
-                    _.Box,
+                    _grommet.Box,
                     { gap: 'xsmall' },
                     _react2.default.createElement(
-                      _.Text,
+                      _grommet.Text,
                       { color: 'dark-5' },
                       _react2.default.createElement(
                         'strong',
@@ -278,7 +278,7 @@ var RichAccordion = function (_Component3) {
                       )
                     ),
                     _react2.default.createElement(
-                      _.Text,
+                      _grommet.Text,
                       null,
                       'Created by Bryan Jacquot on January 19, 2016'
                     )
@@ -292,7 +292,7 @@ var RichAccordion = function (_Component3) {
                   label: 'Highlights'
                 },
                 highlightLoaded ? _react2.default.createElement(
-                  _.Box,
+                  _grommet.Box,
                   {
                     pad: { bottom: 'medium', horizontal: 'small', top: 'small' },
                     gap: 'medium',
@@ -300,7 +300,7 @@ var RichAccordion = function (_Component3) {
                     style: { maxHeight: '400px' }
                   },
                   _react2.default.createElement(
-                    _.Text,
+                    _grommet.Text,
                     { color: 'dark-5' },
                     'Below is the top message in ',
                     _react2.default.createElement(
@@ -311,27 +311,27 @@ var RichAccordion = function (_Component3) {
                     '.'
                   ),
                   _react2.default.createElement(
-                    _.Text,
+                    _grommet.Text,
                     null,
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
                   ),
                   _react2.default.createElement(
-                    _.Text,
+                    _grommet.Text,
                     null,
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
                   ),
                   _react2.default.createElement(
-                    _.Text,
+                    _grommet.Text,
                     null,
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
                   ),
                   _react2.default.createElement(
-                    _.Text,
+                    _grommet.Text,
                     null,
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
                   ),
                   _react2.default.createElement(
-                    _.Text,
+                    _grommet.Text,
                     null,
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
                   )
@@ -341,7 +341,7 @@ var RichAccordion = function (_Component3) {
                 RichPanel,
                 { icon: _react2.default.createElement(_grommetIcons.User, { color: 'accent-2' }), label: '2,000 members' },
                 _react2.default.createElement(
-                  _.Box,
+                  _grommet.Box,
                   {
                     pad: { bottom: 'medium', horizontal: 'small', top: 'small' },
                     gap: 'medium'
@@ -361,7 +361,7 @@ var RichAccordion = function (_Component3) {
 
 var renderPanelHeader = function renderPanelHeader(title, active) {
   return _react2.default.createElement(
-    _.Box,
+    _grommet.Box,
     {
       direction: 'row',
       align: 'center',
@@ -372,13 +372,13 @@ var renderPanelHeader = function renderPanelHeader(title, active) {
       'strong',
       null,
       _react2.default.createElement(
-        _.Text,
+        _grommet.Text,
         null,
         title
       )
     ),
     _react2.default.createElement(
-      _.Text,
+      _grommet.Text,
       { color: 'brand' },
       active ? '-' : '+'
     )
@@ -408,10 +408,10 @@ var CustomHeaderAccordion = function (_Component4) {
     var activeIndex = this.state.activeIndex;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Accordion,
+        _grommet.Accordion,
         {
           activeIndex: activeIndex,
           onActive: function onActive(newActiveIndex) {
@@ -419,46 +419,46 @@ var CustomHeaderAccordion = function (_Component4) {
           }
         },
         _react2.default.createElement(
-          _.AccordionPanel,
+          _grommet.AccordionPanel,
           {
             header: renderPanelHeader('Panel 1', activeIndex.includes(0))
           },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { pad: 'medium', background: 'light-2', style: { height: '800px' } },
             _react2.default.createElement(
-              _.Text,
+              _grommet.Text,
               null,
               'Panel 1 contents'
             ),
-            _react2.default.createElement(_.TextInput, null)
+            _react2.default.createElement(_grommet.TextInput, null)
           )
         ),
         _react2.default.createElement(
-          _.AccordionPanel,
+          _grommet.AccordionPanel,
           {
             header: renderPanelHeader('Panel 2', activeIndex.includes(1))
           },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { pad: 'medium', background: 'light-2', style: { height: '50px' } },
             _react2.default.createElement(
-              _.Text,
+              _grommet.Text,
               null,
               'Panel 2 contents'
             )
           )
         ),
         _react2.default.createElement(
-          _.AccordionPanel,
+          _grommet.AccordionPanel,
           {
             header: renderPanelHeader('Panel 3', activeIndex.includes(2))
           },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { pad: 'medium', background: 'light-2', style: { height: '300px' } },
             _react2.default.createElement(
-              _.Text,
+              _grommet.Text,
               null,
               'Panel 3 contents'
             )

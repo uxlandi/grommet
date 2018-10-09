@@ -6,9 +6,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29,10 +29,10 @@ var SimpleRadioButton = function (_Component) {
 
   SimpleRadioButton.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.RadioButton, { label: 'Choice 1', name: 'radio' }),
-      _react2.default.createElement(_.RadioButton, { label: 'Choice 2', name: 'radio' })
+      _react2.default.createElement(_grommet.RadioButton, { label: 'Choice 1', name: 'radio' }),
+      _react2.default.createElement(_grommet.RadioButton, { label: 'Choice 2', name: 'radio' })
     );
   };
 

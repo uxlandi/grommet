@@ -11,8 +11,8 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Grommet, Box, Diagram, Stack } from '../';
-import { grommet } from '../../themes';
+import { Grommet, Box, Diagram, Stack } from 'grommet';
+import { grommet } from 'grommet/themes';
 
 var Node = function Node(_ref) {
   var id = _ref.id,

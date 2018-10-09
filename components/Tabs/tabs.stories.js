@@ -8,9 +8,9 @@ var _react3 = require('@storybook/react');
 
 var _grommetIcons = require('grommet-icons');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,34 +22,34 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var UncontrolledTabs = function UncontrolledTabs() {
   return _react2.default.createElement(
-    _.Grommet,
+    _grommet.Grommet,
     { theme: _themes.grommet },
     _react2.default.createElement(
-      _.Tabs,
+      _grommet.Tabs,
       null,
       _react2.default.createElement(
-        _.Tab,
+        _grommet.Tab,
         { title: 'Tab 1' },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
           _react2.default.createElement(_grommetIcons.Attraction, { size: 'xlarge' })
         )
       ),
       _react2.default.createElement(
-        _.Tab,
+        _grommet.Tab,
         { title: 'Tab 2' },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
           _react2.default.createElement(_grommetIcons.TreeOption, { size: 'xlarge' })
         )
       ),
       _react2.default.createElement(
-        _.Tab,
+        _grommet.Tab,
         { title: 'Tab 3' },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
           _react2.default.createElement(_grommetIcons.Car, { size: 'xlarge' })
         )
@@ -79,34 +79,34 @@ var ControlledTabs = function (_Component) {
     var index = this.state.index;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Tabs,
+        _grommet.Tabs,
         { activeIndex: index, onActive: this.onActive },
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 1' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
             _react2.default.createElement(_grommetIcons.Attraction, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 2' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
             _react2.default.createElement(_grommetIcons.TreeOption, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 3' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
             _react2.default.createElement(_grommetIcons.Car, { size: 'xlarge' })
           )
@@ -139,187 +139,187 @@ var ResponsiveTabs = function (_Component2) {
     var index = this.state.index;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Tabs,
+        _grommet.Tabs,
         { activeIndex: index, onActive: this.onActive },
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 1' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
             _react2.default.createElement(_grommetIcons.Attraction, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 2' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
             _react2.default.createElement(_grommetIcons.TreeOption, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 3' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
             _react2.default.createElement(_grommetIcons.Car, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 4' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
             _react2.default.createElement(_grommetIcons.Attraction, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 5' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
             _react2.default.createElement(_grommetIcons.TreeOption, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 6' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
             _react2.default.createElement(_grommetIcons.Car, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 7' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
             _react2.default.createElement(_grommetIcons.Attraction, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 8' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
             _react2.default.createElement(_grommetIcons.TreeOption, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 9' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
             _react2.default.createElement(_grommetIcons.Car, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 10' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
             _react2.default.createElement(_grommetIcons.Attraction, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 11' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
             _react2.default.createElement(_grommetIcons.Attraction, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 12' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
             _react2.default.createElement(_grommetIcons.TreeOption, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 13' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
             _react2.default.createElement(_grommetIcons.Car, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 14' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
             _react2.default.createElement(_grommetIcons.Attraction, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 15' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
             _react2.default.createElement(_grommetIcons.TreeOption, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 16' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
             _react2.default.createElement(_grommetIcons.Car, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 17' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
             _react2.default.createElement(_grommetIcons.Attraction, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 18' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-2' },
             _react2.default.createElement(_grommetIcons.TreeOption, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 19' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-3' },
             _react2.default.createElement(_grommetIcons.Car, { size: 'xlarge' })
           )
         ),
         _react2.default.createElement(
-          _.Tab,
+          _grommet.Tab,
           { title: 'Tab 20' },
           _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { margin: 'small', pad: 'large', align: 'center', background: 'accent-1' },
             _react2.default.createElement(_grommetIcons.Attraction, { size: 'xlarge' })
           )
@@ -335,11 +335,11 @@ var RichTabTitle = function RichTabTitle(_ref) {
   var icon = _ref.icon,
       label = _ref.label;
   return _react2.default.createElement(
-    _.Box,
+    _grommet.Box,
     { direction: 'row', align: 'center', gap: 'xsmall', margin: 'xsmall' },
     icon,
     _react2.default.createElement(
-      _.Text,
+      _grommet.Text,
       { size: 'small' },
       _react2.default.createElement(
         'strong',
@@ -352,27 +352,27 @@ var RichTabTitle = function RichTabTitle(_ref) {
 
 var RichTabs = function RichTabs() {
   return _react2.default.createElement(
-    _.Grommet,
+    _grommet.Grommet,
     { theme: _themes.grommet },
     _react2.default.createElement(
-      _.Tabs,
+      _grommet.Tabs,
       null,
       _react2.default.createElement(
-        _.Tab,
+        _grommet.Tab,
         { title: _react2.default.createElement(RichTabTitle, { icon: _react2.default.createElement(_grommetIcons.CircleInformation, { color: 'accent-1' }), label: 'Personal Data' }) },
         _react2.default.createElement(
-          _.FormField,
+          _grommet.FormField,
           { label: 'Name' },
-          _react2.default.createElement(_.TextInput, { placeholder: 'Enter your name...' })
+          _react2.default.createElement(_grommet.TextInput, { placeholder: 'Enter your name...' })
         )
       ),
       _react2.default.createElement(
-        _.Tab,
+        _grommet.Tab,
         { title: _react2.default.createElement(RichTabTitle, { icon: _react2.default.createElement(_grommetIcons.Currency, { color: 'neutral-5' }), label: 'Payment' }) },
         _react2.default.createElement(
-          _.FormField,
+          _grommet.FormField,
           { label: 'Card Number' },
-          _react2.default.createElement(_.TextInput, { placeholder: 'Enter your card number...' })
+          _react2.default.createElement(_grommet.TextInput, { placeholder: 'Enter your card number...' })
         )
       )
     )

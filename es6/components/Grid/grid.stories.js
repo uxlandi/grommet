@@ -7,8 +7,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Grommet, Box, Button, Grid, Text } from '../';
-import { grommet } from '../../themes';
+import { Grommet, Box, Button, Grid, Text } from 'grommet';
+import { grommet } from 'grommet/themes';
 
 var AppGrid = function (_Component) {
   _inherits(AppGrid, _Component);

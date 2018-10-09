@@ -13,8 +13,8 @@ import { Currency } from 'grommet-icons/es6/icons/Currency';
 import { TreeOption } from 'grommet-icons/es6/icons/TreeOption';
 
 
-import { Box, Grommet, FormField, Tab, Tabs, Text, TextInput } from '../';
-import { grommet } from '../../themes';
+import { Box, Grommet, FormField, Tab, Tabs, Text, TextInput } from 'grommet';
+import { grommet } from 'grommet/themes';
 
 var UncontrolledTabs = function UncontrolledTabs() {
   return React.createElement(

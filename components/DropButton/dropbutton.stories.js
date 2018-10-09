@@ -8,9 +8,9 @@ var _react3 = require('@storybook/react');
 
 var _grommetIcons = require('grommet-icons');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23,20 +23,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var DropContent = function DropContent(_ref) {
   var onClose = _ref.onClose;
   return _react2.default.createElement(
-    _.Box,
+    _grommet.Box,
     { pad: 'small' },
     _react2.default.createElement(
-      _.Box,
+      _grommet.Box,
       { direction: 'row', justify: 'between', align: 'center' },
       _react2.default.createElement(
-        _.Heading,
+        _grommet.Heading,
         { level: 3, margin: 'small' },
         'Heading'
       ),
-      _react2.default.createElement(_.Button, { icon: _react2.default.createElement(_grommetIcons.Close, null), onClick: onClose })
+      _react2.default.createElement(_grommet.Button, { icon: _react2.default.createElement(_grommetIcons.Close, null), onClick: onClose })
     ),
     _react2.default.createElement(
-      _.Text,
+      _grommet.Text,
       null,
       'Content'
     )
@@ -69,9 +69,9 @@ var SimpleDropButton = function (_Component) {
     var open = this.state.open;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
-      _react2.default.createElement(_.DropButton, {
+      _react2.default.createElement(_grommet.DropButton, {
         label: 'Open',
         open: open,
         onClose: function onClose() {
@@ -115,10 +115,10 @@ var CalendarDropButton = function (_Component2) {
         open = _state.open;
 
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.DropButton,
+        _grommet.DropButton,
         {
           open: open,
           onClose: function onClose() {
@@ -127,13 +127,13 @@ var CalendarDropButton = function (_Component2) {
           onOpen: function onOpen() {
             return _this4.setState({ open: true });
           },
-          dropContent: _react2.default.createElement(_.Calendar, { date: date, onSelect: this.onSelect })
+          dropContent: _react2.default.createElement(_grommet.Calendar, { date: date, onSelect: this.onSelect })
         },
         _react2.default.createElement(
-          _.Box,
+          _grommet.Box,
           { direction: 'row', gap: 'medium', align: 'center', pad: 'small' },
           _react2.default.createElement(
-            _.Text,
+            _grommet.Text,
             null,
             date ? new Date(date).toLocaleDateString() : 'Select date'
           ),

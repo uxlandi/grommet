@@ -6,9 +6,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _react3 = require('@storybook/react');
 
-var _ = require('../');
+var _grommet = require('grommet');
 
-var _themes = require('../../themes');
+var _themes = require('grommet/themes');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29,20 +29,20 @@ var SimpleDistribution = function (_Component) {
 
   SimpleDistribution.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _grommet.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Distribution,
+        _grommet.Distribution,
         {
           basis: 'medium',
           values: [{ value: 50, color: 'light-3' }, { value: 30, color: 'neutral-1' }, { value: 20, color: 'brand' }, { value: 10, color: 'light-3' }, { value: 5, color: 'neutral-1' }]
         },
         function (value) {
           return _react2.default.createElement(
-            _.Box,
+            _grommet.Box,
             { pad: 'xsmall', background: value.color, fill: true },
             _react2.default.createElement(
-              _.Text,
+              _grommet.Text,
               { size: 'large' },
               value.value
             )
