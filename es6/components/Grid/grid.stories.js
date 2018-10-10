@@ -107,6 +107,27 @@ var AppGrid = function (_Component) {
   return AppGrid;
 }(Component);
 
+var Percentages = function Percentages() {
+  return React.createElement(
+    Grommet,
+    { theme: grommet, full: true },
+    React.createElement(
+      Grid,
+      {
+        fill: true,
+        areas: [{ name: 'nav', start: [0, 0], end: [0, 0] }, { name: 'main', start: [1, 0], end: [1, 0] }],
+        columns: ['small', 'flex'],
+        rows: ['flex'],
+        gap: 'small'
+      },
+      React.createElement(Box, { gridArea: 'nav', background: 'brand' }),
+      React.createElement(Box, { gridArea: 'main', background: 'brand' })
+    )
+  );
+};
+
 storiesOf('Grid', module).add('App', function () {
   return React.createElement(AppGrid, null);
+}).add('Percentages', function () {
+  return React.createElement(Percentages, null);
 });

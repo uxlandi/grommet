@@ -90,8 +90,12 @@ var SIZE_MAP = {
   '2/3': '66.66%'
 };
 
-var sizeFor = function sizeFor(size, props) {
-  return SIZE_MAP[size] || props.theme.global.size[size] || size;
+var sizeFor = function sizeFor(size, props, isRow) {
+  var mapped = SIZE_MAP[size];
+  if (isRow && mapped && (!props.fillContainer || props.fillContainer === 'horizontal')) {
+    console.warn('Grid needs `fill` when using fractional row sizes');
+  }
+  return mapped || props.theme.global.size[size] || size;
 };
 
 var columnsStyle = function columnsStyle(props) {
@@ -113,9 +117,9 @@ var rowsStyle = function rowsStyle(props) {
   if (Array.isArray(props.rowsProp)) {
     return css(['grid-template-rows:', ';'], props.rowsProp.map(function (s) {
       if (Array.isArray(s)) {
-        return 'minmax(' + sizeFor(s[0], props) + ', ' + sizeFor(s[1], props) + ')';
+        return 'minmax(' + sizeFor(s[0], props, true) + ', ' + sizeFor(s[1], props, true) + ')';
       }
-      return sizeFor(s, props);
+      return sizeFor(s, props, true);
     }).join(' '));
   }
   return css(['grid-auto-rows:', ';'], props.theme.global.size[props.rowsProp]);
@@ -123,6 +127,9 @@ var rowsStyle = function rowsStyle(props) {
 
 var areasStyle = function areasStyle(props) {
   // translate areas objects into grid-template-areas syntax
+  if (!Array.isArray(props.rowsProp) || !Array.isArray(props.columns)) {
+    console.warn('Grid `areas` requires `rows` and `columns` to be arrays.');
+  }
   var cells = props.rowsProp.map(function () {
     return props.columns.map(function () {
       return '.';
