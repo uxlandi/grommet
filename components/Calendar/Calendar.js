@@ -37,6 +37,12 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var headingPadMap = {
+  'small': 'xsmall',
+  'medium': 'small',
+  'large': 'medium'
+};
+
 var buildStartEnd = function buildStartEnd(reference, firstDayOfWeek) {
   var start = new Date(reference);
   start.setDate(1); // first of month
@@ -321,7 +327,7 @@ var Calendar = function (_Component) {
             { direction: 'row', justify: 'between', align: 'center' },
             _react2.default.createElement(
               _Box.Box,
-              { pad: { horizontal: 'small' } },
+              { flex: true, pad: { horizontal: headingPadMap[size] || 'small' } },
               _react2.default.createElement(
                 _Heading.Heading,
                 { level: size === 'small' ? 4 : 3, size: size, margin: 'none' },

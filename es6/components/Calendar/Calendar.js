@@ -21,6 +21,12 @@ import { withTheme } from '../hocs';
 import { StyledCalendar, StyledDay, StyledDayContainer, StyledWeek, StyledWeeks, StyledWeeksContainer } from './StyledCalendar';
 import { addDays, addMonths, betweenDates, daysApart, endOfMonth, sameDay, startOfMonth, subtractDays, subtractMonths, withinDates } from './utils';
 
+var headingPadMap = {
+  'small': 'xsmall',
+  'medium': 'small',
+  'large': 'medium'
+};
+
 var buildStartEnd = function buildStartEnd(reference, firstDayOfWeek) {
   var start = new Date(reference);
   start.setDate(1); // first of month
@@ -305,7 +311,7 @@ var Calendar = function (_Component) {
             { direction: 'row', justify: 'between', align: 'center' },
             React.createElement(
               Box,
-              { pad: { horizontal: 'small' } },
+              { flex: true, pad: { horizontal: headingPadMap[size] || 'small' } },
               React.createElement(
                 Heading,
                 { level: size === 'small' ? 4 : 3, size: size, margin: 'none' },
