@@ -32,7 +32,7 @@ var SimpleDrop = function (_Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.targetRef = _react2.default.createRef(), _temp), _possibleConstructorReturn(_this, _ret);
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.targetRef = (0, _react.createRef)(), _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   SimpleDrop.prototype.componentDidMount = function componentDidMount() {
@@ -102,7 +102,7 @@ var Set = function (_Component2) {
       args[_key2] = arguments[_key2];
     }
 
-    return _ret2 = (_temp2 = (_this2 = _possibleConstructorReturn(this, _Component2.call.apply(_Component2, [this].concat(args))), _this2), _this2.targetRef = _react2.default.createRef(), _temp2), _possibleConstructorReturn(_this2, _ret2);
+    return _ret2 = (_temp2 = (_this2 = _possibleConstructorReturn(this, _Component2.call.apply(_Component2, [this].concat(args))), _this2), _this2.targetRef = (0, _react.createRef)(), _temp2), _possibleConstructorReturn(_this2, _ret2);
   }
 
   Set.prototype.componentDidMount = function componentDidMount() {
@@ -165,7 +165,7 @@ var AllDrops = function (_Component3) {
       args[_key3] = arguments[_key3];
     }
 
-    return _ret3 = (_temp3 = (_this4 = _possibleConstructorReturn(this, _Component3.call.apply(_Component3, [this].concat(args))), _this4), _this4.targetRef = _react2.default.createRef(), _temp3), _possibleConstructorReturn(_this4, _ret3);
+    return _ret3 = (_temp3 = (_this4 = _possibleConstructorReturn(this, _Component3.call.apply(_Component3, [this].concat(args))), _this4), _this4.targetRef = (0, _react.createRef)(), _temp3), _possibleConstructorReturn(_this4, _ret3);
   }
 
   AllDrops.prototype.componentDidMount = function componentDidMount() {
@@ -234,8 +234,83 @@ var AllDrops = function (_Component3) {
   return AllDrops;
 }(_react.Component);
 
+var ProgressiveDrop = function (_Component4) {
+  _inherits(ProgressiveDrop, _Component4);
+
+  function ProgressiveDrop() {
+    var _temp4, _this5, _ret4;
+
+    _classCallCheck(this, ProgressiveDrop);
+
+    for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+      args[_key4] = arguments[_key4];
+    }
+
+    return _ret4 = (_temp4 = (_this5 = _possibleConstructorReturn(this, _Component4.call.apply(_Component4, [this].concat(args))), _this5), _this5.boxRef = (0, _react.createRef)(), _this5.state = {
+      openDrop: false,
+      openInnerDrop: false
+    }, _this5.onCloseDrop = function () {
+      return _this5.setState({ openDrop: false, openInnerDrop: false });
+    }, _this5.onOpenDrop = function () {
+      return _this5.setState({ openDrop: true, openInnerDrop: false });
+    }, _temp4), _possibleConstructorReturn(_this5, _ret4);
+  }
+
+  ProgressiveDrop.prototype.render = function render() {
+    var _this6 = this;
+
+    var _state = this.state,
+        openDrop = _state.openDrop,
+        openInnerDrop = _state.openInnerDrop;
+
+    return _react2.default.createElement(
+      _grommet.Grommet,
+      { theme: _themes.grommet },
+      _react2.default.createElement(
+        _grommet.Box,
+        { align: 'start' },
+        _react2.default.createElement(_grommet.Button, {
+          ref: this.boxRef,
+          primary: true,
+          label: 'Click me',
+          onClick: this.onOpenDrop
+        }),
+        openDrop && _react2.default.createElement(
+          _grommet.Drop,
+          {
+            target: this.boxRef.current,
+            align: { top: 'bottom' },
+            onClickOutside: this.onCloseDrop,
+            onEsc: this.onCloseDrop
+          },
+          !openInnerDrop && _react2.default.createElement(
+            _grommet.Box,
+            { pad: 'large' },
+            _react2.default.createElement(_grommet.Button, {
+              primary: true,
+              label: 'Click me again',
+              onClick: function onClick() {
+                return _this6.setState({ openInnerDrop: true });
+              }
+            })
+          ),
+          openInnerDrop && _react2.default.createElement(
+            _grommet.Box,
+            { pad: 'large' },
+            'You can click outside now'
+          )
+        )
+      )
+    );
+  };
+
+  return ProgressiveDrop;
+}(_react.Component);
+
 (0, _react3.storiesOf)('Drop', module).add('Simple', function () {
   return _react2.default.createElement(SimpleDrop, null);
 }).add('All not stretch', function () {
   return _react2.default.createElement(AllDrops, null);
+}).add('Progressive', function () {
+  return _react2.default.createElement(ProgressiveDrop, null);
 });

@@ -4,10 +4,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-import React, { Component, Fragment } from 'react';
+import React, { createRef, Component, Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { Box, Drop, Grommet, Text } from 'grommet';
+import { Box, Button, Drop, Grommet, Text } from 'grommet';
 import { grommet } from 'grommet/themes';
 import { ThemeContext } from 'grommet/contexts';
 
@@ -23,7 +23,7 @@ var SimpleDrop = function (_Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.targetRef = React.createRef(), _temp), _possibleConstructorReturn(_this, _ret);
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.targetRef = createRef(), _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   SimpleDrop.prototype.componentDidMount = function componentDidMount() {
@@ -93,7 +93,7 @@ var Set = function (_Component2) {
       args[_key2] = arguments[_key2];
     }
 
-    return _ret2 = (_temp2 = (_this2 = _possibleConstructorReturn(this, _Component2.call.apply(_Component2, [this].concat(args))), _this2), _this2.targetRef = React.createRef(), _temp2), _possibleConstructorReturn(_this2, _ret2);
+    return _ret2 = (_temp2 = (_this2 = _possibleConstructorReturn(this, _Component2.call.apply(_Component2, [this].concat(args))), _this2), _this2.targetRef = createRef(), _temp2), _possibleConstructorReturn(_this2, _ret2);
   }
 
   Set.prototype.componentDidMount = function componentDidMount() {
@@ -156,7 +156,7 @@ var AllDrops = function (_Component3) {
       args[_key3] = arguments[_key3];
     }
 
-    return _ret3 = (_temp3 = (_this4 = _possibleConstructorReturn(this, _Component3.call.apply(_Component3, [this].concat(args))), _this4), _this4.targetRef = React.createRef(), _temp3), _possibleConstructorReturn(_this4, _ret3);
+    return _ret3 = (_temp3 = (_this4 = _possibleConstructorReturn(this, _Component3.call.apply(_Component3, [this].concat(args))), _this4), _this4.targetRef = createRef(), _temp3), _possibleConstructorReturn(_this4, _ret3);
   }
 
   AllDrops.prototype.componentDidMount = function componentDidMount() {
@@ -225,8 +225,83 @@ var AllDrops = function (_Component3) {
   return AllDrops;
 }(Component);
 
+var ProgressiveDrop = function (_Component4) {
+  _inherits(ProgressiveDrop, _Component4);
+
+  function ProgressiveDrop() {
+    var _temp4, _this5, _ret4;
+
+    _classCallCheck(this, ProgressiveDrop);
+
+    for (var _len4 = arguments.length, args = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+      args[_key4] = arguments[_key4];
+    }
+
+    return _ret4 = (_temp4 = (_this5 = _possibleConstructorReturn(this, _Component4.call.apply(_Component4, [this].concat(args))), _this5), _this5.boxRef = createRef(), _this5.state = {
+      openDrop: false,
+      openInnerDrop: false
+    }, _this5.onCloseDrop = function () {
+      return _this5.setState({ openDrop: false, openInnerDrop: false });
+    }, _this5.onOpenDrop = function () {
+      return _this5.setState({ openDrop: true, openInnerDrop: false });
+    }, _temp4), _possibleConstructorReturn(_this5, _ret4);
+  }
+
+  ProgressiveDrop.prototype.render = function render() {
+    var _this6 = this;
+
+    var _state = this.state,
+        openDrop = _state.openDrop,
+        openInnerDrop = _state.openInnerDrop;
+
+    return React.createElement(
+      Grommet,
+      { theme: grommet },
+      React.createElement(
+        Box,
+        { align: 'start' },
+        React.createElement(Button, {
+          ref: this.boxRef,
+          primary: true,
+          label: 'Click me',
+          onClick: this.onOpenDrop
+        }),
+        openDrop && React.createElement(
+          Drop,
+          {
+            target: this.boxRef.current,
+            align: { top: 'bottom' },
+            onClickOutside: this.onCloseDrop,
+            onEsc: this.onCloseDrop
+          },
+          !openInnerDrop && React.createElement(
+            Box,
+            { pad: 'large' },
+            React.createElement(Button, {
+              primary: true,
+              label: 'Click me again',
+              onClick: function onClick() {
+                return _this6.setState({ openInnerDrop: true });
+              }
+            })
+          ),
+          openInnerDrop && React.createElement(
+            Box,
+            { pad: 'large' },
+            'You can click outside now'
+          )
+        )
+      )
+    );
+  };
+
+  return ProgressiveDrop;
+}(Component);
+
 storiesOf('Drop', module).add('Simple', function () {
   return React.createElement(SimpleDrop, null);
 }).add('All not stretch', function () {
   return React.createElement(AllDrops, null);
+}).add('Progressive', function () {
+  return React.createElement(ProgressiveDrop, null);
 });

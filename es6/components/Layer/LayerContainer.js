@@ -123,7 +123,7 @@ var LayerContainer = function (_Component) {
           tabIndex: '-1',
           ref: this.layerRef
         },
-        React.createElement(StyledOverlay, { onClick: onClickOutside, responsive: responsive, theme: theme }),
+        React.createElement(StyledOverlay, { onMouseDown: onClickOutside, responsive: responsive, theme: theme }),
         content
       );
     }

@@ -225,7 +225,7 @@ var DropContainer = exports.DropContainer = function (_Component) {
 
     this.addScrollListener();
     window.addEventListener('resize', this.onResize);
-    document.addEventListener('click', this.onClickDocument);
+    document.addEventListener('mousedown', this.onClickDocument);
 
     this.place();
 
@@ -241,7 +241,7 @@ var DropContainer = exports.DropContainer = function (_Component) {
   DropContainer.prototype.componentWillUnmount = function componentWillUnmount() {
     this.removeScrollListener();
     window.removeEventListener('resize', this.onResize);
-    document.removeEventListener('click', this.onClickDocument);
+    document.removeEventListener('mousedown', this.onClickDocument);
   };
 
   DropContainer.prototype.render = function render() {
