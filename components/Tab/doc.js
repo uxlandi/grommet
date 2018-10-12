@@ -1,16 +1,16 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.doc = undefined;
+exports.doc = void 0;
 
-var _reactDesc = require('react-desc');
+var _reactDesc = require("react-desc");
 
-var doc = exports.doc = function doc(Tab) {
-  var DocumentedTab = (0, _reactDesc.describe)(Tab).description('One tab within Tabs.').usage('import { Tab } from \'grommet\';\n<Tab />');
-
+var doc = function doc(Tab) {
+  var DocumentedTab = (0, _reactDesc.describe)(Tab).description('One tab within Tabs.').usage("import { Tab } from 'grommet';\n<Tab />");
   DocumentedTab.propTypes = {
     title: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.string, _reactDesc.PropTypes.node]).description('The title of the tab.')
   };
-
   return DocumentedTab;
 };
+
+exports.doc = doc;

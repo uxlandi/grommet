@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.Keyboard = void 0;
 
-var _Keyboard = require('./Keyboard');
+var _Keyboard = require("./Keyboard");
 
-Object.defineProperty(exports, 'Keyboard', {
-  enumerable: true,
-  get: function get() {
-    return _Keyboard.Keyboard;
-  }
-});
+exports.Keyboard = _Keyboard.Keyboard;

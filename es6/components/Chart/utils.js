@@ -1,17 +1,23 @@
-
 export var normalizeValues = function normalizeValues(values) {
   return (values || []).map(function (value, index) {
     if (Array.isArray(value)) {
-      return { value: value };
-    } else if (typeof value === 'number') {
-      return { value: [index, value] };
+      return {
+        value: value
+      };
     }
+
+    if (typeof value === 'number') {
+      return {
+        value: [index, value]
+      };
+    }
+
     return value;
   });
 };
-
 export var normalizeBounds = function normalizeBounds(bounds, values) {
   var result = bounds;
+
   if (!result) {
     result = [[0, 1], [0, 1]];
     (values || []).forEach(function (value) {
@@ -21,5 +27,6 @@ export var normalizeBounds = function normalizeBounds(bounds, values) {
       result[1][1] = Math.max(result[1][1], value.value[1]);
     });
   }
+
   return result;
 };

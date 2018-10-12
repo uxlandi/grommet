@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.RangeInput = void 0;
 
-var _RangeInput = require('./RangeInput');
+var _RangeInput = require("./RangeInput");
 
-Object.defineProperty(exports, 'RangeInput', {
-  enumerable: true,
-  get: function get() {
-    return _RangeInput.RangeInput;
-  }
-});
+exports.RangeInput = _RangeInput.RangeInput;

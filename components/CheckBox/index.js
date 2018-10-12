@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.CheckBox = void 0;
 
-var _CheckBox = require('./CheckBox');
+var _CheckBox = require("./CheckBox");
 
-Object.defineProperty(exports, 'CheckBox', {
-  enumerable: true,
-  get: function get() {
-    return _CheckBox.CheckBox;
-  }
-});
+exports.CheckBox = _CheckBox.CheckBox;

@@ -1,38 +1,64 @@
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import Waypoint from 'react-waypoint';
 
-var InfiniteScroll = function (_Component) {
-  _inherits(InfiniteScroll, _Component);
+var InfiniteScroll =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(InfiniteScroll, _Component);
 
   function InfiniteScroll() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, InfiniteScroll);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {}, _this.showRef = React.createRef(), _this.initialScroll = false, _this.increaseOffset = function () {
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {});
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "showRef", React.createRef());
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "initialScroll", false);
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "scrollShow", function () {
+      /* eslint-disable-next-line react/prop-types */
+      var show = _this.props.show;
+
+      if (show && !_this.initialScroll && _this.showRef.current) {
+        _this.initialScroll = true; // on initial render, scroll to any 'show'
+
+        /* eslint-disable react/no-find-dom-node */
+
+        var element = findDOMNode(_this.showRef.current);
+        element.scrollIntoView();
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "increaseOffset", function () {
+      /* eslint-disable-next-line react/prop-types */
       var _this$props = _this.props,
           items = _this$props.items,
           onMore = _this$props.onMore,
           step = _this$props.step;
       var count = _this.state.count;
 
-      _this.setState({ count: count + 1 },
-      // call onMore if we've reached the end of the items
+      _this.setState({
+        count: count + 1
+      }, // call onMore if we've reached the end of the items
       function () {
         return onMore && (count + 1) * step >= items.length && onMore();
       });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+
+    return _this;
   }
 
   InfiniteScroll.getDerivedStateFromProps = function getDerivedStateFromProps(nextProps, prevState) {
@@ -41,67 +67,70 @@ var InfiniteScroll = function (_Component) {
 
     if (!prevState.count || show && show < step * prevState.count) {
       var count = prevState.count || 1;
+
       if (show && show > step * count) {
         count = (show + step) / step;
       }
-      return { count: count };
+
+      return {
+        count: count
+      };
     }
+
     return null;
   };
 
-  InfiniteScroll.prototype.componentDidMount = function componentDidMount() {
+  var _proto = InfiniteScroll.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
     this.scrollShow();
   };
 
-  InfiniteScroll.prototype.componentDidUpdate = function componentDidUpdate() {
+  _proto.componentDidUpdate = function componentDidUpdate() {
     this.scrollShow();
   };
 
-  InfiniteScroll.prototype.scrollShow = function scrollShow() {
-    var show = this.props.show;
-
-    if (show && !this.initialScroll && this.showRef.current) {
-      this.initialScroll = true;
-      // on initial render, scroll to any 'show'
-      var element = findDOMNode(this.showRef.current);
-      element.scrollIntoView();
-    }
-  };
-
-  InfiniteScroll.prototype.render = function render() {
+  _proto.render = function render() {
     var _this2 = this;
 
-    var _props = this.props,
-        children = _props.children,
-        items = _props.items,
-        renderMarker = _props.renderMarker,
-        scrollableAncestor = _props.scrollableAncestor,
-        show = _props.show,
-        step = _props.step;
+    var _this$props2 = this.props,
+        children = _this$props2.children,
+        items = _this$props2.items,
+        renderMarker = _this$props2.renderMarker,
+        scrollableAncestor = _this$props2.scrollableAncestor,
+        show = _this$props2.show,
+        step = _this$props2.step;
     var count = this.state.count;
-
     var displayCount = step * count;
     var waypointAt = displayCount - step / 2;
-
     var marker = React.createElement(Waypoint, {
-      key: 'marker',
+      key: "marker",
       onEnter: this.increaseOffset,
-      bottomOffsetX: '-96px',
+      bottomOffsetX: "-96px",
       scrollableAncestor: scrollableAncestor
     });
+
     if (renderMarker) {
       // need to give it a key
-      marker = React.cloneElement(renderMarker(marker), { key: 'marker' });
+      marker = React.cloneElement(renderMarker(marker), {
+        key: 'marker'
+      });
     }
 
     return items.slice(0, displayCount).map(function (item, index) {
       var child = children(item, index);
+
       if (show && show === index) {
-        child = React.cloneElement(child, { key: 'show', ref: _this2.showRef });
+        child = React.cloneElement(child, {
+          key: 'show',
+          ref: _this2.showRef
+        });
       }
+
       if (index === waypointAt) {
         return [child, marker];
       }
+
       return child;
     });
   };
@@ -109,16 +138,16 @@ var InfiniteScroll = function (_Component) {
   return InfiniteScroll;
 }(Component);
 
-InfiniteScroll.defaultProps = {
+_defineProperty(InfiniteScroll, "defaultProps", {
   items: [],
   step: 50
-};
+});
 
+var InfiniteScrollDoc;
 
-var InfiniteScrollDoc = void 0;
 if (process.env.NODE_ENV !== 'production') {
   InfiniteScrollDoc = require('./doc').doc(InfiniteScroll); // eslint-disable-line global-require
 }
-var InfiniteScrollWrapper = InfiniteScrollDoc || InfiniteScroll;
 
+var InfiniteScrollWrapper = InfiniteScrollDoc || InfiniteScroll;
 export { InfiniteScrollWrapper as InfiniteScroll };

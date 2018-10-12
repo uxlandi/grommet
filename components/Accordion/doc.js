@@ -1,20 +1,19 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.doc = undefined;
+exports.doc = void 0;
 
-var _reactDesc = require('react-desc');
+var _reactDesc = require("react-desc");
 
-var _utils = require('../../utils');
+var _utils = require("../../utils");
 
-var doc = exports.doc = function doc(Accordion) {
-  var DocumentedAccordion = (0, _reactDesc.describe)(Accordion).availableAt((0, _utils.getAvailableAtBadge)('Accordion')).description('An accordion containing collapsible panels.').usage('import { Accordion, AccordionPanel } from \'grommet\';\n<Accordion>\n  <AccordionPanel label=\'Panel 1\'>...</AccordionPanel>\n  <AccordionPanel label=\'Panek 2\'>...</AccordionPanel>\n</Accordion>');
-
+var doc = function doc(Accordion) {
+  var DocumentedAccordion = (0, _reactDesc.describe)(Accordion).availableAt((0, _utils.getAvailableAtBadge)('Accordion')).description('An accordion containing collapsible panels.').usage("import { Accordion, AccordionPanel } from 'grommet';\n<Accordion>\n  <AccordionPanel label='Panel 1'>...</AccordionPanel>\n  <AccordionPanel label='Panek 2'>...</AccordionPanel>\n</Accordion>");
   DocumentedAccordion.propTypes = {
-    activeIndex: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.number, _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.number)]).description('Active panel index. If specified, Accordion will be a controlled component. This means that future\npanel changes will not work unless you subscribe to onActive function and update activeIndex\naccordingly.').defaultValue(0),
+    activeIndex: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.number, _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.number)]).description("Active panel index. If specified, Accordion will be a controlled component. This means that future\npanel changes will not work unless you subscribe to onActive function and update activeIndex\naccordingly.").defaultValue(0),
     animate: _reactDesc.PropTypes.bool.description('Transition content in & out with a slide down animation.').defaultValue(true),
     children: _reactDesc.PropTypes.node.description('Array of AccordionPanels.').isRequired,
-    onActive: _reactDesc.PropTypes.func.description('Function that will be called when the active index changes.\nIt will always send an array with currently active panel indexes.'),
+    onActive: _reactDesc.PropTypes.func.description("Function that will be called when the active index changes.\nIt will always send an array with currently active panel indexes."),
     multiple: _reactDesc.PropTypes.bool.description('Allow multiple panels to be opened at once.').defaultValue(false),
     messages: _reactDesc.PropTypes.shape({
       tabContents: _reactDesc.PropTypes.string
@@ -22,6 +21,7 @@ var doc = exports.doc = function doc(Accordion) {
       tabContents: 'Tab Contents'
     })
   };
-
   return DocumentedAccordion;
 };
+
+exports.doc = doc;

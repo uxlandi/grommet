@@ -1,62 +1,33 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.Table = undefined;
+exports.Table = void 0;
 
-var _react = require('react');
+var _react = _interopRequireDefault(require("react"));
 
-var _react2 = _interopRequireDefault(_react);
+var _recompose = require("recompose");
 
-var _recompose = require('recompose');
+var _hocs = require("../hocs");
 
-var _hocs = require('../hocs');
-
-var _StyledTable = require('./StyledTable');
+var _StyledTable = require("./StyledTable");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var Table = function Table(_ref) {
+  var caption = _ref.caption,
+      children = _ref.children,
+      rest = _objectWithoutPropertiesLoose(_ref, ["caption", "children"]);
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+  return _react.default.createElement(_StyledTable.StyledTable, rest, caption ? _react.default.createElement(_StyledTable.StyledTableDataCaption, null, caption) : null, children);
+};
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var TableDoc;
 
-var Table = function (_Component) {
-  _inherits(Table, _Component);
-
-  function Table() {
-    _classCallCheck(this, Table);
-
-    return _possibleConstructorReturn(this, _Component.apply(this, arguments));
-  }
-
-  Table.prototype.render = function render() {
-    var _props = this.props,
-        caption = _props.caption,
-        children = _props.children,
-        rest = _objectWithoutProperties(_props, ['caption', 'children']);
-
-    return _react2.default.createElement(
-      _StyledTable.StyledTable,
-      rest,
-      caption ? _react2.default.createElement(
-        _StyledTable.StyledTableDataCaption,
-        null,
-        caption
-      ) : null,
-      children
-    );
-  };
-
-  return Table;
-}(_react.Component);
-
-var TableDoc = void 0;
 if (process.env.NODE_ENV !== 'production') {
   TableDoc = require('./doc').doc(Table); // eslint-disable-line global-require
 }
-var TableWrapper = (0, _recompose.compose)(_hocs.withTheme)(TableDoc || Table);
 
+var TableWrapper = (0, _recompose.compose)(_hocs.withTheme)(TableDoc || Table);
 exports.Table = TableWrapper;

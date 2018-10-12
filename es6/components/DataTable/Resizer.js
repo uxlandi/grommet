@@ -1,79 +1,102 @@
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import styled from 'styled-components';
-
 import { Box } from '../Box';
-
 var ResizerBox = styled(Box).withConfig({
-  displayName: 'Resizer__ResizerBox',
-  componentId: 'sc-8l808w-0'
-})(['cursor:col-resize;']);
-
-export var Resizer = function (_Component) {
-  _inherits(Resizer, _Component);
+  displayName: "Resizer__ResizerBox",
+  componentId: "sc-8l808w-0"
+})(["cursor:col-resize;"]);
+export var Resizer =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(Resizer, _Component);
 
   function Resizer() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, Resizer);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {}, _this.ref = React.createRef(), _this.onMouseDown = function (event) {
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {});
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "ref", React.createRef());
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onMouseDown", function (event) {
       if (_this.ref.current) {
+        /* eslint-disable-next-line react/no-find-dom-node */
         var element = findDOMNode(_this.ref.current);
         var rect = element.getBoundingClientRect();
-        _this.setState({ start: event.clientX, width: rect.width }, function () {
+
+        _this.setState({
+          start: event.clientX,
+          width: rect.width
+        }, function () {
           document.addEventListener('mousemove', _this.onMouseMove);
           document.addEventListener('mouseup', _this.onMouseUp);
         });
       }
-    }, _this.onMouseMove = function (event) {
-      var property = _this.props.property;
-      var width = _this.state.width;
-      // We determined 12 empirically as being wide enough to hit but
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onMouseMove", function (event) {
+      var _this$props = _this.props,
+          onResize = _this$props.onResize,
+          property = _this$props.property;
+      var _this$state = _this.state,
+          start = _this$state.start,
+          width = _this$state.width; // We determined 12 empirically as being wide enough to hit but
       // not too wide to cause false hits.
 
-      var nextWidth = Math.max(12, width + (event.clientX - _this.state.start));
-      _this.props.onResize(property)(nextWidth);
-    }, _this.onMouseUp = function () {
+      var nextWidth = Math.max(12, width + (event.clientX - start));
+      onResize(property)(nextWidth);
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onMouseUp", function () {
       document.removeEventListener('mouseup', _this.onMouseUp);
       document.removeEventListener('mousemove', _this.onMouseMove);
-      _this.setState({ start: undefined, width: undefined });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+
+      _this.setState({
+        start: undefined,
+        width: undefined
+      });
+    });
+
+    return _this;
   }
 
-  Resizer.prototype.render = function render() {
-    var _props = this.props,
-        children = _props.children,
-        onResize = _props.onResize,
-        theme = _props.theme;
+  var _proto = Resizer.prototype;
+
+  _proto.render = function render() {
+    var _this$props2 = this.props,
+        children = _this$props2.children,
+        onResize = _this$props2.onResize,
+        theme = _this$props2.theme;
     var start = this.state.start;
 
     if (onResize) {
-      return React.createElement(
-        Box,
-        { ref: this.ref, direction: 'row', fill: true },
-        children,
-        React.createElement(ResizerBox, _extends({
-          flex: false
-        }, theme.dataTable.resize, {
-          onMouseDown: this.onMouseDown,
-          onMouseMove: start ? this.onMouseMove : undefined,
-          onMouseUp: start ? this.onMouseUp : undefined
-        }))
-      );
+      return React.createElement(Box, {
+        ref: this.ref,
+        direction: "row",
+        fill: true
+      }, children, React.createElement(ResizerBox, _extends({
+        flex: false
+      }, theme.dataTable.resize, {
+        onMouseDown: this.onMouseDown,
+        onMouseMove: start ? this.onMouseMove : undefined,
+        onMouseUp: start ? this.onMouseUp : undefined
+      })));
     }
+
     return children;
   };
 

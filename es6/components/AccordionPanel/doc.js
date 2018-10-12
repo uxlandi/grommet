@@ -1,5 +1,4 @@
 import { describe, PropTypes } from 'react-desc';
-
 export function doc(Panel) {
   var DocumentedAccordionPanel = describe(Panel).description('An Accordion panel.');
   DocumentedAccordionPanel.propTypes = {

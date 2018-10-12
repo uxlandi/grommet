@@ -1,22 +1,18 @@
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { compose } from 'recompose';
-
 import { colorForName, parseMetricToNum } from '../../utils';
 import { withTheme } from '../hocs';
-
 import { StyledChart } from './StyledChart';
 import { normalizeValues, normalizeBounds } from './utils';
 
@@ -25,15 +21,16 @@ var renderBars = function renderBars(values, bounds, scale, height) {
     var label = valueArg.label,
         onHover = valueArg.onHover,
         value = valueArg.value,
-        rest = _objectWithoutProperties(valueArg, ['label', 'onHover', 'value']);
+        rest = _objectWithoutPropertiesLoose(valueArg, ["label", "onHover", "value"]);
 
-    var key = 'p-' + index;
+    var key = "p-" + index;
     var bottom = value.length === 2 ? bounds[1][0] : value[1];
     var top = value.length === 2 ? value[1] : value[2];
-    if (top !== 0) {
-      var d = 'M ' + (value[0] - bounds[0][0]) * scale[0] + ',' + ('' + (height - (bottom - bounds[1][0]) * scale[1])) + (' L ' + (value[0] - bounds[0][0]) * scale[0] + ',') + ('' + (height - (top - bounds[1][0]) * scale[1]));
 
-      var hoverProps = void 0;
+    if (top !== 0) {
+      var d = "M " + (value[0] - bounds[0][0]) * scale[0] + "," + ("" + (height - (bottom - bounds[1][0]) * scale[1])) + (" L " + (value[0] - bounds[0][0]) * scale[0] + ",") + ("" + (height - (top - bounds[1][0]) * scale[1]));
+      var hoverProps;
+
       if (onHover) {
         hoverProps = {
           onMouseOver: function onMouseOver() {
@@ -45,17 +42,14 @@ var renderBars = function renderBars(values, bounds, scale, height) {
         };
       }
 
-      return React.createElement(
-        'g',
-        { key: key, fill: 'none' },
-        React.createElement(
-          'title',
-          null,
-          label
-        ),
-        React.createElement('path', _extends({ d: d }, hoverProps, rest))
-      );
+      return React.createElement("g", {
+        key: key,
+        fill: "none"
+      }, React.createElement("title", null, label), React.createElement("path", _extends({
+        d: d
+      }, hoverProps, rest)));
     }
+
     return undefined;
   });
 };
@@ -63,15 +57,13 @@ var renderBars = function renderBars(values, bounds, scale, height) {
 var renderLine = function renderLine(values, bounds, scale, height, _ref) {
   var onClick = _ref.onClick,
       onHover = _ref.onHover;
-
   var d = '';
   (values || []).forEach(function (_ref2, index) {
     var value = _ref2.value;
-
-    d += (index ? ' L' : 'M') + ' ' + (value[0] - bounds[0][0]) * scale[0] + ',' + ('' + (height - (value[1] - bounds[1][0]) * scale[1]));
+    d += (index ? ' L' : 'M') + " " + (value[0] - bounds[0][0]) * scale[0] + "," + ("" + (height - (value[1] - bounds[1][0]) * scale[1]));
   });
+  var hoverProps;
 
-  var hoverProps = void 0;
   if (onHover) {
     hoverProps = {
       onMouseOver: function onMouseOver() {
@@ -82,16 +74,20 @@ var renderLine = function renderLine(values, bounds, scale, height, _ref) {
       }
     };
   }
-  var clickProps = void 0;
+
+  var clickProps;
+
   if (onClick) {
-    clickProps = { onClick: onClick };
+    clickProps = {
+      onClick: onClick
+    };
   }
 
-  return React.createElement(
-    'g',
-    { fill: 'none' },
-    React.createElement('path', _extends({ d: d }, hoverProps, clickProps))
-  );
+  return React.createElement("g", {
+    fill: "none"
+  }, React.createElement("path", _extends({
+    d: d
+  }, hoverProps, clickProps)));
 };
 
 var renderArea = function renderArea(values, bounds, scale, height, _ref3) {
@@ -99,25 +95,24 @@ var renderArea = function renderArea(values, bounds, scale, height, _ref3) {
       onClick = _ref3.onClick,
       onHover = _ref3.onHover,
       theme = _ref3.theme;
-
   var d = '';
   (values || []).forEach(function (_ref4, index) {
     var value = _ref4.value;
-
     var top = value.length === 2 ? value[1] : value[2];
-    d += (!index ? 'M' : ' L') + ' ' + (value[0] - bounds[0][0]) * scale[0] + ',' + ('' + (height - (top - bounds[1][0]) * scale[1]));
+    d += (!index ? 'M' : ' L') + " " + (value[0] - bounds[0][0]) * scale[0] + "," + ("" + (height - (top - bounds[1][0]) * scale[1]));
   });
   (values || []).reverse().forEach(function (_ref5) {
     var value = _ref5.value;
-
     var bottom = value.length === 2 ? bounds[1][0] : value[1];
-    d += ' L ' + (value[0] - bounds[0][0]) * scale[0] + ',' + ('' + (height - (bottom - bounds[1][0]) * scale[1]));
+    d += " L " + (value[0] - bounds[0][0]) * scale[0] + "," + ("" + (height - (bottom - bounds[1][0]) * scale[1]));
   });
+
   if (d.length > 0) {
     d += ' Z';
   }
 
-  var hoverProps = void 0;
+  var hoverProps;
+
   if (onHover) {
     hoverProps = {
       onMouseOver: function onMouseOver() {
@@ -128,40 +123,60 @@ var renderArea = function renderArea(values, bounds, scale, height, _ref3) {
       }
     };
   }
-  var clickProps = void 0;
+
+  var clickProps;
+
   if (onClick) {
-    clickProps = { onClick: onClick };
+    clickProps = {
+      onClick: onClick
+    };
   }
 
-  return React.createElement(
-    'g',
-    { fill: colorForName(color.color || color, theme) },
-    React.createElement('path', _extends({ d: d }, hoverProps, clickProps))
-  );
+  return React.createElement("g", {
+    fill: colorForName(color.color || color, theme)
+  }, React.createElement("path", _extends({
+    d: d
+  }, hoverProps, clickProps)));
 };
 
-var Chart = function (_Component) {
-  _inherits(Chart, _Component);
+var Chart =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(Chart, _Component);
 
   function Chart() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, Chart);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = { containerWidth: 0, containerHeight: 0 }, _this.onResize = function () {
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      containerWidth: 0,
+      containerHeight: 0
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onResize", function () {
+      /* eslint-disable-next-line react/no-find-dom-node */
       var containerNode = findDOMNode(_this.containerRef);
+
       if (containerNode) {
         var parentNode = containerNode.parentNode;
+
         if (parentNode) {
           var rect = parentNode.getBoundingClientRect();
-          _this.setState({ containerWidth: rect.width, containerHeight: rect.height });
+
+          _this.setState({
+            containerWidth: rect.width,
+            containerHeight: rect.height
+          });
         }
       }
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+
+    return _this;
   }
 
   Chart.getDerivedStateFromProps = function getDerivedStateFromProps(nextProps, prevState) {
@@ -173,54 +188,58 @@ var Chart = function (_Component) {
     if (!stateValues || values !== stateValues || bounds !== stateBounds) {
       var nextValues = normalizeValues(values);
       var nextBounds = normalizeBounds(bounds, nextValues);
-      return { bounds: nextBounds, values: nextValues };
+      return {
+        bounds: nextBounds,
+        values: nextValues
+      };
     }
+
     return null;
   };
 
-  Chart.prototype.componentDidMount = function componentDidMount() {
+  var _proto = Chart.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
     window.addEventListener('resize', this.onResize);
     this.onResize();
   };
 
-  Chart.prototype.componentWillUnmount = function componentWillUnmount() {
+  _proto.componentWillUnmount = function componentWillUnmount() {
     window.removeEventListener('resize', this.onResize);
   };
 
-  Chart.prototype.render = function render() {
+  _proto.render = function render() {
     var _this2 = this;
 
-    var _props = this.props,
-        color = _props.color,
-        onClick = _props.onClick,
-        onHover = _props.onHover,
-        overflow = _props.overflow,
-        round = _props.round,
-        size = _props.size,
-        theme = _props.theme,
-        thickness = _props.thickness,
-        type = _props.type,
-        rest = _objectWithoutProperties(_props, ['color', 'onClick', 'onHover', 'overflow', 'round', 'size', 'theme', 'thickness', 'type']);
+    var _this$props = this.props,
+        color = _this$props.color,
+        onClick = _this$props.onClick,
+        onHover = _this$props.onHover,
+        overflow = _this$props.overflow,
+        round = _this$props.round,
+        size = _this$props.size,
+        theme = _this$props.theme,
+        thickness = _this$props.thickness,
+        type = _this$props.type,
+        rest = _objectWithoutPropertiesLoose(_this$props, ["color", "onClick", "onHover", "overflow", "round", "size", "theme", "thickness", "type"]);
 
     delete rest.values;
-    var _state = this.state,
-        bounds = _state.bounds,
-        containerWidth = _state.containerWidth,
-        containerHeight = _state.containerHeight,
-        values = _state.values;
-
-
+    var _this$state = this.state,
+        bounds = _this$state.bounds,
+        containerWidth = _this$state.containerWidth,
+        containerHeight = _this$state.containerHeight,
+        values = _this$state.values;
     var sizeWidth = typeof size === 'string' ? size : size.width || 'medium';
     var sizeHeight = typeof size === 'string' ? size : size.height || 'medium';
     var width = sizeWidth === 'full' ? containerWidth : parseMetricToNum(theme.global.size[sizeWidth]);
     var height = sizeHeight === 'full' ? containerHeight : parseMetricToNum(theme.global.size[sizeHeight]);
     var strokeWidth = parseMetricToNum(theme.global.edgeSize[thickness]);
     var scale = [width / (bounds[0][1] - bounds[0][0]), height / (bounds[1][1] - bounds[1][0])];
-    var viewBox = overflow ? '0 0 ' + width + ' ' + height : '-' + strokeWidth / 2 + ' -' + strokeWidth / 2 + ' ' + (width + strokeWidth) + ' ' + (height + strokeWidth);
-    var colorName = (typeof color === 'undefined' ? 'undefined' : _typeof(color)) === 'object' ? color.color : color;
+    var viewBox = overflow ? "0 0 " + width + " " + height : "-" + strokeWidth / 2 + " -" + strokeWidth / 2 + " " + (width + strokeWidth) + " " + (height + strokeWidth);
+    var colorName = typeof color === 'object' ? color.color : color;
     var opacity = color.opacity ? theme.global.opacity[color.opacity] : undefined;
+    var contents;
 
-    var contents = void 0;
     if (type === 'bar') {
       contents = renderBars(values, bounds, scale, height);
     } else if (type === 'line') {
@@ -229,47 +248,42 @@ var Chart = function (_Component) {
       contents = renderArea(values, bounds, scale, height, this.props);
     }
 
-    return React.createElement(
-      StyledChart,
-      _extends({
-        ref: function ref(_ref6) {
-          _this2.containerRef = _ref6;
-        },
-        viewBox: viewBox,
-        preserveAspectRatio: 'none',
-        width: size === 'full' ? '100%' : width,
-        height: size === 'full' ? '100%' : height
-      }, rest),
-      React.createElement(
-        'g',
-        {
-          stroke: colorForName(colorName, theme),
-          strokeWidth: strokeWidth,
-          strokeLinecap: round ? 'round' : 'butt',
-          strokeLinejoin: round ? 'round' : 'miter',
-          opacity: opacity
-        },
-        contents
-      )
-    );
+    return React.createElement(StyledChart, _extends({
+      ref: function ref(_ref6) {
+        _this2.containerRef = _ref6;
+      },
+      viewBox: viewBox,
+      preserveAspectRatio: "none",
+      width: size === 'full' ? '100%' : width,
+      height: size === 'full' ? '100%' : height
+    }, rest), React.createElement("g", {
+      stroke: colorForName(colorName, theme),
+      strokeWidth: strokeWidth,
+      strokeLinecap: round ? 'round' : 'butt',
+      strokeLinejoin: round ? 'round' : 'miter',
+      opacity: opacity
+    }, contents));
   };
 
   return Chart;
 }(Component);
 
-Chart.defaultProps = {
+_defineProperty(Chart, "defaultProps", {
   color: 'accent-1',
   overflow: false,
-  size: { width: 'medium', height: 'small' },
+  size: {
+    width: 'medium',
+    height: 'small'
+  },
   thickness: 'medium',
   type: 'bar'
-};
+});
 
+var ChartDoc;
 
-var ChartDoc = void 0;
 if (process.env.NODE_ENV !== 'production') {
   ChartDoc = require('./doc').doc(Chart); // eslint-disable-line global-require
 }
-var ChartWrapper = compose(withTheme)(ChartDoc || Chart);
 
+var ChartWrapper = compose(withTheme)(ChartDoc || Chart);
 export { ChartWrapper as Chart };

@@ -1,167 +1,198 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.AccordionPanel = undefined;
+exports.AccordionPanel = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _react = _interopRequireWildcard(require("react"));
 
-var _react = require('react');
+var _recompose = require("recompose");
 
-var _react2 = _interopRequireDefault(_react);
+var _Box = require("../Box");
 
-var _recompose = require('recompose');
+var _Button = require("../Button");
 
-var _Box = require('../Box');
+var _Collapsible = require("../Collapsible");
 
-var _Button = require('../Button');
+var _Heading = require("../Heading");
 
-var _Collapsible = require('../Collapsible');
+var _hocs = require("../hocs");
 
-var _Heading = require('../Heading');
+var _utils = require("../../utils");
 
-var _hocs = require('../hocs');
+var _AccordionContext = require("../Accordion/AccordionContext");
 
-var _utils = require('../../utils');
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-var _AccordionContext = require('../Accordion/AccordionContext');
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var AccordionPanel = function (_Component) {
-  _inherits(AccordionPanel, _Component);
+var AccordionPanel =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(AccordionPanel, _Component);
 
   function AccordionPanel() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, AccordionPanel);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
+    for (var _len = arguments.length, _args = new Array(_len), _key = 0; _key < _len; _key++) {
+      _args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
+    _this = _Component.call.apply(_Component, [this].concat(_args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       hover: undefined
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onMouseOver", function () {
+      var _this$props = _this.props,
+          onMouseOver = _this$props.onMouseOver,
+          dark = _this$props.theme.dark;
+
+      _this.setState({
+        hover: dark ? 'light-4' : 'dark-6'
+      });
+
+      if (onMouseOver) {
+        for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+          args[_key2] = arguments[_key2];
+        }
+
+        onMouseOver(args);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onMouseOut", function () {
+      var onMouseOut = _this.props.onMouseOut;
+
+      _this.setState({
+        hover: undefined
+      });
+
+      if (onMouseOut) {
+        for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+          args[_key3] = arguments[_key3];
+        }
+
+        onMouseOut(args);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onFocus", function () {
+      var _this$props2 = _this.props,
+          onFocus = _this$props2.onFocus,
+          dark = _this$props2.theme.dark;
+
+      _this.setState({
+        hover: dark ? 'light-4' : 'dark-6'
+      });
+
+      if (onFocus) {
+        for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+          args[_key4] = arguments[_key4];
+        }
+
+        onFocus(args);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onBlur", function () {
+      var onBlur = _this.props.onBlur;
+
+      _this.setState({
+        hover: undefined
+      });
+
+      if (onBlur) {
+        for (var _len5 = arguments.length, args = new Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+          args[_key5] = arguments[_key5];
+        }
+
+        onBlur(args);
+      }
+    });
+
+    return _this;
   }
 
-  AccordionPanel.prototype.render = function render() {
+  var _proto = AccordionPanel.prototype;
+
+  _proto.render = function render() {
     var _this2 = this;
 
-    var _props = this.props,
-        children = _props.children,
-        header = _props.header,
-        label = _props.label,
-        theme = _props.theme,
-        _onMouseOut = _props.onMouseOut,
-        _onMouseOver = _props.onMouseOver,
-        rest = _objectWithoutProperties(_props, ['children', 'header', 'label', 'theme', 'onMouseOut', 'onMouseOver']);
+    var _this$props3 = this.props,
+        children = _this$props3.children,
+        header = _this$props3.header,
+        label = _this$props3.label,
+        theme = _this$props3.theme,
+        onMouseOut = _this$props3.onMouseOut,
+        onMouseOver = _this$props3.onMouseOver,
+        onFocus = _this$props3.onFocus,
+        onBlur = _this$props3.onBlur,
+        rest = _objectWithoutPropertiesLoose(_this$props3, ["children", "header", "label", "theme", "onMouseOut", "onMouseOver", "onFocus", "onBlur"]);
 
     var hover = this.state.hover;
-
-
     var dark = theme.dark;
     var iconColor = (0, _utils.evalStyle)((0, _utils.normalizeColor)(theme.accordion.icons.color || theme.global.control.color, theme), theme);
-
-    return _react2.default.createElement(
-      _AccordionContext.AccordionContext,
-      null,
-      function (panelContext) {
-        var active = panelContext.active,
-            animate = panelContext.animate,
-            onPanelChange = panelContext.onPanelChange;
-
-        var AccordionIcon = active ? theme.accordion.icons.collapse : theme.accordion.icons.expand;
-
-        return _react2.default.createElement(
-          _Box.Box,
-          { flex: false },
-          _react2.default.createElement(
-            _Button.Button,
-            {
-              role: 'tab',
-              'aria-selected': active,
-              'aria-expanded': active,
-              onClick: onPanelChange,
-              onMouseOver: function onMouseOver() {
-                for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-                  args[_key2] = arguments[_key2];
-                }
-
-                _this2.setState({ hover: dark ? 'light-4' : 'dark-6' });
-                if (_onMouseOver) {
-                  _onMouseOver(args);
-                }
-              },
-              onMouseOut: function onMouseOut() {
-                for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-                  args[_key3] = arguments[_key3];
-                }
-
-                _this2.setState({ hover: undefined });
-                if (_onMouseOut) {
-                  _onMouseOut(args);
-                }
-              }
-            },
-            header || _react2.default.createElement(
-              _Box.Box,
-              _extends({
-                align: 'center',
-                direction: 'row',
-                justify: 'between'
-              }, rest),
-              typeof label === 'string' ? _react2.default.createElement(
-                _Box.Box,
-                { pad: { horizontal: 'xsmall' } },
-                _react2.default.createElement(
-                  _Heading.Heading,
-                  {
-                    level: 4,
-                    color: hover
-                  },
-                  label
-                )
-              ) : label,
-              AccordionIcon && _react2.default.createElement(
-                _Box.Box,
-                { pad: { horizontal: 'small' } },
-                _react2.default.createElement(AccordionIcon, { color: iconColor })
-              )
-            )
-          ),
-          _react2.default.createElement(
-            _Box.Box,
-            {
-              border: { side: 'bottom', color: dark ? 'border-dark' : 'border-light' }
-            },
-            animate ? _react2.default.createElement(
-              _Collapsible.Collapsible,
-              {
-                open: active
-              },
-              children
-            ) : active && children
-          )
-        );
-      }
-    );
+    return _react.default.createElement(_AccordionContext.AccordionContext, null, function (panelContext) {
+      var active = panelContext.active,
+          animate = panelContext.animate,
+          onPanelChange = panelContext.onPanelChange;
+      var AccordionIcon = active ? theme.accordion.icons.collapse : theme.accordion.icons.expand;
+      return _react.default.createElement(_Box.Box, {
+        flex: false
+      }, _react.default.createElement(_Button.Button, {
+        role: "tab",
+        "aria-selected": active,
+        "aria-expanded": active,
+        onClick: onPanelChange,
+        onMouseOver: _this2.onMouseOver,
+        onMouseOut: _this2.onMouseOut,
+        onFocus: _this2.onFocus,
+        onBlur: _this2.onBlur
+      }, header || _react.default.createElement(_Box.Box, _extends({
+        align: "center",
+        direction: "row",
+        justify: "between"
+      }, rest), typeof label === 'string' ? _react.default.createElement(_Box.Box, {
+        pad: {
+          horizontal: 'xsmall'
+        }
+      }, _react.default.createElement(_Heading.Heading, {
+        level: 4,
+        color: hover
+      }, label)) : label, AccordionIcon && _react.default.createElement(_Box.Box, {
+        pad: {
+          horizontal: 'small'
+        }
+      }, _react.default.createElement(AccordionIcon, {
+        color: iconColor
+      })))), _react.default.createElement(_Box.Box, {
+        border: {
+          side: 'bottom',
+          color: dark ? 'border-dark' : 'border-light'
+        }
+      }, animate ? _react.default.createElement(_Collapsible.Collapsible, {
+        open: active
+      }, children) : active && children));
+    });
   };
 
   return AccordionPanel;
 }(_react.Component);
 
-var AccordionPanelDoc = void 0;
+var AccordionPanelDoc;
+
 if (process.env.NODE_ENV !== 'production') {
   AccordionPanelDoc = require('./doc').doc(AccordionPanel); // eslint-disable-line global-require
 }
-var AccordionPanelWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(AccordionPanelDoc || AccordionPanel);
 
+var AccordionPanelWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(AccordionPanelDoc || AccordionPanel);
 exports.AccordionPanel = AccordionPanelWrapper;

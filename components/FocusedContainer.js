@@ -1,31 +1,29 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.FocusedContainer = undefined;
+exports.FocusedContainer = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _react = _interopRequireWildcard(require("react"));
 
-var _react = require('react');
+var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _react2 = _interopRequireDefault(_react);
+var _reactDom = require("react-dom");
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _reactDom = require('react-dom');
-
-var _utils = require('../utils');
+var _utils = require("../utils");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var isNotAncestorOf = function isNotAncestorOf(child) {
   return function (parent) {
@@ -33,28 +31,37 @@ var isNotAncestorOf = function isNotAncestorOf(child) {
   };
 };
 
-var FocusedContainer = exports.FocusedContainer = function (_Component) {
-  _inherits(FocusedContainer, _Component);
+var FocusedContainer =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(FocusedContainer, _Component);
 
   function FocusedContainer() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, FocusedContainer);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.ref = _react2.default.createRef(), _this.removeTrap = function () {
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "ref", _react.default.createRef());
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "removeTrap", function () {
       var restrictScroll = _this.props.restrictScroll;
+      /* eslint-disable-next-line react/no-find-dom-node */
 
       var child = (0, _reactDom.findDOMNode)(_this.ref.current);
       (0, _utils.getBodyChildElements)().filter(isNotAncestorOf(child)).forEach(_utils.makeNodeFocusable);
+
       if (restrictScroll) {
         document.body.style.overflow = _this.bodyOverflowStyle;
       }
-    }, _this.trapFocus = function () {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "trapFocus", function () {
       var restrictScroll = _this.props.restrictScroll;
+      /* eslint-disable-next-line react/no-find-dom-node */
 
       var child = (0, _reactDom.findDOMNode)(_this.ref.current);
       (0, _utils.getBodyChildElements)().filter(isNotAncestorOf(child)).forEach(_utils.makeNodeUnfocusable);
@@ -63,14 +70,17 @@ var FocusedContainer = exports.FocusedContainer = function (_Component) {
         _this.bodyOverflowStyle = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
       }
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+
+    return _this;
   }
 
-  FocusedContainer.prototype.componentDidMount = function componentDidMount() {
+  var _proto = FocusedContainer.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
     var _this2 = this;
 
-    var hidden = this.props.hidden;
-    // making sure trap focus always execute
+    var hidden = this.props.hidden; // making sure trap focus always execute
     // after removeTrap for the case where two drops
     // are open at the same time
 
@@ -81,31 +91,32 @@ var FocusedContainer = exports.FocusedContainer = function (_Component) {
     }, 0);
   };
 
-  FocusedContainer.prototype.componentWillUnmount = function componentWillUnmount() {
+  _proto.componentWillUnmount = function componentWillUnmount() {
     this.removeTrap();
   };
 
-  FocusedContainer.prototype.render = function render() {
-    var _props = this.props,
-        children = _props.children,
-        rest = _objectWithoutProperties(_props, ['children']);
+  _proto.render = function render() {
+    var _this$props = this.props,
+        children = _this$props.children,
+        rest = _objectWithoutPropertiesLoose(_this$props, ["children"]);
 
     delete rest.restrictScroll;
-    return _react2.default.createElement(
-      'div',
-      _extends({ ref: this.ref }, rest),
-      children
-    );
+    return _react.default.createElement("div", _extends({
+      ref: this.ref
+    }, rest), children);
   };
 
   return FocusedContainer;
 }(_react.Component);
 
-FocusedContainer.defaultProps = {
+exports.FocusedContainer = FocusedContainer;
+
+_defineProperty(FocusedContainer, "defaultProps", {
   hidden: false,
   restrictScroll: false
-};
-FocusedContainer.propTypes = {
-  hidden: _propTypes2.default.bool,
-  restrictScroll: _propTypes2.default.bool
-};
+});
+
+_defineProperty(FocusedContainer, "propTypes", {
+  hidden: _propTypes.default.bool,
+  restrictScroll: _propTypes.default.bool
+});

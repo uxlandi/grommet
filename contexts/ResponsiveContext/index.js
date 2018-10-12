@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.ResponsiveContext = void 0;
 
-var _ResponsiveContext = require('./ResponsiveContext');
+var _ResponsiveContext = require("./ResponsiveContext");
 
-Object.defineProperty(exports, 'ResponsiveContext', {
-  enumerable: true,
-  get: function get() {
-    return _ResponsiveContext.ResponsiveContext;
-  }
-});
+exports.ResponsiveContext = _ResponsiveContext.ResponsiveContext;

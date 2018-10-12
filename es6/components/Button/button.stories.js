@@ -1,81 +1,80 @@
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Add } from 'grommet-icons/es6/icons/Add';
-
-
+import { Add } from "grommet-icons/es6/icons/Add";
 import { Box, Button, Grommet, RoutedButton, Text } from 'grommet';
 import { grommet } from 'grommet/themes';
 
 var SimpleButton = function SimpleButton(props) {
-  return React.createElement(
-    Grommet,
-    { theme: grommet },
-    React.createElement(
-      Box,
-      { align: 'start' },
-      React.createElement(Button, _extends({ label: 'Submit', onClick: function onClick() {} }, props))
-    )
-  );
+  return React.createElement(Grommet, {
+    theme: grommet
+  }, React.createElement(Box, {
+    align: "start"
+  }, React.createElement(Button, _extends({
+    label: "Submit",
+    onClick: function onClick() {}
+  }, props))));
 };
 
 var IconButton = function IconButton() {
-  return React.createElement(
-    Grommet,
-    { theme: grommet },
-    React.createElement(Button, { icon: React.createElement(Add, null), hoverIndicator: true, onClick: function onClick() {} })
-  );
+  return React.createElement(Grommet, {
+    theme: grommet
+  }, React.createElement(Button, {
+    icon: React.createElement(Add, null),
+    hoverIndicator: true,
+    onClick: function onClick() {}
+  }));
 };
 
 var IconLabelButton = function IconLabelButton() {
-  return React.createElement(
-    Grommet,
-    { theme: grommet },
-    React.createElement(
-      Box,
-      { align: 'start', gap: 'small' },
-      React.createElement(Button, { icon: React.createElement(Add, null), label: 'Add', onClick: function onClick() {}, primary: true }),
-      React.createElement(Button, { icon: React.createElement(Add, null), label: 'Add', onClick: function onClick() {} })
-    )
-  );
+  return React.createElement(Grommet, {
+    theme: grommet
+  }, React.createElement(Box, {
+    align: "start",
+    gap: "small"
+  }, React.createElement(Button, {
+    icon: React.createElement(Add, null),
+    label: "Add",
+    onClick: function onClick() {},
+    primary: true
+  }), React.createElement(Button, {
+    icon: React.createElement(Add, null),
+    label: "Add",
+    onClick: function onClick() {}
+  })));
 };
 
 var PlainButton = function PlainButton(props) {
-  return React.createElement(
-    Grommet,
-    { theme: grommet },
-    React.createElement(
-      Button,
-      _extends({ hoverIndicator: true, onClick: function onClick() {} }, props),
-      React.createElement(
-        Box,
-        { pad: 'small', direction: 'row', align: 'center', gap: 'small' },
-        React.createElement(Add, null),
-        React.createElement(
-          Text,
-          null,
-          'Add'
-        )
-      )
-    )
-  );
+  return React.createElement(Grommet, {
+    theme: grommet
+  }, React.createElement(Button, _extends({
+    hoverIndicator: true,
+    onClick: function onClick() {}
+  }, props), React.createElement(Box, {
+    pad: "small",
+    direction: "row",
+    align: "center",
+    gap: "small"
+  }, React.createElement(Add, null), React.createElement(Text, null, "Add"))));
 };
 
 var AnchorButton = function AnchorButton() {
-  return React.createElement(
-    Grommet,
-    { theme: grommet },
-    React.createElement(Button, { label: 'Go', href: '#' })
-  );
+  return React.createElement(Grommet, {
+    theme: grommet
+  }, React.createElement(Button, {
+    label: "Go",
+    href: "#"
+  }));
 };
 
 var RouteButton = function RouteButton() {
-  return React.createElement(
-    Grommet,
-    { theme: grommet },
-    React.createElement(RoutedButton, { label: 'Go', path: '/' })
-  );
+  return React.createElement(Grommet, {
+    theme: grommet
+  }, React.createElement(RoutedButton, {
+    label: "Go",
+    path: "/"
+  }));
 };
 
 var customTheme = {
@@ -98,80 +97,95 @@ var customTheme = {
     },
     extend: function extend(props) {
       var extraStyles = '';
+
       if (props.primary) {
-        extraStyles = '\n          text-transform: uppercase;\n        ';
+        extraStyles = "\n          text-transform: uppercase;\n        ";
       }
-      return '\n        color: white;\n        font-size: 12px;\n        font-weight: bold;\n\n        ' + extraStyles + '\n      ';
+
+      return "\n        color: white;\n        font-size: 12px;\n        font-weight: bold;\n\n        " + extraStyles + "\n      ";
     }
   }
 };
 
 var CustomThemeButton = function CustomThemeButton() {
-  return React.createElement(
-    Grommet,
-    { theme: customTheme },
-    React.createElement(Button, { label: 'Submit', onClick: function onClick() {}, primary: true })
-  );
+  return React.createElement(Grommet, {
+    theme: customTheme
+  }, React.createElement(Button, {
+    label: "Submit",
+    onClick: function onClick() {},
+    primary: true
+  }));
 };
 
 var MultipleButton = function MultipleButton() {
-  return React.createElement(
-    Grommet,
-    { theme: grommet },
-    React.createElement(
-      Box,
-      { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
-      React.createElement(Button, { label: 'Cancel', onClick: function onClick() {} }),
-      React.createElement(Button, {
-        color: 'dark-1',
-        primary: true,
-        icon: React.createElement(Add, { color: 'accent-1' }),
-        label: 'Add',
-        onClick: function onClick() {}
-      })
-    ),
-    React.createElement(
-      Box,
-      { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
-      React.createElement(Button, { label: 'Cancel', onClick: function onClick() {} }),
-      React.createElement(Button, {
-        color: 'dark-1',
-        primary: true,
-        icon: React.createElement(Add, null),
-        label: 'Add',
-        onClick: function onClick() {}
-      })
-    ),
-    React.createElement(
-      Box,
-      { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
-      React.createElement(Button, { label: 'Cancel', onClick: function onClick() {} }),
-      React.createElement(Button, {
-        primary: true,
-        icon: React.createElement(Add, null),
-        label: 'Add',
-        onClick: function onClick() {}
-      })
-    ),
-    React.createElement(
-      Box,
-      { direction: 'row', align: 'center', gap: 'small', pad: 'xsmall' },
-      React.createElement(Button, { label: 'Cancel', onClick: function onClick() {} }),
-      React.createElement(Button, {
-        color: 'light-2',
-        primary: true,
-        icon: React.createElement(Add, null),
-        label: 'Add',
-        onClick: function onClick() {}
-      })
-    )
-  );
+  return React.createElement(Grommet, {
+    theme: grommet
+  }, React.createElement(Box, {
+    direction: "row",
+    align: "center",
+    gap: "small",
+    pad: "xsmall"
+  }, React.createElement(Button, {
+    label: "Cancel",
+    onClick: function onClick() {}
+  }), React.createElement(Button, {
+    color: "dark-1",
+    primary: true,
+    icon: React.createElement(Add, {
+      color: "accent-1"
+    }),
+    label: "Add",
+    onClick: function onClick() {}
+  })), React.createElement(Box, {
+    direction: "row",
+    align: "center",
+    gap: "small",
+    pad: "xsmall"
+  }, React.createElement(Button, {
+    label: "Cancel",
+    onClick: function onClick() {}
+  }), React.createElement(Button, {
+    color: "dark-1",
+    primary: true,
+    icon: React.createElement(Add, null),
+    label: "Add",
+    onClick: function onClick() {}
+  })), React.createElement(Box, {
+    direction: "row",
+    align: "center",
+    gap: "small",
+    pad: "xsmall"
+  }, React.createElement(Button, {
+    label: "Cancel",
+    onClick: function onClick() {}
+  }), React.createElement(Button, {
+    primary: true,
+    icon: React.createElement(Add, null),
+    label: "Add",
+    onClick: function onClick() {}
+  })), React.createElement(Box, {
+    direction: "row",
+    align: "center",
+    gap: "small",
+    pad: "xsmall"
+  }, React.createElement(Button, {
+    label: "Cancel",
+    onClick: function onClick() {}
+  }), React.createElement(Button, {
+    color: "light-2",
+    primary: true,
+    icon: React.createElement(Add, null),
+    label: "Add",
+    onClick: function onClick() {}
+  })));
 };
 
 storiesOf('Button', module).add('Default', function () {
   return React.createElement(SimpleButton, null);
 }).add('Primary', function () {
-  return React.createElement(SimpleButton, { primary: true });
+  return React.createElement(SimpleButton, {
+    primary: true
+  });
 }).add('Icon', function () {
   return React.createElement(IconButton, null);
 }).add('Icon Label', function () {
@@ -183,7 +197,9 @@ storiesOf('Button', module).add('Default', function () {
 }).add('RoutedButton', function () {
   return React.createElement(RouteButton, null);
 }).add('Active', function () {
-  return React.createElement(PlainButton, { active: true });
+  return React.createElement(PlainButton, {
+    active: true
+  });
 }).add('Custom theme', function () {
   return React.createElement(CustomThemeButton, null);
 }).add('Multiple Same Line', function () {

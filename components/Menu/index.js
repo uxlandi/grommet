@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.Menu = void 0;
 
-var _Menu = require('./Menu');
+var _Menu = require("./Menu");
 
-Object.defineProperty(exports, 'Menu', {
-  enumerable: true,
-  get: function get() {
-    return _Menu.Menu;
-  }
-});
+exports.Menu = _Menu.Menu;

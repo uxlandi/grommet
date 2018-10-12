@@ -1,76 +1,54 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.Grid = undefined;
+exports.Grid = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _react = _interopRequireDefault(require("react"));
 
-var _react = require('react');
+var _recompose = require("recompose");
 
-var _react2 = _interopRequireDefault(_react);
+var _hocs = require("../hocs");
 
-var _recompose = require('recompose');
-
-var _hocs = require('../hocs');
-
-var _StyledGrid = require('./StyledGrid');
+var _StyledGrid = require("./StyledGrid");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 var styledComponents = {
   div: _StyledGrid.StyledGrid
 }; // tag -> styled component
 
-var Grid = function (_Component) {
-  _inherits(Grid, _Component);
+var Grid = function Grid(props) {
+  var fill = props.fill,
+      rows = props.rows,
+      tag = props.tag,
+      rest = _objectWithoutPropertiesLoose(props, ["fill", "rows", "tag"]);
 
-  function Grid() {
-    _classCallCheck(this, Grid);
+  var StyledComponent = styledComponents[tag];
 
-    return _possibleConstructorReturn(this, _Component.apply(this, arguments));
+  if (!StyledComponent) {
+    StyledComponent = _StyledGrid.StyledGrid.withComponent(tag);
+    styledComponents[tag] = StyledComponent;
   }
 
-  Grid.prototype.render = function render() {
-    var _props = this.props,
-        fill = _props.fill,
-        rows = _props.rows,
-        tag = _props.tag,
-        rest = _objectWithoutProperties(_props, ['fill', 'rows', 'tag']);
-
-    var StyledComponent = styledComponents[tag];
-    if (!StyledComponent) {
-      StyledComponent = _StyledGrid.StyledGrid.withComponent(tag);
-      styledComponents[tag] = StyledComponent;
-    }
-
-    return _react2.default.createElement(StyledComponent, _extends({
-      fillContainer: fill,
-      rowsProp: rows
-    }, rest));
-  };
-
-  return Grid;
-}(_react.Component);
+  return _react.default.createElement(StyledComponent, _extends({
+    fillContainer: fill,
+    rowsProp: rows
+  }, rest));
+};
 
 Grid.defaultProps = {
   tag: 'div'
 };
+var GridDoc;
 
-
-var GridDoc = void 0;
 if (process.env.NODE_ENV !== 'production') {
   GridDoc = require('./doc').doc(Grid); // eslint-disable-line global-require
 }
+
 var GridWrapper = (0, _recompose.compose)(_hocs.withTheme)(GridDoc || Grid);
-
-GridWrapper.available = typeof window !== 'undefined' && window.CSS && window.CSS.supports && window.CSS.supports('display', 'grid');
-
 exports.Grid = GridWrapper;
+GridWrapper.available = typeof window !== 'undefined' && window.CSS && window.CSS.supports && window.CSS.supports('display', 'grid');

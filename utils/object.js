@@ -1,32 +1,37 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.removeUndefined = exports.deepMerge = exports.deepFreeze = exports.isObject = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var isObject = exports.isObject = function isObject(item) {
-  return item && (typeof item === 'undefined' ? 'undefined' : _typeof(item)) === 'object' && !Array.isArray(item);
+var isObject = function isObject(item) {
+  return item && typeof item === 'object' && !Array.isArray(item);
 };
 
-var deepFreeze = exports.deepFreeze = function deepFreeze(obj) {
+exports.isObject = isObject;
+
+var deepFreeze = function deepFreeze(obj) {
   Object.keys(obj).forEach(function (key) {
     return key && isObject(obj[key]) && Object.freeze(obj[key]);
   });
   return Object.freeze(obj);
 };
 
-var deepMerge = exports.deepMerge = function deepMerge(target) {
-  for (var _len = arguments.length, sources = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+exports.deepFreeze = deepFreeze;
+
+var deepMerge = function deepMerge(target) {
+  for (var _len = arguments.length, sources = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
     sources[_key - 1] = arguments[_key];
   }
 
   if (!sources.length) {
     return target;
-  }
-  // making sure to not change target (immutable)
+  } // making sure to not change target (immutable)
+
+
   var output = _extends({}, target);
+
   sources.forEach(function (source) {
     if (isObject(source)) {
       Object.keys(source).forEach(function (key) {
@@ -45,7 +50,9 @@ var deepMerge = exports.deepMerge = function deepMerge(target) {
   return output;
 };
 
-var removeUndefined = exports.removeUndefined = function removeUndefined(obj) {
+exports.deepMerge = deepMerge;
+
+var removeUndefined = function removeUndefined(obj) {
   var result = {};
   Object.keys(obj).forEach(function (key) {
     if (obj[key] !== undefined) {
@@ -54,3 +61,5 @@ var removeUndefined = exports.removeUndefined = function removeUndefined(obj) {
   });
   return result;
 };
+
+exports.removeUndefined = removeUndefined;

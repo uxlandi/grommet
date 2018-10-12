@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.TableCell = void 0;
 
-var _TableCell = require('./TableCell');
+var _TableCell = require("./TableCell");
 
-Object.defineProperty(exports, 'TableCell', {
-  enumerable: true,
-  get: function get() {
-    return _TableCell.TableCell;
-  }
-});
+exports.TableCell = _TableCell.TableCell;

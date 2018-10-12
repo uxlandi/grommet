@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.AnnounceContext = void 0;
 
-var _AnnounceContext = require('./AnnounceContext');
+var _AnnounceContext = require("./AnnounceContext");
 
-Object.defineProperty(exports, 'AnnounceContext', {
-  enumerable: true,
-  get: function get() {
-    return _AnnounceContext.AnnounceContext;
-  }
-});
+exports.AnnounceContext = _AnnounceContext.AnnounceContext;

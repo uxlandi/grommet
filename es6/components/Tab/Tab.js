@@ -1,56 +1,72 @@
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 import React, { Component } from 'react';
 import { compose } from 'recompose';
-
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { Text } from '../Text';
 import { withForwardRef, withTheme } from '../hocs';
 import { evalStyle, normalizeColor } from '../../utils';
 
-var Tab = function (_Component) {
-  _inherits(Tab, _Component);
+var Tab =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(Tab, _Component);
 
   function Tab() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, Tab);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {}, _this.onMouseOver = function (event) {
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {});
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onMouseOver", function (event) {
       var onMouseOver = _this.props.onMouseOver;
 
-      _this.setState({ over: true });
+      _this.setState({
+        over: true
+      });
+
       if (onMouseOver) {
         onMouseOver(event);
       }
-    }, _this.onMouseOut = function (event) {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onMouseOut", function (event) {
       var onMouseOut = _this.props.onMouseOut;
 
-      _this.setState({ over: undefined });
+      _this.setState({
+        over: undefined
+      });
+
       if (onMouseOut) {
         onMouseOut(event);
       }
-    }, _this.onClickTab = function (event) {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClickTab", function (event) {
       var onActivate = _this.props.onActivate;
 
       if (event) {
         event.preventDefault();
       }
+
       onActivate();
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+
+    return _this;
   }
 
   Tab.getDerivedStateFromProps = function getDerivedStateFromProps(nextProps, prevState) {
@@ -58,45 +74,45 @@ var Tab = function (_Component) {
     var over = prevState.over;
 
     if (active && over) {
-      return { over: undefined };
+      return {
+        over: undefined
+      };
     }
+
     return null;
   };
 
-  Tab.prototype.render = function render() {
-    var _props = this.props,
-        active = _props.active,
-        forwardRef = _props.forwardRef,
-        title = _props.title,
-        onMouseOver = _props.onMouseOver,
-        onMouseOut = _props.onMouseOut,
-        theme = _props.theme,
-        rest = _objectWithoutProperties(_props, ['active', 'forwardRef', 'title', 'onMouseOver', 'onMouseOut', 'theme']);
+  var _proto = Tab.prototype;
+
+  _proto.render = function render() {
+    var _this$props = this.props,
+        active = _this$props.active,
+        forwardRef = _this$props.forwardRef,
+        title = _this$props.title,
+        onMouseOver = _this$props.onMouseOver,
+        onMouseOut = _this$props.onMouseOut,
+        theme = _this$props.theme,
+        rest = _objectWithoutPropertiesLoose(_this$props, ["active", "forwardRef", "title", "onMouseOver", "onMouseOut", "theme"]);
 
     var over = this.state.over;
-
-
     delete rest.onActivate;
+    var normalizedTitle;
 
-    var normalizedTitle = void 0;
     if (typeof title !== 'string') {
       normalizedTitle = title;
     } else if (active) {
-      normalizedTitle = React.createElement(
-        Text,
-        { weight: 'bold' },
-        title
-      );
+      normalizedTitle = React.createElement(Text, {
+        weight: "bold"
+      }, title);
     } else {
       var color = normalizeColor(theme.global.text.color, theme);
-      normalizedTitle = React.createElement(
-        Text,
-        { color: color },
-        title
-      );
+      normalizedTitle = React.createElement(Text, {
+        color: color
+      }, title);
     }
 
-    var borderColor = void 0;
+    var borderColor;
+
     if (active) {
       borderColor = theme.dark ? 'white' : 'black';
     } else if (over) {
@@ -105,38 +121,42 @@ var Tab = function (_Component) {
       borderColor = evalStyle(normalizeColor(theme.global.control.border.color, theme), theme);
     }
 
-    return React.createElement(
-      Button,
-      _extends({
-        ref: forwardRef,
-        plain: true,
-        role: 'tab',
-        'aria-selected': active,
-        'aria-expanded': active
-      }, rest, {
-        onClick: this.onClickTab,
-        onMouseOver: this.onMouseOver,
-        onMouseOut: this.onMouseOut
-      }),
-      React.createElement(
-        Box,
-        {
-          pad: { bottom: 'xsmall' },
-          margin: { vertical: 'xxsmall', horizontal: 'small' },
-          border: { side: 'bottom', size: 'small', color: borderColor }
-        },
-        normalizedTitle
-      )
-    );
+    return React.createElement(Button, _extends({
+      ref: forwardRef,
+      plain: true,
+      role: "tab",
+      "aria-selected": active,
+      "aria-expanded": active
+    }, rest, {
+      onClick: this.onClickTab,
+      onMouseOver: this.onMouseOver,
+      onMouseOut: this.onMouseOut,
+      onFocus: this.onMouseOver,
+      onBlur: this.onMouseOut
+    }), React.createElement(Box, {
+      pad: {
+        bottom: 'xsmall'
+      },
+      margin: {
+        vertical: 'xxsmall',
+        horizontal: 'small'
+      },
+      border: {
+        side: 'bottom',
+        size: 'small',
+        color: borderColor
+      }
+    }, normalizedTitle));
   };
 
   return Tab;
 }(Component);
 
-var TabDoc = void 0;
+var TabDoc;
+
 if (process.env.NODE_ENV !== 'production') {
   TabDoc = require('./doc').doc(Tab); // eslint-disable-line global-require
 }
-var TabWrapper = compose(withTheme, withForwardRef)(TabDoc || Tab);
 
+var TabWrapper = compose(withTheme, withForwardRef)(TabDoc || Tab);
 export { TabWrapper as Tab };

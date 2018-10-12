@@ -1,5 +1,4 @@
 import { deepFreeze } from '../utils';
-
 var accentColors = ['#2AD2C9', '#614767', '#ff8d6d'];
 var neutralColors = ['#425563', '#5F7A76', '#80746E', '#767676'];
 var statusColors = {
@@ -10,7 +9,6 @@ var statusColors = {
   unknown: '#CCCCCC',
   disabled: '#CCCCCC'
 };
-
 var colors = {
   brand: '#01a982',
   focus: accentColors[0]
@@ -18,22 +16,21 @@ var colors = {
 
 var colorArray = function colorArray(array, prefix) {
   return array.forEach(function (color, index) {
-    colors[prefix + '-' + (index + 1)] = color;
+    colors[prefix + "-" + (index + 1)] = color;
   });
 };
 
 colorArray(accentColors, 'accent');
 colorArray(neutralColors, 'neutral');
 Object.keys(statusColors).forEach(function (color) {
-  colors['status-' + color] = statusColors[color];
+  colors["status-" + color] = statusColors[color];
 });
-
 export var hpe = deepFreeze({
   global: {
     colors: colors,
     font: {
       family: "'Metric', Arial, sans-serif",
-      face: '\n        @font-face {\n          font-family: "Metric";\n          src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Regular.woff") format(\'woff\');\n        }\n\n        @font-face {\n          font-family: "Metric";\n          src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Bold.woff") format(\'woff\');\n          font-weight: 700;\n        }\n\n        @font-face {\n          font-family: "Metric";\n          src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Semibold.woff") format(\'woff\');\n          font-weight: 600;\n        }\n\n        @font-face {\n          font-family: "Metric";\n          src: url("https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Light.woff") format(\'woff\');\n          font-weight: 100;\n        }\n      '
+      face: "\n        @font-face {\n          font-family: \"Metric\";\n          src: url(\"https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Regular.woff\") format('woff');\n        }\n\n        @font-face {\n          font-family: \"Metric\";\n          src: url(\"https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Bold.woff\") format('woff');\n          font-weight: 700;\n        }\n\n        @font-face {\n          font-family: \"Metric\";\n          src: url(\"https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Semibold.woff\") format('woff');\n          font-weight: 600;\n        }\n\n        @font-face {\n          font-family: \"Metric\";\n          src: url(\"https://hpefonts.s3.amazonaws.com/web/MetricHPE-Web-Light.woff\") format('woff');\n          font-weight: 100;\n        }\n      "
     }
   },
   anchor: {

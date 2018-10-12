@@ -1,21 +1,24 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-
+exports.withinDates = exports.betweenDates = exports.daysApart = exports.sameDayOrBefore = exports.sameDayOrAfter = exports.sameDay = exports.endOfMonth = exports.startOfMonth = exports.subtractMonths = exports.addMonths = exports.subtractDays = exports.addDays = void 0;
 // Utility functions for the Calendar.
 // Just what's needed to avoid having to include a dependency like momentjs.
-
 var DAY_MILLISECONDS = 24 * 60 * 60 * 1000;
 
-var addDays = exports.addDays = function addDays(date, days) {
+var addDays = function addDays(date, days) {
   return new Date(date.getTime() + DAY_MILLISECONDS * days);
 };
 
-var subtractDays = exports.subtractDays = function subtractDays(date, days) {
+exports.addDays = addDays;
+
+var subtractDays = function subtractDays(date, days) {
   return addDays(date, -days);
 };
 
-var addMonths = exports.addMonths = function addMonths(date, months) {
+exports.subtractDays = subtractDays;
+
+var addMonths = function addMonths(date, months) {
   var result = new Date(date);
   var years = Math.floor((date.getMonth() + months) / 12);
   result.setFullYear(date.getFullYear() + years);
@@ -24,43 +27,60 @@ var addMonths = exports.addMonths = function addMonths(date, months) {
   return result;
 };
 
-var subtractMonths = exports.subtractMonths = function subtractMonths(date, months) {
+exports.addMonths = addMonths;
+
+var subtractMonths = function subtractMonths(date, months) {
   return addMonths(date, -months);
 };
 
-var startOfMonth = exports.startOfMonth = function startOfMonth(date) {
+exports.subtractMonths = subtractMonths;
+
+var startOfMonth = function startOfMonth(date) {
   var result = new Date(date);
   result.setDate(1);
   return result;
 };
 
-var endOfMonth = exports.endOfMonth = function endOfMonth(date) {
+exports.startOfMonth = startOfMonth;
+
+var endOfMonth = function endOfMonth(date) {
   var result = addMonths(date, 1);
   result.setDate(0);
   return result;
 };
 
-var sameDay = exports.sameDay = function sameDay(date1, date2) {
+exports.endOfMonth = endOfMonth;
+
+var sameDay = function sameDay(date1, date2) {
   return date1.getFullYear() === date2.getFullYear() && date1.getMonth() === date2.getMonth() && date1.getDate() === date2.getDate();
 };
 
-var sameDayOrAfter = exports.sameDayOrAfter = function sameDayOrAfter(date1, date2) {
+exports.sameDay = sameDay;
+
+var sameDayOrAfter = function sameDayOrAfter(date1, date2) {
   return date1.getFullYear() > date2.getFullYear() || date1.getFullYear() === date2.getFullYear() && (date1.getMonth() > date2.getMonth() || date1.getMonth() === date2.getMonth() && date1.getDate() >= date2.getDate());
 };
 
-var sameDayOrBefore = exports.sameDayOrBefore = function sameDayOrBefore(date1, date2) {
+exports.sameDayOrAfter = sameDayOrAfter;
+
+var sameDayOrBefore = function sameDayOrBefore(date1, date2) {
   return date1.getFullYear() < date2.getFullYear() || date1.getFullYear() === date2.getFullYear() && (date1.getMonth() < date2.getMonth() || date1.getMonth() === date2.getMonth() && date1.getDate() <= date2.getDate());
 };
 
-var daysApart = exports.daysApart = function daysApart(date1, date2) {
-  return Math.floor((date1.getTime() - date2.getTime()) / DAY_MILLISECONDS);
-};
+exports.sameDayOrBefore = sameDayOrBefore;
 
-// betweenDates takes and array of two elements and checks if the
+var daysApart = function daysApart(date1, date2) {
+  return Math.floor((date1.getTime() - date2.getTime()) / DAY_MILLISECONDS);
+}; // betweenDates takes and array of two elements and checks if the
 // supplied date lies between them, inclusive.
 // returns 2 if exact match to one end, 1 if between, undefined otherwise
-var betweenDates = exports.betweenDates = function betweenDates(date, dates) {
-  var result = void 0;
+
+
+exports.daysApart = daysApart;
+
+var betweenDates = function betweenDates(date, dates) {
+  var result;
+
   if (dates) {
     var _dates$map = dates.map(function (d) {
       return new Date(d);
@@ -76,15 +96,19 @@ var betweenDates = exports.betweenDates = function betweenDates(date, dates) {
   } else {
     result = 1;
   }
-  return result;
-};
 
-// withinDates takes and array of string dates or 2 element arrays and
+  return result;
+}; // withinDates takes and array of string dates or 2 element arrays and
 // checks whether the supplied date matches any string or is between
 // any dates in arrays.
 // returns 2 if exact match, 1 if between, undefined otherwise
-var withinDates = exports.withinDates = function withinDates(date, dates) {
-  var result = void 0;
+
+
+exports.betweenDates = betweenDates;
+
+var withinDates = function withinDates(date, dates) {
+  var result;
+
   if (dates) {
     if (Array.isArray(dates)) {
       dates.some(function (d) {
@@ -95,11 +119,15 @@ var withinDates = exports.withinDates = function withinDates(date, dates) {
         } else {
           result = betweenDates(date, d);
         }
+
         return result;
       });
     } else if (sameDay(date, new Date(dates))) {
       result = 2;
     }
   }
+
   return result;
 };
+
+exports.withinDates = withinDates;

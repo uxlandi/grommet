@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.InfiniteScroll = void 0;
 
-var _InfiniteScroll = require('./InfiniteScroll');
+var _InfiniteScroll = require("./InfiniteScroll");
 
-Object.defineProperty(exports, 'InfiniteScroll', {
-  enumerable: true,
-  get: function get() {
-    return _InfiniteScroll.InfiniteScroll;
-  }
-});
+exports.InfiniteScroll = _InfiniteScroll.InfiniteScroll;

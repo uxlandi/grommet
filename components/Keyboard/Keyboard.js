@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.Keyboard = undefined;
+exports.Keyboard = void 0;
 
-var _react = require('react');
+var _react = require("react");
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var KEYS = {
   8: 'onBackspace',
@@ -25,39 +25,51 @@ var KEYS = {
   16: 'onShift'
 };
 
-var Keyboard = function (_Component) {
-  _inherits(Keyboard, _Component);
+var Keyboard =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(Keyboard, _Component);
 
   function Keyboard() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, Keyboard);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.onKeyDown = function (event) {
-      for (var _len2 = arguments.length, rest = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onKeyDown", function (event) {
+      /* eslint-disable-next-line react/prop-types */
+      var onKeyDown = _this.props.onKeyDown;
+      var key = event.keyCode ? event.keyCode : event.which;
+      var callbackName = KEYS[key];
+      /* eslint-disable react/destructuring-assignment */
+
+      for (var _len2 = arguments.length, rest = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
         rest[_key2 - 1] = arguments[_key2];
       }
 
-      var onKeyDown = _this.props.onKeyDown;
-
-      var key = event.keyCode ? event.keyCode : event.which;
-      var callbackName = KEYS[key];
       if (callbackName && _this.props[callbackName]) {
         var _this$props;
 
         (_this$props = _this.props)[callbackName].apply(_this$props, [event].concat(rest));
       }
+      /* eslint-enable react/destructuring-assignment */
+
+
       if (onKeyDown) {
-        onKeyDown.apply(undefined, [event].concat(rest));
+        onKeyDown.apply(void 0, [event].concat(rest));
       }
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+
+    return _this;
   }
 
-  Keyboard.prototype.componentDidMount = function componentDidMount() {
+  var _proto = Keyboard.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
+    /* eslint-disable-next-line react/prop-types */
     var target = this.props.target;
 
     if (target === 'document') {
@@ -65,7 +77,7 @@ var Keyboard = function (_Component) {
     }
   };
 
-  Keyboard.prototype.componentWillUnmount = function componentWillUnmount() {
+  _proto.componentWillUnmount = function componentWillUnmount() {
     var target = this.props.target;
 
     if (target === 'document') {
@@ -73,12 +85,11 @@ var Keyboard = function (_Component) {
     }
   };
 
-  Keyboard.prototype.render = function render() {
-    var _props = this.props,
-        children = _props.children,
-        target = _props.target;
-
-
+  _proto.render = function render() {
+    /* eslint-disable-next-line react/prop-types */
+    var _this$props2 = this.props,
+        children = _this$props2.children,
+        target = _this$props2.target;
     return target === 'document' ? children : (0, _react.cloneElement)(_react.Children.only(children), {
       onKeyDown: this.onKeyDown
     });
@@ -87,10 +98,11 @@ var Keyboard = function (_Component) {
   return Keyboard;
 }(_react.Component);
 
-var KeyboardDoc = void 0;
+var KeyboardDoc;
+
 if (process.env.NODE_ENV !== 'production') {
   KeyboardDoc = require('./doc').doc(Keyboard); // eslint-disable-line global-require
 }
-var KeyboardWrapper = KeyboardDoc || Keyboard;
 
+var KeyboardWrapper = KeyboardDoc || Keyboard;
 exports.Keyboard = KeyboardWrapper;

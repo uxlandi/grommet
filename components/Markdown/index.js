@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.Markdown = void 0;
 
-var _Markdown = require('./Markdown');
+var _Markdown = require("./Markdown");
 
-Object.defineProperty(exports, 'Markdown', {
-  enumerable: true,
-  get: function get() {
-    return _Markdown.Markdown;
-  }
-});
+exports.Markdown = _Markdown.Markdown;

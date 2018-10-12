@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.Video = void 0;
 
-var _Video = require('./Video');
+var _Video = require("./Video");
 
-Object.defineProperty(exports, 'Video', {
-  enumerable: true,
-  get: function get() {
-    return _Video.Video;
-  }
-});
+exports.Video = _Video.Video;

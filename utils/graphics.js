@@ -1,12 +1,12 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-
+exports.translateEndAngle = exports.arcCommands = exports.polarToCartesian = exports.baseUnit = void 0;
 var POST_DECIMAL_DIGITS = 10;
+var baseUnit = 24;
+exports.baseUnit = baseUnit;
 
-var baseUnit = exports.baseUnit = 24;
-
-var polarToCartesian = exports.polarToCartesian = function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+var polarToCartesian = function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
   var angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
   return {
     x: centerX + radius * Math.cos(angleInRadians),
@@ -14,12 +14,16 @@ var polarToCartesian = exports.polarToCartesian = function polarToCartesian(cent
   };
 };
 
-var arcCommands = exports.arcCommands = function arcCommands(centerX, centerY, radius, startAngle, endAngle) {
+exports.polarToCartesian = polarToCartesian;
+
+var arcCommands = function arcCommands(centerX, centerY, radius, startAngle, endAngle) {
   // handle that we can't draw a complete circle
   var normalizedEndAngle = endAngle;
+
   if (endAngle - startAngle >= 360) {
     normalizedEndAngle = startAngle + 359.99;
   }
+
   var start = polarToCartesian(centerX, centerY, radius, normalizedEndAngle);
   var end = polarToCartesian(centerX, centerY, radius, startAngle);
   var arcSweep = normalizedEndAngle - startAngle <= 180 ? '0' : '1';
@@ -27,6 +31,10 @@ var arcCommands = exports.arcCommands = function arcCommands(centerX, centerY, r
   return d;
 };
 
-var translateEndAngle = exports.translateEndAngle = function translateEndAngle(startAngle, anglePer, value) {
+exports.arcCommands = arcCommands;
+
+var translateEndAngle = function translateEndAngle(startAngle, anglePer, value) {
   return Math.min(360, Math.max(0, startAngle + anglePer * value));
 };
+
+exports.translateEndAngle = translateEndAngle;

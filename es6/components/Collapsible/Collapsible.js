@@ -1,14 +1,13 @@
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 import React, { createRef, Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { compose } from 'recompose';
 import styled from 'styled-components';
-
 import { withTheme } from '../hocs';
 import { Box } from '../Box';
 
@@ -17,14 +16,16 @@ var animatedBoxProperty = function animatedBoxProperty(direction) {
 };
 
 var AnimatedBox = styled(Box).withConfig({
-  displayName: 'Collapsible__AnimatedBox',
-  componentId: 'sc-15kniua-0'
-})(['', ''], function (props) {
-  return !props.animate && (props.open ? '\n    max-' + animatedBoxProperty(props.collapsibleDirection) + ': unset;\n    visibility: visible;\n  ' : '\n    max-' + animatedBoxProperty(props.collapsibleDirection) + ': 0;\n    visibility: hidden;\n  ');
+  displayName: "Collapsible__AnimatedBox",
+  componentId: "sc-15kniua-0"
+})(["", ""], function (props) {
+  return !props.animate && (props.open ? "\n    max-" + animatedBoxProperty(props.collapsibleDirection) + ": unset;\n    visibility: visible;\n  " : "\n    max-" + animatedBoxProperty(props.collapsibleDirection) + ": 0;\n    visibility: hidden;\n  ");
 });
 
-var Collapsible = function (_Component) {
-  _inherits(Collapsible, _Component);
+var Collapsible =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(Collapsible, _Component);
 
   Collapsible.getDerivedStateFromProps = function getDerivedStateFromProps(nextProps, prevState) {
     var open = nextProps.open;
@@ -35,19 +36,24 @@ var Collapsible = function (_Component) {
         open: open
       };
     }
+
     return null;
   };
 
   function Collapsible(props, context) {
-    _classCallCheck(this, Collapsible);
+    var _this;
 
-    var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
+    _this = _Component.call(this, props, context) || this;
+    /* eslint-disable-next-line react/prop-types */
 
-    _this.ref = createRef();
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "ref", createRef());
 
-    _this.getSnapshotBeforeUpdate = function () {
-      return _this.ref.current && findDOMNode(_this.ref.current).getBoundingClientRect();
-    };
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getSnapshotBeforeUpdate", function () {
+      return (
+        /* eslint-disable-next-line react/no-find-dom-node */
+        _this.ref.current && findDOMNode(_this.ref.current).getBoundingClientRect()
+      );
+    });
 
     _this.state = {
       open: props.open,
@@ -56,24 +62,25 @@ var Collapsible = function (_Component) {
     return _this;
   }
 
-  Collapsible.prototype.componentDidUpdate = function componentDidUpdate(prevProps, prevState, snapshot) {
+  var _proto = Collapsible.prototype;
+
+  _proto.componentDidUpdate = function componentDidUpdate(prevProps, prevState, snapshot) {
     var _this2 = this;
 
-    var _props = this.props,
-        direction = _props.direction,
-        _props$theme$collapsi = _props.theme.collapsible,
-        minSpeed = _props$theme$collapsi.minSpeed,
-        baseline = _props$theme$collapsi.baseline;
-    var _state = this.state,
-        animate = _state.animate,
-        open = _state.open;
-
+    var _this$props = this.props,
+        direction = _this$props.direction,
+        _this$props$theme$col = _this$props.theme.collapsible,
+        minSpeed = _this$props$theme$col.minSpeed,
+        baseline = _this$props$theme$col.baseline;
+    var _this$state = this.state,
+        animate = _this$state.animate,
+        open = _this$state.open;
+    /* eslint-disable-next-line react/no-find-dom-node */
 
     var container = findDOMNode(this.ref.current);
     var dimension = animatedBoxProperty(direction);
     var boudingClientRect = container.getBoundingClientRect();
     var dimensionSize = boudingClientRect[dimension];
-
     var shouldAnimate = animate && prevState.open !== open;
 
     if (open && snapshot[dimension] && dimensionSize !== snapshot[dimension]) {
@@ -86,17 +93,15 @@ var Collapsible = function (_Component) {
       }
 
       var speed = Math.max(dimensionSize / baseline * minSpeed, minSpeed);
-
-      container.style['max-' + dimension] = snapshot[dimension] + 'px';
+      container.style["max-" + dimension] = snapshot[dimension] + "px";
       container.style.overflow = 'hidden';
-
       requestAnimationFrame(function () {
         requestAnimationFrame(function () {
-          container.style.transition = 'max-' + dimension + ' ' + speed + 'ms, visibility 50ms';
-          container.style['max-' + dimension] = open ? dimensionSize + 'px' : '0px';
-
+          container.style.transition = "max-" + dimension + " " + speed + "ms, visibility 50ms";
+          container.style["max-" + dimension] = open ? dimensionSize + "px" : '0px';
           _this2.animationTimeout = setTimeout(function () {
             container.removeAttribute('style');
+
             _this2.setState({
               animate: false
             });
@@ -106,41 +111,37 @@ var Collapsible = function (_Component) {
     }
   };
 
-  Collapsible.prototype.componentWillUnmount = function componentWillUnmount() {
+  _proto.componentWillUnmount = function componentWillUnmount() {
     if (this.animationTimeout) {
       clearTimeout(this.animationTimeout);
     }
   };
 
-  Collapsible.prototype.render = function render() {
-    var _props2 = this.props,
-        children = _props2.children,
-        direction = _props2.direction;
-    var _state2 = this.state,
-        animate = _state2.animate,
-        open = _state2.open;
-
-
-    return React.createElement(
-      AnimatedBox,
-      {
-        'aria-hidden': !open,
-        ref: this.ref,
-        open: open,
-        animate: animate,
-        collapsibleDirection: direction
-      },
-      children
-    );
+  _proto.render = function render() {
+    /* eslint-disable-next-line react/prop-types */
+    var _this$props2 = this.props,
+        children = _this$props2.children,
+        direction = _this$props2.direction;
+    var _this$state2 = this.state,
+        animate = _this$state2.animate,
+        open = _this$state2.open;
+    return React.createElement(AnimatedBox, {
+      "aria-hidden": !open,
+      ref: this.ref,
+      open: open,
+      animate: animate,
+      collapsibleDirection: direction
+    }, children);
   };
 
   return Collapsible;
 }(Component);
 
-var CollapsibleDoc = void 0;
+var CollapsibleDoc;
+
 if (process.env.NODE_ENV !== 'production') {
   CollapsibleDoc = require('./doc').doc(Collapsible); // eslint-disable-line global-require
 }
-var CollapsibleWrapper = compose(withTheme)(CollapsibleDoc || Collapsible);
 
+var CollapsibleWrapper = compose(withTheme)(CollapsibleDoc || Collapsible);
 export { CollapsibleWrapper as Collapsible };

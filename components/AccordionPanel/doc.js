@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
 exports.doc = doc;
 
-var _reactDesc = require('react-desc');
+var _reactDesc = require("react-desc");
 
 function doc(Panel) {
   var DocumentedAccordionPanel = (0, _reactDesc.describe)(Panel).description('An Accordion panel.');

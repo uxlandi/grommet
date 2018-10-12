@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.Text = void 0;
 
-var _Text = require('./Text');
+var _Text = require("./Text");
 
-Object.defineProperty(exports, 'Text', {
-  enumerable: true,
-  get: function get() {
-    return _Text.Text;
-  }
-});
+exports.Text = _Text.Text;

@@ -1,8 +1,6 @@
 import { rgba } from 'polished';
 import { css } from 'styled-components';
-
 import { colorForName, deepFreeze } from '../utils';
-
 var brandColor = '#FFCA58';
 var accentColors = ['#FD6FFF', '#60EB9F', '#60EBE1', '#FFCA58'];
 var neutralColors = ['#EB6060', '#01C781', '#6095EB', '#FFB200'];
@@ -19,7 +17,6 @@ var textColor = '#eeeeee';
 var borderColor = 'rgba(255, 255, 255, 0.33)';
 var focusColor = accentColors[0];
 var activeColor = rgba('#666666', 0.5);
-
 var colors = {
   active: activeColor,
   background: backgroundColor,
@@ -34,16 +31,15 @@ var colors = {
 
 var colorArray = function colorArray(array, prefix) {
   return array.forEach(function (color, index) {
-    colors[prefix + '-' + (index + 1)] = color;
+    colors[prefix + "-" + (index + 1)] = color;
   });
 };
 
 colorArray(accentColors, 'accent');
 colorArray(neutralColors, 'neutral');
 Object.keys(statusColors).forEach(function (color) {
-  colors['status-' + color] = statusColors[color];
+  colors["status-" + color] = statusColors[color];
 });
-
 export var dark = deepFreeze({
   global: {
     colors: colors,
@@ -55,7 +51,7 @@ export var dark = deepFreeze({
     },
     focus: {
       border: {
-        color: css(['', ''], function (props) {
+        color: css(["", ""], function (props) {
           return colorForName('focus', props.theme);
         }),
         width: '2px'

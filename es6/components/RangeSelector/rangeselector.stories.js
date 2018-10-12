@@ -1,68 +1,70 @@
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-
 import { Grommet, Box, RangeSelector, Stack, Text } from 'grommet';
 import { grommet } from 'grommet/themes';
 
-var SimpleRangeSelector = function (_Component) {
-  _inherits(SimpleRangeSelector, _Component);
+var SimpleRangeSelector =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(SimpleRangeSelector, _Component);
 
   function SimpleRangeSelector() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, SimpleRangeSelector);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = { values: [2, 8] }, _this.onChange = function (values) {
-      return _this.setState({ values: values });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      values: [2, 8]
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", function (values) {
+      return _this.setState({
+        values: values
+      });
+    });
+
+    return _this;
   }
 
-  SimpleRangeSelector.prototype.render = function render() {
-    var values = this.state.values;
+  var _proto = SimpleRangeSelector.prototype;
 
-    return React.createElement(
-      Grommet,
-      { theme: grommet },
-      React.createElement(
-        Stack,
-        null,
-        React.createElement(
-          Box,
-          { direction: 'row', justify: 'between' },
-          [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (value) {
-            return React.createElement(
-              Box,
-              { key: value, pad: 'small', border: false },
-              React.createElement(
-                Text,
-                { style: { fontFamily: 'monospace' } },
-                value
-              )
-            );
-          })
-        ),
-        React.createElement(RangeSelector, {
-          direction: 'horizontal',
-          invert: false,
-          min: 0,
-          max: 9,
-          size: 'full',
-          round: 'small',
-          values: values,
-          onChange: this.onChange
-        })
-      )
-    );
+  _proto.render = function render() {
+    var values = this.state.values;
+    return React.createElement(Grommet, {
+      theme: grommet
+    }, React.createElement(Stack, null, React.createElement(Box, {
+      direction: "row",
+      justify: "between"
+    }, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(function (value) {
+      return React.createElement(Box, {
+        key: value,
+        pad: "small",
+        border: false
+      }, React.createElement(Text, {
+        style: {
+          fontFamily: 'monospace'
+        }
+      }, value));
+    })), React.createElement(RangeSelector, {
+      direction: "horizontal",
+      invert: false,
+      min: 0,
+      max: 9,
+      size: "full",
+      round: "small",
+      values: values,
+      onChange: this.onChange
+    })));
   };
 
   return SimpleRangeSelector;

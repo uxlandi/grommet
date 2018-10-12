@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.Stack = void 0;
 
-var _Stack = require('./Stack');
+var _Stack = require("./Stack");
 
-Object.defineProperty(exports, 'Stack', {
-  enumerable: true,
-  get: function get() {
-    return _Stack.Stack;
-  }
-});
+exports.Stack = _Stack.Stack;

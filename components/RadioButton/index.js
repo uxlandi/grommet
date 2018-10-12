@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.RadioButton = void 0;
 
-var _RadioButton = require('./RadioButton');
+var _RadioButton = require("./RadioButton");
 
-Object.defineProperty(exports, 'RadioButton', {
-  enumerable: true,
-  get: function get() {
-    return _RadioButton.RadioButton;
-  }
-});
+exports.RadioButton = _RadioButton.RadioButton;

@@ -1,40 +1,52 @@
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-
 import { Grommet, WorldMap } from 'grommet';
 import { grommet } from 'grommet/themes';
 
-var SimpleWorldMap = function (_Component) {
-  _inherits(SimpleWorldMap, _Component);
+var SimpleWorldMap =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(SimpleWorldMap, _Component);
 
   function SimpleWorldMap() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, SimpleWorldMap);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {}, _this.onSelectPlace = function (place) {
-      _this.setState({ places: [{ color: 'accent-1', location: place }] });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {});
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSelectPlace", function (place) {
+      _this.setState({
+        places: [{
+          color: 'accent-1',
+          location: place
+        }]
+      });
+    });
+
+    return _this;
   }
 
-  SimpleWorldMap.prototype.render = function render() {
-    var places = this.state.places;
+  var _proto = SimpleWorldMap.prototype;
 
-    return React.createElement(
-      Grommet,
-      { theme: grommet },
-      React.createElement(WorldMap, { onSelectPlace: this.onSelectPlace, places: places })
-    );
+  _proto.render = function render() {
+    var places = this.state.places;
+    return React.createElement(Grommet, {
+      theme: grommet
+    }, React.createElement(WorldMap, {
+      onSelectPlace: this.onSelectPlace,
+      places: places
+    }));
   };
 
   return SimpleWorldMap;

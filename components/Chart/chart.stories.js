@@ -1,228 +1,216 @@
-'use strict';
+"use strict";
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _react = _interopRequireWildcard(require("react"));
 
-var _react = require('react');
+var _react2 = require("@storybook/react");
 
-var _react2 = _interopRequireDefault(_react);
+var _grommet = require("grommet");
 
-var _react3 = require('@storybook/react');
+var _themes = require("grommet/themes");
 
-var _grommet = require('grommet');
+var _calcs2 = require("./calcs");
 
-var _themes = require('grommet/themes');
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-var _calcs2 = require('../Chart/calcs');
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var BarChart = function BarChart() {
+  return _react.default.createElement(_grommet.Grommet, {
+    theme: _themes.grommet
+  }, _react.default.createElement(_grommet.Chart, {
+    type: "bar",
+    values: [[10, 20], [20, 30], [30, 15]]
+  }));
+};
 
-var BarChart = function (_Component) {
-  _inherits(BarChart, _Component);
+var LineChart = function LineChart() {
+  return _react.default.createElement(_grommet.Grommet, {
+    theme: _themes.grommet
+  }, _react.default.createElement(_grommet.Chart, {
+    type: "line",
+    values: [20, 30, 15]
+  }));
+};
 
-  function BarChart() {
-    _classCallCheck(this, BarChart);
+var AreaChart = function AreaChart() {
+  return _react.default.createElement(_grommet.Grommet, {
+    theme: _themes.grommet
+  }, _react.default.createElement(_grommet.Chart, {
+    type: "area",
+    values: [{
+      value: [10, 20]
+    }, {
+      value: [20, 30]
+    }, {
+      value: [30, 15]
+    }]
+  }));
+};
 
-    return _possibleConstructorReturn(this, _Component.apply(this, arguments));
-  }
-
-  BarChart.prototype.render = function render() {
-    return _react2.default.createElement(
-      _grommet.Grommet,
-      { theme: _themes.grommet },
-      _react2.default.createElement(_grommet.Chart, {
-        type: 'bar',
-        values: [[10, 20], [20, 30], [30, 15]]
-      })
-    );
-  };
-
-  return BarChart;
-}(_react.Component);
-
-var LineChart = function (_Component2) {
-  _inherits(LineChart, _Component2);
-
-  function LineChart() {
-    _classCallCheck(this, LineChart);
-
-    return _possibleConstructorReturn(this, _Component2.apply(this, arguments));
-  }
-
-  LineChart.prototype.render = function render() {
-    return _react2.default.createElement(
-      _grommet.Grommet,
-      { theme: _themes.grommet },
-      _react2.default.createElement(_grommet.Chart, {
-        type: 'line',
-        values: [20, 30, 15]
-      })
-    );
-  };
-
-  return LineChart;
-}(_react.Component);
-
-var AreaChart = function (_Component3) {
-  _inherits(AreaChart, _Component3);
-
-  function AreaChart() {
-    _classCallCheck(this, AreaChart);
-
-    return _possibleConstructorReturn(this, _Component3.apply(this, arguments));
-  }
-
-  AreaChart.prototype.render = function render() {
-    return _react2.default.createElement(
-      _grommet.Grommet,
-      { theme: _themes.grommet },
-      _react2.default.createElement(_grommet.Chart, {
-        type: 'area',
-        values: [{ value: [10, 20] }, { value: [20, 30] }, { value: [30, 15] }]
-      })
-    );
-  };
-
-  return AreaChart;
-}(_react.Component);
-
-var RichChart = function (_Component4) {
-  _inherits(RichChart, _Component4);
+var RichChart =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(RichChart, _Component);
 
   function RichChart() {
-    var _temp, _this4, _ret;
+    var _this;
 
-    _classCallCheck(this, RichChart);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this4 = _possibleConstructorReturn(this, _Component4.call.apply(_Component4, [this].concat(args))), _this4), _this4.state = { values: [], yAxis: [], xAxis: [] }, _temp), _possibleConstructorReturn(_this4, _ret);
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      values: [],
+      yAxis: [],
+      xAxis: []
+    });
+
+    return _this;
   }
 
-  RichChart.prototype.componentDidMount = function componentDidMount() {
+  var _proto = RichChart.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
     // generate data as a server might
     var date = new Date(2018, 5, 9);
     var value = 12345.678;
     var averages = [];
+
     while (averages.length < 21) {
-      averages.unshift({ date: date.toISOString(), value: value });
+      averages.unshift({
+        date: date.toISOString(),
+        value: value
+      });
       date.setTime(date.getTime() - 1000 * 3600 * 24);
       var factor = date.getDate() % 3;
       value = factor === 0 ? value + 12.34 : value - 123.45 * factor;
-    }
+    } // convert for displaying
 
-    // convert for displaying
+
     var values = [];
     averages.forEach(function (avg) {
-      values.push({ value: [new Date(avg.date).getTime(), avg.value] });
+      values.push({
+        value: [new Date(avg.date).getTime(), avg.value]
+      });
     });
 
-    var _calcs = (0, _calcs2.calcs)(values, { coarseness: 5, steps: [3, 3] }),
+    var _calcs = (0, _calcs2.calcs)(values, {
+      coarseness: 5,
+      steps: [3, 3]
+    }),
         axis = _calcs.axis,
         bounds = _calcs.bounds;
 
     var xAxis = axis[0].map(function (x) {
-      return new Date(x).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      return new Date(x).toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric'
+      });
     });
     var yAxis = axis[1];
-    this.setState({ bounds: bounds, values: values, yAxis: yAxis, xAxis: xAxis }); // eslint-disable-line
+    this.setState({
+      bounds: bounds,
+      values: values,
+      yAxis: yAxis,
+      xAxis: xAxis
+    }); // eslint-disable-line
   };
 
-  RichChart.prototype.render = function render() {
-    var _state = this.state,
-        bounds = _state.bounds,
-        values = _state.values,
-        yAxis = _state.yAxis,
-        xAxis = _state.xAxis;
-
+  _proto.render = function render() {
+    var _this$state = this.state,
+        bounds = _this$state.bounds,
+        values = _this$state.values,
+        yAxis = _this$state.yAxis,
+        xAxis = _this$state.xAxis;
     var chartProps = {
-      size: { width: 'medium', height: 'small' },
+      size: {
+        width: 'medium',
+        height: 'small'
+      },
       bounds: bounds,
       values: values,
       overflow: true
     };
-    return _react2.default.createElement(
-      _grommet.Grommet,
-      { theme: _themes.grommet },
-      _react2.default.createElement(
-        _grommet.Box,
-        { align: 'center' },
-        _react2.default.createElement(
-          _grommet.Box,
-          { direction: 'row', justify: 'between', width: 'medium', margin: { vertical: 'small' } },
-          xAxis.map(function (x) {
-            return _react2.default.createElement(
-              _grommet.Text,
-              { key: x },
-              x
-            );
-          })
-        ),
-        _react2.default.createElement(
-          _grommet.Stack,
-          { guidingChild: 'last' },
-          _react2.default.createElement(
-            _grommet.Box,
-            { fill: true, justify: 'between' },
-            yAxis.map(function (y, index) {
-              var first = index === 0;
-              var last = index === yAxis.length - 1 && !first;
-              var align = void 0;
-              if (first) {
-                align = 'start';
-              } else if (last) {
-                align = 'end';
-              } else {
-                align = 'center';
-              }
-              return _react2.default.createElement(
-                _grommet.Box,
-                { key: y, direction: 'row', align: align },
-                _react2.default.createElement(
-                  _grommet.Box,
-                  { pad: { horizontal: 'small' } },
-                  _react2.default.createElement(
-                    _grommet.Text,
-                    null,
-                    y
-                  )
-                ),
-                _react2.default.createElement(_grommet.Box, { border: 'top', flex: true })
-              );
-            })
-          ),
-          _react2.default.createElement(_grommet.Chart, _extends({}, chartProps, {
-            type: 'area',
-            color: { color: 'accent-1', opacity: 'medium' },
-            thickness: 'hair'
-          })),
-          _react2.default.createElement(_grommet.Chart, _extends({}, chartProps, {
-            type: 'line',
-            round: true,
-            color: { color: 'accent-3', opacity: 'strong' },
-            thickness: 'small'
-          }))
-        )
-      )
-    );
+    return _react.default.createElement(_grommet.Grommet, {
+      theme: _themes.grommet
+    }, _react.default.createElement(_grommet.Box, {
+      align: "center"
+    }, _react.default.createElement(_grommet.Box, {
+      direction: "row",
+      justify: "between",
+      width: "medium",
+      margin: {
+        vertical: 'small'
+      }
+    }, xAxis.map(function (x) {
+      return _react.default.createElement(_grommet.Text, {
+        key: x
+      }, x);
+    })), _react.default.createElement(_grommet.Stack, {
+      guidingChild: "last"
+    }, _react.default.createElement(_grommet.Box, {
+      fill: true,
+      justify: "between"
+    }, yAxis.map(function (y, index) {
+      var first = index === 0;
+      var last = index === yAxis.length - 1 && !first;
+      var align;
+
+      if (first) {
+        align = 'start';
+      } else if (last) {
+        align = 'end';
+      } else {
+        align = 'center';
+      }
+
+      return _react.default.createElement(_grommet.Box, {
+        key: y,
+        direction: "row",
+        align: align
+      }, _react.default.createElement(_grommet.Box, {
+        pad: {
+          horizontal: 'small'
+        }
+      }, _react.default.createElement(_grommet.Text, null, y)), _react.default.createElement(_grommet.Box, {
+        border: "top",
+        flex: true
+      }));
+    })), _react.default.createElement(_grommet.Chart, _extends({}, chartProps, {
+      type: "area",
+      color: {
+        color: 'accent-1',
+        opacity: 'medium'
+      },
+      thickness: "hair"
+    })), _react.default.createElement(_grommet.Chart, _extends({}, chartProps, {
+      type: "line",
+      round: true,
+      color: {
+        color: 'accent-3',
+        opacity: 'strong'
+      },
+      thickness: "small"
+    })))));
   };
 
   return RichChart;
 }(_react.Component);
 
-(0, _react3.storiesOf)('Chart', module).add('Bar Chart', function () {
-  return _react2.default.createElement(BarChart, null);
+(0, _react2.storiesOf)('Chart', module).add('Bar Chart', function () {
+  return _react.default.createElement(BarChart, null);
 }).add('Line Chart', function () {
-  return _react2.default.createElement(LineChart, null);
+  return _react.default.createElement(LineChart, null);
 }).add('Area Chart', function () {
-  return _react2.default.createElement(AreaChart, null);
+  return _react.default.createElement(AreaChart, null);
 }).add('Rich Chart', function () {
-  return _react2.default.createElement(RichChart, null);
+  return _react.default.createElement(RichChart, null);
 });

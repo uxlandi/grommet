@@ -1,0 +1,1281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs Tab 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  border-bottom: solid 2px #000000;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-bottom: 6px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  border-bottom: solid 2px rgba(0,0,0,0.33);
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-bottom: 6px;
+}
+
+.c2 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  text-align: inherit;
+}
+
+.c4 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.c6 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+}
+
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    border-bottom: solid 2px #000000;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding-bottom: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    border-bottom: solid 2px rgba(0,0,0,0.33);
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    padding-bottom: 3px;
+  }
+}
+
+@media only screen and (min-width:700px) {
+  .c2 {
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    role="tablist"
+  >
+    <div
+      className="c1"
+    >
+      <button
+        aria-expanded={true}
+        aria-selected={true}
+        className="c2"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role="tab"
+        type="button"
+      >
+        <div
+          className="c3"
+        >
+          <span
+            className="c4"
+          >
+            Tab 1
+          </span>
+        </div>
+      </button>
+      <button
+        aria-expanded={false}
+        aria-selected={false}
+        className="c2"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role="tab"
+        type="button"
+      >
+        <div
+          className="c5"
+        >
+          <span
+            className="c6"
+          >
+            Tab 2
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      aria-label="Tab 1 Tab Contents"
+      role="tabpanel"
+    >
+      Tab body 1
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs change to second tab 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  border-bottom: solid 2px #000000;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-bottom: 6px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  border-bottom: solid 2px rgba(0,0,0,0.33);
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-bottom: 6px;
+}
+
+.c2 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  text-align: inherit;
+}
+
+.c4 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.c6 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+}
+
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    border-bottom: solid 2px #000000;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding-bottom: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    border-bottom: solid 2px rgba(0,0,0,0.33);
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    padding-bottom: 3px;
+  }
+}
+
+@media only screen and (min-width:700px) {
+  .c2 {
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    role="tablist"
+  >
+    <div
+      class="c1"
+    >
+      <button
+        aria-expanded="true"
+        aria-selected="true"
+        class="c2"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="c3"
+        >
+          <span
+            class="c4"
+          >
+            Tab 1
+          </span>
+        </div>
+      </button>
+      <button
+        aria-expanded="false"
+        aria-selected="false"
+        class="c2"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="c5"
+        >
+          <span
+            class="c6"
+          >
+            Tab 2
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      aria-label="Tab 1 Tab Contents"
+      role="tabpanel"
+    >
+      Tab body 1
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs change to second tab 2`] = `
+<div
+  class="StyledGrommet-sc-19lkkz7-0 cGdwQo"
+>
+  <div
+    role="tablist"
+  >
+    <div
+      class="StyledBox-sc-13pk1d4-0 lotabM"
+    >
+      <button
+        aria-expanded="false"
+        aria-selected="false"
+        class="StyledButton-sc-323bzc-0 jeDfzo"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="StyledBox-sc-13pk1d4-0 gaswRr"
+        >
+          <span
+            class="StyledText-sc-1sadyjn-0 iCreHd"
+          >
+            Tab 1
+          </span>
+        </div>
+      </button>
+      <button
+        aria-expanded="true"
+        aria-selected="true"
+        class="StyledButton-sc-323bzc-0 jeDfzo"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="StyledBox-sc-13pk1d4-0 cVkSXv"
+        >
+          <span
+            class="StyledText-sc-1sadyjn-0 hJZqIs"
+          >
+            Tab 2
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      aria-label="Tab 2 Tab Contents"
+      role="tabpanel"
+    >
+      Tab body 2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs complex title 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  border-bottom: solid 2px #000000;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-bottom: 6px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  border-bottom: solid 2px rgba(0,0,0,0.33);
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-bottom: 6px;
+}
+
+.c2 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  text-align: inherit;
+}
+
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    border-bottom: solid 2px #000000;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding-bottom: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    border-bottom: solid 2px rgba(0,0,0,0.33);
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    padding-bottom: 3px;
+  }
+}
+
+@media only screen and (min-width:700px) {
+  .c2 {
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    role="tablist"
+  >
+    <div
+      className="c1"
+    >
+      <button
+        aria-expanded={true}
+        aria-selected={true}
+        className="c2"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role="tab"
+        type="button"
+      >
+        <div
+          className="c3"
+        >
+          <div>
+            Tab 1
+          </div>
+        </div>
+      </button>
+      <button
+        aria-expanded={false}
+        aria-selected={false}
+        className="c2"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        role="tab"
+        type="button"
+      >
+        <div
+          className="c4"
+        >
+          <div>
+            Tab 2
+          </div>
+        </div>
+      </button>
+    </div>
+    <div
+      aria-label="1 Tab Contents"
+      role="tabpanel"
+    >
+      Tab body 1
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs no Tab 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    role="tablist"
+  >
+    <div
+      className="c1"
+    />
+    <div
+      aria-label=" Tab Contents"
+      role="tabpanel"
+    />
+  </div>
+</div>
+`;
+
+exports[`Tabs set on hover 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  border-bottom: solid 2px #000000;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-bottom: 6px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  border-bottom: solid 2px rgba(0,0,0,0.33);
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-bottom: 6px;
+}
+
+.c2 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  text-align: inherit;
+}
+
+.c4 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.c6 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+}
+
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    border-bottom: solid 2px #000000;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding-bottom: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    border-bottom: solid 2px rgba(0,0,0,0.33);
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    padding-bottom: 3px;
+  }
+}
+
+@media only screen and (min-width:700px) {
+  .c2 {
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    role="tablist"
+  >
+    <div
+      class="c1"
+    >
+      <button
+        aria-expanded="true"
+        aria-selected="true"
+        class="c2"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="c3"
+        >
+          <span
+            class="c4"
+          >
+            Tab 1
+          </span>
+        </div>
+      </button>
+      <button
+        aria-expanded="false"
+        aria-selected="false"
+        class="c2"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="c5"
+        >
+          <span
+            class="c6"
+          >
+            Tab 2
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      aria-label="Tab 1 Tab Contents"
+      role="tabpanel"
+    >
+      Tab body 1
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs set on hover 2`] = `
+<div
+  class="StyledGrommet-sc-19lkkz7-0 cGdwQo"
+>
+  <div
+    role="tablist"
+  >
+    <div
+      class="StyledBox-sc-13pk1d4-0 lotabM"
+    >
+      <button
+        aria-expanded="true"
+        aria-selected="true"
+        class="StyledButton-sc-323bzc-0 jeDfzo"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="StyledBox-sc-13pk1d4-0 cVkSXv"
+        >
+          <span
+            class="StyledText-sc-1sadyjn-0 hJZqIs"
+          >
+            Tab 1
+          </span>
+        </div>
+      </button>
+      <button
+        aria-expanded="false"
+        aria-selected="false"
+        class="StyledButton-sc-323bzc-0 jeDfzo"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="StyledBox-sc-13pk1d4-0 gaswRr"
+        >
+          <span
+            class="StyledText-sc-1sadyjn-0 iCreHd"
+          >
+            Tab 2
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      aria-label="Tab 1 Tab Contents"
+      role="tabpanel"
+    >
+      Tab body 1
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs set on hover 3`] = `
+<div
+  class="StyledGrommet-sc-19lkkz7-0 cGdwQo"
+>
+  <div
+    role="tablist"
+  >
+    <div
+      class="StyledBox-sc-13pk1d4-0 lotabM"
+    >
+      <button
+        aria-expanded="true"
+        aria-selected="true"
+        class="StyledButton-sc-323bzc-0 jeDfzo"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="StyledBox-sc-13pk1d4-0 cVkSXv"
+        >
+          <span
+            class="StyledText-sc-1sadyjn-0 hJZqIs"
+          >
+            Tab 1
+          </span>
+        </div>
+      </button>
+      <button
+        aria-expanded="false"
+        aria-selected="false"
+        class="StyledButton-sc-323bzc-0 jeDfzo"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="StyledBox-sc-13pk1d4-0 gaswRr"
+        >
+          <span
+            class="StyledText-sc-1sadyjn-0 iCreHd"
+          >
+            Tab 2
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      aria-label="Tab 1 Tab Contents"
+      role="tabpanel"
+    >
+      Tab body 1
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs set on hover 4`] = `
+<div
+  class="StyledGrommet-sc-19lkkz7-0 cGdwQo"
+>
+  <div
+    role="tablist"
+  >
+    <div
+      class="StyledBox-sc-13pk1d4-0 lotabM"
+    >
+      <button
+        aria-expanded="true"
+        aria-selected="true"
+        class="StyledButton-sc-323bzc-0 jeDfzo"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="StyledBox-sc-13pk1d4-0 cVkSXv"
+        >
+          <span
+            class="StyledText-sc-1sadyjn-0 hJZqIs"
+          >
+            Tab 1
+          </span>
+        </div>
+      </button>
+      <button
+        aria-expanded="false"
+        aria-selected="false"
+        class="StyledButton-sc-323bzc-0 jeDfzo"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="StyledBox-sc-13pk1d4-0 gaswRr"
+        >
+          <span
+            class="StyledText-sc-1sadyjn-0 iCreHd"
+          >
+            Tab 2
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      aria-label="Tab 1 Tab Contents"
+      role="tabpanel"
+    >
+      Tab body 1
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tabs set on hover 5`] = `
+<div
+  class="StyledGrommet-sc-19lkkz7-0 cGdwQo"
+>
+  <div
+    role="tablist"
+  >
+    <div
+      class="StyledBox-sc-13pk1d4-0 lotabM"
+    >
+      <button
+        aria-expanded="true"
+        aria-selected="true"
+        class="StyledButton-sc-323bzc-0 jeDfzo"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="StyledBox-sc-13pk1d4-0 cVkSXv"
+        >
+          <span
+            class="StyledText-sc-1sadyjn-0 hJZqIs"
+          >
+            Tab 1
+          </span>
+        </div>
+      </button>
+      <button
+        aria-expanded="false"
+        aria-selected="false"
+        class="StyledButton-sc-323bzc-0 jeDfzo"
+        role="tab"
+        type="button"
+      >
+        <div
+          class="StyledBox-sc-13pk1d4-0 gaswRr"
+        >
+          <span
+            class="StyledText-sc-1sadyjn-0 iCreHd"
+          >
+            Tab 2
+          </span>
+        </div>
+      </button>
+    </div>
+    <div
+      aria-label="Tab 1 Tab Contents"
+      role="tabpanel"
+    >
+      Tab body 1
+    </div>
+  </div>
+</div>
+`;

@@ -1,8 +1,9 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.SearchInputContext = undefined;
+exports.SearchInputContext = void 0;
 
-var _react = require('react');
+var _react = require("react");
 
-var SearchInputContext = exports.SearchInputContext = (0, _react.createContext)({});
+var SearchInputContext = (0, _react.createContext)({});
+exports.SearchInputContext = SearchInputContext;

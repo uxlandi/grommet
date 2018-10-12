@@ -1,20 +1,24 @@
 var _this = this;
 
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
+export var throttle = function throttle(fn, threshhold, scope) {
+  if (threshhold === void 0) {
+    threshhold = 250;
+  }
 
-export var throttle = function throttle(fn) {
-  var threshhold = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 250;
-  var scope = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : _this;
+  if (scope === void 0) {
+    scope = _this;
+  }
 
-  var last = void 0;
-  var deferTimer = void 0;
-
+  var last;
+  var deferTimer;
   return function () {
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
     var now = Date.now();
+
     if (last && now < last + threshhold) {
       clearTimeout(deferTimer);
       deferTimer = setTimeout(function () {

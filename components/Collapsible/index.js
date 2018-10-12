@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.Collapsible = void 0;
 
-var _Collapsible = require('./Collapsible');
+var _Collapsible = require("./Collapsible");
 
-Object.defineProperty(exports, 'Collapsible', {
-  enumerable: true,
-  get: function get() {
-    return _Collapsible.Collapsible;
-  }
-});
+exports.Collapsible = _Collapsible.Collapsible;

@@ -1,77 +1,91 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.SelectContainer = undefined;
+exports.SelectContainer = void 0;
 
-var _react = require('react');
+var _react = _interopRequireWildcard(require("react"));
 
-var _react2 = _interopRequireDefault(_react);
+var _reactDom = require("react-dom");
 
-var _reactDom = require('react-dom');
+var _styledComponents = _interopRequireDefault(require("styled-components"));
 
-var _styledComponents = require('styled-components');
+var _utils = require("../../utils");
 
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
+var _hocs = require("../hocs");
 
-var _utils = require('../../utils');
+var _Box = require("../Box");
 
-var _hocs = require('../hocs');
+var _Button = require("../Button");
 
-var _Box = require('../Box');
+var _InfiniteScroll = require("../InfiniteScroll");
 
-var _Button = require('../Button');
+var _Keyboard = require("../Keyboard");
 
-var _InfiniteScroll = require('../InfiniteScroll');
+var _Text = require("../Text");
 
-var _Keyboard = require('../Keyboard');
-
-var _Text = require('../Text');
-
-var _TextInput = require('../TextInput');
+var _TextInput = require("../TextInput");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-var ContainerBox = (0, _styledComponents2.default)(_Box.Box).withConfig({
-  displayName: 'SelectContainer__ContainerBox',
-  componentId: 'sc-1wi0ul8-0'
-})(['max-height:inherit;@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){width:100%;}']);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var OptionsBox = (0, _styledComponents2.default)(_Box.Box).withConfig({
-  displayName: 'SelectContainer__OptionsBox',
-  componentId: 'sc-1wi0ul8-1'
-})(['scroll-behavior:smooth;']);
+var ContainerBox = (0, _styledComponents.default)(_Box.Box).withConfig({
+  displayName: "SelectContainer__ContainerBox",
+  componentId: "sc-1wi0ul8-0"
+})(["max-height:inherit;@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){width:100%;}"]);
+var OptionsBox = (0, _styledComponents.default)(_Box.Box).withConfig({
+  displayName: "SelectContainer__OptionsBox",
+  componentId: "sc-1wi0ul8-1"
+})(["scroll-behavior:smooth;"]);
 
-var SelectContainer = function (_Component) {
-  _inherits(SelectContainer, _Component);
+var SelectContainer =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(SelectContainer, _Component);
 
   function SelectContainer() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, SelectContainer);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.optionsRef = {}, _this.searchRef = (0, _react.createRef)(), _this.selectRef = (0, _react.createRef)(), _this.state = {
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "optionsRef", {});
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "searchRef", (0, _react.createRef)());
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "selectRef", (0, _react.createRef)());
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       search: '',
       activeIndex: -1
-    }, _this.onInput = function (event) {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", function (event) {
       _this.setState({
         search: event.target.value,
         activeIndex: -1
       }, function () {
-        return _this.onSearch(_this.state.search);
+        var search = _this.state.search;
+
+        _this.onSearch(search);
       });
-    }, _this.onSearch = (0, _utils.debounce)(function (search) {
-      return _this.props.onSearch(search);
-    }, 300), _this.selectOption = function (option, index) {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSearch", (0, _utils.debounce)(function (search) {
+      var onSearch = _this.props.onSearch;
+      onSearch(search);
+    }, 300));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "selectOption", function (option, index) {
       var _this$props = _this.props,
           multiple = _this$props.multiple,
           onChange = _this$props.onChange,
@@ -79,10 +93,10 @@ var SelectContainer = function (_Component) {
           selected = _this$props.selected,
           value = _this$props.value;
 
-
       if (onChange) {
         var nextValue = option;
         var nextSelected = index;
+
         if (multiple) {
           nextValue = [];
           nextSelected = [];
@@ -105,6 +119,7 @@ var SelectContainer = function (_Component) {
               nextSelected.push(selectedIndex);
             }
           });
+
           if (!removed) {
             nextValue.push(option);
             nextSelected.push(index);
@@ -118,13 +133,17 @@ var SelectContainer = function (_Component) {
           selected: nextSelected
         });
       }
-    }, _this.onNextOption = function (event) {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onNextOption", function (event) {
       var options = _this.props.options;
       var activeIndex = _this.state.activeIndex;
-
       event.preventDefault();
       var index = Math.min(activeIndex + 1, options.length - 1);
-      _this.setState({ activeIndex: index }, function () {
+
+      _this.setState({
+        activeIndex: index
+      }, function () {
         var buttonNode = (0, _reactDom.findDOMNode)(_this.optionsRef[index]);
         var selectNode = (0, _reactDom.findDOMNode)(_this.selectRef.current);
 
@@ -132,12 +151,16 @@ var SelectContainer = function (_Component) {
           selectNode.scrollBy(0, buttonNode.getBoundingClientRect().height);
         }
       });
-    }, _this.onPreviousOption = function (event) {
-      var activeIndex = _this.state.activeIndex;
+    });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onPreviousOption", function (event) {
+      var activeIndex = _this.state.activeIndex;
       event.preventDefault();
       var index = Math.max(activeIndex - 1, 0);
-      _this.setState({ activeIndex: index }, function () {
+
+      _this.setState({
+        activeIndex: index
+      }, function () {
         var buttonNode = (0, _reactDom.findDOMNode)(_this.optionsRef[index]);
         var selectNode = (0, _reactDom.findDOMNode)(_this.selectRef.current);
 
@@ -145,21 +168,25 @@ var SelectContainer = function (_Component) {
           selectNode.scrollBy(0, -buttonNode.getBoundingClientRect().height);
         }
       });
-    }, _this.onSelectOption = function (event) {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSelectOption", function (event) {
       var options = _this.props.options;
       var activeIndex = _this.state.activeIndex;
 
       if (activeIndex >= 0) {
         event.preventDefault(); // prevent submitting forms
+
         _this.selectOption(options[activeIndex], activeIndex);
       }
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+
+    return _this;
   }
 
   SelectContainer.getDerivedStateFromProps = function getDerivedStateFromProps(nextProps, prevState) {
     var options = nextProps.options,
         value = nextProps.value;
-
 
     if (prevState.activeIndex === -1 && prevState.search === '' && options && value) {
       var optionValue = Array.isArray(value) && value.length ? value[0] : value;
@@ -167,7 +194,9 @@ var SelectContainer = function (_Component) {
       return {
         activeIndex: activeIndex
       };
-    } else if (prevState.activeIndex === -1 && prevState.search !== '') {
+    }
+
+    if (prevState.activeIndex === -1 && prevState.search !== '') {
       return {
         activeIndex: 0
       };
@@ -176,26 +205,30 @@ var SelectContainer = function (_Component) {
     return null;
   };
 
-  SelectContainer.prototype.componentDidMount = function componentDidMount() {
+  var _proto = SelectContainer.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
     var _this2 = this;
 
+    /* eslint-disable-next-line react/prop-types */
     var onSearch = this.props.onSearch;
-    var activeIndex = this.state.activeIndex;
-    // timeout need to send the operation through event loop and allow time to the portal
+    var activeIndex = this.state.activeIndex; // timeout need to send the operation through event loop and allow time to the portal
     // to be available
 
     setTimeout(function () {
       var selectNode = (0, _reactDom.findDOMNode)(_this2.selectRef.current);
+
       if (onSearch) {
         var input = (0, _reactDom.findDOMNode)(_this2.searchRef.current);
+
         if (input && input.focus) {
           (0, _utils.setFocusWithoutScroll)(input);
         }
       } else if (_this2.selectRef) {
         (0, _utils.setFocusWithoutScroll)((0, _reactDom.findDOMNode)(_this2.selectRef.current));
-      }
+      } // scroll to active option if it is below the fold
 
-      // scroll to active option if it is below the fold
+
       if (activeIndex >= 0) {
         var optionNode = (0, _reactDom.findDOMNode)(_this2.optionsRef[activeIndex]);
 
@@ -212,115 +245,95 @@ var SelectContainer = function (_Component) {
     }, 0);
   };
 
-  // wait 300ms of idle time before notifying that the search changed
-  // 300ms seems like the right amount to wait for after the used stopped typing
-
-
-  SelectContainer.prototype.render = function render() {
+  _proto.render = function render() {
     var _this3 = this;
 
-    var _props = this.props,
-        children = _props.children,
-        id = _props.id,
-        name = _props.name,
-        onKeyDown = _props.onKeyDown,
-        onSearch = _props.onSearch,
-        options = _props.options,
-        searchPlaceholder = _props.searchPlaceholder,
-        selected = _props.selected,
-        theme = _props.theme,
-        value = _props.value;
-    var _state = this.state,
-        activeIndex = _state.activeIndex,
-        search = _state.search;
+    /* eslint-disable react/prop-types */
+    var _this$props2 = this.props,
+        children = _this$props2.children,
+        id = _this$props2.id,
+        name = _this$props2.name,
+        onKeyDown = _this$props2.onKeyDown,
+        onSearch = _this$props2.onSearch,
+        options = _this$props2.options,
+        searchPlaceholder = _this$props2.searchPlaceholder,
+        selected = _this$props2.selected,
+        theme = _this$props2.theme,
+        value = _this$props2.value;
+    /* eslint-enable react/prop-types */
 
-
+    var _this$state = this.state,
+        activeIndex = _this$state.activeIndex,
+        search = _this$state.search;
     var customSearchInput = theme.select.searchInput;
     var SelectTextInput = customSearchInput || _TextInput.TextInput;
-
-    return _react2.default.createElement(
-      _Keyboard.Keyboard,
-      {
-        onEnter: this.onSelectOption,
-        onUp: this.onPreviousOption,
-        onDown: this.onNextOption,
-        onKeyDown: onKeyDown
-      },
-      _react2.default.createElement(
-        ContainerBox,
-        {
-          id: id ? id + '__select-drop' : undefined,
-          theme: theme
+    return _react.default.createElement(_Keyboard.Keyboard, {
+      onEnter: this.onSelectOption,
+      onUp: this.onPreviousOption,
+      onDown: this.onNextOption,
+      onKeyDown: onKeyDown
+    }, _react.default.createElement(ContainerBox, {
+      id: id ? id + "__select-drop" : undefined,
+      theme: theme
+    }, onSearch && _react.default.createElement(_Box.Box, {
+      pad: !customSearchInput ? 'xsmall' : undefined,
+      flex: false
+    }, _react.default.createElement(SelectTextInput, {
+      focusIndicator: !customSearchInput,
+      size: "small",
+      ref: this.searchRef,
+      type: "search",
+      value: search,
+      placeholder: searchPlaceholder,
+      onChange: this.onChange
+    })), _react.default.createElement(OptionsBox, {
+      flex: "shrink",
+      role: "menubar",
+      tabIndex: "-1",
+      ref: this.selectRef,
+      overflow: "auto",
+      theme: theme
+    }, _react.default.createElement(_InfiniteScroll.InfiniteScroll, {
+      items: options,
+      step: theme.select.step
+    }, function (option, index) {
+      return _react.default.createElement(_Box.Box, {
+        key: "option_" + (name || '') + "_" + index,
+        flex: false
+      }, _react.default.createElement(_Button.Button, {
+        role: "menuitem",
+        ref: function ref(_ref) {
+          _this3.optionsRef[index] = _ref;
         },
-        onSearch && _react2.default.createElement(
-          _Box.Box,
-          { pad: !customSearchInput ? 'xsmall' : undefined, flex: false },
-          _react2.default.createElement(SelectTextInput, {
-            focusIndicator: !customSearchInput,
-            size: 'small',
-            ref: this.searchRef,
-            type: 'search',
-            value: search,
-            placeholder: searchPlaceholder,
-            onInput: this.onInput
-          })
-        ),
-        _react2.default.createElement(
-          OptionsBox,
-          {
-            flex: 'shrink',
-            role: 'menubar',
-            tabIndex: '-1',
-            ref: this.selectRef,
-            overflow: 'auto',
-            theme: theme
-          },
-          _react2.default.createElement(
-            _InfiniteScroll.InfiniteScroll,
-            { items: options, step: theme.select.step },
-            function (option, index) {
-              return _react2.default.createElement(
-                _Box.Box,
-                { key: 'option_' + (name || '') + '_' + index, flex: false },
-                _react2.default.createElement(
-                  _Button.Button,
-                  {
-                    role: 'menuitem',
-                    ref: function ref(_ref) {
-                      _this3.optionsRef[index] = _ref;
-                    },
-                    active: selected === index || Array.isArray(selected) && selected.indexOf(index) !== -1 || activeIndex === index || option && option === value || option && Array.isArray(value) && value.indexOf(option) !== -1,
-                    onClick: function onClick() {
-                      return _this3.selectOption(option, index);
-                    },
-                    hoverIndicator: 'background'
-                  },
-                  children ? children(option, index, options) : _react2.default.createElement(
-                    _Box.Box,
-                    { align: 'start', pad: 'small' },
-                    _react2.default.createElement(
-                      _Text.Text,
-                      { margin: 'none' },
-                      option !== null && option !== undefined ? option.toString() : undefined
-                    )
-                  )
-                )
-              );
-            }
-          )
-        )
-      )
-    );
+        active: selected === index || Array.isArray(selected) && selected.indexOf(index) !== -1 || activeIndex === index || option && option === value || option && Array.isArray(value) && value.indexOf(option) !== -1,
+        onClick: function onClick() {
+          return _this3.selectOption(option, index);
+        },
+        hoverIndicator: "background"
+      }, children ? children(option, index, options) : _react.default.createElement(_Box.Box, {
+        align: "start",
+        pad: "small"
+      }, _react.default.createElement(_Text.Text, {
+        margin: "none"
+      }, option !== null && option !== undefined ? option.toString() : undefined))));
+    }))));
   };
 
   return SelectContainer;
 }(_react.Component);
 
-SelectContainer.defaultProps = {
+_defineProperty(SelectContainer, "defaultProps", {
+  children: null,
+  id: undefined,
+  multiple: false,
+  name: undefined,
+  onKeyDown: undefined,
+  onSearch: undefined,
+  options: undefined,
+  searchPlaceholder: undefined,
+  selected: false,
   value: ''
-};
-
+});
 
 var SelectContainerWrapper = (0, _hocs.withTheme)(SelectContainer);
-
 exports.SelectContainer = SelectContainerWrapper;

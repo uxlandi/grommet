@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.Image = void 0;
 
-var _Image = require('./Image');
+var _Image = require("./Image");
 
-Object.defineProperty(exports, 'Image', {
-  enumerable: true,
-  get: function get() {
-    return _Image.Image;
-  }
-});
+exports.Image = _Image.Image;

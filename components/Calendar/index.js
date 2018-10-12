@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.Calendar = void 0;
 
-var _Calendar = require('./Calendar');
+var _Calendar = require("./Calendar");
 
-Object.defineProperty(exports, 'Calendar', {
-  enumerable: true,
-  get: function get() {
-    return _Calendar.Calendar;
-  }
-});
+exports.Calendar = _Calendar.Calendar;

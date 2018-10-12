@@ -1,50 +1,56 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.Drop = undefined;
+exports.Drop = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _react = _interopRequireWildcard(require("react"));
 
-var _react = require('react');
+var _reactDom = require("react-dom");
 
-var _react2 = _interopRequireDefault(_react);
+var _recompose = require("recompose");
 
-var _reactDom = require('react-dom');
+var _utils = require("../../utils");
 
-var _recompose = require('recompose');
+var _hocs = require("../hocs");
 
-var _utils = require('../../utils');
+var _DropContainer = require("./DropContainer");
 
-var _hocs = require('../hocs');
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-var _DropContainer = require('./DropContainer');
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Drop = function (_Component) {
-  _inherits(Drop, _Component);
+var Drop =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(Drop, _Component);
 
   function Drop() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, Drop);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.originalFocusedElement = document.activeElement, _this.dropContainer = (0, _utils.getNewContainer)(), _temp), _possibleConstructorReturn(_this, _ret);
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "originalFocusedElement", document.activeElement);
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "dropContainer", (0, _utils.getNewContainer)());
+
+    return _this;
   }
 
-  Drop.prototype.componentWillUnmount = function componentWillUnmount() {
+  var _proto = Drop.prototype;
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
     var restrictFocus = this.props.restrictFocus;
 
     if (restrictFocus && this.originalFocusedElement) {
@@ -55,32 +61,35 @@ var Drop = function (_Component) {
         (0, _utils.setFocusWithoutScroll)(this.originalFocusedElement.parentNode);
       }
     }
+
     document.body.removeChild(this.dropContainer);
   };
 
-  Drop.prototype.render = function render() {
-    var _props = this.props,
-        dropTarget = _props.target,
-        rest = _objectWithoutProperties(_props, ['target']);
+  _proto.render = function render() {
+    var _this$props = this.props,
+        dropTarget = _this$props.target,
+        rest = _objectWithoutPropertiesLoose(_this$props, ["target"]);
 
-    return (0, _reactDom.createPortal)(_react2.default.createElement(_DropContainer.DropContainer, _extends({ dropTarget: dropTarget }, rest)), this.dropContainer);
+    return (0, _reactDom.createPortal)(_react.default.createElement(_DropContainer.DropContainer, _extends({
+      dropTarget: dropTarget
+    }, rest)), this.dropContainer);
   };
 
   return Drop;
 }(_react.Component);
 
-Drop.defaultProps = {
+_defineProperty(Drop, "defaultProps", {
   align: {
     top: 'top',
     left: 'left'
   }
-};
+});
 
+var DropDoc;
 
-var DropDoc = void 0;
 if (process.env.NODE_ENV !== 'production') {
   DropDoc = require('./doc').doc(Drop); // eslint-disable-line global-require
 }
-var DropWrapper = (0, _recompose.compose)(_hocs.withTheme)(DropDoc || Drop);
 
+var DropWrapper = (0, _recompose.compose)(_hocs.withTheme)(DropDoc || Drop);
 exports.Drop = DropWrapper;

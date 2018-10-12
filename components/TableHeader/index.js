@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.TableHeader = void 0;
 
-var _TableHeader = require('./TableHeader');
+var _TableHeader = require("./TableHeader");
 
-Object.defineProperty(exports, 'TableHeader', {
-  enumerable: true,
-  get: function get() {
-    return _TableHeader.TableHeader;
-  }
-});
+exports.TableHeader = _TableHeader.TableHeader;

@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.RoutedButton = void 0;
 
-var _RoutedButton = require('./RoutedButton');
+var _RoutedButton = require("./RoutedButton");
 
-Object.defineProperty(exports, 'RoutedButton', {
-  enumerable: true,
-  get: function get() {
-    return _RoutedButton.RoutedButton;
-  }
-});
+exports.RoutedButton = _RoutedButton.RoutedButton;

@@ -1,73 +1,69 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.Stack = undefined;
+exports.Stack = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _react = _interopRequireWildcard(require("react"));
 
-var _react = require('react');
+var _recompose = require("recompose");
 
-var _react2 = _interopRequireDefault(_react);
+var _hocs = require("../hocs");
 
-var _recompose = require('recompose');
+var _StyledStack = require("./StyledStack");
 
-var _hocs = require('../hocs');
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-var _StyledStack = require('./StyledStack');
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Stack = function (_Component) {
-  _inherits(Stack, _Component);
+var Stack =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(Stack, _Component);
 
   function Stack() {
-    _classCallCheck(this, Stack);
-
-    return _possibleConstructorReturn(this, _Component.apply(this, arguments));
+    return _Component.apply(this, arguments) || this;
   }
 
-  Stack.prototype.render = function render() {
-    var _props = this.props,
-        anchor = _props.anchor,
-        children = _props.children,
-        fill = _props.fill,
-        guidingChild = _props.guidingChild,
-        rest = _objectWithoutProperties(_props, ['anchor', 'children', 'fill', 'guidingChild']);
+  var _proto = Stack.prototype;
 
-    // make all children but the first absolutely positioned
+  _proto.render = function render() {
+    var _this$props = this.props,
+        anchor = _this$props.anchor,
+        children = _this$props.children,
+        fill = _this$props.fill,
+        guidingChild = _this$props.guidingChild,
+        rest = _objectWithoutPropertiesLoose(_this$props, ["anchor", "children", "fill", "guidingChild"]); // make all children but the first absolutely positioned
 
 
     var guidingIndex = guidingChild;
+
     if (guidingIndex === 'first' || !guidingIndex) {
       guidingIndex = 0;
     } else if (guidingIndex === 'last') {
-      guidingIndex = _react2.default.Children.count(children) - 1;
+      guidingIndex = _react.default.Children.count(children) - 1;
     }
+
     var childIndex = 0;
+
     var styledChildren = _react.Children.map(children, function (child) {
       if (child) {
-        var layer = void 0;
+        var layer;
+
         if (childIndex === guidingIndex) {
-          layer = _react2.default.createElement(
-            _StyledStack.StyledStackLayer,
-            { guiding: true, fillContainer: fill },
-            child
-          );
+          layer = _react.default.createElement(_StyledStack.StyledStackLayer, {
+            guiding: true,
+            fillContainer: fill
+          }, child);
         } else {
-          layer = _react2.default.createElement(
-            _StyledStack.StyledStackLayer,
-            { anchor: anchor },
-            child
-          );
+          layer = _react.default.createElement(_StyledStack.StyledStackLayer, {
+            anchor: anchor
+          }, child);
         }
+
         childIndex += 1;
         return layer;
       }
@@ -75,20 +71,19 @@ var Stack = function (_Component) {
       return child;
     });
 
-    return _react2.default.createElement(
-      _StyledStack.StyledStack,
-      _extends({ fillContainer: fill }, rest),
-      styledChildren
-    );
+    return _react.default.createElement(_StyledStack.StyledStack, _extends({
+      fillContainer: fill
+    }, rest), styledChildren);
   };
 
   return Stack;
 }(_react.Component);
 
-var StackDoc = void 0;
+var StackDoc;
+
 if (process.env.NODE_ENV !== 'production') {
   StackDoc = require('./doc').doc(Stack); // eslint-disable-line global-require
 }
-var StackWrapper = (0, _recompose.compose)(_hocs.withTheme)(StackDoc || Stack);
 
+var StackWrapper = (0, _recompose.compose)(_hocs.withTheme)(StackDoc || Stack);
 exports.Stack = StackWrapper;

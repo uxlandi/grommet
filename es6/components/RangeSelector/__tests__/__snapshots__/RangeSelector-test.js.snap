@@ -1,0 +1,6048 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RangeSelector basic 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  overflow: visible;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 6px;
+  padding: 0px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 12px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    padding: 0px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`RangeSelector color 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  overflow: visible;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 6px;
+  padding: 0px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 12px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(253,111,255,0.4);
+  color: #444444;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    padding: 0px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#FD6FFF"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#FD6FFF"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`RangeSelector direction 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  overflow: visible;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 6px;
+  padding: 0px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 12px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin: 0px;
+  padding: 0px;
+  overflow: visible;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 6px;
+  padding: 0px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 12px;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c7 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c7 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c8 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c8 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c9 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c9 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c10 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c10 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c10 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c11 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c11 {
+    padding: 0px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+  <div
+    className="c7"
+  >
+    <div
+      className="c7"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c8"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c9"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "row-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c10"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c11"
+      style={
+        Object {
+          "cursor": "ns-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c8"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c9"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "row-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c10"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c7"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`RangeSelector handle keyboard 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  overflow: visible;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 6px;
+  padding: 0px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 12px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    padding: 0px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    />
+    <div
+      class="c3"
+    >
+      <div
+        aria-label="Lower Bounds"
+        class="c4"
+        style="cursor: col-resize; min-width: 12px; min-height: 12px; z-index: 10;"
+        tabindex="0"
+      >
+        <div
+          class="c5"
+        >
+          <svg
+            height="12"
+            viewBox="0 0 12 12"
+            width="12"
+          >
+            <circle
+              cx="6"
+              cy="6"
+              fill="#7D4CDB"
+              r="6"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c6"
+      style="cursor: ew-resize;"
+    />
+    <div
+      class="c3"
+    >
+      <div
+        aria-label="Upper Bounds"
+        class="c4"
+        style="cursor: col-resize; min-width: 12px; min-height: 12px; z-index: 10;"
+        tabindex="0"
+      >
+        <div
+          class="c5"
+        >
+          <svg
+            height="12"
+            viewBox="0 0 12 12"
+            width="12"
+          >
+            <circle
+              cx="6"
+              cy="6"
+              fill="#7D4CDB"
+              r="6"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c2"
+    />
+  </div>
+</div>
+`;
+
+exports[`RangeSelector handle mouse 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  overflow: visible;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 6px;
+  padding: 0px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 12px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    padding: 0px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    />
+    <div
+      class="c3"
+    >
+      <div
+        aria-label="Lower Bounds"
+        class="c4"
+        style="cursor: col-resize; min-width: 12px; min-height: 12px; z-index: 10;"
+        tabindex="0"
+      >
+        <div
+          class="c5"
+        >
+          <svg
+            height="12"
+            viewBox="0 0 12 12"
+            width="12"
+          >
+            <circle
+              cx="6"
+              cy="6"
+              fill="#7D4CDB"
+              r="6"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c6"
+      style="cursor: ew-resize;"
+    />
+    <div
+      class="c3"
+    >
+      <div
+        aria-label="Upper Bounds"
+        class="c4"
+        style="cursor: col-resize; min-width: 12px; min-height: 12px; z-index: 10;"
+        tabindex="0"
+      >
+        <div
+          class="c5"
+        >
+          <svg
+            height="12"
+            viewBox="0 0 12 12"
+            width="12"
+          >
+            <circle
+              cx="6"
+              cy="6"
+              fill="#7D4CDB"
+              r="6"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c2"
+    />
+  </div>
+</div>
+`;
+
+exports[`RangeSelector invert 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  overflow: visible;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 6px;
+  padding: 0px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 12px;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(204,204,204,0.4);
+  color: #444444;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c7 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c7 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c6"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c7"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`RangeSelector max 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  overflow: visible;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 6px;
+  padding: 0px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 12px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    padding: 0px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.6078431372549 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.784313725490195 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.6078431372549 0 0",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`RangeSelector min 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  overflow: visible;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 6px;
+  padding: 0px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 12px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    padding: 0px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "9.89010989010989 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.87912087912088 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.23076923076923 0 0",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`RangeSelector opacity 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  overflow: visible;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 6px;
+  padding: 0px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 12px;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.1);
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.8);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c7 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c7 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c8 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c8 {
+    padding: 0px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c7"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c8"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`RangeSelector round 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  overflow: visible;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 6px;
+  padding: 0px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 12px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 6px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 6px;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 12px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 12px;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 24px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 24px;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 48px;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 48px;
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 100%;
+}
+
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 100%;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    border-radius: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    border-radius: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c7 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c7 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c7 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c8 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c8 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c8 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c9 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c9 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c9 {
+    border-radius: 12px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c10 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c10 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c10 {
+    border-radius: 12px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c11 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c11 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c11 {
+    border-radius: 24px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c12 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c12 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c12 {
+    border-radius: 24px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c13 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c13 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c13 {
+    border-radius: 100%;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c14 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c14 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c14 {
+    border-radius: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c7"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c8"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c7"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c9"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c10"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c9"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c11"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c12"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c11"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c13"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c14"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c13"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`RangeSelector size 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  overflow: visible;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 6px;
+  padding: 0px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 12px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    padding: 0px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "19.801980198019802 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "10.89108910891089 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "69.3069306930693 0 0",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`RangeSelector step 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  overflow: visible;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 6px;
+  padding: 0px;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 12px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  outline: none;
+  max-width: 100%;
+  background-color: rgba(125,76,219,0.4);
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c1 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c3 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c4 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c5 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:699px) {
+  .c6 {
+    padding: 0px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "18.18181818181818 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Lower Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c6"
+      style={
+        Object {
+          "cursor": "ew-resize",
+          "flex": "18.18181818181818 0 0",
+        }
+      }
+    />
+    <div
+      className="c3"
+      onKeyDown={[Function]}
+      style={
+        Object {
+          "flex": "0 0 1px",
+        }
+      }
+    >
+      <div
+        aria-label="Upper Bounds"
+        className="c4"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        style={
+          Object {
+            "cursor": "col-resize",
+            "minHeight": 12,
+            "minWidth": 12,
+            "zIndex": 10,
+          }
+        }
+        tabIndex={0}
+      >
+        <div
+          className="c5"
+        >
+          <svg
+            height={12}
+            viewBox="0 0 12 12"
+            width={12}
+          >
+            <circle
+              cx={6}
+              cy={6}
+              fill="#7D4CDB"
+              r={6}
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c2"
+      style={
+        Object {
+          "flex": "63.63636363636363 0 0",
+        }
+      }
+    />
+  </div>
+</div>
+`;

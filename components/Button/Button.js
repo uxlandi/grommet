@@ -1,48 +1,44 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.Button = undefined;
+exports.Button = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _react = _interopRequireWildcard(require("react"));
 
-var _react = require('react');
+var _recompose = require("recompose");
 
-var _react2 = _interopRequireDefault(_react);
+var _Box = require("../Box");
 
-var _recompose = require('recompose');
+var _hocs = require("../hocs");
 
-var _Box = require('../Box');
+var _utils = require("../../utils");
 
-var _hocs = require('../hocs');
+var _StyledButton = require("./StyledButton");
 
-var _utils = require('../../utils');
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-var _StyledButton = require('./StyledButton');
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var isDarkBackground = function isDarkBackground(props) {
   var backgroundColor = (0, _utils.normalizeBackground)((0, _utils.normalizeColor)(props.color || props.theme.button.primary.color || props.theme.global.control.color || 'brand', props.theme), props.theme);
-
   return (0, _utils.colorIsDark)((0, _utils.colorForName)(backgroundColor, props.theme));
 };
 
-var Button = function (_Component) {
-  _inherits(Button, _Component);
+var Button =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(Button, _Component);
 
   function Button(props) {
-    _classCallCheck(this, Button);
+    var _this;
 
-    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
-
+    _this = _Component.call(this, props) || this;
     var children = props.children,
         icon = props.icon,
         label = props.label;
@@ -50,86 +46,79 @@ var Button = function (_Component) {
     if ((icon || label) && children) {
       console.warn('Button should not have children if icon or label is provided');
     }
+
     return _this;
   }
 
-  Button.prototype.render = function render() {
-    var _props = this.props,
-        a11yTitle = _props.a11yTitle,
-        color = _props.color,
-        forwardRef = _props.forwardRef,
-        children = _props.children,
-        icon = _props.icon,
-        fill = _props.fill,
-        focus = _props.focus,
-        href = _props.href,
-        label = _props.label,
-        onClick = _props.onClick,
-        plain = _props.plain,
-        primary = _props.primary,
-        reverse = _props.reverse,
-        theme = _props.theme,
-        type = _props.type,
-        rest = _objectWithoutProperties(_props, ['a11yTitle', 'color', 'forwardRef', 'children', 'icon', 'fill', 'focus', 'href', 'label', 'onClick', 'plain', 'primary', 'reverse', 'theme', 'type']);
+  var _proto = Button.prototype;
 
-    var buttonIcon = icon;
-    // only change color if user did not specify the color themselves...
+  _proto.render = function render() {
+    var _this$props = this.props,
+        a11yTitle = _this$props.a11yTitle,
+        color = _this$props.color,
+        forwardRef = _this$props.forwardRef,
+        children = _this$props.children,
+        icon = _this$props.icon,
+        fill = _this$props.fill,
+        focus = _this$props.focus,
+        href = _this$props.href,
+        label = _this$props.label,
+        onClick = _this$props.onClick,
+        plain = _this$props.plain,
+        primary = _this$props.primary,
+        reverse = _this$props.reverse,
+        theme = _this$props.theme,
+        type = _this$props.type,
+        rest = _objectWithoutPropertiesLoose(_this$props, ["a11yTitle", "color", "forwardRef", "children", "icon", "fill", "focus", "href", "label", "onClick", "plain", "primary", "reverse", "theme", "type"]);
+
+    var buttonIcon = icon; // only change color if user did not specify the color themselves...
+
     if (primary && icon && !icon.props.color) {
       buttonIcon = (0, _react.cloneElement)(icon, {
-        color: this.props.theme.global.text.color[isDarkBackground(this.props) ? 'dark' : 'light']
+        color: theme.global.text.color[isDarkBackground(this.props) ? 'dark' : 'light']
       });
     }
+
     var first = reverse ? label : buttonIcon;
     var second = reverse ? buttonIcon : label;
-
     var disabled = !href && !onClick && ['reset', 'submit'].indexOf(type) === -1;
-
-    return _react2.default.createElement(
-      _StyledButton.StyledButton,
-      _extends({}, rest, {
-        as: href ? 'a' : undefined,
-        ref: forwardRef,
-        'aria-label': a11yTitle,
-        colorValue: color,
-        disabled: disabled,
-        hasIcon: !!icon,
-        hasLabel: !!label,
-        fillContainer: fill,
-        focus: focus,
-        href: href,
-        onClick: onClick,
-        plain: typeof plain !== 'undefined' ? plain : _react.Children.count(children) > 0 || icon && !label,
-        primary: primary,
-        theme: theme,
-        type: !href ? type : undefined
-      }),
-      first || second ? _react2.default.createElement(
-        _Box.Box,
-        {
-          direction: 'row',
-          align: 'center',
-          justify: 'center',
-          gap: 'small'
-        },
-        first,
-        second
-      ) : children
-    );
+    return _react.default.createElement(_StyledButton.StyledButton, _extends({}, rest, {
+      as: href ? 'a' : undefined,
+      ref: forwardRef,
+      "aria-label": a11yTitle,
+      colorValue: color,
+      disabled: disabled,
+      hasIcon: !!icon,
+      hasLabel: !!label,
+      fillContainer: fill,
+      focus: focus,
+      href: href,
+      onClick: onClick,
+      plain: typeof plain !== 'undefined' ? plain : _react.Children.count(children) > 0 || icon && !label,
+      primary: primary,
+      theme: theme,
+      type: !href ? type : undefined
+    }), first || second ? _react.default.createElement(_Box.Box, {
+      direction: "row",
+      align: "center",
+      justify: "center",
+      gap: "small"
+    }, first, second) : children);
   };
 
   return Button;
 }(_react.Component);
 
-Button.defaultProps = {
+_defineProperty(Button, "defaultProps", {
   type: 'button',
   focusIndicator: true
-};
+});
 
+var ButtonDoc;
 
-var ButtonDoc = void 0;
 if (process.env.NODE_ENV !== 'production') {
   ButtonDoc = require('./doc').doc(Button); // eslint-disable-line global-require
 }
-var ButtonWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(ButtonDoc || Button);
 
+var ButtonWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(ButtonDoc || Button);
 exports.Button = ButtonWrapper;

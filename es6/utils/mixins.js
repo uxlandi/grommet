@@ -1,29 +1,24 @@
 import { css } from 'styled-components';
-
 export var parseMetricToNum = function parseMetricToNum(fontAsString) {
   return parseFloat(fontAsString.replace(/[^0-9/.]/g, ''), 10);
 };
-
 export var fontSize = function fontSize(size, lineHeight) {
-  return css(['font-size:', ';line-height:', ';'], function (props) {
-    return parseMetricToNum(size) / parseMetricToNum(props.theme.global.font.size) * 1 + 'rem';
+  return css(["font-size:", ";line-height:", ";"], function (props) {
+    return parseMetricToNum(size) / parseMetricToNum(props.theme.global.font.size) * 1 + "rem";
   }, function (props) {
-    return lineHeight || Math.ceil(parseMetricToNum(size) / parseMetricToNum(props.theme.global.lineHeight)) * (parseMetricToNum(props.theme.global.lineHeight) / parseMetricToNum(size)) + 'px';
+    return lineHeight || Math.ceil(parseMetricToNum(size) / parseMetricToNum(props.theme.global.lineHeight)) * (parseMetricToNum(props.theme.global.lineHeight) / parseMetricToNum(size)) + "px";
   });
 };
-
 export var lapAndUp = function lapAndUp(content) {
-  return css(['@media only screen and (min-width:', '){', '}'], function (props) {
-    return props.theme.global.breakpoints.narrow + 1 + 'px';
+  return css(["@media only screen and (min-width:", "){", "}"], function (props) {
+    return props.theme.global.breakpoints.narrow + 1 + "px";
   }, content);
 };
-
 export var palm = function palm(content) {
-  return css(['@media only screen and (max-width:', '){', '}'], function (props) {
-    return props.theme.global.breakpoints.narrow + 'px';
+  return css(["@media only screen and (max-width:", "){", "}"], function (props) {
+    return props.theme.global.breakpoints.narrow + "px";
   }, content);
 };
-
 export var findAllByType = function findAllByType(component, type) {
   var matches = [];
 
@@ -39,14 +34,13 @@ export var findAllByType = function findAllByType(component, type) {
 
   return matches;
 };
-
 export var getAvailableAtBadge = function getAvailableAtBadge(availableAt) {
   return [{
-    url: 'https://storybook.grommet.io/?selectedKind=' + availableAt + '&full=0&addons=0&stories=1&panelRight=0',
+    url: "https://storybook.grommet.io/?selectedKind=" + availableAt + "&full=0&addons=0&stories=1&panelRight=0",
     badge: 'https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png',
     label: 'Storybook'
   }, {
-    url: 'https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=' + availableAt.toLowerCase() + '&module=%2Fsrc%2F' + availableAt + '.js',
+    url: "https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=" + availableAt.toLowerCase() + "&module=%2Fsrc%2F" + availableAt + ".js",
     badge: 'https://codesandbox.io/static/img/play-codesandbox.svg',
     label: 'CodeSandbox'
   }];

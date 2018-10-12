@@ -1,184 +1,224 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.DataTable = undefined;
+exports.DataTable = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _react = _interopRequireWildcard(require("react"));
 
-var _react = require('react');
+var _recompose = require("recompose");
 
-var _react2 = _interopRequireDefault(_react);
+var _hocs = require("../hocs");
 
-var _recompose = require('recompose');
+var _Header = require("./Header");
 
-var _hocs = require('../hocs');
+var _Footer = require("./Footer");
 
-var _Header = require('./Header');
+var _Body = require("./Body");
 
-var _Footer = require('./Footer');
+var _GroupedBody = require("./GroupedBody");
 
-var _Body = require('./Body');
+var _buildState = require("./buildState");
 
-var _GroupedBody = require('./GroupedBody');
+var _StyledDataTable = require("./StyledDataTable");
 
-var _buildState = require('./buildState');
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-var _StyledDataTable = require('./StyledDataTable');
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var DataTable = function (_Component) {
-  _inherits(DataTable, _Component);
+var DataTable =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(DataTable, _Component);
 
   function DataTable() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, DataTable);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {}, _this.onFiltering = function (property) {
-      _this.setState({ filtering: property });
-    }, _this.onFilter = function (property, value) {
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {});
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onFiltering", function (property) {
+      _this.setState({
+        filtering: property
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onFilter", function (property, value) {
+      /* eslint-disable-next-line react/prop-types */
       var onSearch = _this.props.onSearch;
+      var filters = _this.state.filters;
 
-      var nextFilters = _extends({}, _this.state.filters);
+      var nextFilters = _extends({}, filters);
+
       nextFilters[property] = value;
-      _this.setState({ filters: nextFilters });
 
-      // Let caller know about search, if interested
+      _this.setState({
+        filters: nextFilters
+      }); // Let caller know about search, if interested
+
+
       if (onSearch) {
         onSearch(nextFilters);
       }
-    }, _this.onSort = function (property) {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSort", function (property) {
       return function () {
         var sort = _this.state.sort;
-
         var ascending = sort && property === sort.property ? !sort.ascending : true;
-        _this.setState({ sort: { property: property, ascending: ascending } });
-      };
-    }, _this.onToggleGroup = function (groupValue) {
-      return function () {
-        var groupState = _extends({}, _this.state.groupState);
-        groupState[groupValue] = _extends({}, groupState[groupValue], {
-          expanded: !groupState[groupValue].expanded
+
+        _this.setState({
+          sort: {
+            property: property,
+            ascending: ascending
+          }
         });
-        _this.setState({ groupState: groupState });
       };
-    }, _this.onToggleGroups = function () {
-      var expanded = Object.keys(_this.state.groupState).filter(function (k) {
-        return !_this.state.groupState[k].expanded;
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onToggleGroup", function (groupValue) {
+      return function () {
+        var groupState = _this.state.groupState;
+
+        var nextGroupState = _extends({}, groupState);
+
+        nextGroupState[groupValue] = _extends({}, nextGroupState[groupValue], {
+          expanded: !nextGroupState[groupValue].expanded
+        });
+
+        _this.setState({
+          groupState: nextGroupState
+        });
+      };
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onToggleGroups", function () {
+      var groupState = _this.state.groupState;
+      var expanded = Object.keys(groupState).filter(function (k) {
+        return !groupState[k].expanded;
       }).length === 0;
-      var groupState = {};
-      Object.keys(_this.state.groupState).forEach(function (k) {
-        groupState[k] = _extends({}, _this.state.groupState[k], { expanded: !expanded });
+      var nextGroupState = {};
+      Object.keys(groupState).forEach(function (k) {
+        nextGroupState[k] = _extends({}, groupState[k], {
+          expanded: !expanded
+        });
       });
-      _this.setState({ groupState: groupState });
-    }, _this.onResize = function (property) {
+
+      _this.setState({
+        groupState: nextGroupState
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onResize", function (property) {
       return function (width) {
-        var widths = _extends({}, _this.state.widths || {});
-        widths[property] = width;
-        _this.setState({ widths: widths });
+        var widths = _this.state.widths;
+
+        var nextWidths = _extends({}, widths || {});
+
+        nextWidths[property] = width;
+
+        _this.setState({
+          widths: nextWidths
+        });
       };
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+
+    return _this;
   }
 
   DataTable.getDerivedStateFromProps = function getDerivedStateFromProps(nextProps, prevState) {
     return (0, _buildState.buildState)(nextProps, prevState);
   };
 
-  DataTable.prototype.render = function render() {
-    var _props = this.props,
-        columns = _props.columns,
-        groupBy = _props.groupBy,
-        onMore = _props.onMore,
-        resizeable = _props.resizeable,
-        size = _props.size,
-        sortable = _props.sortable,
-        theme = _props.theme;
-    var _state = this.state,
-        data = _state.data,
-        filtering = _state.filtering,
-        filters = _state.filters,
-        footerValues = _state.footerValues,
-        groups = _state.groups,
-        groupState = _state.groupState,
-        primaryProperty = _state.primaryProperty,
-        showFooter = _state.showFooter,
-        sort = _state.sort,
-        widths = _state.widths;
+  var _proto = DataTable.prototype;
 
+  _proto.render = function render() {
+    var _this$props = this.props,
+        columns = _this$props.columns,
+        groupBy = _this$props.groupBy,
+        onMore = _this$props.onMore,
+        resizeable = _this$props.resizeable,
+        size = _this$props.size,
+        sortable = _this$props.sortable,
+        theme = _this$props.theme;
+    var _this$state = this.state,
+        data = _this$state.data,
+        filtering = _this$state.filtering,
+        filters = _this$state.filters,
+        footerValues = _this$state.footerValues,
+        groups = _this$state.groups,
+        groupState = _this$state.groupState,
+        primaryProperty = _this$state.primaryProperty,
+        showFooter = _this$state.showFooter,
+        sort = _this$state.sort,
+        widths = _this$state.widths;
 
     if (size && resizeable) {
       console.warn('DataTable cannot combine "size" and "resizeble".');
     }
 
-    return _react2.default.createElement(
-      _StyledDataTable.StyledDataTable,
-      null,
-      _react2.default.createElement(_Header.Header, {
-        columns: columns,
-        filtering: filtering,
-        filters: filters,
-        groups: groups,
-        groupState: groupState,
-        size: size,
-        sort: sort,
-        theme: theme,
-        widths: widths,
-        onFiltering: this.onFiltering,
-        onFilter: this.onFilter,
-        onResize: resizeable ? this.onResize : undefined,
-        onSort: sortable ? this.onSort : undefined,
-        onToggle: this.onToggleGroups
-      }),
-      groups ? _react2.default.createElement(_GroupedBody.GroupedBody, {
-        columns: columns,
-        groupBy: groupBy,
-        groups: groups,
-        groupState: groupState,
-        primaryProperty: primaryProperty,
-        theme: theme,
-        onToggle: this.onToggleGroup
-      }) : _react2.default.createElement(_Body.Body, {
-        columns: columns,
-        data: data,
-        onMore: onMore,
-        primaryProperty: primaryProperty,
-        size: size,
-        theme: theme
-      }),
-      showFooter && _react2.default.createElement(_Footer.Footer, {
-        columns: columns,
-        footerValues: footerValues,
-        groups: groups,
-        size: size,
-        theme: theme
-      })
-    );
+    return _react.default.createElement(_StyledDataTable.StyledDataTable, null, _react.default.createElement(_Header.Header, {
+      columns: columns,
+      filtering: filtering,
+      filters: filters,
+      groups: groups,
+      groupState: groupState,
+      size: size,
+      sort: sort,
+      theme: theme,
+      widths: widths,
+      onFiltering: this.onFiltering,
+      onFilter: this.onFilter,
+      onResize: resizeable ? this.onResize : undefined,
+      onSort: sortable ? this.onSort : undefined,
+      onToggle: this.onToggleGroups
+    }), groups ? _react.default.createElement(_GroupedBody.GroupedBody, {
+      columns: columns,
+      groupBy: groupBy,
+      groups: groups,
+      groupState: groupState,
+      primaryProperty: primaryProperty,
+      theme: theme,
+      onToggle: this.onToggleGroup
+    }) : _react.default.createElement(_Body.Body, {
+      columns: columns,
+      data: data,
+      onMore: onMore,
+      primaryProperty: primaryProperty,
+      size: size,
+      theme: theme
+    }), showFooter && _react.default.createElement(_Footer.Footer, {
+      columns: columns,
+      footerValues: footerValues,
+      groups: groups,
+      size: size,
+      theme: theme
+    }));
   };
 
   return DataTable;
 }(_react.Component);
 
-DataTable.defaultProps = {
+_defineProperty(DataTable, "defaultProps", {
   columns: [],
   data: []
-};
+});
 
+var DataTableDoc;
 
-var DataTableDoc = void 0;
 if (process.env.NODE_ENV !== 'production') {
   DataTableDoc = require('./doc').doc(DataTable); // eslint-disable-line global-require
 }
-var DataTableWrapper = (0, _recompose.compose)(_hocs.withTheme)(DataTableDoc || DataTable);
 
+var DataTableWrapper = (0, _recompose.compose)(_hocs.withTheme)(DataTableDoc || DataTable);
 exports.DataTable = DataTableWrapper;

@@ -1,61 +1,41 @@
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-import React, { Component } from 'react';
+import React from 'react';
 import { compose } from 'recompose';
-
 import { withTheme } from '../hocs';
-
 import { StyledText } from './StyledText';
-
 var styledComponents = {
   span: StyledText
 }; // tag -> styled component
 
-var Text = function (_Component) {
-  _inherits(Text, _Component);
+var Text = function Text(_ref) {
+  var color = _ref.color,
+      tag = _ref.tag,
+      rest = _objectWithoutPropertiesLoose(_ref, ["color", "tag"]);
 
-  function Text() {
-    _classCallCheck(this, Text);
+  var StyledComponent = styledComponents[tag];
 
-    return _possibleConstructorReturn(this, _Component.apply(this, arguments));
+  if (!StyledComponent) {
+    StyledComponent = StyledText.withComponent(tag);
+    styledComponents[tag] = StyledComponent;
   }
 
-  Text.prototype.render = function render() {
-    var _props = this.props,
-        color = _props.color,
-        tag = _props.tag,
-        rest = _objectWithoutProperties(_props, ['color', 'tag']);
-
-    var StyledComponent = styledComponents[tag];
-    if (!StyledComponent) {
-      StyledComponent = StyledText.withComponent(tag);
-      styledComponents[tag] = StyledComponent;
-    }
-
-    return React.createElement(StyledComponent, _extends({ colorValue: color }, rest));
-  };
-
-  return Text;
-}(Component);
+  return React.createElement(StyledComponent, _extends({
+    colorValue: color
+  }, rest));
+};
 
 Text.defaultProps = {
   level: 1,
   tag: 'span'
 };
+var TextDoc;
 
-
-var TextDoc = void 0;
 if (process.env.NODE_ENV !== 'production') {
   TextDoc = require('./doc').doc(Text); // eslint-disable-line global-require
 }
-var TextWrapper = compose(withTheme)(TextDoc || Text);
 
+var TextWrapper = compose(withTheme)(TextDoc || Text);
 export { TextWrapper as Text };

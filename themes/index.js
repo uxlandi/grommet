@@ -1,45 +1,21 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.dark = exports.hpe = exports.grommet = exports.generate = exports.base = void 0;
 
-var _base = require('./base');
+var _base = require("./base");
 
-Object.defineProperty(exports, 'base', {
-  enumerable: true,
-  get: function get() {
-    return _base.base;
-  }
-});
-Object.defineProperty(exports, 'generate', {
-  enumerable: true,
-  get: function get() {
-    return _base.generate;
-  }
-});
+exports.base = _base.base;
+exports.generate = _base.generate;
 
-var _grommet = require('./grommet');
+var _grommet = require("./grommet");
 
-Object.defineProperty(exports, 'grommet', {
-  enumerable: true,
-  get: function get() {
-    return _grommet.grommet;
-  }
-});
+exports.grommet = _grommet.grommet;
 
-var _hpe = require('./hpe');
+var _hpe = require("./hpe");
 
-Object.defineProperty(exports, 'hpe', {
-  enumerable: true,
-  get: function get() {
-    return _hpe.hpe;
-  }
-});
+exports.hpe = _hpe.hpe;
 
-var _dark = require('./dark');
+var _dark = require("./dark");
 
-Object.defineProperty(exports, 'dark', {
-  enumerable: true,
-  get: function get() {
-    return _dark.dark;
-  }
-});
+exports.dark = _dark.dark;

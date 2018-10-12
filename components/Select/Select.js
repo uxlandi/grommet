@@ -1,141 +1,155 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.Select = undefined;
+exports.Select = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _react = _interopRequireWildcard(require("react"));
 
-var _react = require('react');
+var _recompose = require("recompose");
 
-var _react2 = _interopRequireDefault(_react);
+var _styledComponents = _interopRequireDefault(require("styled-components"));
 
-var _recompose = require('recompose');
+var _Box = require("../Box");
 
-var _styledComponents = require('styled-components');
+var _DropButton = require("../DropButton");
 
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
+var _Keyboard = require("../Keyboard");
 
-var _Box = require('../Box');
+var _TextInput = require("../TextInput");
 
-var _DropButton = require('../DropButton');
+var _hocs = require("../hocs");
 
-var _Keyboard = require('../Keyboard');
+var _utils = require("../../utils");
 
-var _TextInput = require('../TextInput');
-
-var _hocs = require('../hocs');
-
-var _utils = require('../../utils');
-
-var _SelectContainer = require('./SelectContainer');
+var _SelectContainer = require("./SelectContainer");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-var SelectTextInput = (0, _styledComponents2.default)(_TextInput.TextInput).withConfig({
-  displayName: 'Select__SelectTextInput',
-  componentId: 'sc-17idtfo-0'
-})(['cursor:pointer;']);
-var StyledSelectBox = (0, _styledComponents2.default)(_Box.Box).withConfig({
-  displayName: 'Select__StyledSelectBox',
-  componentId: 'sc-17idtfo-1'
-})(['', ';', ''], function (props) {
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var SelectTextInput = (0, _styledComponents.default)(_TextInput.TextInput).withConfig({
+  displayName: "Select__SelectTextInput",
+  componentId: "sc-17idtfo-0"
+})(["cursor:pointer;"]);
+var StyledSelectBox = (0, _styledComponents.default)(_Box.Box).withConfig({
+  displayName: "Select__StyledSelectBox",
+  componentId: "sc-17idtfo-1"
+})(["", ";", ""], function (props) {
   return !props.plain && _utils.controlBorderStyle;
 }, function (props) {
   return props.theme.select && props.theme.select.control && props.theme.select.control.extend;
 });
 
-var Select = function (_Component) {
-  _inherits(Select, _Component);
+var Select =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(Select, _Component);
 
   function Select() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, Select);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = { open: false }, _this.onOpen = function () {
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
+      open: false
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onOpen", function () {
       var onOpen = _this.props.onOpen;
 
-      _this.setState({ open: true }, function () {
+      _this.setState({
+        open: true
+      }, function () {
         if (onOpen) {
           onOpen();
         }
       });
-    }, _this.onClose = function () {
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClose", function () {
       var onClose = _this.props.onClose;
 
-      _this.setState({ open: false }, function () {
+      _this.setState({
+        open: false
+      }, function () {
         if (onClose) {
           onClose();
         }
       });
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+
+    return _this;
   }
 
-  Select.prototype.render = function render() {
+  var _proto = Select.prototype;
+
+  _proto.render = function render() {
     var _this2 = this;
 
-    var _props = this.props,
-        a11yTitle = _props.a11yTitle,
-        children = _props.children,
-        closeOnChange = _props.closeOnChange,
-        disabled = _props.disabled,
-        dropAlign = _props.dropAlign,
-        dropTarget = _props.dropTarget,
-        forwardRef = _props.forwardRef,
-        id = _props.id,
-        messages = _props.messages,
-        onChange = _props.onChange,
-        onClose = _props.onClose,
-        placeholder = _props.placeholder,
-        plain = _props.plain,
-        size = _props.size,
-        theme = _props.theme,
-        value = _props.value,
-        rest = _objectWithoutProperties(_props, ['a11yTitle', 'children', 'closeOnChange', 'disabled', 'dropAlign', 'dropTarget', 'forwardRef', 'id', 'messages', 'onChange', 'onClose', 'placeholder', 'plain', 'size', 'theme', 'value']);
+    var _this$props = this.props,
+        a11yTitle = _this$props.a11yTitle,
+        children = _this$props.children,
+        closeOnChange = _this$props.closeOnChange,
+        disabled = _this$props.disabled,
+        dropAlign = _this$props.dropAlign,
+        dropTarget = _this$props.dropTarget,
+        forwardRef = _this$props.forwardRef,
+        id = _this$props.id,
+        messages = _this$props.messages,
+        onChange = _this$props.onChange,
+        onClose = _this$props.onClose,
+        placeholder = _this$props.placeholder,
+        plain = _this$props.plain,
+        size = _this$props.size,
+        theme = _this$props.theme,
+        value = _this$props.value,
+        rest = _objectWithoutPropertiesLoose(_this$props, ["a11yTitle", "children", "closeOnChange", "disabled", "dropAlign", "dropTarget", "forwardRef", "id", "messages", "onChange", "onClose", "placeholder", "plain", "size", "theme", "value"]);
 
     var open = this.state.open;
-
-
     delete rest.onSearch;
 
     var onSelectChange = function onSelectChange(event) {
-      for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-        args[_key2 - 1] = arguments[_key2];
-      }
-
       if (closeOnChange) {
         _this2.onClose();
       }
+
       if (onChange) {
-        onChange.apply(undefined, [event].concat(args));
+        for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+          args[_key2 - 1] = arguments[_key2];
+        }
+
+        onChange.apply(void 0, [event].concat(args));
       }
     };
 
     var SelectIcon = theme.select.icons.down;
-    var selectValue = void 0;
-    var textValue = void 0;
-    if (!_react2.default.isValidElement(value)) {
+    var selectValue;
+    var textValue;
+
+    if (!_react.default.isValidElement(value)) {
       if (Array.isArray(value)) {
         if (value.length > 1) {
-          if (_react2.default.isValidElement(value[0])) {
+          if (_react.default.isValidElement(value[0])) {
             selectValue = value;
           } else {
             textValue = messages.multiple;
           }
         } else if (value.length === 1) {
-          if (_react2.default.isValidElement(value[0])) {
+          if (_react.default.isValidElement(value[0])) {
             selectValue = value[0];
           } else {
             textValue = value[0];
@@ -152,78 +166,77 @@ var Select = function (_Component) {
 
     var dark = theme.select.background ? (0, _utils.colorIsDark)(theme.select.background) : theme.dark;
     var iconColor = (0, _utils.evalStyle)((theme.select.icons.color || theme.global.control.color)[dark ? 'dark' : 'light'], theme);
-
-    return _react2.default.createElement(
-      _Keyboard.Keyboard,
-      { onDown: this.onOpen, onUp: this.onOpen },
-      _react2.default.createElement(
-        _DropButton.DropButton,
-        {
-          ref: forwardRef,
-          id: id,
-          disabled: disabled,
-          dropAlign: dropAlign,
-          dropTarget: dropTarget,
-          open: open,
-          onOpen: this.onOpen,
-          onClose: this.onClose,
-          dropContent: _react2.default.createElement(_SelectContainer.SelectContainer, _extends({}, this.props, { onChange: onSelectChange }))
-        },
-        _react2.default.createElement(
-          StyledSelectBox,
-          {
-            align: 'center',
-            direction: 'row',
-            justify: 'between',
-            background: theme.select.background,
-            plain: plain,
-            theme: theme
-          },
-          _react2.default.createElement(
-            _Box.Box,
-            { direction: 'row', flex: true, basis: 'auto' },
-            selectValue || _react2.default.createElement(SelectTextInput, _extends({
-              a11yTitle: a11yTitle && '' + a11yTitle + (typeof value === 'string' ? ', ' + value : ''),
-              id: id ? id + '__input' : undefined
-            }, rest, {
-              tabIndex: '-1',
-              type: 'text',
-              placeholder: placeholder,
-              plain: true,
-              readOnly: true,
-              value: textValue,
-              size: size,
-              onClick: disabled ? undefined : this.onOpen
-            }))
-          ),
-          _react2.default.createElement(
-            _Box.Box,
-            {
-              margin: { horizontal: 'small' },
-              flex: false,
-              style: { minWidth: 'auto' }
-            },
-            _react2.default.createElement(SelectIcon, { color: iconColor, size: size })
-          )
-        )
-      )
-    );
+    return _react.default.createElement(_Keyboard.Keyboard, {
+      onDown: this.onOpen,
+      onUp: this.onOpen
+    }, _react.default.createElement(_DropButton.DropButton, {
+      ref: forwardRef,
+      id: id,
+      disabled: disabled,
+      dropAlign: dropAlign,
+      dropTarget: dropTarget,
+      open: open,
+      onOpen: this.onOpen,
+      onClose: this.onClose,
+      dropContent: _react.default.createElement(_SelectContainer.SelectContainer, _extends({}, this.props, {
+        onChange: onSelectChange
+      }))
+    }, _react.default.createElement(StyledSelectBox, {
+      align: "center",
+      direction: "row",
+      justify: "between",
+      background: theme.select.background,
+      plain: plain,
+      theme: theme
+    }, _react.default.createElement(_Box.Box, {
+      direction: "row",
+      flex: true,
+      basis: "auto"
+    }, selectValue || _react.default.createElement(SelectTextInput, _extends({
+      a11yTitle: a11yTitle && "" + a11yTitle + (typeof value === 'string' ? ", " + value : ''),
+      id: id ? id + "__input" : undefined
+    }, rest, {
+      tabIndex: "-1",
+      type: "text",
+      placeholder: placeholder,
+      plain: true,
+      readOnly: true,
+      value: textValue,
+      size: size,
+      onClick: disabled ? undefined : this.onOpen
+    }))), _react.default.createElement(_Box.Box, {
+      margin: {
+        horizontal: 'small'
+      },
+      flex: false,
+      style: {
+        minWidth: 'auto'
+      }
+    }, _react.default.createElement(SelectIcon, {
+      color: iconColor,
+      size: size
+    })))));
   };
 
   return Select;
 }(_react.Component);
 
-Select.defaultProps = {
+_defineProperty(Select, "defaultProps", {
   closeOnChange: true,
-  dropAlign: { top: 'bottom', left: 'left' },
-  messages: { multiple: 'multiple' }
-};
+  dropAlign: {
+    top: 'bottom',
+    left: 'left'
+  },
+  messages: {
+    multiple: 'multiple'
+  }
+});
 
+var SelectDoc;
 
-var SelectDoc = void 0;
 if (process.env.NODE_ENV !== 'production') {
   SelectDoc = require('./doc').doc(Select); // eslint-disable-line global-require
 }
-var SelectWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(SelectDoc || Select);
 
+var SelectWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(SelectDoc || Select);
 exports.Select = SelectWrapper;

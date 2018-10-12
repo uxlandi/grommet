@@ -1,47 +1,51 @@
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 import React, { Component } from 'react';
 import { compose } from 'recompose';
-
 import { withTheme } from '../hocs';
-
 import { Analog } from './Analog';
 import { Digital } from './Digital';
-
 var TIME_REGEXP = /T([0-9]{2}):([0-9]{2})(?::([0-9.,]{2,}))?/;
 var DURATION_REGEXP = /^(-|\+)?P.*T(?:([-+]?[0-9,.]*)H)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)S)?$/;
 
 var parseTime = function parseTime(time, hourLimit) {
   var result = {};
+
   if (time) {
     var match = DURATION_REGEXP.exec(time);
+
     if (match) {
       result.hours = parseFloat(match[2]);
+
       if (hourLimit === 12) {
         result.hours12 = result.hours > 12 ? result.hours - 12 : result.hours;
       }
+
       result.minutes = parseFloat(match[3]) || 0;
       result.seconds = parseFloat(match[4]) || 0;
       result.duration = true;
     } else {
       match = TIME_REGEXP.exec(time);
+
       if (match) {
         result.hours = parseFloat(match[1]);
+
         if (hourLimit === 12) {
           result.hours12 = result.hours > 12 ? result.hours - 12 : result.hours;
         }
+
         result.minutes = parseFloat(match[2]) || 0;
         result.seconds = parseFloat(match[3]) || 0;
       } else {
-        console.error('Grommet Clock cannot parse \'' + time + '\'');
+        console.error("Grommet Clock cannot parse '" + time + "'");
       }
     }
   } else {
@@ -50,22 +54,27 @@ var parseTime = function parseTime(time, hourLimit) {
     result.minutes = date.getMinutes();
     result.seconds = date.getSeconds();
   }
+
   return result;
 };
 
-var Clock = function (_Component) {
-  _inherits(Clock, _Component);
+var Clock =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(Clock, _Component);
 
   function Clock() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, Clock);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {}, _temp), _possibleConstructorReturn(_this, _ret);
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {});
+
+    return _this;
   }
 
   Clock.getDerivedStateFromProps = function getDerivedStateFromProps(nextProps, prevState) {
@@ -75,25 +84,36 @@ var Clock = function (_Component) {
 
     if (!elements || time) {
       var nextElements = parseTime(time, hourLimit);
+
       if (!elements) {
-        return { elements: nextElements };
+        return {
+          elements: nextElements
+        };
       }
+
       if (Object.keys(nextElements).some(function (k) {
         return elements[k] !== nextElements[k];
       })) {
-        return { elements: nextElements };
+        return {
+          elements: nextElements
+        };
       }
     }
+
     return null;
   };
 
-  Clock.prototype.componentDidMount = function componentDidMount() {
-    if (this.props.run) {
+  var _proto = Clock.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
+    var run = this.props.run;
+
+    if (run) {
       this.run();
     }
   };
 
-  Clock.prototype.componentDidUpdate = function componentDidUpdate(prevProps) {
+  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
     var run = this.props.run;
 
     if (run && !prevProps.run) {
@@ -103,27 +123,28 @@ var Clock = function (_Component) {
     }
   };
 
-  Clock.prototype.componentWillUnmount = function componentWillUnmount() {
+  _proto.componentWillUnmount = function componentWillUnmount() {
     clearInterval(this.timer);
   };
 
-  Clock.prototype.run = function run() {
+  _proto.run = function run() {
     var _this2 = this;
 
-    var _props = this.props,
-        hourLimit = _props.hourLimit,
-        onChange = _props.onChange,
-        precision = _props.precision,
-        run = _props.run;
-
-    // set the interval time based on the precision
+    var _this$props = this.props,
+        hourLimit = _this$props.hourLimit,
+        onChange = _this$props.onChange,
+        precision = _this$props.precision,
+        run = _this$props.run;
+    var elements = this.state.elements; // set the interval time based on the precision
 
     var interval = 1000;
     var increment = 'seconds';
-    if (precision !== 'seconds' && this.state.elements.seconds === 0) {
+
+    if (precision !== 'seconds' && elements.seconds === 0) {
       interval *= 60;
       increment = 'minutes';
-      if (precision !== 'minutes' && this.state.elements.minutes === 0) {
+
+      if (precision !== 'minutes' && elements.minutes === 0) {
         interval *= 60;
         increment = 'hours';
       }
@@ -131,11 +152,11 @@ var Clock = function (_Component) {
 
     clearInterval(this.timer);
     this.timer = setInterval(function () {
-      var elements = _this2.state.elements;
+      var previousElements = _this2.state.elements;
 
-      var nextElements = _extends({}, elements);
+      var nextElements = _extends({}, previousElements); // adjust time based on precision
 
-      // adjust time based on precision
+
       if (increment === 'seconds') {
         if (run === 'backward') {
           nextElements.seconds -= 1;
@@ -154,9 +175,9 @@ var Clock = function (_Component) {
         } else {
           nextElements.hours += 1;
         }
-      }
+      } // deal with overflows
 
-      // deal with overflows
+
       if (nextElements.seconds >= 60) {
         nextElements.minutes += Math.floor(nextElements.seconds / 60);
         nextElements.seconds = 0;
@@ -164,6 +185,7 @@ var Clock = function (_Component) {
         nextElements.minutes += Math.floor(nextElements.seconds / 60);
         nextElements.seconds = 59;
       }
+
       if (nextElements.minutes >= 60) {
         nextElements.hours += Math.floor(nextElements.minutes / 60);
         nextElements.minutes = 0;
@@ -171,37 +193,45 @@ var Clock = function (_Component) {
         nextElements.hours += Math.floor(nextElements.minutes / 60);
         nextElements.minutes = 59;
       }
+
       if (nextElements.hours >= 24 || nextElements.hours < 0) {
         nextElements.hours = 0;
       }
+
       if (hourLimit === 12) {
         nextElements.hours12 = nextElements.hours > 12 ? nextElements.hours - 12 : nextElements.hours;
       }
 
-      _this2.setState({ elements: nextElements }, function () {
+      _this2.setState({
+        elements: nextElements
+      }, function () {
         if (onChange) {
           if (elements.duration) {
-            onChange('P' + elements.hours + 'H' + elements.minutes + 'M' + elements.seconds + 'S');
+            onChange("P" + elements.hours + "H" + elements.minutes + "M" + elements.seconds + "S");
           } else {
-            onChange('T' + elements.hours + ':' + elements.minutes + ':' + elements.seconds);
+            onChange("T" + elements.hours + ":" + elements.minutes + ":" + elements.seconds);
           }
         }
       });
     }, interval);
   };
 
-  Clock.prototype.render = function render() {
-    var _props2 = this.props,
-        type = _props2.type,
-        rest = _objectWithoutProperties(_props2, ['type']);
+  _proto.render = function render() {
+    var _this$props2 = this.props,
+        type = _this$props2.type,
+        rest = _objectWithoutPropertiesLoose(_this$props2, ["type"]);
 
     var elements = this.state.elements;
+    var content;
 
-    var content = void 0;
     if (type === 'analog') {
-      content = React.createElement(Analog, _extends({ elements: elements }, rest));
+      content = React.createElement(Analog, _extends({
+        elements: elements
+      }, rest));
     } else if (type === 'digital') {
-      content = React.createElement(Digital, _extends({ elements: elements }, rest));
+      content = React.createElement(Digital, _extends({
+        elements: elements
+      }, rest));
     }
 
     return content;
@@ -210,19 +240,19 @@ var Clock = function (_Component) {
   return Clock;
 }(Component);
 
-Clock.defaultProps = {
+_defineProperty(Clock, "defaultProps", {
   hourLimit: 24,
   precision: 'seconds',
   run: 'forward',
   size: 'medium',
   type: 'analog'
-};
+});
 
+var ClockDoc;
 
-var ClockDoc = void 0;
 if (process.env.NODE_ENV !== 'production') {
   ClockDoc = require('./doc').doc(Clock); // eslint-disable-line global-require
 }
-var ClockWrapper = compose(withTheme)(ClockDoc || Clock);
 
+var ClockWrapper = compose(withTheme)(ClockDoc || Clock);
 export { ClockWrapper as Clock };

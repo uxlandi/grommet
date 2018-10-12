@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.Tab = void 0;
 
-var _Tab = require('./Tab');
+var _Tab = require("./Tab");
 
-Object.defineProperty(exports, 'Tab', {
-  enumerable: true,
-  get: function get() {
-    return _Tab.Tab;
-  }
-});
+exports.Tab = _Tab.Tab;

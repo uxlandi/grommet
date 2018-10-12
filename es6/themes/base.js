@@ -1,26 +1,22 @@
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 import { rgba } from 'polished';
 import { css } from 'styled-components';
-
-import { Actions } from 'grommet-icons/es6/icons/Actions';
-import { ClosedCaption } from 'grommet-icons/es6/icons/ClosedCaption';
-import { Expand } from 'grommet-icons/es6/icons/Expand';
-import { FormDown } from 'grommet-icons/es6/icons/FormDown';
-import { FormNext } from 'grommet-icons/es6/icons/FormNext';
-import { FormPrevious } from 'grommet-icons/es6/icons/FormPrevious';
-import { FormUp } from 'grommet-icons/es6/icons/FormUp';
-import { Next } from 'grommet-icons/es6/icons/Next';
-import { Pause } from 'grommet-icons/es6/icons/Pause';
-import { Play } from 'grommet-icons/es6/icons/Play';
-import { Previous } from 'grommet-icons/es6/icons/Previous';
-import { Subtract } from 'grommet-icons/es6/icons/Subtract';
-import { Volume } from 'grommet-icons/es6/icons/Volume';
-import { VolumeLow } from 'grommet-icons/es6/icons/VolumeLow';
-
-
+import { Actions } from "grommet-icons/es6/icons/Actions";
+import { ClosedCaption } from "grommet-icons/es6/icons/ClosedCaption";
+import { Expand } from "grommet-icons/es6/icons/Expand";
+import { FormDown } from "grommet-icons/es6/icons/FormDown";
+import { FormNext } from "grommet-icons/es6/icons/FormNext";
+import { FormPrevious } from "grommet-icons/es6/icons/FormPrevious";
+import { FormUp } from "grommet-icons/es6/icons/FormUp";
+import { Next } from "grommet-icons/es6/icons/Next";
+import { Pause } from "grommet-icons/es6/icons/Pause";
+import { Play } from "grommet-icons/es6/icons/Play";
+import { Previous } from "grommet-icons/es6/icons/Previous";
+import { Subtract } from "grommet-icons/es6/icons/Subtract";
+import { Volume } from "grommet-icons/es6/icons/Volume";
+import { VolumeLow } from "grommet-icons/es6/icons/VolumeLow";
 import { colorForName, deepFreeze } from '../utils';
-
 var brandColor = '#7D4CDB';
 var accentColors = ['#FD6FFF', '#61EC9F', '#60EBE1', '#FFCA58'];
 var neutralColors = ['#3D138D', '#BE60EB', '#00C781', '#6194EB', '#FFB202'];
@@ -39,7 +35,6 @@ var borderColor = 'rgba(0, 0, 0, 0.33)';
 var borderColorDark = 'rgba(255, 255, 255, 0.33)';
 var focusColor = accentColors[0];
 var activeColor = rgba('#DDDDDD', 0.5);
-
 var colors = {
   'active': activeColor,
   'black': '#000000',
@@ -54,7 +49,7 @@ var colors = {
 
 var colorArray = function colorArray(array, prefix) {
   return array.forEach(function (color, index) {
-    colors[prefix + '-' + (index + 1)] = color;
+    colors[prefix + "-" + (index + 1)] = color;
   });
 };
 
@@ -63,28 +58,33 @@ colorArray(darkColors, 'dark');
 colorArray(lightColors, 'light');
 colorArray(neutralColors, 'neutral');
 Object.keys(statusColors).forEach(function (color) {
-  colors['status-' + color] = statusColors[color];
+  colors["status-" + color] = statusColors[color];
 });
+export var generate = function generate(baseSpacing, scale) {
+  if (baseSpacing === void 0) {
+    baseSpacing = 24;
+  }
 
-export var generate = function generate() {
-  var baseSpacing = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 24;
-  var scale = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 6;
+  if (scale === void 0) {
+    scale = 6;
+  }
+
   // 24
   var baseFontSize = baseSpacing * 0.75; // 18
+
   var fontScale = baseSpacing / scale; // 4
 
   var fontSizing = function fontSizing(factor) {
     return {
-      size: baseFontSize + factor * fontScale + 'px',
-      height: baseSpacing + factor * fontScale + 'px',
+      size: baseFontSize + factor * fontScale + "px",
+      height: baseSpacing + factor * fontScale + "px",
       // maxWidth chosen to be ~50 characters wide
       // see: https://ux.stackexchange.com/a/34125
-      maxWidth: baseSpacing * (baseFontSize + factor * fontScale) + 'px'
+      maxWidth: baseSpacing * (baseFontSize + factor * fontScale) + "px"
     };
   };
 
   var borderWidth = 2;
-
   var result = {
     global: {
       animation: {
@@ -96,15 +96,21 @@ export var generate = function generate() {
       borderSize: {
         xsmall: '1px',
         small: '2px',
-        medium: baseSpacing / 6 + 'px', // 4
-        large: baseSpacing / 2 + 'px', // 12
-        xlarge: baseSpacing + 'px', // 24
+        medium: baseSpacing / 6 + "px",
+        // 4
+        large: baseSpacing / 2 + "px",
+        // 12
+        xlarge: baseSpacing + "px",
+        // 24
         narrow: {
           xsmall: '1px',
           small: '2px',
-          medium: baseSpacing / 6 + 'px', // 4
-          large: baseSpacing / 4 + 'px', // 6
-          xlarge: baseSpacing / 2 + 'px' // 12
+          medium: baseSpacing / 6 + "px",
+          // 4
+          large: baseSpacing / 4 + "px",
+          // 6
+          xlarge: baseSpacing / 2 + "px" // 12
+
         }
       },
       breakpoints: {
@@ -116,19 +122,19 @@ export var generate = function generate() {
           width: '1px',
           radius: '4px',
           color: {
-            dark: css(['', ''], function (props) {
+            dark: css(["", ""], function (props) {
               return props.theme.global.colors['border-dark'];
             }),
-            light: css(['', ''], function (props) {
+            light: css(["", ""], function (props) {
               return props.theme.global.colors['border-light'];
             })
           }
         },
         color: {
-          dark: css(['', ''], function (props) {
+          dark: css(["", ""], function (props) {
             return props.theme.global.colors['accent-1'];
           }),
-          light: css(['', ''], function (props) {
+          light: css(["", ""], function (props) {
             return props.theme.global.colors.brand;
           })
         }
@@ -146,22 +152,35 @@ export var generate = function generate() {
       },
       edgeSize: {
         none: '0px',
-        hair: '1px', // for Chart
-        xxsmall: baseSpacing / 8 + 'px', // 3
-        xsmall: baseSpacing / 4 + 'px', // 6
-        small: baseSpacing / 2 + 'px', // 12
-        medium: baseSpacing + 'px', // 24
-        large: baseSpacing * 2 + 'px', // 48
-        xlarge: baseSpacing * 4 + 'px', // 96
+        hair: '1px',
+        // for Chart
+        xxsmall: baseSpacing / 8 + "px",
+        // 3
+        xsmall: baseSpacing / 4 + "px",
+        // 6
+        small: baseSpacing / 2 + "px",
+        // 12
+        medium: baseSpacing + "px",
+        // 24
+        large: baseSpacing * 2 + "px",
+        // 48
+        xlarge: baseSpacing * 4 + "px",
+        // 96
         narrow: {
           none: '0px',
-          hair: '1px', // for Chart
+          hair: '1px',
+          // for Chart
           xxsmall: '2px',
-          xsmall: baseSpacing / 8 + 'px', // 3
-          small: baseSpacing / 4 + 'px', // 6
-          medium: baseSpacing / 2 + 'px', // 12
-          large: baseSpacing + 'px', // 24
-          xlarge: baseSpacing * 2 + 'px' // 48
+          xsmall: baseSpacing / 8 + "px",
+          // 3
+          small: baseSpacing / 4 + "px",
+          // 6
+          medium: baseSpacing / 2 + "px",
+          // 12
+          large: baseSpacing + "px",
+          // 24
+          xlarge: baseSpacing * 2 + "px" // 48
+
         }
       },
       elevation: {
@@ -184,7 +203,7 @@ export var generate = function generate() {
       },
       focus: {
         border: {
-          color: css(['', ''], function (props) {
+          color: css(["", ""], function (props) {
             return colorForName('focus', props.theme);
           }),
           width: '2px'
@@ -215,22 +234,34 @@ export var generate = function generate() {
         medium: '0.4',
         weak: '0.1'
       },
-      spacing: baseSpacing + 'px',
+      spacing: baseSpacing + "px",
       size: {
-        xxsmall: baseSpacing * 2 + 'px', // 48
-        xsmall: baseSpacing * 4 + 'px', // 96
-        small: baseSpacing * 8 + 'px', // 192
-        medium: baseSpacing * 16 + 'px', // 384
-        large: baseSpacing * 32 + 'px', // 768
-        xlarge: baseSpacing * 48 + 'px', // 1152
+        xxsmall: baseSpacing * 2 + "px",
+        // 48
+        xsmall: baseSpacing * 4 + "px",
+        // 96
+        small: baseSpacing * 8 + "px",
+        // 192
+        medium: baseSpacing * 16 + "px",
+        // 384
+        large: baseSpacing * 32 + "px",
+        // 768
+        xlarge: baseSpacing * 48 + "px",
+        // 1152
         full: '100%',
         narrow: {
-          xxsmall: baseSpacing + 'px', // 24
-          xsmall: baseSpacing * 2 + 'px', // 48
-          small: baseSpacing * 4 + 'px', // 96
-          medium: baseSpacing * 8 + 'px', // 192
-          large: baseSpacing * 16 + 'px', // 384
-          xlarge: baseSpacing * 32 + 'px', // 768
+          xxsmall: baseSpacing + "px",
+          // 24
+          xsmall: baseSpacing * 2 + "px",
+          // 48
+          small: baseSpacing * 4 + "px",
+          // 96
+          medium: baseSpacing * 8 + "px",
+          // 192
+          large: baseSpacing * 16 + "px",
+          // 384
+          xlarge: baseSpacing * 32 + "px",
+          // 768
           full: '100%'
         }
       },
@@ -244,8 +275,8 @@ export var generate = function generate() {
     accordion: {
       icons: {
         collapse: FormUp,
-        expand: FormDown
-        // color: { dark: undefined, light: undefined },
+        expand: FormDown // color: { dark: undefined, light: undefined },
+
       }
     },
     anchor: {
@@ -259,41 +290,40 @@ export var generate = function generate() {
     button: {
       border: {
         // color: { dark: undefined, light: undefined }
-        width: borderWidth + 'px',
-        radius: baseSpacing * 0.75 + 'px'
+        width: borderWidth + "px",
+        radius: baseSpacing * 0.75 + "px"
       },
       // color: { dark: undefined, light: undefined }
-      primary: {
-        // color: { dark: undefined, light: undefined }
+      primary: {// color: { dark: undefined, light: undefined }
       },
       disabled: {
         opacity: 0.3
       },
-      minWidth: baseSpacing * 4 + 'px',
-      maxWidth: baseSpacing * 16 + 'px',
+      minWidth: baseSpacing * 4 + "px",
+      maxWidth: baseSpacing * 16 + "px",
       padding: {
-        vertical: baseSpacing / 4 - borderWidth + 'px',
-        horizontal: baseSpacing - borderWidth + 'px'
+        vertical: baseSpacing / 4 - borderWidth + "px",
+        horizontal: baseSpacing - borderWidth + "px"
       }
     },
     calendar: {
       // daySize must align with global.size
       small: {
-        fontSize: baseFontSize - fontScale + 'px',
+        fontSize: baseFontSize - fontScale + "px",
         lineHeight: 1.375,
-        daySize: baseSpacing * 8 / 7 + 'px',
+        daySize: baseSpacing * 8 / 7 + "px",
         slideDuration: '0.2s'
       },
       medium: {
-        fontSize: baseFontSize + 'px',
+        fontSize: baseFontSize + "px",
         lineHeight: 1.45,
-        daySize: baseSpacing * 16 / 7 + 'px',
+        daySize: baseSpacing * 16 / 7 + "px",
         slideDuration: '0.5s'
       },
       large: {
-        fontSize: baseFontSize + 3 * fontScale + 'px',
+        fontSize: baseFontSize + 3 * fontScale + "px",
         lineHeight: 1.11,
-        daySize: baseSpacing * 32 / 7 + 'px',
+        daySize: baseSpacing * 32 / 7 + "px",
         slideDuration: '0.8s'
       },
       icons: {
@@ -309,8 +339,8 @@ export var generate = function generate() {
       icons: {
         current: Subtract,
         next: Next,
-        previous: Previous
-        // color: undefined,
+        previous: Previous // color: undefined,
+
       }
     },
     checkBox: {
@@ -326,88 +356,105 @@ export var generate = function generate() {
         // color: { dark: undefined, light: undefined },
         width: '4px'
       },
-      icons: {
-        // checked: undefined,
+      icons: {// checked: undefined,
       },
       hover: {
         border: {
           color: {
-            dark: css(['', ''], function (props) {
+            dark: css(["", ""], function (props) {
               return colorForName('white', props.theme);
             }),
-            light: css(['', ''], function (props) {
+            light: css(["", ""], function (props) {
               return colorForName('black', props.theme);
             })
           }
         }
       },
-      size: baseSpacing + 'px',
+      size: baseSpacing + "px",
       toggle: {
         color: {
           dark: '#d9d9d9',
           light: '#d9d9d9'
         },
-        radius: baseSpacing + 'px',
-        size: baseSpacing * 2 + 'px'
+        radius: baseSpacing + "px",
+        size: baseSpacing * 2 + "px"
       }
     },
     clock: {
       analog: {
         hour: {
           color: {
-            dark: css(['', ''], function (props) {
+            dark: css(["", ""], function (props) {
               return colorForName('light-3', props.theme);
             }),
-            light: css(['', ''], function (props) {
+            light: css(["", ""], function (props) {
               return colorForName('dark-3', props.theme);
             })
           },
-          width: baseSpacing / 3 + 'px',
-          size: baseSpacing + 'px',
+          width: baseSpacing / 3 + "px",
+          size: baseSpacing + "px",
           shape: 'round'
         },
         minute: {
           color: {
-            dark: css(['', ''], function (props) {
+            dark: css(["", ""], function (props) {
               return colorForName('light-5', props.theme);
             }),
-            light: css(['', ''], function (props) {
+            light: css(["", ""], function (props) {
               return colorForName('dark-5', props.theme);
             })
           },
-          width: baseSpacing / 6 + 'px',
-          size: Math.round(baseSpacing / 2) + 'px',
+          width: baseSpacing / 6 + "px",
+          size: Math.round(baseSpacing / 2) + "px",
           shape: 'round'
         },
         second: {
           color: {
-            dark: css(['', ''], function (props) {
+            dark: css(["", ""], function (props) {
               return colorForName('accent-1', props.theme);
             }),
-            light: css(['', ''], function (props) {
+            light: css(["", ""], function (props) {
               return colorForName('accent-1', props.theme);
             })
           },
-          width: baseSpacing / 8 + 'px',
-          size: Math.round(baseSpacing / 2.666) + 'px',
+          width: baseSpacing / 8 + "px",
+          size: Math.round(baseSpacing / 2.666) + "px",
           shape: 'round'
         },
         size: {
-          small: baseSpacing * 3 + 'px',
-          medium: baseSpacing * 4 + 'px',
-          large: baseSpacing * 6 + 'px',
-          xlarge: baseSpacing * 9 + 'px',
-          huge: baseSpacing * 12 + 'px'
+          small: baseSpacing * 3 + "px",
+          medium: baseSpacing * 4 + "px",
+          large: baseSpacing * 6 + "px",
+          xlarge: baseSpacing * 9 + "px",
+          huge: baseSpacing * 12 + "px"
         }
       },
       digital: {
         text: {
-          xsmall: { size: baseFontSize - 2 * fontScale + 'px', height: 1.5 },
-          small: { size: baseFontSize - fontScale + 'px', height: 1.43 },
-          medium: { size: baseFontSize + 'px', height: 1.375 },
-          large: { size: baseFontSize + fontScale + 'px', height: 1.167 },
-          xlarge: { size: baseFontSize + 2 * fontScale + 'px', height: 1.1875 },
-          xxlarge: { size: baseFontSize + 4 * fontScale + 'px', height: 1.125 }
+          xsmall: {
+            size: baseFontSize - 2 * fontScale + "px",
+            height: 1.5
+          },
+          small: {
+            size: baseFontSize - fontScale + "px",
+            height: 1.43
+          },
+          medium: {
+            size: baseFontSize + "px",
+            height: 1.375
+          },
+          large: {
+            size: baseFontSize + fontScale + "px",
+            height: 1.167
+          },
+          xlarge: {
+            size: baseFontSize + 2 * fontScale + "px",
+            height: 1.1875
+          },
+          xxlarge: {
+            size: baseFontSize + 4 * fontScale + "px",
+            height: 1.125
+          }
         }
       }
     },
@@ -417,23 +464,44 @@ export var generate = function generate() {
     },
     dataTable: {
       body: {
-        pad: { horizontal: 'small', vertical: 'xsmall' }
+        pad: {
+          horizontal: 'small',
+          vertical: 'xsmall'
+        }
       },
       footer: {
-        border: { side: 'top', size: 'small' },
-        pad: { horizontal: 'small', vertical: 'xsmall' }
+        border: {
+          side: 'top',
+          size: 'small'
+        },
+        pad: {
+          horizontal: 'small',
+          vertical: 'xsmall'
+        }
       },
       groupHeader: {
-        border: { side: 'bottom', size: 'xsmall' },
-        pad: { horizontal: 'small', vertical: 'xsmall' },
+        border: {
+          side: 'bottom',
+          size: 'xsmall'
+        },
+        pad: {
+          horizontal: 'small',
+          vertical: 'xsmall'
+        },
         background: {
           dark: 'dark-2',
           light: 'light-2'
         }
       },
       header: {
-        border: { side: 'bottom', size: 'small' },
-        pad: { horizontal: 'small', vertical: 'xsmall' },
+        border: {
+          side: 'bottom',
+          size: 'small'
+        },
+        pad: {
+          horizontal: 'small',
+          vertical: 'xsmall'
+        },
         background: {
           dark: 'dark-1',
           light: 'light-1'
@@ -489,8 +557,7 @@ export var generate = function generate() {
     },
     grommet: {},
     heading: {
-      font: {
-        // family: undefined
+      font: {// family: undefined
       },
       level: {
         1: {
@@ -541,8 +608,7 @@ export var generate = function generate() {
       xlarge: _extends({}, fontSizing(2))
     },
     radioButton: {
-      check: {
-        // color: { dark: undefined, light: undefined },
+      check: {// color: { dark: undefined, light: undefined },
       },
       border: {
         color: {
@@ -552,22 +618,21 @@ export var generate = function generate() {
         radius: '100%',
         width: '2px'
       },
-      size: baseSpacing + 'px'
+      size: baseSpacing + "px"
     },
     rangeInput: {
       track: {
         height: '4px',
         color: {
-          dark: css(['', ''], function (props) {
+          dark: css(["", ""], function (props) {
             return rgba(props.theme.global.colors['border-dark'], 0.2);
           }),
-          light: css(['', ''], function (props) {
+          light: css(["", ""], function (props) {
             return rgba(props.theme.global.colors['border-light'], 0.2);
           })
         }
       },
-      thumb: {
-        // color: { dark: undefined, light: undefined },
+      thumb: {// color: { dark: undefined, light: undefined },
       }
     },
     select: {
@@ -578,8 +643,7 @@ export var generate = function generate() {
       },
       // searchInput: undefined,
       step: 20,
-      control: {
-        // extend: undefined,
+      control: {// extend: undefined,
       }
     },
     text: {
@@ -605,10 +669,10 @@ export var generate = function generate() {
         pause: Pause,
         play: Play,
         reduceVolume: VolumeLow,
-        volume: Volume
-        // color: { dark: undefined, light: undefined },
-      }
-      // scrubber: { track: { color: undefined } },
+        volume: Volume // color: { dark: undefined, light: undefined },
+
+      } // scrubber: { track: { color: undefined } },
+
     },
     worldMap: {
       continent: {
@@ -621,8 +685,6 @@ export var generate = function generate() {
       }
     }
   };
-
   return deepFreeze(result);
 };
-
 export var base = generate(24);

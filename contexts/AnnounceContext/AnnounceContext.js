@@ -1,11 +1,9 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.AnnounceContext = undefined;
+exports.AnnounceContext = void 0;
 
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15,19 +13,18 @@ var createAnnouncer = function createAnnouncer() {
   announcer.style.right = '100%';
   announcer.style.position = 'fixed';
   announcer.style['z-index'] = '-1';
-
   document.body.insertBefore(announcer, document.body.firstChild);
-
   return announcer;
 };
 
-var AnnounceContext = exports.AnnounceContext = _react2.default.createContext(function (message) {
-  var mode = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'polite';
+var AnnounceContext = _react.default.createContext(function (message, mode) {
+  if (mode === void 0) {
+    mode = 'polite';
+  }
 
   // we only create a new container if we don't have one already
   // we create a separate node so that grommet does not set aria-hidden to it
   var announcer = document.body.querySelector('[aria-live]') || createAnnouncer();
-
   announcer.setAttribute('aria-live', 'off');
   announcer.innerHTML = message;
   announcer.setAttribute('aria-live', mode);
@@ -35,3 +32,5 @@ var AnnounceContext = exports.AnnounceContext = _react2.default.createContext(fu
     announcer.innerHTML = '';
   }, 500);
 });
+
+exports.AnnounceContext = AnnounceContext;

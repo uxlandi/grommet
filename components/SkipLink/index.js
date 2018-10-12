@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.SkipLink = void 0;
 
-var _SkipLink = require('./SkipLink');
+var _SkipLink = require("./SkipLink");
 
-Object.defineProperty(exports, 'SkipLink', {
-  enumerable: true,
-  get: function get() {
-    return _SkipLink.SkipLink;
-  }
-});
+exports.SkipLink = _SkipLink.SkipLink;

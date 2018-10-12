@@ -1,89 +1,96 @@
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 import React, { Component } from 'react';
-
 import { Box } from '../Box';
-
 import { StyledDigitalDigit, StyledDigitalNext, StyledDigitalPrevious } from './StyledClock';
 
-var Digit = function (_Component) {
-  _inherits(Digit, _Component);
+var Digit =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(Digit, _Component);
 
   function Digit() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, Digit);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {}, _temp), _possibleConstructorReturn(_this, _ret);
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {});
+
+    return _this;
   }
 
   Digit.getDerivedStateFromProps = function getDerivedStateFromProps(nextProps, prevState) {
     var number = nextProps.number;
 
     if (number !== prevState.number) {
-      return { previous: prevState.number, number: number };
+      return {
+        previous: prevState.number,
+        number: number
+      };
     }
+
     return null;
   };
 
-  Digit.prototype.componentDidUpdate = function componentDidUpdate(prevProps, prevState) {
+  var _proto = Digit.prototype;
+
+  _proto.componentDidUpdate = function componentDidUpdate(prevProps, prevState) {
     var _this2 = this;
 
-    if (prevState.previous === undefined && this.state.previous !== undefined) {
+    var previous = this.state.previous;
+
+    if (prevState.previous === undefined && previous !== undefined) {
       clearTimeout(this.timer);
       this.timer = setTimeout(function () {
-        _this2.setState({ previous: undefined });
+        _this2.setState({
+          previous: undefined
+        });
       }, 900);
     }
   };
 
-  Digit.prototype.componentWillUnmount = function componentWillUnmount() {
+  _proto.componentWillUnmount = function componentWillUnmount() {
     clearTimeout(this.timer);
   };
 
-  Digit.prototype.render = function render() {
-    var _props = this.props,
-        run = _props.run,
-        size = _props.size,
-        theme = _props.theme;
-    var _state = this.state,
-        number = _state.number,
-        previous = _state.previous;
+  _proto.render = function render() {
+    /* eslint-disable-next-line react/prop-types */
+    var _this$props = this.props,
+        run = _this$props.run,
+        size = _this$props.size,
+        theme = _this$props.theme;
+    var _this$state = this.state,
+        number = _this$state.number,
+        previous = _this$state.previous;
 
     if (previous !== undefined) {
       var direction = run === 'backward' ? 'down' : 'up';
-      return React.createElement(
-        StyledDigitalDigit,
-        { size: size, theme: theme },
-        React.createElement(
-          StyledDigitalPrevious,
-          { direction: direction },
-          Math.floor(previous)
-        ),
-        React.createElement(
-          StyledDigitalNext,
-          { direction: direction },
-          Math.floor(number)
-        )
-      );
+      return React.createElement(StyledDigitalDigit, {
+        size: size,
+        theme: theme
+      }, React.createElement(StyledDigitalPrevious, {
+        direction: direction
+      }, Math.floor(previous)), React.createElement(StyledDigitalNext, {
+        direction: direction
+      }, Math.floor(number)));
     }
-    return React.createElement(
-      StyledDigitalDigit,
-      { size: size, theme: theme },
-      Math.floor(number)
-    );
+
+    return React.createElement(StyledDigitalDigit, {
+      size: size,
+      theme: theme
+    }, Math.floor(number));
   };
 
   return Digit;
@@ -95,54 +102,71 @@ var Element = function Element(_ref) {
       sep = _ref.sep,
       size = _ref.size,
       theme = _ref.theme;
-
   var tens = Math.floor(number / 10);
   var ones = number % 10;
-  var result = [React.createElement(Digit, { key: 'tens', run: run, size: size, number: tens, theme: theme }), React.createElement(Digit, { key: 'ones', run: run, size: size, number: ones, theme: theme })];
+  var result = [React.createElement(Digit, {
+    key: "tens",
+    run: run,
+    size: size,
+    number: tens,
+    theme: theme
+  }), React.createElement(Digit, {
+    key: "ones",
+    run: run,
+    size: size,
+    number: ones,
+    theme: theme
+  })];
+
   if (sep) {
-    result.unshift(React.createElement(
-      StyledDigitalDigit,
-      { key: 'sep', size: size, theme: theme },
-      ':'
-    ));
+    result.unshift(React.createElement(StyledDigitalDigit, {
+      key: "sep",
+      size: size,
+      theme: theme
+    }, ":"));
   }
+
   return result;
 };
 
-export var Digital = function (_Component2) {
-  _inherits(Digital, _Component2);
+export var Digital = function Digital(props) {
+  var elements = props.elements,
+      precision = props.precision,
+      run = props.run,
+      size = props.size,
+      theme = props.theme,
+      rest = _objectWithoutPropertiesLoose(props, ["elements", "precision", "run", "size", "theme"]);
 
-  function Digital() {
-    _classCallCheck(this, Digital);
+  var seconds;
 
-    return _possibleConstructorReturn(this, _Component2.apply(this, arguments));
+  if (precision === 'seconds') {
+    seconds = React.createElement(Element, {
+      number: elements.seconds,
+      run: run,
+      size: size,
+      sep: true,
+      theme: theme
+    });
   }
 
-  Digital.prototype.render = function render() {
-    var _props2 = this.props,
-        elements = _props2.elements,
-        precision = _props2.precision,
-        run = _props2.run,
-        size = _props2.size,
-        theme = _props2.theme,
-        rest = _objectWithoutProperties(_props2, ['elements', 'precision', 'run', 'size', 'theme']);
+  var minutes;
 
-    var seconds = void 0;
-    if (precision === 'seconds') {
-      seconds = React.createElement(Element, { number: elements.seconds, run: run, size: size, sep: true, theme: theme });
-    }
-    var minutes = void 0;
-    if (precision === 'minutes' || precision === 'seconds') {
-      minutes = React.createElement(Element, { number: elements.minutes, run: run, size: size, sep: true, theme: theme });
-    }
-    return React.createElement(
-      Box,
-      _extends({ direction: 'row' }, rest),
-      React.createElement(Element, { number: elements.hours12 || elements.hours, run: run, size: size, theme: theme }),
-      minutes,
-      seconds
-    );
-  };
+  if (precision === 'minutes' || precision === 'seconds') {
+    minutes = React.createElement(Element, {
+      number: elements.minutes,
+      run: run,
+      size: size,
+      sep: true,
+      theme: theme
+    });
+  }
 
-  return Digital;
-}(Component);
+  return React.createElement(Box, _extends({
+    direction: "row"
+  }, rest), React.createElement(Element, {
+    number: elements.hours12 || elements.hours,
+    run: run,
+    size: size,
+    theme: theme
+  }), minutes, seconds);
+};

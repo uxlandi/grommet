@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.Carousel = void 0;
 
-var _Carousel = require('./Carousel');
+var _Carousel = require("./Carousel");
 
-Object.defineProperty(exports, 'Carousel', {
-  enumerable: true,
-  get: function get() {
-    return _Carousel.Carousel;
-  }
-});
+exports.Carousel = _Carousel.Carousel;

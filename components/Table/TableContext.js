@@ -1,12 +1,12 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.TableContext = undefined;
+exports.TableContext = void 0;
 
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
+var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var TableContext = exports.TableContext = _react2.default.createContext(undefined);
+var TableContext = _react.default.createContext(undefined);
+
+exports.TableContext = TableContext;

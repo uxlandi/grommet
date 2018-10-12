@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.Grid = void 0;
 
-var _Grid = require('./Grid');
+var _Grid = require("./Grid");
 
-Object.defineProperty(exports, 'Grid', {
-  enumerable: true,
-  get: function get() {
-    return _Grid.Grid;
-  }
-});
+exports.Grid = _Grid.Grid;

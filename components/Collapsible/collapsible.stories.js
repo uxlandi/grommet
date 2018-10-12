@@ -1,86 +1,76 @@
-'use strict';
+"use strict";
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _react = _interopRequireWildcard(require("react"));
 
-var _react = require('react');
+var _react2 = require("@storybook/react");
 
-var _react2 = _interopRequireDefault(_react);
+var _grommetIcons = require("grommet-icons");
 
-var _react3 = require('@storybook/react');
+var _grommet = require("grommet");
 
-var _grommetIcons = require('grommet-icons');
+var _themes = require("grommet/themes");
 
-var _grommet = require('grommet');
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-var _themes = require('grommet/themes');
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var SimpleCollapsible = function (_Component) {
-  _inherits(SimpleCollapsible, _Component);
+var SimpleCollapsible =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(SimpleCollapsible, _Component);
 
   function SimpleCollapsible() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, SimpleCollapsible);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       open: false
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+
+    return _this;
   }
 
-  SimpleCollapsible.prototype.render = function render() {
+  var _proto = SimpleCollapsible.prototype;
+
+  _proto.render = function render() {
     var _this2 = this;
 
     var open = this.state.open;
-
-    return _react2.default.createElement(
-      _grommet.Grommet,
-      { theme: _themes.grommet },
-      _react2.default.createElement(
-        _grommet.Box,
-        { align: 'start', gap: 'small' },
-        _react2.default.createElement(_grommet.Button, { primary: true, onClick: function onClick() {
-            return _this2.setState({ open: !_this2.state.open });
-          }, label: 'Toggle' }),
-        _react2.default.createElement(
-          _grommet.Collapsible,
-          _extends({ open: open }, this.props),
-          _react2.default.createElement(
-            _grommet.Box,
-            {
-              background: 'light-2',
-              round: 'medium',
-              pad: 'medium',
-              align: 'center',
-              justify: 'center'
-            },
-            _react2.default.createElement(
-              _grommet.Text,
-              null,
-              'This is a box inside a Collapsible component'
-            )
-          )
-        ),
-        _react2.default.createElement(
-          _grommet.Text,
-          null,
-          'This is other content outside the Collapsible box'
-        )
-      )
-    );
+    return _react.default.createElement(_grommet.Grommet, {
+      theme: _themes.grommet
+    }, _react.default.createElement(_grommet.Box, {
+      align: "start",
+      gap: "small"
+    }, _react.default.createElement(_grommet.Button, {
+      primary: true,
+      onClick: function onClick() {
+        return _this2.setState({
+          open: !open
+        });
+      },
+      label: "Toggle"
+    }), _react.default.createElement(_grommet.Collapsible, _extends({
+      open: open
+    }, this.props), _react.default.createElement(_grommet.Box, {
+      background: "light-2",
+      round: "medium",
+      pad: "medium",
+      align: "center",
+      justify: "center"
+    }, _react.default.createElement(_grommet.Text, null, "This is a box inside a Collapsible component"))), _react.default.createElement(_grommet.Text, null, "This is other content outside the Collapsible box")));
   };
 
   return SimpleCollapsible;
@@ -90,251 +80,228 @@ var MenuButton = function MenuButton(_ref) {
   var label = _ref.label,
       open = _ref.open,
       submenu = _ref.submenu,
-      rest = _objectWithoutProperties(_ref, ['label', 'open', 'submenu']);
+      rest = _objectWithoutPropertiesLoose(_ref, ["label", "open", "submenu"]);
 
   var Icon = open ? _grommetIcons.FormDown : _grommetIcons.FormNext;
-  return _react2.default.createElement(
-    _grommet.Button,
-    _extends({
-      hoverIndicator: 'background'
-    }, rest),
-    _react2.default.createElement(
-      _grommet.Box,
-      {
-        margin: submenu ? { left: 'small' } : undefined,
-        direction: 'row',
-        align: 'center',
-        pad: 'xsmall'
-      },
-      _react2.default.createElement(Icon, { color: 'brand' }),
-      _react2.default.createElement(
-        _grommet.Text,
-        { size: 'small' },
-        label
-      )
-    )
-  );
+  return _react.default.createElement(_grommet.Button, _extends({
+    hoverIndicator: "background"
+  }, rest), _react.default.createElement(_grommet.Box, {
+    margin: submenu ? {
+      left: 'small'
+    } : undefined,
+    direction: "row",
+    align: "center",
+    pad: "xsmall"
+  }, _react.default.createElement(Icon, {
+    color: "brand"
+  }), _react.default.createElement(_grommet.Text, {
+    size: "small"
+  }, label)));
 };
 
-var NestedCollapsible = function (_Component2) {
-  _inherits(NestedCollapsible, _Component2);
+var NestedCollapsible =
+/*#__PURE__*/
+function (_Component2) {
+  _inheritsLoose(NestedCollapsible, _Component2);
 
   function NestedCollapsible() {
-    var _temp2, _this3, _ret2;
+    var _this3;
 
-    _classCallCheck(this, NestedCollapsible);
-
-    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
       args[_key2] = arguments[_key2];
     }
 
-    return _ret2 = (_temp2 = (_this3 = _possibleConstructorReturn(this, _Component2.call.apply(_Component2, [this].concat(args))), _this3), _this3.state = {
+    _this3 = _Component2.call.apply(_Component2, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this3)), "state", {
       openMenu1: false,
       openSubmenu1: false,
       openMenu2: false
-    }, _temp2), _possibleConstructorReturn(_this3, _ret2);
+    });
+
+    return _this3;
   }
 
-  NestedCollapsible.prototype.render = function render() {
+  var _proto2 = NestedCollapsible.prototype;
+
+  _proto2.render = function render() {
     var _this4 = this;
 
-    var _state = this.state,
-        openMenu1 = _state.openMenu1,
-        openSubmenu1 = _state.openSubmenu1,
-        openMenu2 = _state.openMenu2;
+    var _this$state = this.state,
+        openMenu1 = _this$state.openMenu1,
+        openSubmenu1 = _this$state.openSubmenu1,
+        openMenu2 = _this$state.openMenu2;
+    return _react.default.createElement(_grommet.Grommet, {
+      theme: _themes.grommet
+    }, _react.default.createElement(_grommet.Box, {
+      width: "small"
+    }, _react.default.createElement(MenuButton, {
+      open: openMenu1,
+      label: "Accordion",
+      onClick: function onClick() {
+        var newOpenMenu1 = !openMenu1;
 
-    return _react2.default.createElement(
-      _grommet.Grommet,
-      { theme: _themes.grommet },
-      _react2.default.createElement(
-        _grommet.Box,
-        { width: 'small' },
-        _react2.default.createElement(MenuButton, {
-          open: openMenu1,
-          label: 'Accordion',
-          onClick: function onClick() {
-            var newOpenMenu1 = !_this4.state.openMenu1;
-
-            _this4.setState({
-              openMenu1: newOpenMenu1,
-              openSubmenu1: !newOpenMenu1 ? false : openSubmenu1
-            });
-          }
-        }),
-        _react2.default.createElement(
-          _grommet.Collapsible,
-          { open: openMenu1 },
-          _react2.default.createElement(MenuButton, {
-            submenu: true,
-            open: openSubmenu1,
-            label: 'Accordion Basics',
-            onClick: function onClick() {
-              return _this4.setState({
-                openSubmenu1: !_this4.state.openSubmenu1
-              });
-            }
-          }),
-          _react2.default.createElement(
-            _grommet.Collapsible,
-            { open: openSubmenu1 },
-            _react2.default.createElement(
-              _grommet.Button,
-              { hoverIndicator: 'background', onClick: function onClick() {
-                  return alert('Submenu item 1 selected');
-                } },
-              _react2.default.createElement(
-                _grommet.Box,
-                { margin: { left: 'medium' }, direction: 'row', align: 'center', pad: 'xsmall' },
-                _react2.default.createElement(
-                  _grommet.Text,
-                  { size: 'small' },
-                  'Submenu item 1'
-                )
-              )
-            ),
-            _react2.default.createElement(
-              _grommet.Button,
-              { hoverIndicator: 'background', onClick: function onClick() {
-                  return alert('Submenu item 2 selected');
-                } },
-              _react2.default.createElement(
-                _grommet.Box,
-                { margin: { left: 'medium' }, direction: 'row', align: 'center', pad: 'xsmall' },
-                _react2.default.createElement(
-                  _grommet.Text,
-                  { size: 'small' },
-                  'Submenu item 2'
-                )
-              )
-            )
-          )
-        ),
-        _react2.default.createElement(MenuButton, {
-          open: openMenu2,
-          label: 'Button',
-          onClick: function onClick() {
-            return _this4.setState({
-              openMenu2: !_this4.state.openMenu2
-            });
-          }
-        }),
-        _react2.default.createElement(
-          _grommet.Collapsible,
-          { open: openMenu2 },
-          _react2.default.createElement(
-            _grommet.Button,
-            { hoverIndicator: 'background', onClick: function onClick() {
-                return alert('Submenu item 1 selected');
-              } },
-            _react2.default.createElement(
-              _grommet.Box,
-              { margin: { left: 'medium' }, direction: 'row', align: 'center', pad: 'xsmall' },
-              _react2.default.createElement(
-                _grommet.Text,
-                { size: 'small' },
-                'Submenu item 1'
-              )
-            )
-          )
-        )
-      )
-    );
+        _this4.setState({
+          openMenu1: newOpenMenu1,
+          openSubmenu1: !newOpenMenu1 ? false : openSubmenu1
+        });
+      }
+    }), _react.default.createElement(_grommet.Collapsible, {
+      open: openMenu1
+    }, _react.default.createElement(MenuButton, {
+      submenu: true,
+      open: openSubmenu1,
+      label: "Accordion Basics",
+      onClick: function onClick() {
+        return _this4.setState({
+          openSubmenu1: !openSubmenu1
+        });
+      }
+    }), _react.default.createElement(_grommet.Collapsible, {
+      open: openSubmenu1
+    }, _react.default.createElement(_grommet.Button, {
+      hoverIndicator: "background",
+      onClick: function onClick() {
+        return alert('Submenu item 1 selected');
+      }
+    }, _react.default.createElement(_grommet.Box, {
+      margin: {
+        left: 'medium'
+      },
+      direction: "row",
+      align: "center",
+      pad: "xsmall"
+    }, _react.default.createElement(_grommet.Text, {
+      size: "small"
+    }, "Submenu item 1"))), _react.default.createElement(_grommet.Button, {
+      hoverIndicator: "background",
+      onClick: function onClick() {
+        return alert('Submenu item 2 selected');
+      }
+    }, _react.default.createElement(_grommet.Box, {
+      margin: {
+        left: 'medium'
+      },
+      direction: "row",
+      align: "center",
+      pad: "xsmall"
+    }, _react.default.createElement(_grommet.Text, {
+      size: "small"
+    }, "Submenu item 2"))))), _react.default.createElement(MenuButton, {
+      open: openMenu2,
+      label: "Button",
+      onClick: function onClick() {
+        return _this4.setState({
+          openMenu2: !openMenu2
+        });
+      }
+    }), _react.default.createElement(_grommet.Collapsible, {
+      open: openMenu2
+    }, _react.default.createElement(_grommet.Button, {
+      hoverIndicator: "background",
+      onClick: function onClick() {
+        return alert('Submenu item 1 selected');
+      }
+    }, _react.default.createElement(_grommet.Box, {
+      margin: {
+        left: 'medium'
+      },
+      direction: "row",
+      align: "center",
+      pad: "xsmall"
+    }, _react.default.createElement(_grommet.Text, {
+      size: "small"
+    }, "Submenu item 1"))))));
   };
 
   return NestedCollapsible;
 }(_react.Component);
 
-var HorizontalCollapsible = function (_Component3) {
-  _inherits(HorizontalCollapsible, _Component3);
+var HorizontalCollapsible =
+/*#__PURE__*/
+function (_Component3) {
+  _inheritsLoose(HorizontalCollapsible, _Component3);
 
   function HorizontalCollapsible() {
-    var _temp3, _this5, _ret3;
+    var _this5;
 
-    _classCallCheck(this, HorizontalCollapsible);
-
-    for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+    for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
       args[_key3] = arguments[_key3];
     }
 
-    return _ret3 = (_temp3 = (_this5 = _possibleConstructorReturn(this, _Component3.call.apply(_Component3, [this].concat(args))), _this5), _this5.state = {
+    _this5 = _Component3.call.apply(_Component3, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this5)), "state", {
       openNotification: false
-    }, _temp3), _possibleConstructorReturn(_this5, _ret3);
+    });
+
+    return _this5;
   }
 
-  HorizontalCollapsible.prototype.render = function render() {
+  var _proto3 = HorizontalCollapsible.prototype;
+
+  _proto3.render = function render() {
     var _this6 = this;
 
     var openNotification = this.state.openNotification;
-
-    return _react2.default.createElement(
-      _grommet.Grommet,
-      { full: true, theme: _themes.grommet },
-      _react2.default.createElement(
-        _grommet.Box,
-        { fill: true },
-        _react2.default.createElement(
-          _grommet.Box,
-          {
-            tag: 'header',
-            direction: 'row',
-            align: 'center',
-            pad: { vertical: 'small', horizontal: 'medium' },
-            justify: 'between',
-            background: 'neutral-4',
-            elevation: 'large',
-            style: { zIndex: '1000' }
-          },
-          _react2.default.createElement(
-            _grommet.Heading,
-            { level: 3, margin: 'none', color: 'white' },
-            _react2.default.createElement(
-              'strong',
-              null,
-              'My App'
-            )
-          ),
-          _react2.default.createElement(_grommet.Button, {
-            onClick: function onClick() {
-              return _this6.setState({ openNotification: !_this6.state.openNotification });
-            },
-            icon: _react2.default.createElement(_grommetIcons.Notification, { color: 'white' })
-          })
-        ),
-        _react2.default.createElement(
-          _grommet.Box,
-          { flex: true, direction: 'row' },
-          _react2.default.createElement(
-            _grommet.Box,
-            { flex: true, align: 'center', justify: 'center' },
-            'Dashboard content goes here'
-          ),
-          _react2.default.createElement(
-            _grommet.Collapsible,
-            { direction: 'horizontal', open: openNotification },
-            _react2.default.createElement(
-              _grommet.Box,
-              {
-                flex: true,
-                width: 'medium',
-                background: 'light-2',
-                pad: 'small',
-                elevation: 'small'
-              },
-              'Sidebar'
-            )
-          )
-        )
-      )
-    );
+    return _react.default.createElement(_grommet.Grommet, {
+      full: true,
+      theme: _themes.grommet
+    }, _react.default.createElement(_grommet.Box, {
+      fill: true
+    }, _react.default.createElement(_grommet.Box, {
+      tag: "header",
+      direction: "row",
+      align: "center",
+      pad: {
+        vertical: 'small',
+        horizontal: 'medium'
+      },
+      justify: "between",
+      background: "neutral-4",
+      elevation: "large",
+      style: {
+        zIndex: '1000'
+      }
+    }, _react.default.createElement(_grommet.Heading, {
+      level: 3,
+      margin: "none",
+      color: "white"
+    }, _react.default.createElement("strong", null, "My App")), _react.default.createElement(_grommet.Button, {
+      onClick: function onClick() {
+        return _this6.setState({
+          openNotification: !openNotification
+        });
+      },
+      icon: _react.default.createElement(_grommetIcons.Notification, {
+        color: "white"
+      })
+    })), _react.default.createElement(_grommet.Box, {
+      flex: true,
+      direction: "row"
+    }, _react.default.createElement(_grommet.Box, {
+      flex: true,
+      align: "center",
+      justify: "center"
+    }, "Dashboard content goes here"), _react.default.createElement(_grommet.Collapsible, {
+      direction: "horizontal",
+      open: openNotification
+    }, _react.default.createElement(_grommet.Box, {
+      flex: true,
+      width: "medium",
+      background: "light-2",
+      pad: "small",
+      elevation: "small"
+    }, "Sidebar")))));
   };
 
   return HorizontalCollapsible;
 }(_react.Component);
 
-(0, _react3.storiesOf)('Collapsible', module).add('Default', function () {
-  return _react2.default.createElement(SimpleCollapsible, null);
+(0, _react2.storiesOf)('Collapsible', module).add('Default', function () {
+  return _react.default.createElement(SimpleCollapsible, null);
 }).add('Nested', function () {
-  return _react2.default.createElement(NestedCollapsible, null);
+  return _react.default.createElement(NestedCollapsible, null);
 }).add('Horizontal', function () {
-  return _react2.default.createElement(HorizontalCollapsible, null);
+  return _react.default.createElement(HorizontalCollapsible, null);
 });

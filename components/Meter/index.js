@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.Meter = void 0;
 
-var _Meter = require('./Meter');
+var _Meter = require("./Meter");
 
-Object.defineProperty(exports, 'Meter', {
-  enumerable: true,
-  get: function get() {
-    return _Meter.Meter;
-  }
-});
+exports.Meter = _Meter.Meter;

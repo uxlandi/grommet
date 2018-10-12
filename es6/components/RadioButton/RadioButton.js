@@ -1,83 +1,77 @@
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
 import React, { Component } from 'react';
 import { compose } from 'recompose';
-
 import { withForwardRef, withTheme } from '../hocs';
 import { removeUndefined } from '../../utils/object';
-
 import { StyledRadioButton, StyledRadioButtonContainer, StyledRadioButtonInput, StyledRadioButtonButton } from './StyledRadioButton';
 
-var RadioButton = function (_Component) {
-  _inherits(RadioButton, _Component);
+var RadioButton =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(RadioButton, _Component);
 
   function RadioButton() {
-    _classCallCheck(this, RadioButton);
-
-    return _possibleConstructorReturn(this, _Component.apply(this, arguments));
+    return _Component.apply(this, arguments) || this;
   }
 
-  RadioButton.prototype.render = function render() {
-    var _props = this.props,
-        checked = _props.checked,
-        disabled = _props.disabled,
-        forwardRef = _props.forwardRef,
-        id = _props.id,
-        label = _props.label,
-        name = _props.name,
-        onChange = _props.onChange,
-        theme = _props.theme,
-        rest = _objectWithoutProperties(_props, ['checked', 'disabled', 'forwardRef', 'id', 'label', 'name', 'onChange', 'theme']);
+  var _proto = RadioButton.prototype;
 
-    var normalizedLabel = typeof label === 'string' ? React.createElement(
-      'div',
-      null,
-      label
-    ) : label;
+  _proto.render = function render() {
+    var _this$props = this.props,
+        checked = _this$props.checked,
+        disabled = _this$props.disabled,
+        forwardRef = _this$props.forwardRef,
+        id = _this$props.id,
+        label = _this$props.label,
+        name = _this$props.name,
+        onChange = _this$props.onChange,
+        theme = _this$props.theme,
+        rest = _objectWithoutPropertiesLoose(_this$props, ["checked", "disabled", "forwardRef", "id", "label", "name", "onChange", "theme"]);
 
-    return React.createElement(
-      StyledRadioButtonContainer,
-      _extends({}, removeUndefined({ htmlFor: id, disabled: disabled }), {
-        theme: theme
-      }),
-      React.createElement(
-        StyledRadioButton,
-        { theme: theme },
-        React.createElement(StyledRadioButtonInput, _extends({}, rest, {
-          ref: forwardRef,
-          type: 'radio'
-        }, removeUndefined({ id: id, name: name, checked: checked, disabled: disabled, onChange: onChange }), {
-          theme: theme
-        })),
-        React.createElement(
-          StyledRadioButtonButton,
-          { theme: theme },
-          React.createElement(
-            'svg',
-            { viewBox: '0 0 24 24', preserveAspectRatio: 'xMidYMid meet' },
-            React.createElement('circle', { cx: 12, cy: 12, r: 6 })
-          )
-        )
-      ),
-      normalizedLabel
-    );
+    var normalizedLabel = typeof label === 'string' ? React.createElement("div", null, label) : label;
+    return React.createElement(StyledRadioButtonContainer, _extends({}, removeUndefined({
+      htmlFor: id,
+      disabled: disabled
+    }), {
+      theme: theme
+    }), React.createElement(StyledRadioButton, {
+      theme: theme
+    }, React.createElement(StyledRadioButtonInput, _extends({}, rest, {
+      ref: forwardRef,
+      type: "radio"
+    }, removeUndefined({
+      id: id,
+      name: name,
+      checked: checked,
+      disabled: disabled,
+      onChange: onChange
+    }), {
+      theme: theme
+    })), React.createElement(StyledRadioButtonButton, {
+      theme: theme
+    }, React.createElement("svg", {
+      viewBox: "0 0 24 24",
+      preserveAspectRatio: "xMidYMid meet"
+    }, React.createElement("circle", {
+      cx: 12,
+      cy: 12,
+      r: 6
+    })))), normalizedLabel);
   };
 
   return RadioButton;
 }(Component);
 
-var RadioButtonDoc = void 0;
+var RadioButtonDoc;
+
 if (process.env.NODE_ENV !== 'production') {
   RadioButtonDoc = require('./doc').doc(RadioButton); // eslint-disable-line global-require
 }
-var RadioButtonWrapper = compose(withTheme, withForwardRef)(RadioButtonDoc || RadioButton);
 
+var RadioButtonWrapper = compose(withTheme, withForwardRef)(RadioButtonDoc || RadioButton);
 export { RadioButtonWrapper as RadioButton };

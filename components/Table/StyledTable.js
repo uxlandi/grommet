@@ -1,13 +1,11 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.StyledTable = exports.StyledTableFooter = exports.StyledTableHeader = exports.StyledTableBody = exports.StyledTableRow = exports.StyledTableDataCaption = exports.StyledTableCell = undefined;
+exports.StyledTable = exports.StyledTableFooter = exports.StyledTableHeader = exports.StyledTableBody = exports.StyledTableRow = exports.StyledTableDataCaption = exports.StyledTableCell = void 0;
 
-var _styledComponents = require('styled-components');
+var _styledComponents = _interopRequireWildcard(require("styled-components"));
 
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 var SIZE_MAP = {
   '1/2': '50%',
@@ -16,54 +14,67 @@ var SIZE_MAP = {
   '1/3': '33.33%',
   '2/3': '66.66%'
 };
-
-var sizeStyle = (0, _styledComponents.css)(['width:', ';max-width:', ';overflow:hidden;'], function (props) {
+var sizeStyle = (0, _styledComponents.css)(["width:", ";max-width:", ";overflow:hidden;"], function (props) {
   return SIZE_MAP[props.size] || props.theme.global.size[props.size];
 }, function (props) {
   return SIZE_MAP[props.size] || props.theme.global.size[props.size];
 });
 
-var StyledTableCell = exports.StyledTableCell = _styledComponents2.default.td.withConfig({
-  displayName: 'StyledTable__StyledTableCell',
-  componentId: 'sc-1m3u5g-0'
-})(['margin:0;padding:0;font-weight:inherit;text-align:inherit;height:inherit;', ' ', ' ', ' ', ''], function (props) {
+var StyledTableCell = _styledComponents.default.td.withConfig({
+  displayName: "StyledTable__StyledTableCell",
+  componentId: "sc-1m3u5g-0"
+})(["margin:0;padding:0;font-weight:inherit;text-align:inherit;height:inherit;", " ", " ", " ", ""], function (props) {
   return props.size && sizeStyle;
 }, function (props) {
-  return props.verticalAlign && 'vertical-align: ' + props.verticalAlign + ';';
+  return props.verticalAlign && "vertical-align: " + props.verticalAlign + ";";
 }, function (props) {
   return !props.verticalAlign && props.tableContext === 'header' && 'vertical-align: bottom;';
 }, function (props) {
   return !props.verticalAlign && props.tableContext === 'footer' && 'vertical-align: top;';
 });
 
-var StyledTableDataCaption = exports.StyledTableDataCaption = _styledComponents2.default.caption.withConfig({
-  displayName: 'StyledTable__StyledTableDataCaption',
-  componentId: 'sc-1m3u5g-1'
-})(['display:none;']);
+exports.StyledTableCell = StyledTableCell;
 
-var StyledTableRow = exports.StyledTableRow = _styledComponents2.default.tr.withConfig({
-  displayName: 'StyledTable__StyledTableRow',
-  componentId: 'sc-1m3u5g-2'
-})(['']);
+var StyledTableDataCaption = _styledComponents.default.caption.withConfig({
+  displayName: "StyledTable__StyledTableDataCaption",
+  componentId: "sc-1m3u5g-1"
+})(["display:none;"]);
 
-var StyledTableBody = exports.StyledTableBody = _styledComponents2.default.tbody.withConfig({
-  displayName: 'StyledTable__StyledTableBody',
-  componentId: 'sc-1m3u5g-3'
-})(['']);
+exports.StyledTableDataCaption = StyledTableDataCaption;
 
-var StyledTableHeader = exports.StyledTableHeader = _styledComponents2.default.thead.withConfig({
-  displayName: 'StyledTable__StyledTableHeader',
-  componentId: 'sc-1m3u5g-4'
-})(['']);
+var StyledTableRow = _styledComponents.default.tr.withConfig({
+  displayName: "StyledTable__StyledTableRow",
+  componentId: "sc-1m3u5g-2"
+})([""]);
 
-var StyledTableFooter = exports.StyledTableFooter = _styledComponents2.default.tfoot.withConfig({
-  displayName: 'StyledTable__StyledTableFooter',
-  componentId: 'sc-1m3u5g-5'
-})(['']);
+exports.StyledTableRow = StyledTableRow;
 
-var StyledTable = exports.StyledTable = _styledComponents2.default.table.withConfig({
-  displayName: 'StyledTable',
-  componentId: 'sc-1m3u5g-6'
-})(['border-spacing:0;border-collapse:collapse;', ''], function (props) {
+var StyledTableBody = _styledComponents.default.tbody.withConfig({
+  displayName: "StyledTable__StyledTableBody",
+  componentId: "sc-1m3u5g-3"
+})([""]);
+
+exports.StyledTableBody = StyledTableBody;
+
+var StyledTableHeader = _styledComponents.default.thead.withConfig({
+  displayName: "StyledTable__StyledTableHeader",
+  componentId: "sc-1m3u5g-4"
+})([""]);
+
+exports.StyledTableHeader = StyledTableHeader;
+
+var StyledTableFooter = _styledComponents.default.tfoot.withConfig({
+  displayName: "StyledTable__StyledTableFooter",
+  componentId: "sc-1m3u5g-5"
+})([""]);
+
+exports.StyledTableFooter = StyledTableFooter;
+
+var StyledTable = _styledComponents.default.table.withConfig({
+  displayName: "StyledTable",
+  componentId: "sc-1m3u5g-6"
+})(["border-spacing:0;border-collapse:collapse;", ""], function (props) {
   return props.theme.table && props.theme.table.extend;
 });
+
+exports.StyledTable = StyledTable;

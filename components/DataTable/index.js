@@ -1,12 +1,8 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
+exports.DataTable = void 0;
 
-var _DataTable = require('./DataTable');
+var _DataTable = require("./DataTable");
 
-Object.defineProperty(exports, 'DataTable', {
-  enumerable: true,
-  get: function get() {
-    return _DataTable.DataTable;
-  }
-});
+exports.DataTable = _DataTable.DataTable;

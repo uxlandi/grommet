@@ -1,62 +1,66 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.Grommet = undefined;
+exports.Grommet = void 0;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _react = _interopRequireWildcard(require("react"));
 
-var _react = require('react');
+var _contexts = require("grommet-icons/contexts");
 
-var _react2 = _interopRequireDefault(_react);
+var _recompose = require("recompose");
 
-var _contexts = require('grommet-icons/contexts');
+var _contexts2 = require("../../contexts");
 
-var _recompose = require('recompose');
+var _base = require("../../themes/base");
 
-var _contexts2 = require('../../contexts');
+var _utils = require("../../utils");
 
-var _base = require('../../themes/base');
+var _hocs = require("../hocs");
 
-var _utils = require('../../utils');
+var _StyledGrommet = require("./StyledGrommet");
 
-var _hocs = require('../hocs');
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-var _StyledGrommet = require('./StyledGrommet');
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Grommet = function (_Component) {
-  _inherits(Grommet, _Component);
+var Grommet =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(Grommet, _Component);
 
   function Grommet() {
-    var _temp, _this, _ret;
+    var _this;
 
-    _classCallCheck(this, Grommet);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {}, _this.onResize = function () {
+    _this = _Component.call.apply(_Component, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {});
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onResize", function () {
       var _this$state = _this.state,
           theme = _this$state.theme,
           responsive = _this$state.responsive;
-
-
       var breakpoint = (0, _utils.getBreakpoint)(window.innerWidth, theme);
 
       if (breakpoint !== responsive) {
-        _this.setState({ responsive: breakpoint });
+        _this.setState({
+          responsive: breakpoint
+        });
       }
-    }, _temp), _possibleConstructorReturn(_this, _ret);
+    });
+
+    return _this;
   }
 
   Grommet.getDerivedStateFromProps = function getDerivedStateFromProps(nextProps, prevState) {
@@ -65,9 +69,8 @@ var Grommet = function (_Component) {
     var stateTheme = prevState.theme,
         themeProp = prevState.themeProp,
         iconThemeProp = prevState.iconThemeProp;
+    var nextTheme;
 
-
-    var nextTheme = void 0;
     if (theme && (theme !== themeProp || iconTheme !== iconThemeProp)) {
       nextTheme = (0, _utils.deepMerge)(_base.base, theme);
     } else if (!theme && (themeProp || !stateTheme)) {
@@ -94,55 +97,49 @@ var Grommet = function (_Component) {
         iconThemeProp: iconTheme
       };
     }
+
     return null;
   };
 
-  Grommet.prototype.componentDidMount = function componentDidMount() {
+  var _proto = Grommet.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
     window.addEventListener('resize', this.onResize);
     this.onResize();
   };
 
-  Grommet.prototype.componentWillUnmount = function componentWillUnmount() {
+  _proto.componentWillUnmount = function componentWillUnmount() {
     window.removeEventListener('resize', this.onResize);
   };
 
-  Grommet.prototype.render = function render() {
-    var _props = this.props,
-        children = _props.children,
-        rest = _objectWithoutProperties(_props, ['children']);
+  _proto.render = function render() {
+    var _this$props = this.props,
+        children = _this$props.children,
+        rest = _objectWithoutPropertiesLoose(_this$props, ["children"]);
 
     delete rest.theme;
-    var _state = this.state,
-        responsive = _state.responsive,
-        theme = _state.theme;
-
-
-    return _react2.default.createElement(
-      _contexts2.ThemeContext.Provider,
-      { value: theme },
-      _react2.default.createElement(
-        _contexts.ThemeContext.Provider,
-        { value: theme.icon },
-        _react2.default.createElement(
-          _contexts2.ResponsiveContext.Provider,
-          { value: responsive },
-          _react2.default.createElement(
-            _StyledGrommet.StyledGrommet,
-            _extends({}, rest, { theme: theme }),
-            children
-          )
-        )
-      )
-    );
+    var _this$state2 = this.state,
+        responsive = _this$state2.responsive,
+        theme = _this$state2.theme;
+    return _react.default.createElement(_contexts2.ThemeContext.Provider, {
+      value: theme
+    }, _react.default.createElement(_contexts.ThemeContext.Provider, {
+      value: theme.icon
+    }, _react.default.createElement(_contexts2.ResponsiveContext.Provider, {
+      value: responsive
+    }, _react.default.createElement(_StyledGrommet.StyledGrommet, _extends({}, rest, {
+      theme: theme
+    }), children))));
   };
 
   return Grommet;
 }(_react.Component);
 
-var GrommetDoc = void 0;
+var GrommetDoc;
+
 if (process.env.NODE_ENV !== 'production') {
   GrommetDoc = require('./doc').doc(Grommet); // eslint-disable-line global-require
 }
-var GrommetWrapper = (0, _recompose.compose)(_hocs.withIconTheme)(GrommetDoc || Grommet);
 
+var GrommetWrapper = (0, _recompose.compose)(_hocs.withIconTheme)(GrommetDoc || Grommet);
 exports.Grommet = GrommetWrapper;

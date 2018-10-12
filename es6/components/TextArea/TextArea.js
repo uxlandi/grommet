@@ -1,44 +1,43 @@
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
 import React, { Component } from 'react';
 import { compose } from 'recompose';
-
 import { withForwardRef, withTheme } from '../hocs';
-
 import { StyledTextArea } from './StyledTextArea';
 
-var TextArea = function (_Component) {
-  _inherits(TextArea, _Component);
+var TextArea =
+/*#__PURE__*/
+function (_Component) {
+  _inheritsLoose(TextArea, _Component);
 
   function TextArea() {
-    _classCallCheck(this, TextArea);
-
-    return _possibleConstructorReturn(this, _Component.apply(this, arguments));
+    return _Component.apply(this, arguments) || this;
   }
 
-  TextArea.prototype.render = function render() {
-    var _props = this.props,
-        forwardRef = _props.forwardRef,
-        rest = _objectWithoutProperties(_props, ['forwardRef']);
+  var _proto = TextArea.prototype;
 
-    return React.createElement(StyledTextArea, _extends({ ref: forwardRef }, rest));
+  _proto.render = function render() {
+    var _this$props = this.props,
+        forwardRef = _this$props.forwardRef,
+        rest = _objectWithoutPropertiesLoose(_this$props, ["forwardRef"]);
+
+    return React.createElement(StyledTextArea, _extends({
+      ref: forwardRef
+    }, rest));
   };
 
   return TextArea;
 }(Component);
 
-var TextAreaDoc = void 0;
+var TextAreaDoc;
+
 if (process.env.NODE_ENV !== 'production') {
   TextAreaDoc = require('./doc').doc(TextArea); // eslint-disable-line global-require
 }
-var TextAreaWrapper = compose(withTheme, withForwardRef)(TextAreaDoc || TextArea);
 
+var TextAreaWrapper = compose(withTheme, withForwardRef)(TextAreaDoc || TextArea);
 export { TextAreaWrapper as TextArea };

@@ -1,12 +1,13 @@
-'use strict';
+"use strict";
 
 exports.__esModule = true;
-exports.doc = undefined;
+exports.doc = void 0;
 
-var _reactDesc = require('react-desc');
+var _reactDesc = require("react-desc");
 
-var doc = exports.doc = function doc(TableRow) {
-  var DocumentedTableRow = (0, _reactDesc.describe)(TableRow).description('A row of cells in a table.').usage('import { TableRow } from \'grommet\';\n<TableRow />');
-
+var doc = function doc(TableRow) {
+  var DocumentedTableRow = (0, _reactDesc.describe)(TableRow).description('A row of cells in a table.').usage("import { TableRow } from 'grommet';\n<TableRow />");
   return DocumentedTableRow;
 };
+
+exports.doc = doc;
