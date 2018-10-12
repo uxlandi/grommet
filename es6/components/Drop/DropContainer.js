@@ -274,7 +274,7 @@ export var DropContainer = function (_Component) {
       null,
       React.createElement(
         Keyboard,
-        { onEsc: onEsc, onKeyDown: onKeyDown },
+        { onEsc: onEsc, onKeyDown: onKeyDown, target: 'document' },
         content
       )
     );
