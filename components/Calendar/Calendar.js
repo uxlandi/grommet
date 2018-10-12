@@ -201,6 +201,63 @@ function (_Component) {
       };
     });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderCalendarHeader", function (previousMonth, nextMonth) {
+      var _this$props2 = _this.props,
+          bounds = _this$props2.bounds,
+          locale = _this$props2.locale,
+          onSelect = _this$props2.onSelect,
+          size = _this$props2.size,
+          theme = _this$props2.theme;
+      var reference = _this.state.reference;
+      var PreviousIcon = size === 'small' ? theme.calendar.icons.small.previous : theme.calendar.icons.previous;
+      var NextIcon = size === 'small' ? theme.calendar.icons.small.next : theme.calendar.icons.next;
+      return _react.default.createElement(_Box.Box, {
+        direction: "row",
+        justify: "between",
+        align: "center"
+      }, _react.default.createElement(_Box.Box, {
+        flex: true,
+        pad: {
+          horizontal: headingPadMap[size] || 'small'
+        }
+      }, _react.default.createElement(_Heading.Heading, {
+        level: size === 'small' ? 4 : 3,
+        size: size,
+        margin: "none"
+      }, reference.toLocaleDateString(locale, {
+        month: 'long',
+        year: 'numeric'
+      }))), _react.default.createElement(_Box.Box, {
+        flex: false,
+        direction: "row",
+        align: "center"
+      }, _react.default.createElement(_Button.Button, {
+        a11yTitle: previousMonth.toLocaleDateString(locale, {
+          month: 'long',
+          year: 'numeric'
+        }),
+        icon: _react.default.createElement(PreviousIcon, {
+          size: size !== 'small' ? size : undefined
+        }),
+        disabled: !onSelect || !(0, _utils.betweenDates)(previousMonth, bounds),
+        onClick: function onClick() {
+          return _this.setReference(previousMonth);
+        }
+      }), _react.default.createElement(_Button.Button, {
+        a11yTitle: nextMonth.toLocaleDateString(locale, {
+          month: 'long',
+          year: 'numeric'
+        }),
+        icon: _react.default.createElement(NextIcon, {
+          size: size !== 'small' ? size : undefined
+        }),
+        disabled: !onSelect || !(0, _utils.betweenDates)(nextMonth, bounds),
+        onClick: function onClick() {
+          return _this.setReference(nextMonth);
+        }
+      })));
+    });
+
     return _this;
   }
 
@@ -231,17 +288,18 @@ function (_Component) {
   _proto.render = function render() {
     var _this2 = this;
 
-    var _this$props2 = this.props,
-        bounds = _this$props2.bounds,
-        date = _this$props2.date,
-        dates = _this$props2.dates,
-        disabled = _this$props2.disabled,
-        firstDayOfWeek = _this$props2.firstDayOfWeek,
-        locale = _this$props2.locale,
-        onSelect = _this$props2.onSelect,
-        size = _this$props2.size,
-        theme = _this$props2.theme,
-        rest = _objectWithoutPropertiesLoose(_this$props2, ["bounds", "date", "dates", "disabled", "firstDayOfWeek", "locale", "onSelect", "size", "theme"]);
+    var _this$props3 = this.props,
+        bounds = _this$props3.bounds,
+        date = _this$props3.date,
+        dates = _this$props3.dates,
+        disabled = _this$props3.disabled,
+        firstDayOfWeek = _this$props3.firstDayOfWeek,
+        header = _this$props3.header,
+        locale = _this$props3.locale,
+        onSelect = _this$props3.onSelect,
+        size = _this$props3.size,
+        theme = _this$props3.theme,
+        rest = _objectWithoutPropertiesLoose(_this$props3, ["bounds", "date", "dates", "disabled", "firstDayOfWeek", "header", "locale", "onSelect", "size", "theme"]);
 
     var _this$state3 = this.state,
         active = _this$state3.active,
@@ -285,7 +343,7 @@ function (_Component) {
       var dayDisabled = (0, _utils.withinDates)(day, disabled) || bounds && !(0, _utils.betweenDates)(day, bounds);
       days.push(_react.default.createElement(_StyledCalendar.StyledDayContainer, {
         key: day.getTime(),
-        size: size,
+        sizeProp: size,
         theme: theme
       }, _react.default.createElement(_Button.Button, {
         ref: function ref(_ref) {
@@ -301,7 +359,7 @@ function (_Component) {
         inRange: inRange,
         otherMonth: day.getMonth() !== reference.getMonth(),
         isSelected: selected,
-        size: size,
+        sizeProp: size,
         theme: theme
       }, day.getDate()))));
       day = (0, _utils.addDays)(day, 1);
@@ -315,10 +373,8 @@ function (_Component) {
       key: day.getTime(),
       theme: theme
     }, days));
-    var PreviousIcon = size === 'small' ? theme.calendar.icons.small.previous : theme.calendar.icons.previous;
-    var NextIcon = size === 'small' ? theme.calendar.icons.small.next : theme.calendar.icons.next;
     return _react.default.createElement(_StyledCalendar.StyledCalendar, _extends({
-      size: size,
+      sizeProp: size,
       theme: theme
     }, rest), _react.default.createElement(_Keyboard.Keyboard, {
       onUp: function onUp(event) {
@@ -337,56 +393,23 @@ function (_Component) {
       onRight: function onRight() {
         return _this2.setActive((0, _utils.addDays)(active, 1));
       }
-    }, _react.default.createElement(_Box.Box, null, _react.default.createElement(_Box.Box, {
-      direction: "row",
-      justify: "between",
-      align: "center"
-    }, _react.default.createElement(_Box.Box, {
-      flex: true,
-      pad: {
-        horizontal: headingPadMap[size] || 'small'
-      }
-    }, _react.default.createElement(_Heading.Heading, {
-      level: size === 'small' ? 4 : 3,
-      size: size,
-      margin: "none"
-    }, reference.toLocaleDateString(locale, {
-      month: 'long',
-      year: 'numeric'
-    }))), _react.default.createElement(_Box.Box, {
-      flex: false,
-      direction: "row",
-      align: "center"
-    }, _react.default.createElement(_Button.Button, {
-      a11yTitle: previousMonth.toLocaleDateString(locale, {
-        month: 'long',
-        year: 'numeric'
-      }),
-      icon: _react.default.createElement(PreviousIcon, {
-        size: size !== 'small' ? size : undefined
-      }),
-      disabled: !onSelect || !(0, _utils.betweenDates)(previousMonth, bounds),
-      onClick: function onClick() {
+    }, _react.default.createElement(_Box.Box, null, header ? header({
+      date: reference,
+      locale: locale,
+      onPreviousMonth: function onPreviousMonth() {
         return _this2.setReference(previousMonth);
-      }
-    }), _react.default.createElement(_Button.Button, {
-      a11yTitle: nextMonth.toLocaleDateString(locale, {
-        month: 'long',
-        year: 'numeric'
-      }),
-      icon: _react.default.createElement(NextIcon, {
-        size: size !== 'small' ? size : undefined
-      }),
-      disabled: !onSelect || !(0, _utils.betweenDates)(nextMonth, bounds),
-      onClick: function onClick() {
+      },
+      onNextMonth: function onNextMonth() {
         return _this2.setReference(nextMonth);
-      }
-    }))), _react.default.createElement(_StyledCalendar.StyledWeeksContainer, {
-      size: size,
+      },
+      previousInBound: (0, _utils.betweenDates)(previousMonth, bounds),
+      nextInBound: (0, _utils.betweenDates)(nextMonth, bounds)
+    }) : this.renderCalendarHeader(previousMonth, nextMonth), _react.default.createElement(_StyledCalendar.StyledWeeksContainer, {
+      sizeProp: size,
       theme: theme
     }, _react.default.createElement(_StyledCalendar.StyledWeeks, {
       slide: slide,
-      size: size,
+      sizeProp: size,
       theme: theme
     }, weeks)))));
   };

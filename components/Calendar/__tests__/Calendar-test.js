@@ -6,6 +6,8 @@ var _reactTestRenderer = _interopRequireDefault(require("react-test-renderer"));
 
 require("jest-styled-components");
 
+var _grommetIcons = require("grommet-icons");
+
 var _ = require("../..");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -67,6 +69,38 @@ test('Calendar firstDayOfWeek renders', function () {
   }), _react.default.createElement(_.Calendar, {
     firstDayOfWeek: 1,
     date: DATE
+  })));
+
+  var tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+test('Calendar renders custom header', function () {
+  var component = _reactTestRenderer.default.create(_react.default.createElement(_.Grommet, null, _react.default.createElement(_.Calendar, {
+    onSelect: function onSelect() {},
+    size: "small",
+    bounds: ['2018-09-08', '2018-12-13'],
+    header: function header(_ref) {
+      var date = _ref.date,
+          locale = _ref.locale,
+          onPreviousMonth = _ref.onPreviousMonth,
+          onNextMonth = _ref.onNextMonth,
+          previousInBound = _ref.previousInBound,
+          nextInBound = _ref.nextInBound;
+      return _react.default.createElement(_.Box, {
+        direction: "row",
+        align: "center",
+        justify: "between"
+      }, _react.default.createElement(_.Button, {
+        onClick: previousInBound && onPreviousMonth
+      }, _react.default.createElement(_.Box, null, _react.default.createElement(_grommetIcons.FormPreviousLink, null))), _react.default.createElement(_.Text, {
+        size: "small"
+      }, _react.default.createElement("strong", null, date.toLocaleDateString(locale, {
+        month: 'long',
+        year: 'numeric'
+      }))), _react.default.createElement(_.Button, {
+        onClick: nextInBound && onNextMonth
+      }, _react.default.createElement(_.Box, null, _react.default.createElement(_grommetIcons.FormNextLink, null))));
+    }
   })));
 
   var tree = component.toJSON();

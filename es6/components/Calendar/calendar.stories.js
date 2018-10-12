@@ -6,8 +6,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import { Grommet, Calendar } from 'grommet';
+import { Box, Button, Calendar, Grommet, Text } from 'grommet';
 import { grommet } from 'grommet/themes';
+import { FormPreviousLink } from "grommet-icons/es6/icons/FormPreviousLink";
+import { FormNextLink } from "grommet-icons/es6/icons/FormNextLink";
 
 var SimpleCalendar =
 /*#__PURE__*/
@@ -151,8 +153,76 @@ function (_Component2) {
   return RichCalendar;
 }(Component);
 
+var CustomHeaderCalendar =
+/*#__PURE__*/
+function (_Component3) {
+  _inheritsLoose(CustomHeaderCalendar, _Component3);
+
+  function CustomHeaderCalendar() {
+    var _this3;
+
+    for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+      args[_key3] = arguments[_key3];
+    }
+
+    _this3 = _Component3.call.apply(_Component3, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this3)), "state", {});
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this3)), "onSelect", function (date) {
+      return _this3.setState({
+        date: date
+      });
+    });
+
+    return _this3;
+  }
+
+  var _proto3 = CustomHeaderCalendar.prototype;
+
+  _proto3.render = function render() {
+    var date = this.state.date;
+    return React.createElement(Grommet, {
+      theme: grommet
+    }, React.createElement(Calendar, {
+      date: date,
+      onSelect: this.onSelect,
+      size: "small",
+      bounds: ['2018-09-08', '2018-12-13'],
+      header: function header(_ref) {
+        var currentDate = _ref.date,
+            locale = _ref.locale,
+            onPreviousMonth = _ref.onPreviousMonth,
+            onNextMonth = _ref.onNextMonth,
+            previousInBound = _ref.previousInBound,
+            nextInBound = _ref.nextInBound;
+        return React.createElement(Box, {
+          direction: "row",
+          align: "center",
+          justify: "between"
+        }, React.createElement(Button, {
+          disabled: !previousInBound,
+          onClick: onPreviousMonth
+        }, React.createElement(Box, null, React.createElement(FormPreviousLink, null))), React.createElement(Text, {
+          size: "small"
+        }, React.createElement("strong", null, currentDate.toLocaleDateString(locale, {
+          month: 'long',
+          year: 'numeric'
+        }))), React.createElement(Button, {
+          disabled: !nextInBound,
+          onClick: onNextMonth
+        }, React.createElement(Box, null, React.createElement(FormNextLink, null))));
+      }
+    }));
+  };
+
+  return CustomHeaderCalendar;
+}(Component);
+
 storiesOf('Calendar', module).add('Simple Calendar', function () {
   return React.createElement(SimpleCalendar, null);
 }).add('Range Calendar', function () {
   return React.createElement(RichCalendar, null);
+}).add('Custom Header', function () {
+  return React.createElement(CustomHeaderCalendar, null);
 });

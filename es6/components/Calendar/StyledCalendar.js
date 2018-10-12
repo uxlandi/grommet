@@ -2,8 +2,8 @@ import styled, { css, keyframes } from 'styled-components';
 import { backgroundStyle, parseMetricToNum } from '../../utils';
 
 var sizeStyle = function sizeStyle(props) {
-  var data = props.theme.calendar[props.size];
-  return css(["font-size:", ";line-height:", ";width:", ";"], data.fontSize, data.lineHeight, props.theme.global.size[props.size]);
+  var data = props.theme.calendar[props.sizeProp];
+  return css(["font-size:", ";line-height:", ";width:", ";"], data.fontSize, data.lineHeight, props.theme.global.size[props.sizeProp]);
 };
 
 export var StyledCalendar = styled.div.withConfig({
@@ -18,18 +18,18 @@ export var StyledWeeksContainer = styled.div.withConfig({
   displayName: "StyledCalendar__StyledWeeksContainer",
   componentId: "sc-1y4xhmp-1"
 })(["overflow:hidden;", ""], function (props) {
-  return "height: " + parseMetricToNum(props.theme.calendar[props.size].daySize) * 6 + "px;";
+  return "height: " + parseMetricToNum(props.theme.calendar[props.sizeProp].daySize) * 6 + "px;";
 });
 
 var slideStyle = function slideStyle(props) {
   var _props$slide = props.slide,
       direction = _props$slide.direction,
       weeks = _props$slide.weeks,
-      size = props.size,
+      sizeProp = props.sizeProp,
       theme = props.theme;
-  var _theme$calendar$size = theme.calendar[size],
-      daySize = _theme$calendar$size.daySize,
-      slideDuration = _theme$calendar$size.slideDuration;
+  var _theme$calendar$sizeP = theme.calendar[sizeProp],
+      daySize = _theme$calendar$sizeP.daySize,
+      slideDuration = _theme$calendar$sizeP.slideDuration;
   var amount = parseMetricToNum(daySize) * weeks;
   var translateYFrom = direction === 'down' ? "-" + amount + "px" : '0';
   var translateYTo = direction === 'up' ? "-" + amount + "px" : '0';
@@ -53,7 +53,7 @@ export var StyledDayContainer = styled.div.withConfig({
 })(["flex:0 0 auto;"]);
 
 var daySizeStyle = function daySizeStyle(props) {
-  var data = props.theme.calendar[props.size];
+  var data = props.theme.calendar[props.sizeProp];
   return css(["width:", ";height:", ";"], data.daySize, data.daySize);
 };
 

@@ -10,8 +10,8 @@ var _utils = require("../../utils");
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 var sizeStyle = function sizeStyle(props) {
-  var data = props.theme.calendar[props.size];
-  return (0, _styledComponents.css)(["font-size:", ";line-height:", ";width:", ";"], data.fontSize, data.lineHeight, props.theme.global.size[props.size]);
+  var data = props.theme.calendar[props.sizeProp];
+  return (0, _styledComponents.css)(["font-size:", ";line-height:", ";width:", ";"], data.fontSize, data.lineHeight, props.theme.global.size[props.sizeProp]);
 };
 
 var StyledCalendar = _styledComponents.default.div.withConfig({
@@ -29,7 +29,7 @@ var StyledWeeksContainer = _styledComponents.default.div.withConfig({
   displayName: "StyledCalendar__StyledWeeksContainer",
   componentId: "sc-1y4xhmp-1"
 })(["overflow:hidden;", ""], function (props) {
-  return "height: " + (0, _utils.parseMetricToNum)(props.theme.calendar[props.size].daySize) * 6 + "px;";
+  return "height: " + (0, _utils.parseMetricToNum)(props.theme.calendar[props.sizeProp].daySize) * 6 + "px;";
 });
 
 exports.StyledWeeksContainer = StyledWeeksContainer;
@@ -38,11 +38,11 @@ var slideStyle = function slideStyle(props) {
   var _props$slide = props.slide,
       direction = _props$slide.direction,
       weeks = _props$slide.weeks,
-      size = props.size,
+      sizeProp = props.sizeProp,
       theme = props.theme;
-  var _theme$calendar$size = theme.calendar[size],
-      daySize = _theme$calendar$size.daySize,
-      slideDuration = _theme$calendar$size.slideDuration;
+  var _theme$calendar$sizeP = theme.calendar[sizeProp],
+      daySize = _theme$calendar$sizeP.daySize,
+      slideDuration = _theme$calendar$sizeP.slideDuration;
   var amount = (0, _utils.parseMetricToNum)(daySize) * weeks;
   var translateYFrom = direction === 'down' ? "-" + amount + "px" : '0';
   var translateYTo = direction === 'up' ? "-" + amount + "px" : '0';
@@ -74,7 +74,7 @@ var StyledDayContainer = _styledComponents.default.div.withConfig({
 exports.StyledDayContainer = StyledDayContainer;
 
 var daySizeStyle = function daySizeStyle(props) {
-  var data = props.theme.calendar[props.size];
+  var data = props.theme.calendar[props.sizeProp];
   return (0, _styledComponents.css)(["width:", ";height:", ";"], data.daySize, data.daySize);
 };
 
