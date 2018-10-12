@@ -85,7 +85,9 @@ test('Button focus renders', function () {
   expect(tree).toMatchSnapshot();
 });
 test('Button disabled renders', function () {
-  var component = _reactTestRenderer.default.create(_react.default.createElement(_.Grommet, null, _react.default.createElement(_.Button, null)));
+  var component = _reactTestRenderer.default.create(_react.default.createElement(_.Grommet, null, _react.default.createElement(_.Button, {
+    disabled: true
+  })));
 
   var tree = component.toJSON();
   expect(tree).toMatchSnapshot();

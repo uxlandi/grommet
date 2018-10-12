@@ -13,6 +13,7 @@ var doc = function doc(Button) {
     a11yTitle: _reactDesc.PropTypes.string.description('Custom title to be used by screen readers.'),
     active: _reactDesc.PropTypes.bool.description('Whether the button is active.'),
     color: _reactDesc.PropTypes.string.description('Fill color for primary, border color otherwise.'),
+    disabled: _reactDesc.PropTypes.bool.description('Whether the button is disabled.'),
     fill: _reactDesc.PropTypes.bool.description('Whether the button expands to fill all of the available width and height.'),
     focusIndicator: _reactDesc.PropTypes.bool.description('Whether when \'plain\' it should receive a focus outline.').defaultValue(true),
     hoverIndicator: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.bool, _reactDesc.PropTypes.oneOf(['background']), _reactDesc.PropTypes.shape({

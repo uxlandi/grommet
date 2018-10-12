@@ -198,6 +198,10 @@ var MultipleButton = function MultipleButton() {
   return _react.default.createElement(IconButton, null);
 }).add('Icon Label', function () {
   return _react.default.createElement(IconLabelButton, null);
+}).add('Disabled', function () {
+  return _react.default.createElement(SimpleButton, {
+    disabled: true
+  });
 }).add('Plain', function () {
   return _react.default.createElement(PlainButton, null);
 }).add('Anchor', function () {

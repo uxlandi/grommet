@@ -190,6 +190,10 @@ storiesOf('Button', module).add('Default', function () {
   return React.createElement(IconButton, null);
 }).add('Icon Label', function () {
   return React.createElement(IconLabelButton, null);
+}).add('Disabled', function () {
+  return React.createElement(SimpleButton, {
+    disabled: true
+  });
 }).add('Plain', function () {
   return React.createElement(PlainButton, null);
 }).add('Anchor', function () {

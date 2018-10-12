@@ -39,6 +39,7 @@ var ExpanderCell = function ExpanderCell(_ref) {
       fill: true,
       a11yTitle: expanded ? 'collapse' : 'expand',
       hoverIndicator: true,
+      disabled: !onToggle,
       onClick: onToggle
     }, _react.default.createElement(_Box.Box, _extends({}, theme.dataTable[context], rest, {
       pad: "xsmall"

@@ -153,7 +153,8 @@ function (_Component) {
     return React.createElement(React.Fragment, null, React.createElement(Button, _extends({
       id: id,
       ref: buttonRef,
-      onClick: disabled ? undefined : this.onToggle
+      disabled: disabled,
+      onClick: this.onToggle
     }, rest)), drop);
   };
 

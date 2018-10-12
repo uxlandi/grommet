@@ -204,6 +204,7 @@ function (_Component) {
       fill: "vertical"
     }, _react.default.createElement(_Button.Button, {
       fill: true,
+      disabled: activeIndex <= 0,
       onClick: onLeft,
       hoverIndicator: true
     }, _react.default.createElement(_Box.Box, {
@@ -217,6 +218,7 @@ function (_Component) {
       fill: "vertical"
     }, _react.default.createElement(_Button.Button, {
       fill: true,
+      disabled: activeIndex >= lastIndex,
       onClick: onRight,
       hoverIndicator: true
     }, _react.default.createElement(_Box.Box, {

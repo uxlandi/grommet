@@ -81,7 +81,8 @@ function (_Component) {
 
     return _react.default.createElement(_Button.Button, _extends({}, rest, {
       href: path || href,
-      onClick: path || onClick ? this.onClick : undefined
+      disabled: !path && !onClick,
+      onClick: this.onClick
     }));
   };
 

@@ -70,7 +70,8 @@ function (_Component) {
 
     return React.createElement(Button, _extends({}, rest, {
       href: path || href,
-      onClick: path || onClick ? this.onClick : undefined
+      disabled: !path && !onClick,
+      onClick: this.onClick
     }));
   };
 

@@ -280,7 +280,8 @@ function (_Component) {
         plain: true,
         active: isActive,
         hoverIndicator: !dayDisabled,
-        onClick: dayDisabled ? undefined : _this2.onClickDay(dateString)
+        disabled: dayDisabled,
+        onClick: _this2.onClickDay(dateString)
       }, React.createElement(StyledDay, {
         inRange: inRange,
         otherMonth: day.getMonth() !== reference.getMonth(),
@@ -349,9 +350,10 @@ function (_Component) {
       icon: React.createElement(PreviousIcon, {
         size: size !== 'small' ? size : undefined
       }),
-      onClick: onSelect && betweenDates(previousMonth, bounds) ? function () {
+      disabled: !onSelect || !betweenDates(previousMonth, bounds),
+      onClick: function onClick() {
         return _this2.setReference(previousMonth);
-      } : undefined
+      }
     }), React.createElement(Button, {
       a11yTitle: nextMonth.toLocaleDateString(locale, {
         month: 'long',
@@ -360,9 +362,10 @@ function (_Component) {
       icon: React.createElement(NextIcon, {
         size: size !== 'small' ? size : undefined
       }),
-      onClick: onSelect && betweenDates(nextMonth, bounds) ? function () {
+      disabled: !onSelect || !betweenDates(nextMonth, bounds),
+      onClick: function onClick() {
         return _this2.setReference(nextMonth);
-      } : undefined
+      }
     }))), React.createElement(StyledWeeksContainer, {
       size: size,
       theme: theme

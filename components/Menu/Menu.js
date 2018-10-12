@@ -220,13 +220,14 @@ function (_Component) {
           },
           active: activeItemIndex === index,
           hoverIndicator: "background",
-          onClick: item.onClick ? function () {
+          disabled: !item.onClick && !item.href,
+          onClick: function onClick() {
             item.onClick.apply(item, arguments);
 
             if (item.close !== false) {
               _this2.onDropClose();
             }
-          } : undefined,
+          },
           href: item.href
         }, _react.default.createElement(_Box.Box, {
           align: "start",

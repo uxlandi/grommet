@@ -188,6 +188,7 @@ function (_Component) {
       fill: "vertical"
     }, React.createElement(Button, {
       fill: true,
+      disabled: activeIndex <= 0,
       onClick: onLeft,
       hoverIndicator: true
     }, React.createElement(Box, {
@@ -201,6 +202,7 @@ function (_Component) {
       fill: "vertical"
     }, React.createElement(Button, {
       fill: true,
+      disabled: activeIndex >= lastIndex,
       onClick: onRight,
       hoverIndicator: true
     }, React.createElement(Box, {
