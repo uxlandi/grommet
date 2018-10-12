@@ -3,6 +3,7 @@ import { describe, PropTypes } from 'react-desc';
 import { a11yTitlePropType, getAvailableAtBadge } from '../../utils';
 
 var PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
+var OVERFLOW_VALUES = ['auto', 'hidden', 'scroll', 'visible'];
 
 var ANIMATION_TYPE = PropTypes.oneOf(['fadeIn', 'fadeOut', 'jiggle', 'pulse', 'slideUp', 'slideDown', 'slideLeft', 'slideRight', 'zoomIn', 'zoomOut']);
 var ANIMATION_SHAPE = PropTypes.shape({
@@ -53,7 +54,10 @@ export var doc = function doc(Box) {
       top: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string]),
       vertical: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string])
     }), PropTypes.string]).description('The amount of margin around the box. An object can\n        be specified to distinguish horizontal margin, vertical margin, and\n        margin on a particular side of the box'),
-    overflow: PropTypes.oneOf(['auto', 'hidden', 'scroll', 'visible']).description('box overflow.'),
+    overflow: PropTypes.oneOfType([PropTypes.oneOf(OVERFLOW_VALUES), PropTypes.shape({
+      horizontal: PropTypes.oneOf(OVERFLOW_VALUES),
+      vertical: PropTypes.oneOf(OVERFLOW_VALUES)
+    }), PropTypes.string]).description('box overflow.'),
     pad: PropTypes.oneOfType([PropTypes.oneOf(['none'].concat(PAD_SIZES)), PropTypes.shape({
       bottom: PropTypes.oneOf(PAD_SIZES),
       horizontal: PropTypes.oneOf(PAD_SIZES),

@@ -73,6 +73,14 @@ export var inputStyle = css(['box-sizing:border-box;font-size:inherit;border:non
   return props.focus && (!props.plain || props.focusIndicator) && focusStyle;
 }, controlBorderStyle);
 
+export var overflowStyle = function overflowStyle(overflowProp) {
+  if (typeof overflowProp === 'string') {
+    return css(['overflow:', ';'], overflowProp);
+  }
+
+  return css(['', ' ', ''], overflowProp.horizontal && 'overflow-x: ' + overflowProp.horizontal + ';', overflowProp.vertical && 'overflow-y: ' + overflowProp.vertical + ';');
+};
+
 export var evalStyle = function evalStyle(arg, theme) {
   if (arg && Array.isArray(arg) && typeof arg[0] === 'function') {
     return arg[0]({ theme: theme });

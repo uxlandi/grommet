@@ -1,7 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
-exports.evalStyle = exports.inputStyle = exports.focusStyle = exports.edgeStyle = exports.controlBorderStyle = exports.baseStyle = exports.activeStyle = undefined;
+exports.evalStyle = exports.overflowStyle = exports.inputStyle = exports.focusStyle = exports.edgeStyle = exports.controlBorderStyle = exports.baseStyle = exports.activeStyle = undefined;
 
 var _styledComponents = require('styled-components');
 
@@ -79,6 +79,14 @@ var inputStyle = exports.inputStyle = (0, _styledComponents.css)(['box-sizing:bo
 }, function (props) {
   return props.focus && (!props.plain || props.focusIndicator) && focusStyle;
 }, controlBorderStyle);
+
+var overflowStyle = exports.overflowStyle = function overflowStyle(overflowProp) {
+  if (typeof overflowProp === 'string') {
+    return (0, _styledComponents.css)(['overflow:', ';'], overflowProp);
+  }
+
+  return (0, _styledComponents.css)(['', ' ', ''], overflowProp.horizontal && 'overflow-x: ' + overflowProp.horizontal + ';', overflowProp.vertical && 'overflow-y: ' + overflowProp.vertical + ';');
+};
 
 var evalStyle = exports.evalStyle = function evalStyle(arg, theme) {
   if (arg && Array.isArray(arg) && typeof arg[0] === 'function') {

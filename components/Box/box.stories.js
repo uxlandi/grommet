@@ -8,7 +8,7 @@ var _react3 = require('@storybook/react');
 
 var _grommetIcons = require('grommet-icons');
 
-var _ = require('../');
+var _2 = require('../');
 
 var _themes = require('../../themes');
 
@@ -31,10 +31,10 @@ var SimpleBox = function (_Component) {
 
   SimpleBox.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _2.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Box,
+        _2.Box,
         {
           direction: 'row-responsive',
           justify: 'center',
@@ -44,7 +44,7 @@ var SimpleBox = function (_Component) {
           gap: 'medium'
         },
         _react2.default.createElement(
-          _.Box,
+          _2.Box,
           {
             pad: 'large',
             align: 'center',
@@ -54,15 +54,15 @@ var SimpleBox = function (_Component) {
           },
           _react2.default.createElement(_grommetIcons.Attraction, { size: 'large' }),
           _react2.default.createElement(
-            _.Text,
+            _2.Text,
             null,
             'Party'
           ),
-          _react2.default.createElement(_.Anchor, { href: '', label: 'Link' }),
-          _react2.default.createElement(_.Button, { label: 'Button', onClick: function onClick() {} })
+          _react2.default.createElement(_2.Anchor, { href: '', label: 'Link' }),
+          _react2.default.createElement(_2.Button, { label: 'Button', onClick: function onClick() {} })
         ),
         _react2.default.createElement(
-          _.Box,
+          _2.Box,
           {
             pad: 'large',
             align: 'center',
@@ -72,12 +72,12 @@ var SimpleBox = function (_Component) {
           },
           _react2.default.createElement(_grommetIcons.Car, { size: 'large', color: 'light-2' }),
           _react2.default.createElement(
-            _.Text,
+            _2.Text,
             null,
             'Travel'
           ),
-          _react2.default.createElement(_.Anchor, { href: '', label: 'Link' }),
-          _react2.default.createElement(_.Button, { label: 'Button', onClick: function onClick() {} })
+          _react2.default.createElement(_2.Anchor, { href: '', label: 'Link' }),
+          _react2.default.createElement(_2.Button, { label: 'Button', onClick: function onClick() {} })
         )
       )
     );
@@ -108,10 +108,10 @@ var CustomColorBox = function (_Component2) {
 
   CustomColorBox.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _2.Grommet,
       { theme: customColorBox },
       _react2.default.createElement(
-        _.Box,
+        _2.Box,
         {
           justify: 'center',
           align: 'center',
@@ -120,7 +120,7 @@ var CustomColorBox = function (_Component2) {
           round: 'large'
         },
         _react2.default.createElement(
-          _.Text,
+          _2.Text,
           null,
           'I have a linear gradient background'
         )
@@ -142,25 +142,34 @@ var FixedSizesBox = function (_Component3) {
 
   FixedSizesBox.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _2.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Box,
+        _2.Box,
         { pad: 'small', gap: 'small' },
         _react2.default.createElement(
-          _.Box,
+          _2.Box,
           {
             width: 'small',
             height: 'small',
             round: 'small',
             align: 'center',
             justify: 'center',
-            background: 'brand'
+            background: 'brand',
+            overflow: { horizontal: 'hidden', vertical: 'scroll' }
           },
-          'Small'
+          Array(20).fill().map(function (_, i) {
+            return _react2.default.createElement(
+              _2.Text,
+              null,
+              'Small (',
+              i,
+              ')'
+            );
+          })
         ),
         _react2.default.createElement(
-          _.Box,
+          _2.Box,
           {
             width: 'medium',
             height: 'medium',
@@ -172,7 +181,7 @@ var FixedSizesBox = function (_Component3) {
           'Medium'
         ),
         _react2.default.createElement(
-          _.Box,
+          _2.Box,
           {
             width: 'large',
             height: 'large',
@@ -201,38 +210,38 @@ var BorderBox = function (_Component4) {
 
   BorderBox.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _2.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Box,
+        _2.Box,
         { pad: 'small', gap: 'small', align: 'start' },
         _react2.default.createElement(
-          _.Box,
+          _2.Box,
           { pad: 'small', border: true },
           'true'
         ),
         _react2.default.createElement(
-          _.Box,
+          _2.Box,
           { direction: 'row-responsive', gap: 'small' },
           ['horizontal', 'vertical', 'left', 'top', 'right', 'bottom'].map(function (border) {
             return _react2.default.createElement(
-              _.Box,
+              _2.Box,
               { key: border, pad: 'small', border: border },
               border
             );
           })
         ),
         _react2.default.createElement(
-          _.Box,
+          _2.Box,
           { pad: 'small', border: { color: 'brand' } },
           'color'
         ),
         _react2.default.createElement(
-          _.Box,
+          _2.Box,
           { direction: 'row-responsive', gap: 'small', align: 'start' },
           ['small', 'medium', 'large'].map(function (size) {
             return _react2.default.createElement(
-              _.Box,
+              _2.Box,
               { key: size, pad: 'small', border: { size: size } },
               size
             );
@@ -256,33 +265,33 @@ var RoundBox = function (_Component5) {
 
   RoundBox.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _2.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Box,
+        _2.Box,
         { pad: 'small', gap: 'small' },
         _react2.default.createElement(
-          _.Box,
+          _2.Box,
           { pad: 'small', background: 'brand', round: true, alignSelf: 'start' },
           'true'
         ),
         _react2.default.createElement(
-          _.Grid,
+          _2.Grid,
           { columns: 'small', gap: 'small' },
           ['xsmall', 'small', 'medium', 'large', 'xlarge', 'full'].map(function (size) {
             return _react2.default.createElement(
-              _.Box,
+              _2.Box,
               { key: size, pad: 'large', background: 'brand', round: { size: size } },
               size
             );
           })
         ),
         _react2.default.createElement(
-          _.Grid,
+          _2.Grid,
           { columns: 'small', gap: 'small' },
           ['left', 'top', 'right', 'bottom', 'top-left', 'top-right', 'bottom-left', 'bottom-right'].map(function (corner) {
             return _react2.default.createElement(
-              _.Box,
+              _2.Box,
               { key: corner, pad: 'small', background: 'brand', round: { corner: corner } },
               corner
             );
@@ -306,18 +315,18 @@ var BackgroundBox = function (_Component6) {
 
   BackgroundBox.prototype.render = function render() {
     return _react2.default.createElement(
-      _.Grommet,
+      _2.Grommet,
       { theme: _themes.grommet },
       _react2.default.createElement(
-        _.Box,
+        _2.Box,
         { pad: 'small', gap: 'small', align: 'start' },
         _react2.default.createElement(
-          _.Box,
+          _2.Box,
           { pad: 'small', background: 'brand' },
           'brand'
         ),
         _react2.default.createElement(
-          _.Box,
+          _2.Box,
           {
             pad: 'small',
             background: {
@@ -327,7 +336,7 @@ var BackgroundBox = function (_Component6) {
           'image'
         ),
         _react2.default.createElement(
-          _.Box,
+          _2.Box,
           {
             pad: 'small',
             background: {

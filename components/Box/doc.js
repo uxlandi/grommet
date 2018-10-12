@@ -8,6 +8,7 @@ var _reactDesc = require('react-desc');
 var _utils = require('../../utils');
 
 var PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
+var OVERFLOW_VALUES = ['auto', 'hidden', 'scroll', 'visible'];
 
 var ANIMATION_TYPE = _reactDesc.PropTypes.oneOf(['fadeIn', 'fadeOut', 'jiggle', 'pulse', 'slideUp', 'slideDown', 'slideLeft', 'slideRight', 'zoomIn', 'zoomOut']);
 var ANIMATION_SHAPE = _reactDesc.PropTypes.shape({
@@ -58,7 +59,10 @@ var doc = exports.doc = function doc(Box) {
       top: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(PAD_SIZES), _reactDesc.PropTypes.string]),
       vertical: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(PAD_SIZES), _reactDesc.PropTypes.string])
     }), _reactDesc.PropTypes.string]).description('The amount of margin around the box. An object can\n        be specified to distinguish horizontal margin, vertical margin, and\n        margin on a particular side of the box'),
-    overflow: _reactDesc.PropTypes.oneOf(['auto', 'hidden', 'scroll', 'visible']).description('box overflow.'),
+    overflow: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(OVERFLOW_VALUES), _reactDesc.PropTypes.shape({
+      horizontal: _reactDesc.PropTypes.oneOf(OVERFLOW_VALUES),
+      vertical: _reactDesc.PropTypes.oneOf(OVERFLOW_VALUES)
+    }), _reactDesc.PropTypes.string]).description('box overflow.'),
     pad: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['none'].concat(PAD_SIZES)), _reactDesc.PropTypes.shape({
       bottom: _reactDesc.PropTypes.oneOf(PAD_SIZES),
       horizontal: _reactDesc.PropTypes.oneOf(PAD_SIZES),

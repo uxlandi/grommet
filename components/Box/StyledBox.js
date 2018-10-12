@@ -380,7 +380,7 @@ var StyledBox = exports.StyledBox = _styledComponents2.default.div.withConfig({
 }, function (props) {
   return props.wrapProp && wrapStyle;
 }, function (props) {
-  return props.overflowProp && 'overflow: ' + props.overflowProp + ';';
+  return props.overflowProp && (0, _utils.overflowStyle)(props.overflowProp);
 }, function (props) {
   return props.elevationProp && elevationStyle;
 }, function (props) {

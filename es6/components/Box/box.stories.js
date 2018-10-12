@@ -148,9 +148,18 @@ var FixedSizesBox = function (_Component3) {
             round: 'small',
             align: 'center',
             justify: 'center',
-            background: 'brand'
+            background: 'brand',
+            overflow: { horizontal: 'hidden', vertical: 'scroll' }
           },
-          'Small'
+          Array(20).fill().map(function (_, i) {
+            return React.createElement(
+              Text,
+              null,
+              'Small (',
+              i,
+              ')'
+            );
+          })
         ),
         React.createElement(
           Box,

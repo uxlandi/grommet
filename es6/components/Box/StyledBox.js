@@ -4,7 +4,7 @@ var _FLEX_MAP;
 
 import styled, { css, keyframes } from 'styled-components';
 
-import { backgroundStyle, colorForName, edgeStyle, palm, focusStyle } from '../../utils';
+import { backgroundStyle, colorForName, edgeStyle, focusStyle, overflowStyle, palm } from '../../utils';
 
 var ALIGN_MAP = {
   baseline: 'baseline',
@@ -371,7 +371,7 @@ export var StyledBox = styled.div.withConfig({
 }, function (props) {
   return props.wrapProp && wrapStyle;
 }, function (props) {
-  return props.overflowProp && 'overflow: ' + props.overflowProp + ';';
+  return props.overflowProp && overflowStyle(props.overflowProp);
 }, function (props) {
   return props.elevationProp && elevationStyle;
 }, function (props) {
