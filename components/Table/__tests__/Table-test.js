@@ -76,13 +76,15 @@ test('TableCell size renders', function () {
   })))), _react.default.createElement(_.Table, null, _react.default.createElement(_.TableBody, null, _react.default.createElement(_.TableRow, null, _react.default.createElement(_.TableCell, {
     size: "1/2"
   }), _react.default.createElement(_.TableCell, {
-    size: "1/4"
-  }), _react.default.createElement(_.TableCell, {
-    size: "1/4"
+    size: "2/4"
   })))), _react.default.createElement(_.Table, null, _react.default.createElement(_.TableBody, null, _react.default.createElement(_.TableRow, null, _react.default.createElement(_.TableCell, {
     size: "1/3"
   }), _react.default.createElement(_.TableCell, {
     size: "2/3"
+  })))), _react.default.createElement(_.Table, null, _react.default.createElement(_.TableBody, null, _react.default.createElement(_.TableRow, null, _react.default.createElement(_.TableCell, {
+    size: "1/4"
+  }), _react.default.createElement(_.TableCell, {
+    size: "3/4"
   }))))));
 
   var tree = component.toJSON();

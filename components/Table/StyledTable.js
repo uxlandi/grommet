@@ -10,6 +10,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var SIZE_MAP = {
   '1/2': '50%',
   '1/4': '25%',
+  '2/4': '50%',
   '3/4': '75%',
   '1/3': '33.33%',
   '2/3': '66.66%'

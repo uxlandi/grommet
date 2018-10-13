@@ -19,7 +19,11 @@ test('Grid rows renders', function () {
 });
 test('Grid columns renders', function () {
   var component = renderer.create(React.createElement(Grommet, null, React.createElement(Grid, {
-    columns: ['1/2', '1/4', '1/4']
+    columns: ['1/2', '2/4']
+  }), React.createElement(Grid, {
+    columns: ['1/3', '2/3']
+  }), React.createElement(Grid, {
+    columns: ['1/4', '3/4']
   }), React.createElement(Grid, {
     columns: "small"
   }), React.createElement(Grid, {

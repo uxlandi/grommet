@@ -155,7 +155,7 @@ describe('Box', function () {
     }, React.createElement(Box, {
       basis: "1/2"
     }), React.createElement(Box, {
-      basis: "1/2"
+      basis: "2/4"
     })), React.createElement(Box, {
       direction: "row"
     }, React.createElement(Box, {

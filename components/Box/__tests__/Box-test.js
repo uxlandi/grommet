@@ -173,7 +173,7 @@ describe('Box', function () {
     }, _react.default.createElement(_.Box, {
       basis: "1/2"
     }), _react.default.createElement(_.Box, {
-      basis: "1/2"
+      basis: "2/4"
     })), _react.default.createElement(_.Box, {
       direction: "row"
     }, _react.default.createElement(_.Box, {

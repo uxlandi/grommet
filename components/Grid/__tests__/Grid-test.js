@@ -30,7 +30,11 @@ test('Grid rows renders', function () {
 });
 test('Grid columns renders', function () {
   var component = _reactTestRenderer.default.create(_react.default.createElement(_Grommet.Grommet, null, _react.default.createElement(_.Grid, {
-    columns: ['1/2', '1/4', '1/4']
+    columns: ['1/2', '2/4']
+  }), _react.default.createElement(_.Grid, {
+    columns: ['1/3', '2/3']
+  }), _react.default.createElement(_.Grid, {
+    columns: ['1/4', '3/4']
   }), _react.default.createElement(_.Grid, {
     columns: "small"
   }), _react.default.createElement(_.Grid, {

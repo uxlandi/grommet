@@ -60,13 +60,15 @@ test('TableCell size renders', function () {
   })))), React.createElement(Table, null, React.createElement(TableBody, null, React.createElement(TableRow, null, React.createElement(TableCell, {
     size: "1/2"
   }), React.createElement(TableCell, {
-    size: "1/4"
-  }), React.createElement(TableCell, {
-    size: "1/4"
+    size: "2/4"
   })))), React.createElement(Table, null, React.createElement(TableBody, null, React.createElement(TableRow, null, React.createElement(TableCell, {
     size: "1/3"
   }), React.createElement(TableCell, {
     size: "2/3"
+  })))), React.createElement(Table, null, React.createElement(TableBody, null, React.createElement(TableRow, null, React.createElement(TableCell, {
+    size: "1/4"
+  }), React.createElement(TableCell, {
+    size: "3/4"
   }))))));
   var tree = component.toJSON();
   expect(tree).toMatchSnapshot();
