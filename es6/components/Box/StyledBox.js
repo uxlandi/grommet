@@ -106,9 +106,9 @@ var borderStyle = function borderStyle(data, responsive, theme) {
   var color = colorForName(data.color || (theme.dark ? 'border-dark' : 'border-light'), theme);
   var borderSize = data.size || 'xsmall';
   var side = typeof data === 'string' ? data : data.side || 'all';
-  var value = "solid " + theme.global.borderSize[borderSize] + " " + color;
+  var value = "solid " + (theme.global.borderSize[borderSize] || borderSize) + " " + color;
   var breakpoint = theme.box.responsiveBreakpoint && theme.global.breakpoints[theme.box.responsiveBreakpoint];
-  var responsiveValue = breakpoint && breakpoint.borderSize[borderSize] && "solid " + breakpoint.borderSize[borderSize] + " " + color;
+  var responsiveValue = breakpoint && (breakpoint.borderSize[borderSize] || borderSize) && "solid " + (breakpoint.borderSize[borderSize] || borderSize) + " " + color;
 
   if (side === 'top' || side === 'bottom' || side === 'left' || side === 'right') {
     styles.push(css(["border-", ":", ";"], side, value));

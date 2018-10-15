@@ -359,12 +359,14 @@ var generate = function generate(baseSpacing, scale) {
           dark: 'rgba(255, 255, 255, 0.5)',
           light: 'rgba(0, 0, 0, 0.15)'
         },
-        radius: '4px',
         width: '2px'
       },
       check: {
-        // color: { dark: undefined, light: undefined },
-        width: '4px'
+        radius: '4px',
+        thickness: '4px' // extend: undefined,
+
+      },
+      icon: {// extend: undefined,
       },
       icons: {// checked: undefined,
       },
@@ -381,14 +383,19 @@ var generate = function generate(baseSpacing, scale) {
         }
       },
       size: baseSpacing + "px",
+      // color: { dark: undefined, light: undefined },
       toggle: {
         color: {
           dark: '#d9d9d9',
           light: '#d9d9d9'
         },
         radius: baseSpacing + "px",
-        size: baseSpacing * 2 + "px"
-      }
+        size: baseSpacing * 2 + "px",
+        // extend: undefined,
+        knob: {// extend: undefined,
+        }
+      } // extend: undefined,
+
     },
     clock: {
       analog: {

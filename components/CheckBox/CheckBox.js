@@ -7,11 +7,15 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _recompose = require("recompose");
 
+var _Box = require("../Box");
+
 var _hocs = require("../hocs");
 
 var _object = require("../../utils/object");
 
 var _StyledCheckBox = require("./StyledCheckBox");
+
+var _utils = require("../../utils");
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -47,7 +51,6 @@ function (_Component) {
         toggle = _this$props.toggle,
         rest = _objectWithoutPropertiesLoose(_this$props, ["checked", "disabled", "focus", "forwardRef", "id", "label", "name", "onChange", "reverse", "theme", "toggle"]);
 
-    var normalizedLabel = typeof label === 'string' ? _react.default.createElement("div", null, label) : label;
     var hidden;
 
     if (disabled && checked) {
@@ -59,29 +62,50 @@ function (_Component) {
     }
 
     var Icon = theme.checkBox.icons.checked;
+    var borderColor = (0, _utils.normalizeColor)(theme.checkBox.border.color, theme);
+
+    if (checked) {
+      borderColor = (0, _utils.normalizeColor)(theme.checkBox.color || theme.global.control.color, theme);
+    }
+
     var visual = toggle ? _react.default.createElement(_StyledCheckBox.StyledCheckBoxToggle, {
       focus: focus,
-      theme: theme
+      theme: theme,
+      checked: checked
     }, _react.default.createElement(_StyledCheckBox.StyledCheckBoxKnob, {
       theme: theme
     })) : _react.default.createElement(_StyledCheckBox.StyledCheckBoxBox, {
+      as: _Box.Box,
+      align: "center",
+      justify: "center",
+      width: theme.checkBox.size,
+      height: theme.checkBox.size,
+      border: {
+        size: theme.checkBox.border.width,
+        color: (0, _utils.evalStyle)(borderColor, theme)
+      },
+      round: theme.checkBox.check.radius,
       focus: focus,
+      theme: theme,
+      checked: checked
+    }, checked && (Icon ? _react.default.createElement(Icon, {
+      as: _StyledCheckBox.StyledCheckBoxIcon,
       theme: theme
-    }, Icon ? _react.default.createElement(Icon, null) : _react.default.createElement("svg", {
+    }) : _react.default.createElement(_StyledCheckBox.StyledCheckBoxIcon, {
       viewBox: "0 0 24 24",
-      preserveAspectRatio: "xMidYMid meet"
+      preserveAspectRatio: "xMidYMid meet",
+      theme: theme
     }, _react.default.createElement("path", {
       fill: "none",
       d: "M6,11.3 L10.3,16 L18,6.2"
-    })));
-    return _react.default.createElement(_StyledCheckBox.StyledCheckBoxContainer, _extends({}, (0, _object.removeUndefined)({
-      htmlFor: id,
-      disabled: disabled,
-      reverse: reverse
-    }), {
-      theme: theme
-    }), _react.default.createElement(_StyledCheckBox.StyledCheckBox, {
-      theme: theme
+    }))));
+
+    var checkBoxNode = _react.default.createElement(_StyledCheckBox.StyledCheckBox, {
+      as: _Box.Box,
+      align: "center",
+      justify: "center",
+      theme: theme,
+      checked: checked
     }, _react.default.createElement(_StyledCheckBox.StyledCheckBoxInput, _extends({}, rest, {
       ref: forwardRef,
       type: "checkbox"
@@ -92,8 +116,27 @@ function (_Component) {
       disabled: disabled,
       onChange: onChange
     }), {
-      theme: theme
-    })), visual), normalizedLabel, hidden);
+      theme: theme,
+      checked: checked
+    })), visual, hidden);
+
+    var normalizedLabel = typeof label === 'string' ? _react.default.createElement("span", null, label) : label;
+    var first = reverse ? normalizedLabel : checkBoxNode;
+    var second = reverse ? checkBoxNode : normalizedLabel;
+    return _react.default.createElement(_StyledCheckBox.StyledCheckBoxContainer, _extends({
+      direction: "row",
+      align: "center",
+      tag: "label",
+      as: _Box.Box,
+      reverse: reverse
+    }, (0, _object.removeUndefined)({
+      htmlFor: id,
+      disabled: disabled
+    }), {
+      theme: theme,
+      gap: theme.checkBox.gap || 'small',
+      checked: checked
+    }), first, second);
   };
 
   return CheckBox;

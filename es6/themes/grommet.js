@@ -22,8 +22,12 @@ export var grommet = deepFreeze({
     })
   },
   checkBox: {
-    check: {
-      invert: true
+    icon: {
+      extend: css(["box-sizing:border-box;position:absolute;top:0px;left:0px;width:", ";height:", ";"], function (props) {
+        return props.theme.checkBox.size;
+      }, function (props) {
+        return props.theme.checkBox.size;
+      })
     }
   },
   heading: {
