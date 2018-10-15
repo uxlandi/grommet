@@ -2,6 +2,13 @@
 
 exports.__esModule = true;
 
+var _mixins = require("./mixins");
+
+Object.keys(_mixins).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  exports[key] = _mixins[key];
+});
+
 var _background = require("./background");
 
 Object.keys(_background).forEach(function (key) {
@@ -49,13 +56,6 @@ var _styles = require("./styles");
 Object.keys(_styles).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   exports[key] = _styles[key];
-});
-
-var _mixins = require("./mixins");
-
-Object.keys(_mixins).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  exports[key] = _mixins[key];
 });
 
 var _object = require("./object");

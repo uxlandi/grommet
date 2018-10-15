@@ -1,7 +1,7 @@
 "use strict";
 
 exports.__esModule = true;
-exports.withinDates = exports.betweenDates = exports.daysApart = exports.sameDayOrBefore = exports.sameDayOrAfter = exports.sameDay = exports.endOfMonth = exports.startOfMonth = exports.subtractMonths = exports.addMonths = exports.subtractDays = exports.addDays = void 0;
+exports.updateDateRange = exports.withinDates = exports.betweenDates = exports.daysApart = exports.sameDayOrBefore = exports.sameDayOrAfter = exports.sameDay = exports.endOfMonth = exports.startOfMonth = exports.subtractMonths = exports.addMonths = exports.subtractDays = exports.addDays = void 0;
 // Utility functions for the Calendar.
 // Just what's needed to avoid having to include a dependency like momentjs.
 var DAY_MILLISECONDS = 24 * 60 * 60 * 1000;
@@ -131,3 +131,64 @@ var withinDates = function withinDates(date, dates) {
 };
 
 exports.withinDates = withinDates;
+
+var updateDateRange = function updateDateRange(selectedDate, _ref) {
+  var date = _ref.date,
+      dates = _ref.dates,
+      previousSelectedDate = _ref.previousSelectedDate;
+  var result = {
+    previousSelectedDate: selectedDate
+  };
+
+  if (!dates) {
+    if (!date) {
+      result.date = selectedDate;
+    } else {
+      var priorDate = new Date(date);
+      var nextDate = new Date(selectedDate);
+
+      if (priorDate.getTime() < nextDate.getTime()) {
+        result.date = undefined;
+        result.dates = [[date, selectedDate]];
+      } else if (priorDate.getTime() > nextDate.getTime()) {
+        result.date = undefined;
+        result.dates = [[selectedDate, date]];
+      } else {
+        result.date = undefined;
+      }
+    }
+  } else {
+    var priorDates = dates[0].map(function (d) {
+      return new Date(d);
+    });
+    var previousDate = new Date(previousSelectedDate);
+
+    var _nextDate = new Date(selectedDate);
+
+    if (_nextDate.getTime() === priorDates[0].getTime()) {
+      result.dates = undefined;
+      var _dates$ = dates[0];
+      result.date = _dates$[1];
+    } else if (_nextDate.getTime() === priorDates[1].getTime()) {
+      result.dates = undefined;
+      var _dates$2 = dates[0];
+      result.date = _dates$2[0];
+    } else if (_nextDate.getTime() < previousDate.getTime()) {
+      if (_nextDate.getTime() < priorDates[0].getTime()) {
+        result.dates = [[selectedDate, dates[0][1]]];
+      } else if (_nextDate.getTime() > priorDates[0].getTime()) {
+        result.dates = [[dates[0][0], selectedDate]];
+      }
+    } else if (_nextDate.getTime() > previousDate.getTime()) {
+      if (_nextDate.getTime() > priorDates[1].getTime()) {
+        result.dates = [[dates[0][0], selectedDate]];
+      } else if (_nextDate.getTime() < priorDates[1].getTime()) {
+        result.dates = [[selectedDate, dates[0][1]]];
+      }
+    }
+  }
+
+  return result;
+};
+
+exports.updateDateRange = updateDateRange;

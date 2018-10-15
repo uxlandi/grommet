@@ -34,9 +34,11 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {});
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSelect", function (date) {
-      return _this.setState({
-        date: date
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSelect", function (nextDate) {
+      var date = _this.state.date;
+
+      _this.setState({
+        date: nextDate !== date ? nextDate : undefined
       });
     });
 
@@ -60,12 +62,24 @@ function (_Component) {
   return SimpleCalendar;
 }(_react.Component);
 
-var RichCalendar =
+var RangeCalendar = function RangeCalendar() {
+  return _react.default.createElement(_grommet.Grommet, {
+    theme: _themes.grommet
+  }, _react.default.createElement(_grommet.Calendar, {
+    range: true
+  }));
+};
+
+var now = new Date();
+var next = new Date(now);
+next.setMonth(now.getMonth() + 1, 1);
+
+var DualCalendar =
 /*#__PURE__*/
 function (_Component2) {
-  _inheritsLoose(RichCalendar, _Component2);
+  _inheritsLoose(DualCalendar, _Component2);
 
-  function RichCalendar() {
+  function DualCalendar() {
     var _this2;
 
     for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
@@ -74,90 +88,125 @@ function (_Component2) {
 
     _this2 = _Component2.call.apply(_Component2, [this].concat(args)) || this;
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this2)), "state", {});
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this2)), "state", {
+      reference1: now,
+      reference2: next
+    });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this2)), "onSelect", function (selectedDate) {
-      var _this2$state = _this2.state,
-          date = _this2$state.date,
-          dates = _this2$state.dates,
-          previousSelectedDate = _this2$state.previousSelectedDate;
-
-      if (!dates) {
-        if (!date) {
-          _this2.setState({
-            date: selectedDate
-          });
-        } else {
-          var priorDate = new Date(date);
-          var nextDate = new Date(selectedDate);
-
-          if (priorDate.getTime() < nextDate.getTime()) {
-            _this2.setState({
-              date: undefined,
-              dates: [[date, selectedDate]]
-            });
-          } else if (priorDate.getTime() > nextDate.getTime()) {
-            _this2.setState({
-              date: undefined,
-              dates: [[selectedDate, date]]
-            });
-          }
-        }
-      } else {
-        var priorDates = dates[0].map(function (d) {
-          return new Date(d);
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this2)), "onSelect", function (arg) {
+      if (Array.isArray(arg)) {
+        _this2.setState({
+          date: undefined,
+          dates: arg
         });
-        var previousDate = new Date(previousSelectedDate);
-
-        var _nextDate = new Date(selectedDate);
-
-        if (_nextDate.getTime() < previousDate.getTime()) {
-          if (_nextDate.getTime() < priorDates[0].getTime()) {
-            _this2.setState({
-              dates: [[selectedDate, dates[0][1]]]
-            });
-          } else if (_nextDate.getTime() > priorDates[0].getTime()) {
-            _this2.setState({
-              dates: [[dates[0][0], selectedDate]]
-            });
-          }
-        } else if (_nextDate.getTime() > previousDate.getTime()) {
-          if (_nextDate.getTime() > priorDates[1].getTime()) {
-            _this2.setState({
-              dates: [[dates[0][0], selectedDate]]
-            });
-          } else if (_nextDate.getTime() < priorDates[1].getTime()) {
-            _this2.setState({
-              dates: [[selectedDate, dates[0][1]]]
-            });
-          }
-        }
+      } else {
+        _this2.setState({
+          date: arg,
+          dates: undefined
+        });
       }
-
-      _this2.setState({
-        previousSelectedDate: selectedDate
-      });
     });
 
     return _this2;
   }
 
-  var _proto2 = RichCalendar.prototype;
+  var _proto2 = DualCalendar.prototype;
 
   _proto2.render = function render() {
+    var _this3 = this;
+
     var _this$state = this.state,
         date = _this$state.date,
-        dates = _this$state.dates;
+        dates = _this$state.dates,
+        reference1 = _this$state.reference1,
+        reference2 = _this$state.reference2;
     return _react.default.createElement(_grommet.Grommet, {
       theme: _themes.grommet
+    }, _react.default.createElement(_grommet.Box, {
+      direction: "row",
+      gap: "small"
     }, _react.default.createElement(_grommet.Calendar, {
+      animate: false,
+      showAdjacentDays: false,
+      range: true,
       date: date,
       dates: dates,
-      onSelect: this.onSelect
-    }));
+      onSelect: this.onSelect,
+      reference: reference1.toISOString(),
+      onReference: function onReference(reference) {
+        var refDate = new Date(reference);
+        var nextDate = new Date(refDate);
+        nextDate.setMonth(refDate.getMonth() + 1, 1);
+
+        _this3.setState({
+          reference1: refDate,
+          reference2: nextDate
+        });
+      },
+      header: function header(_ref) {
+        var currentDate = _ref.date,
+            locale = _ref.locale,
+            onPreviousMonth = _ref.onPreviousMonth,
+            previousInBound = _ref.previousInBound;
+        return _react.default.createElement(_grommet.Box, {
+          direction: "row",
+          align: "center",
+          justify: "between"
+        }, _react.default.createElement(_grommet.Button, {
+          disabled: !previousInBound,
+          icon: _react.default.createElement(_grommetIcons.Previous, null),
+          onClick: onPreviousMonth
+        }), _react.default.createElement(_grommet.Heading, {
+          level: 3,
+          margin: "none"
+        }, currentDate.toLocaleDateString(locale, {
+          month: 'long',
+          year: 'numeric'
+        })), _react.default.createElement(_grommetIcons.Blank, null));
+      }
+    }), _react.default.createElement(_grommet.Calendar, {
+      animate: false,
+      showAdjacentDays: false,
+      date: date,
+      dates: dates,
+      range: true,
+      onSelect: this.onSelect,
+      reference: reference2.toISOString(),
+      onReference: function onReference(reference) {
+        var refDate = new Date(reference);
+        var priorDate = new Date(refDate);
+        priorDate.setMonth(refDate.getMonth() - 1, 1);
+
+        _this3.setState({
+          reference1: priorDate,
+          reference2: refDate
+        });
+      },
+      header: function header(_ref2) {
+        var currentDate = _ref2.date,
+            locale = _ref2.locale,
+            onNextMonth = _ref2.onNextMonth,
+            nextInBound = _ref2.nextInBound;
+        return _react.default.createElement(_grommet.Box, {
+          direction: "row",
+          align: "center",
+          justify: "between"
+        }, _react.default.createElement(_grommetIcons.Blank, null), _react.default.createElement(_grommet.Heading, {
+          level: 3,
+          margin: "none"
+        }, currentDate.toLocaleDateString(locale, {
+          month: 'long',
+          year: 'numeric'
+        })), _react.default.createElement(_grommet.Button, {
+          disabled: !nextInBound,
+          icon: _react.default.createElement(_grommetIcons.Next, null),
+          onClick: onNextMonth
+        }));
+      }
+    })));
   };
 
-  return RichCalendar;
+  return DualCalendar;
 }(_react.Component);
 
 var CustomHeaderCalendar =
@@ -166,23 +215,25 @@ function (_Component3) {
   _inheritsLoose(CustomHeaderCalendar, _Component3);
 
   function CustomHeaderCalendar() {
-    var _this3;
+    var _this4;
 
     for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
       args[_key3] = arguments[_key3];
     }
 
-    _this3 = _Component3.call.apply(_Component3, [this].concat(args)) || this;
+    _this4 = _Component3.call.apply(_Component3, [this].concat(args)) || this;
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this3)), "state", {});
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this4)), "state", {});
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this3)), "onSelect", function (date) {
-      return _this3.setState({
-        date: date
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this4)), "onSelect", function (nextDate) {
+      var date = _this4.state.date;
+
+      _this4.setState({
+        date: nextDate !== date ? nextDate : undefined
       });
     });
 
-    return _this3;
+    return _this4;
   }
 
   var _proto3 = CustomHeaderCalendar.prototype;
@@ -196,13 +247,13 @@ function (_Component3) {
       onSelect: this.onSelect,
       size: "small",
       bounds: ['2018-09-08', '2018-12-13'],
-      header: function header(_ref) {
-        var currentDate = _ref.date,
-            locale = _ref.locale,
-            onPreviousMonth = _ref.onPreviousMonth,
-            onNextMonth = _ref.onNextMonth,
-            previousInBound = _ref.previousInBound,
-            nextInBound = _ref.nextInBound;
+      header: function header(_ref3) {
+        var currentDate = _ref3.date,
+            locale = _ref3.locale,
+            onPreviousMonth = _ref3.onPreviousMonth,
+            onNextMonth = _ref3.onNextMonth,
+            previousInBound = _ref3.previousInBound,
+            nextInBound = _ref3.nextInBound;
         return _react.default.createElement(_grommet.Box, {
           direction: "row",
           align: "center",
@@ -226,10 +277,12 @@ function (_Component3) {
   return CustomHeaderCalendar;
 }(_react.Component);
 
-(0, _react2.storiesOf)('Calendar', module).add('Simple Calendar', function () {
+(0, _react2.storiesOf)('Calendar', module).add('Simple', function () {
   return _react.default.createElement(SimpleCalendar, null);
-}).add('Range Calendar', function () {
-  return _react.default.createElement(RichCalendar, null);
+}).add('Range', function () {
+  return _react.default.createElement(RangeCalendar, null);
+}).add('Dual', function () {
+  return _react.default.createElement(DualCalendar, null);
 }).add('Custom Header', function () {
   return _react.default.createElement(CustomHeaderCalendar, null);
 });

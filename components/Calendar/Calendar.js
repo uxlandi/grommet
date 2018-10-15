@@ -45,7 +45,7 @@ var buildStartEnd = function buildStartEnd(reference, firstDayOfWeek) {
 
   start = (0, _utils.subtractDays)(start, start.getDay() - firstDayOfWeek); // beginning of week
 
-  var end = (0, _utils.addDays)(start, 7 * 5 + 6); // 5 weeks to end of week
+  var end = (0, _utils.addDays)(start, 7 * 5 + 7); // 5 weeks to end of week
 
   return {
     start: start,
@@ -56,26 +56,28 @@ var buildStartEnd = function buildStartEnd(reference, firstDayOfWeek) {
 var buildState = function buildState(props) {
   var date = props.date,
       dates = props.dates,
-      firstDayOfWeek = props.firstDayOfWeek;
-  var reference;
+      firstDayOfWeek = props.firstDayOfWeek,
+      reference = props.reference;
+  var normalizedReference;
 
-  if (date) {
-    reference = new Date(date);
+  if (reference) {
+    normalizedReference = new Date(reference);
+  } else if (date) {
+    normalizedReference = new Date(date);
   } else if (dates && dates.length > 0) {
     if (typeof dates[0] === 'string') {
-      reference = new Date(dates[0]);
+      normalizedReference = new Date(dates[0]);
     } else if (Array.isArray(dates[0])) {
-      reference = new Date(dates[0][0]);
+      normalizedReference = new Date(dates[0][0]);
     } else {
-      reference = new Date();
+      normalizedReference = new Date();
     }
   } else {
-    reference = new Date();
+    normalizedReference = new Date();
   }
 
-  return _extends({}, buildStartEnd(reference, firstDayOfWeek), {
-    reference: reference,
-    active: new Date(reference)
+  return _extends({}, buildStartEnd(normalizedReference, firstDayOfWeek), {
+    reference: normalizedReference
   });
 };
 
@@ -95,6 +97,8 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {});
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "dayRefs", {});
+
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "clearSlideStateLater", function () {
       clearTimeout(_this.timer);
       _this.timer = setTimeout(function () {
@@ -109,13 +113,15 @@ function (_Component) {
           });
         } // Wait for animation to finish before cleaning up. Empirically determined.
 
-      }, 1000);
+      }, 800);
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setReference", function (reference) {
       var _this$props = _this.props,
+          animate = _this$props.animate,
           bounds = _this$props.bounds,
-          firstDayOfWeek = _this$props.firstDayOfWeek;
+          firstDayOfWeek = _this$props.firstDayOfWeek,
+          onReference = _this$props.onReference;
       var _this$state = _this.state,
           start = _this$state.start,
           end = _this$state.end,
@@ -124,11 +130,11 @@ function (_Component) {
       if ((0, _utils.betweenDates)(reference, bounds)) {
         var nextStartEnd = buildStartEnd(reference, firstDayOfWeek);
         var nextState = {
-          reference: reference,
-          active: undefined
+          reference: reference
         }; // if we're changing too fast, bypass animation
 
-        if (targetStartEnd) {
+        if (!animate || targetStartEnd) {
+          nextState.targetStartEnd = nextStartEnd;
           nextState.start = nextStartEnd.start;
           nextState.end = nextStartEnd.end;
           nextState.targetStartEnd = undefined;
@@ -149,65 +155,69 @@ function (_Component) {
               weeks: (0, _utils.daysApart)(nextStartEnd.end, end) / 7
             };
           }
-
-          _this.clearSlideStateLater();
         }
 
-        _this.setState(nextState);
+        _this.clearSlideStateLater();
+
+        _this.setState(nextState, function () {
+          if (onReference) {
+            onReference(reference.toISOString());
+          }
+        });
       }
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setActive", function (active) {
-      var bounds = _this.props.bounds;
-      var _this$state2 = _this.state,
-          start = _this$state2.start,
-          reference = _this$state2.reference,
-          end = _this$state2.end;
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onFocus", function (day) {
+      return function () {
+        var bounds = _this.props.bounds;
+        var reference = _this.state.reference;
 
-      if ((0, _utils.betweenDates)(active, bounds)) {
-        var nextState = {
-          active: active
-        };
-
-        if (active.getTime() < start.getTime()) {
-          nextState.start = (0, _utils.subtractDays)(start, 7);
-          nextState.end = (0, _utils.subtractDays)(end, 7);
-        } else if (active.getTime() > end.getTime()) {
-          nextState.start = (0, _utils.addDays)(start, 7);
-          nextState.end = (0, _utils.addDays)(end, 7);
+        if ((0, _utils.betweenDates)(day, bounds)) {
+          _this.setState({
+            focused: day
+          }, function () {
+            if (day.getMonth() !== reference.getMonth()) {
+              _this.setReference(day);
+            }
+          });
         }
-
-        if (active.getMonth() !== reference.getMonth()) {
-          nextState.reference = new Date(active);
-        }
-
-        _this.setFocus = true;
-
-        _this.setState(nextState);
-      }
+      };
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClickDay", function (dateString) {
       return function () {
-        var onSelect = _this.props.onSelect;
+        var _this$props2 = _this.props,
+            onSelect = _this$props2.onSelect,
+            range = _this$props2.range;
 
-        _this.setState({
-          active: new Date(dateString)
-        });
+        if (range) {
+          var nextState = (0, _utils.updateDateRange)(dateString, _this.state);
 
-        if (onSelect) {
+          _this.setState(nextState);
+
+          if (onSelect) {
+            onSelect(nextState.dates || nextState.date || undefined);
+          }
+        } else if (onSelect) {
           onSelect(dateString);
         }
       };
     });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setFocus", function (day) {
+      var ref = _this.dayRefs[day.toISOString()];
+
+      if (ref && ref.current) {
+        ref.current.focus();
+      }
+    });
+
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderCalendarHeader", function (previousMonth, nextMonth) {
-      var _this$props2 = _this.props,
-          bounds = _this$props2.bounds,
-          locale = _this$props2.locale,
-          onSelect = _this$props2.onSelect,
-          size = _this$props2.size,
-          theme = _this$props2.theme;
+      var _this$props3 = _this.props,
+          bounds = _this$props3.bounds,
+          locale = _this$props3.locale,
+          size = _this$props3.size,
+          theme = _this$props3.theme;
       var reference = _this.state.reference;
       var PreviousIcon = size === 'small' ? theme.calendar.icons.small.previous : theme.calendar.icons.previous;
       var NextIcon = size === 'small' ? theme.calendar.icons.small.next : theme.calendar.icons.next;
@@ -239,7 +249,7 @@ function (_Component) {
         icon: _react.default.createElement(PreviousIcon, {
           size: size !== 'small' ? size : undefined
         }),
-        disabled: !onSelect || !(0, _utils.betweenDates)(previousMonth, bounds),
+        disabled: !(0, _utils.betweenDates)(previousMonth, bounds),
         onClick: function onClick() {
           return _this.setReference(previousMonth);
         }
@@ -251,7 +261,7 @@ function (_Component) {
         icon: _react.default.createElement(NextIcon, {
           size: size !== 'small' ? size : undefined
         }),
-        disabled: !onSelect || !(0, _utils.betweenDates)(nextMonth, bounds),
+        disabled: !(0, _utils.betweenDates)(nextMonth, bounds),
         onClick: function onClick() {
           return _this.setReference(nextMonth);
         }
@@ -262,10 +272,22 @@ function (_Component) {
   }
 
   Calendar.getDerivedStateFromProps = function getDerivedStateFromProps(nextProps, prevState) {
-    var reference = prevState.reference;
+    var reference = nextProps.reference;
+    var prevReference = prevState.reference;
 
-    if (!reference) {
-      return buildState(nextProps);
+    if (Object.prototype.hasOwnProperty.call(nextProps, 'date') || Object.prototype.hasOwnProperty.call(nextProps, 'dates') || !prevReference || reference) {
+      var state = {};
+
+      if (Object.prototype.hasOwnProperty.call(nextProps, 'date') || Object.prototype.hasOwnProperty.call(nextProps, 'dates')) {
+        state.date = nextProps.date;
+        state.dates = nextProps.dates;
+      }
+
+      if (!prevReference || reference) {
+        state = _extends({}, state, buildState(nextProps));
+      }
+
+      return state;
     }
 
     return null;
@@ -273,14 +295,18 @@ function (_Component) {
 
   var _proto = Calendar.prototype;
 
-  // componentDidUpdate() {
-  //   if (this.setFocus) {
-  //     this.setFocus = false;
-  //     // if (this.activeRef) {
-  //     //   findDOMNode(this.activeRef).focus();
-  //     // }
-  //   }
-  // }
+  _proto.componentDidUpdate = function componentDidUpdate() {
+    var focused = this.state.focused;
+
+    if (focused) {
+      var ref = this.dayRefs[focused.toISOString()];
+
+      if (ref && ref.current && ref.current !== document.activeElement) {
+        ref.current.focus();
+      }
+    }
+  };
+
   _proto.componentWillUnmount = function componentWillUnmount() {
     clearTimeout(this.timer);
   };
@@ -288,25 +314,30 @@ function (_Component) {
   _proto.render = function render() {
     var _this2 = this;
 
-    var _this$props3 = this.props,
-        bounds = _this$props3.bounds,
-        date = _this$props3.date,
-        dates = _this$props3.dates,
-        disabled = _this$props3.disabled,
-        firstDayOfWeek = _this$props3.firstDayOfWeek,
-        header = _this$props3.header,
-        locale = _this$props3.locale,
-        onSelect = _this$props3.onSelect,
-        size = _this$props3.size,
-        theme = _this$props3.theme,
-        rest = _objectWithoutPropertiesLoose(_this$props3, ["bounds", "date", "dates", "disabled", "firstDayOfWeek", "header", "locale", "onSelect", "size", "theme"]);
+    var _this$props4 = this.props,
+        bounds = _this$props4.bounds,
+        dateProp = _this$props4.date,
+        datesProp = _this$props4.dates,
+        disabled = _this$props4.disabled,
+        firstDayOfWeek = _this$props4.firstDayOfWeek,
+        header = _this$props4.header,
+        locale = _this$props4.locale,
+        onReference = _this$props4.onReference,
+        onSelect = _this$props4.onSelect,
+        range = _this$props4.range,
+        showAdjacentDays = _this$props4.showAdjacentDays,
+        size = _this$props4.size,
+        theme = _this$props4.theme,
+        rest = _objectWithoutPropertiesLoose(_this$props4, ["bounds", "date", "dates", "disabled", "firstDayOfWeek", "header", "locale", "onReference", "onSelect", "range", "showAdjacentDays", "size", "theme"]);
 
-    var _this$state3 = this.state,
-        active = _this$state3.active,
-        start = _this$state3.start,
-        reference = _this$state3.reference,
-        end = _this$state3.end,
-        slide = _this$state3.slide; // We have to deal with reference being the end of a month with more
+    var _this$state2 = this.state,
+        date = _this$state2.date,
+        dates = _this$state2.dates,
+        focused = _this$state2.focused,
+        start = _this$state2.start,
+        reference = _this$state2.reference,
+        end = _this$state2.end,
+        slide = _this$state2.slide; // We have to deal with reference being the end of a month with more
     // days than the month we are changing to. So, we always set reference
     // to the first of the month before changing the month.
 
@@ -315,8 +346,9 @@ function (_Component) {
     var weeks = [];
     var day = new Date(start);
     var days;
+    this.dayRefs = {};
 
-    var _loop = function _loop() {
+    while (day.getTime() < end.getTime()) {
       if (day.getDay() === firstDayOfWeek) {
         if (days) {
           weeks.push(_react.default.createElement(_StyledCalendar.StyledWeek, {
@@ -328,45 +360,58 @@ function (_Component) {
         days = [];
       }
 
-      var dateString = day.toISOString();
-      var isActive = active && (0, _utils.sameDay)(day, active);
-      var selected = false;
-      var inRange = false;
-      var selectedState = (0, _utils.withinDates)(day, date || dates);
+      var otherMonth = day.getMonth() !== reference.getMonth();
 
-      if (selectedState === 2) {
-        selected = true;
-      } else if (selectedState === 1) {
-        inRange = true;
+      if (!showAdjacentDays && otherMonth) {
+        days.push(_react.default.createElement(_StyledCalendar.StyledDayContainer, {
+          key: day.getTime(),
+          sizeProp: size,
+          theme: theme
+        }, _react.default.createElement(_StyledCalendar.StyledDay, {
+          sizeProp: size,
+          theme: theme
+        })));
+      } else {
+        var dateString = day.toISOString();
+        this.dayRefs[dateString] = _react.default.createRef();
+        var selected = false;
+        var inRange = false;
+        var selectedState = (0, _utils.withinDates)(day, date || dates);
+
+        if (selectedState === 2) {
+          selected = true;
+        } else if (selectedState === 1) {
+          inRange = true;
+        }
+
+        var dayDisabled = (0, _utils.withinDates)(day, disabled) || bounds && !(0, _utils.betweenDates)(day, bounds);
+        days.push(_react.default.createElement(_StyledCalendar.StyledDayContainer, {
+          key: day.getTime(),
+          sizeProp: size,
+          theme: theme
+        }, _react.default.createElement(_Button.Button, {
+          ref: this.dayRefs[dateString],
+          a11yTitle: day.toDateString(),
+          plain: true,
+          hoverIndicator: !dayDisabled,
+          disabled: dayDisabled,
+          onClick: this.onClickDay(dateString),
+          onFocus: this.onFocus(day),
+          onBlur: function onBlur() {
+            return _this2.setState({
+              focused: false
+            });
+          }
+        }, _react.default.createElement(_StyledCalendar.StyledDay, {
+          inRange: inRange,
+          otherMonth: day.getMonth() !== reference.getMonth(),
+          isSelected: selected,
+          sizeProp: size,
+          theme: theme
+        }, day.getDate()))));
       }
 
-      var dayDisabled = (0, _utils.withinDates)(day, disabled) || bounds && !(0, _utils.betweenDates)(day, bounds);
-      days.push(_react.default.createElement(_StyledCalendar.StyledDayContainer, {
-        key: day.getTime(),
-        sizeProp: size,
-        theme: theme
-      }, _react.default.createElement(_Button.Button, {
-        ref: function ref(_ref) {
-          if (isActive) _this2.activeRef = _ref;
-        },
-        a11yTitle: day.toDateString(),
-        plain: true,
-        active: isActive,
-        hoverIndicator: !dayDisabled,
-        disabled: dayDisabled,
-        onClick: _this2.onClickDay(dateString)
-      }, _react.default.createElement(_StyledCalendar.StyledDay, {
-        inRange: inRange,
-        otherMonth: day.getMonth() !== reference.getMonth(),
-        isSelected: selected,
-        sizeProp: size,
-        theme: theme
-      }, day.getDate()))));
       day = (0, _utils.addDays)(day, 1);
-    };
-
-    while (day.getTime() < end.getTime()) {
-      _loop();
     }
 
     weeks.push(_react.default.createElement(_StyledCalendar.StyledWeek, {
@@ -380,18 +425,18 @@ function (_Component) {
       onUp: function onUp(event) {
         event.preventDefault();
 
-        _this2.setActive((0, _utils.addDays)(active, -7));
+        _this2.setFocus((0, _utils.addDays)(focused, -7));
       },
       onDown: function onDown(event) {
         event.preventDefault();
 
-        _this2.setActive((0, _utils.addDays)(active, 7));
+        _this2.setFocus((0, _utils.addDays)(focused, 7));
       },
       onLeft: function onLeft() {
-        return _this2.setActive((0, _utils.addDays)(active, -1));
+        return _this2.setFocus((0, _utils.addDays)(focused, -1));
       },
       onRight: function onRight() {
-        return _this2.setActive((0, _utils.addDays)(active, 1));
+        return _this2.setFocus((0, _utils.addDays)(focused, 1));
       }
     }, _react.default.createElement(_Box.Box, null, header ? header({
       date: reference,
@@ -418,9 +463,11 @@ function (_Component) {
 }(_react.Component);
 
 _defineProperty(Calendar, "defaultProps", {
+  animate: true,
   firstDayOfWeek: 0,
   size: 'medium',
-  locale: 'en-US'
+  locale: 'en-US',
+  showAdjacentDays: true
 });
 
 var CalendarDoc;
