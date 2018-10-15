@@ -28,35 +28,37 @@ var controlBorderStyle = (0, _styledComponents.css)(["border:", " solid ", ";bor
 });
 exports.controlBorderStyle = controlBorderStyle;
 
-var edgeStyle = function edgeStyle(kind, data, responsive, theme) {
+var edgeStyle = function edgeStyle(kind, data, responsive, responsiveBreakpoint, theme) {
+  var breakpoint = responsiveBreakpoint && theme.global.breakpoints[responsiveBreakpoint];
+
   if (typeof data === 'string') {
-    return (0, _styledComponents.css)(["", ":", ";", ""], kind, theme.global.edgeSize[data], responsive ? (0, _mixins.palm)("\n        " + kind + ": " + theme.global.edgeSize.narrow[data] + ";\n      ") : '');
+    return (0, _styledComponents.css)(["", ":", ";", ""], kind, theme.global.edgeSize[data], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + ": " + breakpoint.edgeSize[data] + ";\n      ") : '');
   }
 
   var result = [];
 
   if (data.horizontal) {
-    result.push((0, _styledComponents.css)(["", "-left:", ";", "-right:", ";", ""], kind, theme.global.edgeSize[data.horizontal], kind, theme.global.edgeSize[data.horizontal], responsive ? (0, _mixins.palm)("\n        " + kind + "-left: " + theme.global.edgeSize.narrow[data.horizontal] + ";\n        " + kind + "-right: " + theme.global.edgeSize.narrow[data.horizontal] + ";\n      ") : ''));
+    result.push((0, _styledComponents.css)(["", "-left:", ";", "-right:", ";", ""], kind, theme.global.edgeSize[data.horizontal], kind, theme.global.edgeSize[data.horizontal], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-left: " + breakpoint.edgeSize[data.horizontal] + ";\n        " + kind + "-right: " + breakpoint.edgeSize[data.horizontal] + ";\n      ") : ''));
   }
 
   if (data.vertical) {
-    result.push((0, _styledComponents.css)(["", "-top:", ";", "-bottom:", ";", ""], kind, theme.global.edgeSize[data.vertical], kind, theme.global.edgeSize[data.vertical], responsive ? (0, _mixins.palm)("\n        " + kind + "-top: " + theme.global.edgeSize.narrow[data.vertical] + ";\n        " + kind + "-bottom: " + theme.global.edgeSize.narrow[data.vertical] + ";\n      ") : ''));
+    result.push((0, _styledComponents.css)(["", "-top:", ";", "-bottom:", ";", ""], kind, theme.global.edgeSize[data.vertical], kind, theme.global.edgeSize[data.vertical], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-top: " + breakpoint.edgeSize[data.vertical] + ";\n        " + kind + "-bottom: " + breakpoint.edgeSize[data.vertical] + ";\n      ") : ''));
   }
 
   if (data.top) {
-    result.push((0, _styledComponents.css)(["", "-top:", ";", ""], kind, theme.global.edgeSize[data.top], responsive ? (0, _mixins.palm)("\n        " + kind + "-top: " + theme.global.edgeSize.narrow[data.top] + ";\n      ") : ''));
+    result.push((0, _styledComponents.css)(["", "-top:", ";", ""], kind, theme.global.edgeSize[data.top], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-top: " + breakpoint.edgeSize[data.top] + ";\n      ") : ''));
   }
 
   if (data.bottom) {
-    result.push((0, _styledComponents.css)(["", "-bottom:", ";", ""], kind, theme.global.edgeSize[data.bottom], responsive ? (0, _mixins.palm)("\n        " + kind + "-bottom: " + theme.global.edgeSize.narrow[data.bottom] + ";\n      ") : ''));
+    result.push((0, _styledComponents.css)(["", "-bottom:", ";", ""], kind, theme.global.edgeSize[data.bottom], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-bottom: " + breakpoint.edgeSize[data.bottom] + ";\n      ") : ''));
   }
 
   if (data.left) {
-    result.push((0, _styledComponents.css)(["", "-left:", ";", ""], kind, theme.global.edgeSize[data.left], responsive ? (0, _mixins.palm)("\n        " + kind + "-left: " + theme.global.edgeSize.narrow[data.left] + ";\n      ") : ''));
+    result.push((0, _styledComponents.css)(["", "-left:", ";", ""], kind, theme.global.edgeSize[data.left], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-left: " + breakpoint.edgeSize[data.left] + ";\n      ") : ''));
   }
 
   if (data.right) {
-    result.push((0, _styledComponents.css)(["", "-right:", ";", ""], kind, theme.global.edgeSize[data.right], responsive ? (0, _mixins.palm)("\n        " + kind + "-right: " + theme.global.edgeSize.narrow[data.left] + ";\n      ") : ''));
+    result.push((0, _styledComponents.css)(["", "-right:", ";", ""], kind, theme.global.edgeSize[data.right], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-right: " + breakpoint.edgeSize[data.left] + ";\n      ") : ''));
   }
 
   return result;

@@ -1,48 +1,84 @@
 import styled, { css } from 'styled-components';
-import { colorForName, palm } from '../../utils';
+import { colorForName, breakpointStyle } from '../../utils';
 
 var marginStyle = function marginStyle(props) {
   if (typeof props.margin === 'string') {
     var margin = props.theme.global.edgeSize[props.margin];
-    var narrowMargin = props.theme.global.edgeSize.narrow[props.margin];
-    return css(["margin-top:", ";margin-bottom:", ";", ""], margin, margin, props.responsive ? palm("\n        margin-top: " + narrowMargin + ";\n        margin-bottom: " + narrowMargin + ";\n      ") : '');
+    var _styles = [css(["margin-top:", ";margin-bottom:", ";"], margin, margin)];
+
+    if (props.responsive) {
+      Object.keys(props.theme.global.breakpoints).forEach(function (name) {
+        var breakpoint = props.theme.global.breakpoints[name];
+
+        if (breakpoint.edgeSize && breakpoint.edgeSize[props.margin] !== undefined) {
+          var responsiveMargin = breakpoint.edgeSize[props.margin];
+
+          _styles.push(breakpointStyle(breakpoint, "\n            margin-top: " + responsiveMargin + ";\n            margin-bottom: " + responsiveMargin + ";\n          "));
+        }
+      });
+    }
+
+    return _styles;
   }
 
-  var result = [];
+  var styles = [];
 
   if (props.margin.top) {
     if (props.margin.top === 'none') {
-      result.push(css(["margin-top:0;"]));
+      styles.push(css(["margin-top:0;"]));
     } else {
-      result.push(css(["margin-top:", ";"], props.theme.global.edgeSize[props.margin.top]));
+      styles.push(css(["margin-top:", ";"], props.theme.global.edgeSize[props.margin.top]));
 
       if (props.responsive) {
-        result.push(palm("margin-top: " + props.theme.global.edgeSize.narrow[props.margin.top] + ";"));
+        Object.keys(props.theme.global.breakpoints).forEach(function (name) {
+          var breakpoint = props.theme.global.breakpoints[name];
+
+          if (breakpoint.edgeSize && breakpoint.edgeSize[props.margin.top] !== undefined) {
+            styles.push(breakpointStyle(breakpoint, "margin-top: " + breakpoint.edgeSize[props.margin.top] + ";"));
+          }
+        });
       }
     }
   }
 
   if (props.margin.bottom) {
     if (props.margin.bottom === 'none') {
-      result.push(css(["margin-bottom:0;"]));
+      styles.push(css(["margin-bottom:0;"]));
     } else {
-      result.push(css(["margin-bottom:", ";"], props.theme.global.edgeSize[props.margin.bottom]));
+      styles.push(css(["margin-bottom:", ";"], props.theme.global.edgeSize[props.margin.bottom]));
 
       if (props.responsive) {
-        result.push(palm("margin-bottom: " + props.theme.global.edgeSize.narrow[props.margin.bottom] + ";"));
+        Object.keys(props.theme.global.breakpoints).forEach(function (name) {
+          var breakpoint = props.theme.global.breakpoints[name];
+
+          if (breakpoint.edgeSize && breakpoint.edgeSize[props.margin.bottom] !== undefined) {
+            styles.push(breakpointStyle(breakpoint, "margin-bottom: " + breakpoint.edgeSize[props.margin.bottom] + ";"));
+          }
+        });
       }
     }
   }
 
-  return result;
+  return styles;
 };
 
 var sizeStyle = function sizeStyle(props) {
   // size is a combination of the level and size properties
   var size = props.size || 'medium';
-  var data = props.theme.heading.level[props.level][size];
-  var narrowData = props.theme.heading.level[Math.min(props.level + 1, 4)][size];
-  return css(["font-size:", ";line-height:", ";max-width:", ";font-weight:", ";", ""], data.size, data.height, data.maxWidth, props.theme.heading.weight, props.responsive ? palm("\n      font-size: " + narrowData.size + ";\n      line-height: " + narrowData.height + ";\n      max-width: " + narrowData.maxWidth + ";\n      font-weight: " + props.theme.heading.weight + ";\n    ") : '');
+  var headingTheme = props.theme.heading;
+  var data = headingTheme.level[props.level][size];
+  var styles = [css(["font-size:", ";line-height:", ";max-width:", ";font-weight:", ";"], data.size, data.height, data.maxWidth, headingTheme.weight)];
+
+  if (props.responsive && headingTheme.responsiveBreakpoint) {
+    var breakpoint = props.theme.global.breakpoints[headingTheme.responsiveBreakpoint];
+
+    if (breakpoint) {
+      var responsiveData = headingTheme.level[Math.min(props.level + 1, 4)][size];
+      styles.push(breakpointStyle(breakpoint, "\n        font-size: " + responsiveData.size + ";\n        line-height: " + responsiveData.height + ";\n        max-width: " + responsiveData.maxWidth + ";\n      "));
+    }
+  }
+
+  return styles;
 };
 
 var TEXT_ALIGN_MAP = {

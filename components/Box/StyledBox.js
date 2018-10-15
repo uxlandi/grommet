@@ -58,11 +58,20 @@ var basisStyle = (0, _styledComponents.css)(["flex-basis:", ";"], function (prop
 // we assume we are in the context of a Box going the other direction
 // TODO: revisit this
 
-var directionStyle = (0, _styledComponents.css)(["min-width:0;min-height:0;flex-direction:", ";", "}"], function (props) {
-  return props.directionProp === 'row-responsive' ? 'row' : props.directionProp;
-}, function (props) {
-  return props.directionProp === 'row-responsive' ? (0, _utils.palm)("\n    flex-direction: column;\n    flex-basis: auto;\n    justify-content: flex-start;\n    align-items: stretch;\n  ") : '';
-});
+var directionStyle = function directionStyle(direction, theme) {
+  var styles = [(0, _styledComponents.css)(["min-width:0;min-height:0;flex-direction:", ";"], direction === 'row-responsive' ? 'row' : direction)];
+
+  if (direction === 'row-responsive' && theme.box.responsiveBreakpoint) {
+    var breakpoint = theme.global.breakpoints[theme.box.responsiveBreakpoint];
+
+    if (breakpoint) {
+      styles.push((0, _utils.breakpointStyle)(breakpoint, "\n        flex-direction: column;\n        flex-basis: auto;\n        justify-content: flex-start;\n        align-items: stretch;\n      "));
+    }
+  }
+
+  return styles;
+};
+
 var elevationStyle = (0, _styledComponents.css)(["box-shadow:", ";"], function (props) {
   return props.theme.global.elevation[props.theme.dark ? 'dark' : 'light'][props.elevationProp];
 });
@@ -107,31 +116,32 @@ var borderStyle = function borderStyle(data, responsive, theme) {
   var borderSize = data.size || 'xsmall';
   var side = typeof data === 'string' ? data : data.side || 'all';
   var value = "solid " + theme.global.borderSize[borderSize] + " " + color;
-  var narrowValue = "solid " + theme.global.borderSize.narrow[borderSize] + " " + color;
+  var breakpoint = theme.box.responsiveBreakpoint && theme.global.breakpoints[theme.box.responsiveBreakpoint];
+  var responsiveValue = breakpoint && breakpoint.borderSize[borderSize] && "solid " + breakpoint.borderSize[borderSize] + " " + color;
 
   if (side === 'top' || side === 'bottom' || side === 'left' || side === 'right') {
     styles.push((0, _styledComponents.css)(["border-", ":", ";"], side, value));
 
-    if (responsive) {
-      styles.push((0, _utils.palm)("border-" + side + ": " + narrowValue + ";"));
+    if (responsiveValue) {
+      styles.push((0, _utils.breakpointStyle)(breakpoint, "\n        border-" + side + ": " + responsiveValue + ";\n      "));
     }
   } else if (side === 'vertical') {
     styles.push((0, _styledComponents.css)(["border-left:", ";border-right:", ";"], value, value));
 
-    if (responsive) {
-      styles.push((0, _utils.palm)("\n        border-left: " + narrowValue + ";\n        border-right: " + narrowValue + ";\n      "));
+    if (responsiveValue) {
+      styles.push((0, _utils.breakpointStyle)(breakpoint, "\n        border-left: " + responsiveValue + ";\n        border-right: " + responsiveValue + ";\n      "));
     }
   } else if (side === 'horizontal') {
     styles.push((0, _styledComponents.css)(["border-top:", ";border-bottom:", ";"], value, value));
 
-    if (responsive) {
-      styles.push((0, _utils.palm)("\n        border-top: " + narrowValue + ";\n        border-bottom: " + narrowValue + ";\n      "));
+    if (responsiveValue) {
+      styles.push((0, _utils.breakpointStyle)(breakpoint, "\n        border-top: " + responsiveValue + ";\n        border-bottom: " + responsiveValue + ";\n      "));
     }
   } else {
     styles.push((0, _styledComponents.css)(["border:", ";"], value));
 
-    if (responsive) {
-      styles.push((0, _utils.palm)("border: " + narrowValue + ";"));
+    if (responsiveValue) {
+      styles.push((0, _utils.breakpointStyle)(breakpoint, "border: " + responsiveValue + ";"));
     }
   }
 
@@ -143,47 +153,48 @@ var ROUND_MAP = {
 };
 
 var roundStyle = function roundStyle(data, responsive, theme) {
+  var breakpoint = theme.box.responsiveBreakpoint && theme.global.breakpoints[theme.box.responsiveBreakpoint];
   var styles = [];
 
   if (typeof data === 'object') {
     var size = ROUND_MAP[data.size] || theme.global.edgeSize[data.size || 'medium'];
-    var narrowSize = ROUND_MAP[data] || theme.global.edgeSize.narrow[data.size || 'medium'];
+    var responsiveSize = breakpoint && breakpoint.edgeSize[data.size] && breakpoint.edgeSize[data.size];
 
     if (data.corner === 'top') {
       styles.push((0, _styledComponents.css)(["border-top-left-radius:", ";border-top-right-radius:", ";"], size, size));
 
-      if (responsive) {
-        styles.push((0, _utils.palm)("\n          border-top-left-radius: " + narrowSize + ";\n          border-top-right-radius: " + narrowSize + ";\n        "));
+      if (responsiveSize) {
+        styles.push((0, _utils.breakpointStyle)(breakpoint, "\n          border-top-left-radius: " + responsiveSize + ";\n          border-top-right-radius: " + responsiveSize + ";\n        "));
       }
     } else if (data.corner === 'bottom') {
       styles.push((0, _styledComponents.css)(["border-bottom-left-radius:", ";border-bottom-right-radius:", ";"], size, size));
 
-      if (responsive) {
-        styles.push((0, _utils.palm)("\n          border-bottom-left-radius: " + narrowSize + ";\n          border-bottom-right-radius: " + narrowSize + ";\n        "));
+      if (responsiveSize) {
+        styles.push((0, _utils.breakpointStyle)(breakpoint, "\n          border-bottom-left-radius: " + responsiveSize + ";\n          border-bottom-right-radius: " + responsiveSize + ";\n        "));
       }
     } else if (data.corner === 'left') {
       styles.push((0, _styledComponents.css)(["border-top-left-radius:", ";border-bottom-left-radius:", ";"], size, size));
 
-      if (responsive) {
-        styles.push((0, _utils.palm)("\n          border-top-left-radius: " + narrowSize + ";\n          border-bottom-left-radius: " + narrowSize + ";\n        "));
+      if (responsiveSize) {
+        styles.push((0, _utils.breakpointStyle)(breakpoint, "\n          border-top-left-radius: " + responsiveSize + ";\n          border-bottom-left-radius: " + responsiveSize + ";\n        "));
       }
     } else if (data.corner === 'right') {
       styles.push((0, _styledComponents.css)(["border-top-right-radius:", ";border-bottom-right-radius:", ";"], size, size));
 
-      if (responsive) {
-        styles.push((0, _utils.palm)("\n          border-top-right-radius: " + narrowSize + ";\n          border-bottom-right-radius: " + narrowSize + ";\n        "));
+      if (responsiveSize) {
+        styles.push((0, _utils.breakpointStyle)(breakpoint, "\n          border-top-right-radius: " + responsiveSize + ";\n          border-bottom-right-radius: " + responsiveSize + ";\n        "));
       }
     } else if (data.corner) {
       styles.push((0, _styledComponents.css)(["border-", "-radius:", ";"], data.corner, size));
 
-      if (responsive) {
-        styles.push((0, _utils.palm)("\n          border-" + data.corner + "-radius: " + narrowSize + ";\n        "));
+      if (responsiveSize) {
+        styles.push((0, _utils.breakpointStyle)(breakpoint, "\n          border-" + data.corner + "-radius: " + responsiveSize + ";\n        "));
       }
     } else {
       styles.push((0, _styledComponents.css)(["border-radius:", ";"], size));
 
-      if (responsive) {
-        styles.push((0, _utils.palm)("\n          border-radius: " + narrowSize + ";\n        "));
+      if (responsiveSize) {
+        styles.push((0, _utils.breakpointStyle)(breakpoint, "\n          border-radius: " + responsiveSize + ";\n        "));
       }
     }
   } else {
@@ -191,8 +202,10 @@ var roundStyle = function roundStyle(data, responsive, theme) {
 
     styles.push((0, _styledComponents.css)(["border-radius:", ";"], ROUND_MAP[_size] || theme.global.edgeSize[_size] || _size));
 
-    if (responsive) {
-      styles.push((0, _utils.palm)("\n        border-radius: " + (ROUND_MAP[_size] || theme.global.edgeSize.narrow[_size] || _size) + ";\n      "));
+    var _responsiveSize = breakpoint && breakpoint.edgeSize[_size];
+
+    if (_responsiveSize) {
+      styles.push((0, _utils.breakpointStyle)(breakpoint, "\n        border-radius: " + _responsiveSize + ";\n      "));
     }
   }
 
@@ -396,7 +409,7 @@ var StyledBox = _styledComponents.default.div.withConfig({
 }, function (props) {
   return props.border && borderStyle(props.border, props.responsive, props.theme);
 }, function (props) {
-  return props.directionProp && directionStyle;
+  return props.directionProp && directionStyle(props.directionProp, props.theme);
 }, function (props) {
   return props.flex !== undefined && flexStyle;
 }, function (props) {
@@ -408,9 +421,9 @@ var StyledBox = _styledComponents.default.div.withConfig({
 }, function (props) {
   return props.justify && justifyStyle;
 }, function (props) {
-  return props.margin && (0, _utils.edgeStyle)('margin', props.margin, props.responsive, props.theme);
+  return props.margin && (0, _utils.edgeStyle)('margin', props.margin, props.responsive, props.theme.box.responsiveBreakpoint, props.theme);
 }, function (props) {
-  return props.pad && (0, _utils.edgeStyle)('padding', props.pad, props.responsive, props.theme);
+  return props.pad && (0, _utils.edgeStyle)('padding', props.pad, props.responsive, props.theme.box.responsiveBreakpoint, props.theme);
 }, function (props) {
   return props.round && roundStyle(props.round, props.responsive, props.theme);
 }, function (props) {
@@ -429,21 +442,22 @@ var StyledBox = _styledComponents.default.div.withConfig({
 
 exports.StyledBox = StyledBox;
 
-var gapStyle = function gapStyle(directionProp, gap, responsive, _ref) {
-  var edgeSize = _ref.global.edgeSize;
+var gapStyle = function gapStyle(directionProp, gap, responsive, theme) {
+  var breakpoint = theme.box.responsiveBreakpoint && theme.global.breakpoints[theme.box.responsiveBreakpoint];
+  var responsiveSize = breakpoint && breakpoint.edgeSize[gap] && breakpoint.edgeSize[gap];
   var styles = [];
 
   if (directionProp === 'column') {
-    styles.push((0, _styledComponents.css)(["height:", ";"], edgeSize[gap]));
+    styles.push((0, _styledComponents.css)(["height:", ";"], theme.global.edgeSize[gap]));
 
-    if (responsive) {
-      styles.push((0, _utils.palm)("height: " + edgeSize.narrow[gap] + ";"));
+    if (responsiveSize) {
+      styles.push((0, _utils.breakpointStyle)(breakpoint, "height: " + responsiveSize + ";"));
     }
   } else {
-    styles.push("width: " + edgeSize[gap] + ";");
+    styles.push("width: " + theme.global.edgeSize[gap] + ";");
 
     if (responsive && directionProp === 'row-responsive') {
-      styles.push((0, _utils.palm)("\n        width: auto;\n        height: " + edgeSize.narrow[gap] + ";\n      "));
+      styles.push((0, _utils.breakpointStyle)(breakpoint, "\n        width: auto;\n        height: " + responsiveSize + ";\n      "));
     }
   }
 

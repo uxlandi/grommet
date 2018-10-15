@@ -11,22 +11,24 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 var hiddenPositionStyle = (0, _styledComponents.css)(["left:-100%;right:100%;z-index:-1;position:fixed;"]);
 var desktopLayerStyle = "\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  right: 0px;\n  bottom: 0px;\n  width: 100vw;\n  height: 100vh;\n";
+var responsiveLayerStyle = "\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  min-height: 100vh;\n";
 
 var StyledLayer = _styledComponents.default.div.withConfig({
   displayName: "StyledLayer",
   componentId: "rmtehz-0"
-})(["", " background:unset;position:relative;z-index:10;pointer-events:none;outline:none;", " ", " ", ""], _utils.baseStyle, function (props) {
-  return props.responsive && (0, _utils.palm)("\n    position: absolute;\n    top: 0;\n    height: 100%;\n    width: 100%;\n    overflow: auto;\n  ");
-}, function (props) {
+})(["", " background:unset;position:relative;z-index:10;pointer-events:none;outline:none;", " ", ""], _utils.baseStyle, function (props) {
   if (props.position === 'hidden') {
     return hiddenPositionStyle;
   }
 
-  if (props.responsive) {
-    return (0, _utils.lapAndUp)(desktopLayerStyle);
+  var styles = [desktopLayerStyle];
+
+  if (props.responsive && props.theme.layer.responsiveBreakpoint) {
+    var breakpoint = props.theme.global.breakpoints[props.theme.layer.responsiveBreakpoint];
+    styles.push((0, _utils.breakpointStyle)(breakpoint, responsiveLayerStyle));
   }
 
-  return desktopLayerStyle;
+  return styles;
 }, function (props) {
   return props.theme.layer && props.theme.layer.extend;
 });
@@ -36,8 +38,13 @@ exports.StyledLayer = StyledLayer;
 var StyledOverlay = _styledComponents.default.div.withConfig({
   displayName: "StyledLayer__StyledOverlay",
   componentId: "rmtehz-1"
-})(["", " top:0px;left:0px;right:0px;bottom:0px;", " pointer-events:all;"], function (props) {
-  return props.responsive ? (0, _utils.lapAndUp)('position: absolute;') : 'position: absolute;';
+})(["position:absolute;", " top:0px;left:0px;right:0px;bottom:0px;", " pointer-events:all;"], function (props) {
+  if (props.responsive && props.theme.layer.responsiveBreakpoint) {
+    var breakpoint = props.theme.global.breakpoints[props.theme.layer.responsiveBreakpoint];
+    return (0, _utils.breakpointStyle)(breakpoint, 'position: relative;');
+  }
+
+  return '';
 }, function (props) {
   return props.theme.layer.overlay.background && (0, _utils.backgroundStyle)(props.theme.layer.overlay.background, props.theme);
 });
@@ -178,6 +185,7 @@ var desktopContainerStyle = (0, _styledComponents.css)(["position:", ";max-heigh
 }, function (props) {
   return props.position !== 'hidden' && POSITIONS[props.position][props.full](props.margin, props.theme) || '';
 });
+var responsiveContainerStyle = (0, _styledComponents.css)(["position:relative;max-height:none;max-width:none;border-radius:0;top:0;bottom:0;left:0;right:0;transform:none;animation:none;"]);
 
 var StyledContainer = _styledComponents.default.div.withConfig({
   displayName: "StyledLayer__StyledContainer",
@@ -188,12 +196,16 @@ var StyledContainer = _styledComponents.default.div.withConfig({
   return props.theme.global.size.xxsmall;
 }, function (props) {
   return props.theme.layer.background && (0, _utils.backgroundStyle)(props.theme.layer.background, props.theme);
-}, function (props) {
-  return props.responsive && (0, _utils.palm)("\n    min-height: 100%;\n    min-width: 100%;\n  ");
-}, function (props) {
-  return props.responsive ? (0, _utils.lapAndUp)(desktopContainerStyle) : desktopContainerStyle;
-}); // ${props => props.full && fullStyle(props.full, props.margin, props.theme)}
-// ${props => props.margin && edgeStyle('margin', props.margin, props.theme)}
+}, desktopContainerStyle, function (props) {
+  if (props.responsive && props.theme.layer.responsiveBreakpoint) {
+    var breakpoint = props.theme.global.breakpoints[props.theme.layer.responsiveBreakpoint];
 
+    if (breakpoint) {
+      return (0, _utils.breakpointStyle)(breakpoint, responsiveContainerStyle);
+    }
+  }
+
+  return '';
+});
 
 exports.StyledContainer = StyledContainer;

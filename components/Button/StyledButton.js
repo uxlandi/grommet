@@ -66,7 +66,9 @@ var StyledButton = _styledComponents.default.button.withConfig({
   return props.disabled && disabledStyle;
 }, function (props) {
   return props.focus && (!props.plain || props.focusIndicator) && _utils.focusStyle;
-}, (0, _utils.lapAndUp)("\n    transition: 0.1s ease-in-out;\n  "), function (props) {
+}, function (props) {
+  return !props.plain && "\n    transition: 0.1s ease-in-out;\n  ";
+}, function (props) {
   return props.fillContainer && fillStyle;
 }, function (props) {
   return props.hasIcon && !props.hasLabel && "\n    padding: " + props.theme.global.edgeSize.small + ";\n  ";

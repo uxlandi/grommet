@@ -6,7 +6,16 @@ import { Box, Grommet, Heading, ResponsiveContext } from 'grommet';
 var customBreakpoints = deepMerge(grommet, {
   global: {
     breakpoints: {
-      medium: 800
+      xsmall: {
+        value: 500
+      },
+      small: {
+        value: 900
+      },
+      medium: undefined,
+      middle: {
+        value: 3000
+      }
     }
   }
 });

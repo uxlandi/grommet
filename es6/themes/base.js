@@ -100,21 +100,61 @@ export var generate = function generate(baseSpacing, scale) {
         // 4
         large: baseSpacing / 2 + "px",
         // 12
-        xlarge: baseSpacing + "px",
-        // 24
-        narrow: {
-          xsmall: '1px',
-          small: '2px',
-          medium: baseSpacing / 6 + "px",
-          // 4
-          large: baseSpacing / 4 + "px",
-          // 6
-          xlarge: baseSpacing / 2 + "px" // 12
+        xlarge: baseSpacing + "px" // 24
 
-        }
       },
       breakpoints: {
-        narrow: 699
+        small: {
+          value: baseSpacing * 32,
+          // 768
+          borderSize: {
+            xsmall: '1px',
+            small: '2px',
+            medium: baseSpacing / 6 + "px",
+            // 4
+            large: baseSpacing / 4 + "px",
+            // 6
+            xlarge: baseSpacing / 2 + "px" // 12
+
+          },
+          edgeSize: {
+            none: '0px',
+            hair: '1px',
+            // for Chart
+            xxsmall: '2px',
+            xsmall: baseSpacing / 8 + "px",
+            // 3
+            small: baseSpacing / 4 + "px",
+            // 6
+            medium: baseSpacing / 2 + "px",
+            // 12
+            large: baseSpacing + "px",
+            // 24
+            xlarge: baseSpacing * 2 + "px" // 48
+
+          },
+          size: {
+            xxsmall: baseSpacing + "px",
+            // 24
+            xsmall: baseSpacing * 2 + "px",
+            // 48
+            small: baseSpacing * 4 + "px",
+            // 96
+            medium: baseSpacing * 8 + "px",
+            // 192
+            large: baseSpacing * 16 + "px",
+            // 384
+            xlarge: baseSpacing * 32 + "px",
+            // 768
+            full: '100%'
+          }
+        },
+        medium: {
+          value: baseSpacing * 64 // 1536
+
+        },
+        large: {} // anything above 'medium'
+
       },
       colors: colors,
       control: {
@@ -164,24 +204,8 @@ export var generate = function generate(baseSpacing, scale) {
         // 24
         large: baseSpacing * 2 + "px",
         // 48
-        xlarge: baseSpacing * 4 + "px",
-        // 96
-        narrow: {
-          none: '0px',
-          hair: '1px',
-          // for Chart
-          xxsmall: '2px',
-          xsmall: baseSpacing / 8 + "px",
-          // 3
-          small: baseSpacing / 4 + "px",
-          // 6
-          medium: baseSpacing / 2 + "px",
-          // 12
-          large: baseSpacing + "px",
-          // 24
-          xlarge: baseSpacing * 2 + "px" // 48
+        xlarge: baseSpacing * 4 + "px" // 96
 
-        }
       },
       elevation: {
         light: {
@@ -248,22 +272,7 @@ export var generate = function generate(baseSpacing, scale) {
         // 768
         xlarge: baseSpacing * 48 + "px",
         // 1152
-        full: '100%',
-        narrow: {
-          xxsmall: baseSpacing + "px",
-          // 24
-          xsmall: baseSpacing * 2 + "px",
-          // 48
-          small: baseSpacing * 4 + "px",
-          // 96
-          medium: baseSpacing * 8 + "px",
-          // 192
-          large: baseSpacing * 16 + "px",
-          // 384
-          xlarge: baseSpacing * 32 + "px",
-          // 768
-          full: '100%'
-        }
+        full: '100%'
       },
       text: {
         color: {
@@ -286,6 +295,10 @@ export var generate = function generate(baseSpacing, scale) {
         dark: '#6194EB',
         light: '#6194EB'
       }
+    },
+    box: {
+      responsiveBreakpoint: 'small' // when we switch rows to columns
+
     },
     button: {
       border: {
@@ -581,6 +594,8 @@ export var generate = function generate(baseSpacing, scale) {
           large: _extends({}, fontSizing(0))
         }
       },
+      responsiveBreakpoint: 'small',
+      // when we scale the font size down
       weight: 600
     },
     icon: {
@@ -594,7 +609,9 @@ export var generate = function generate(baseSpacing, scale) {
       },
       overlay: {
         background: 'rgba(0, 0, 0, 0.5)'
-      }
+      },
+      responsiveBreakpoint: 'small' // when Layer takes over the full screen
+
     },
     menu: {
       icons: {

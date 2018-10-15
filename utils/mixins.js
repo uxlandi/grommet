@@ -1,7 +1,7 @@
 "use strict";
 
 exports.__esModule = true;
-exports.getAvailableAtBadge = exports.findAllByType = exports.palm = exports.lapAndUp = exports.fontSize = exports.parseMetricToNum = void 0;
+exports.getAvailableAtBadge = exports.findAllByType = exports.breakpointStyle = exports.fontSize = exports.parseMetricToNum = void 0;
 
 var _styledComponents = require("styled-components");
 
@@ -21,21 +21,11 @@ var fontSize = function fontSize(size, lineHeight) {
 
 exports.fontSize = fontSize;
 
-var lapAndUp = function lapAndUp(content) {
-  return (0, _styledComponents.css)(["@media only screen and (min-width:", "){", "}"], function (props) {
-    return props.theme.global.breakpoints.narrow + 1 + "px";
-  }, content);
+var breakpointStyle = function breakpointStyle(breakpoint, content) {
+  return (0, _styledComponents.css)(["@media only screen ", "{", "}"], breakpoint.value && "and (max-width: " + breakpoint.value + "px)", content);
 };
 
-exports.lapAndUp = lapAndUp;
-
-var palm = function palm(content) {
-  return (0, _styledComponents.css)(["@media only screen and (max-width:", "){", "}"], function (props) {
-    return props.theme.global.breakpoints.narrow + "px";
-  }, content);
-};
-
-exports.palm = palm;
+exports.breakpointStyle = breakpointStyle;
 
 var findAllByType = function findAllByType(component, type) {
   var matches = [];

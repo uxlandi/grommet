@@ -94,7 +94,9 @@ var FixedSizesBox = function FixedSizesBox() {
       vertical: 'scroll'
     }
   }, Array(20).fill().map(function (_, i) {
-    return React.createElement(Text, null, "Small (" + i + ")");
+    return React.createElement(Text, {
+      key: "" + (i + 0)
+    }, "Small (" + i + ")");
   })), React.createElement(Box, {
     width: "medium",
     height: "medium",

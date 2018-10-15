@@ -1,30 +1,37 @@
 import styled, { css, keyframes } from 'styled-components';
-import { backgroundStyle, baseStyle, lapAndUp, palm } from '../../utils';
+import { backgroundStyle, baseStyle, breakpointStyle } from '../../utils';
 var hiddenPositionStyle = css(["left:-100%;right:100%;z-index:-1;position:fixed;"]);
 var desktopLayerStyle = "\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  right: 0px;\n  bottom: 0px;\n  width: 100vw;\n  height: 100vh;\n";
+var responsiveLayerStyle = "\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  min-height: 100vh;\n";
 export var StyledLayer = styled.div.withConfig({
   displayName: "StyledLayer",
   componentId: "rmtehz-0"
-})(["", " background:unset;position:relative;z-index:10;pointer-events:none;outline:none;", " ", " ", ""], baseStyle, function (props) {
-  return props.responsive && palm("\n    position: absolute;\n    top: 0;\n    height: 100%;\n    width: 100%;\n    overflow: auto;\n  ");
-}, function (props) {
+})(["", " background:unset;position:relative;z-index:10;pointer-events:none;outline:none;", " ", ""], baseStyle, function (props) {
   if (props.position === 'hidden') {
     return hiddenPositionStyle;
   }
 
-  if (props.responsive) {
-    return lapAndUp(desktopLayerStyle);
+  var styles = [desktopLayerStyle];
+
+  if (props.responsive && props.theme.layer.responsiveBreakpoint) {
+    var breakpoint = props.theme.global.breakpoints[props.theme.layer.responsiveBreakpoint];
+    styles.push(breakpointStyle(breakpoint, responsiveLayerStyle));
   }
 
-  return desktopLayerStyle;
+  return styles;
 }, function (props) {
   return props.theme.layer && props.theme.layer.extend;
 });
 export var StyledOverlay = styled.div.withConfig({
   displayName: "StyledLayer__StyledOverlay",
   componentId: "rmtehz-1"
-})(["", " top:0px;left:0px;right:0px;bottom:0px;", " pointer-events:all;"], function (props) {
-  return props.responsive ? lapAndUp('position: absolute;') : 'position: absolute;';
+})(["position:absolute;", " top:0px;left:0px;right:0px;bottom:0px;", " pointer-events:all;"], function (props) {
+  if (props.responsive && props.theme.layer.responsiveBreakpoint) {
+    var breakpoint = props.theme.global.breakpoints[props.theme.layer.responsiveBreakpoint];
+    return breakpointStyle(breakpoint, 'position: relative;');
+  }
+
+  return '';
 }, function (props) {
   return props.theme.layer.overlay.background && backgroundStyle(props.theme.layer.overlay.background, props.theme);
 });
@@ -163,6 +170,7 @@ var desktopContainerStyle = css(["position:", ";max-height:", ";max-width:", ";b
 }, function (props) {
   return props.position !== 'hidden' && POSITIONS[props.position][props.full](props.margin, props.theme) || '';
 });
+var responsiveContainerStyle = css(["position:relative;max-height:none;max-width:none;border-radius:0;top:0;bottom:0;left:0;right:0;transform:none;animation:none;"]);
 export var StyledContainer = styled.div.withConfig({
   displayName: "StyledLayer__StyledContainer",
   componentId: "rmtehz-2"
@@ -172,9 +180,14 @@ export var StyledContainer = styled.div.withConfig({
   return props.theme.global.size.xxsmall;
 }, function (props) {
   return props.theme.layer.background && backgroundStyle(props.theme.layer.background, props.theme);
-}, function (props) {
-  return props.responsive && palm("\n    min-height: 100%;\n    min-width: 100%;\n  ");
-}, function (props) {
-  return props.responsive ? lapAndUp(desktopContainerStyle) : desktopContainerStyle;
-}); // ${props => props.full && fullStyle(props.full, props.margin, props.theme)}
-// ${props => props.margin && edgeStyle('margin', props.margin, props.theme)}
+}, desktopContainerStyle, function (props) {
+  if (props.responsive && props.theme.layer.responsiveBreakpoint) {
+    var breakpoint = props.theme.global.breakpoints[props.theme.layer.responsiveBreakpoint];
+
+    if (breakpoint) {
+      return breakpointStyle(breakpoint, responsiveContainerStyle);
+    }
+  }
+
+  return '';
+});

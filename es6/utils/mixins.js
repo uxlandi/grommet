@@ -9,15 +9,8 @@ export var fontSize = function fontSize(size, lineHeight) {
     return lineHeight || Math.ceil(parseMetricToNum(size) / parseMetricToNum(props.theme.global.lineHeight)) * (parseMetricToNum(props.theme.global.lineHeight) / parseMetricToNum(size)) + "px";
   });
 };
-export var lapAndUp = function lapAndUp(content) {
-  return css(["@media only screen and (min-width:", "){", "}"], function (props) {
-    return props.theme.global.breakpoints.narrow + 1 + "px";
-  }, content);
-};
-export var palm = function palm(content) {
-  return css(["@media only screen and (max-width:", "){", "}"], function (props) {
-    return props.theme.global.breakpoints.narrow + "px";
-  }, content);
+export var breakpointStyle = function breakpointStyle(breakpoint, content) {
+  return css(["@media only screen ", "{", "}"], breakpoint.value && "and (max-width: " + breakpoint.value + "px)", content);
 };
 export var findAllByType = function findAllByType(component, type) {
   var matches = [];

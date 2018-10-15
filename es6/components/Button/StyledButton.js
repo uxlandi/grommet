@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { activeStyle, backgroundStyle, colorForName, focusStyle, lapAndUp, normalizeColor } from '../../utils';
+import { activeStyle, backgroundStyle, colorForName, focusStyle, normalizeColor } from '../../utils';
 
 var basicStyle = function basicStyle(props) {
   return css(["border:", " solid ", ";border-radius:", ";color:", ";padding:", " ", ";font-size:", ";line-height:", ";"], props.theme.button.border.width, colorForName(normalizeColor(props.colorValue || props.theme.button.border.color || props.theme.global.control.color || 'brand', props.theme), props.theme), props.theme.button.border.radius, (props.theme.button.color || props.theme.global.text.color)[props.theme.dark ? 'dark' : 'light'], props.theme.button.padding.vertical, props.theme.button.padding.horizontal, props.theme.text.medium.size, props.theme.text.medium.height);
@@ -57,7 +57,9 @@ export var StyledButton = styled.button.withConfig({
   return props.disabled && disabledStyle;
 }, function (props) {
   return props.focus && (!props.plain || props.focusIndicator) && focusStyle;
-}, lapAndUp("\n    transition: 0.1s ease-in-out;\n  "), function (props) {
+}, function (props) {
+  return !props.plain && "\n    transition: 0.1s ease-in-out;\n  ";
+}, function (props) {
   return props.fillContainer && fillStyle;
 }, function (props) {
   return props.hasIcon && !props.hasLabel && "\n    padding: " + props.theme.global.edgeSize.small + ";\n  ";
