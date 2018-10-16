@@ -15,6 +15,8 @@ var _FocusedContainer = require("../FocusedContainer");
 
 var _utils = require("../../utils");
 
+var _Box = require("../Box");
+
 var _Keyboard = require("../Keyboard");
 
 var _StyledDrop = require("./StyledDrop");
@@ -293,6 +295,8 @@ function (_Component) {
     var theme = stateTheme || propsTheme;
 
     var content = _react.default.createElement(_StyledDrop.StyledDrop, _extends({
+      as: _Box.Box,
+      elevation: theme.global.drop.shadowSize || 'small',
       tabIndex: "-1",
       ref: this.dropRef,
       theme: theme

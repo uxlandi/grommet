@@ -175,10 +175,7 @@ export var generate = function generate(baseSpacing, scale) {
           width: '0px',
           radius: '0px'
         },
-        shadow: {
-          light: '0px 3px 8px rgba(100, 100, 100, 0.50)',
-          dark: '0px 3px 8px rgba(255, 255, 255, 0.40)'
-        }
+        shadowSize: 'small'
       },
       edgeSize: {
         none: '0px',

@@ -14,6 +14,7 @@ import { ThemeContext as IconThemeContext } from "grommet-icons/es6/contexts/The
 import { ThemeContext } from '../../contexts';
 import { FocusedContainer } from '../FocusedContainer';
 import { backgroundIsDark, findScrollParents, findVisibleParent, parseMetricToNum } from '../../utils';
+import { Box } from '../Box';
 import { Keyboard } from '../Keyboard';
 import { StyledDrop } from './StyledDrop';
 export var DropContainer =
@@ -277,6 +278,8 @@ function (_Component) {
     var stateTheme = this.state.theme;
     var theme = stateTheme || propsTheme;
     var content = React.createElement(StyledDrop, _extends({
+      as: Box,
+      elevation: theme.global.drop.shadowSize || 'small',
       tabIndex: "-1",
       ref: this.dropRef,
       theme: theme
