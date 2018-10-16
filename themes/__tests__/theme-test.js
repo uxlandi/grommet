@@ -6,6 +6,8 @@ var _reactTestRenderer = _interopRequireDefault(require("react-test-renderer"));
 
 require("jest-styled-components");
 
+var _grommetThemeHpe = require("grommet-theme-hpe");
+
 var _components = require("../../components");
 
 var _ = require("..");
@@ -39,7 +41,7 @@ test('dark renders', function () {
 });
 test('hpe renders', function () {
   var component = _reactTestRenderer.default.create(_react.default.createElement(_components.Grommet, {
-    theme: _.hpe
+    theme: _grommetThemeHpe.hpe
   }, colors.map(function (color) {
     return _react.default.createElement(_components.Box, {
       key: color,

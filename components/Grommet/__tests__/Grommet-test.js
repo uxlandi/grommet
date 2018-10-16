@@ -10,7 +10,7 @@ require("jest-styled-components");
 
 var _reactTestingLibrary = require("react-testing-library");
 
-var _themes = require("../../../themes");
+var _grommetThemeHpe = require("grommet-theme-hpe");
 
 var _ = require("..");
 
@@ -60,7 +60,7 @@ describe('Grommet', function () {
   });
   test('hpe theme', function () {
     var component = _reactTestRenderer.default.create(_react.default.createElement(_.Grommet, {
-      theme: _themes.hpe
+      theme: _grommetThemeHpe.hpe
     }, "Grommet App"));
 
     expect(component.toJSON()).toMatchSnapshot();

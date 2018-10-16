@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import renderer from 'react-test-renderer';
 import 'jest-styled-components';
 import { cleanup, render } from 'react-testing-library';
-import { hpe as hpeTheme } from '../../../themes';
+import { hpe as hpeTheme } from 'grommet-theme-hpe';
 import { Grommet } from '..';
 import { AnnounceContext } from '../../../contexts';
 

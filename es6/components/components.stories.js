@@ -10,10 +10,11 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import { Grommet, Accordion, AccordionPanel, Anchor, Box, Button, Calendar, Chart, CheckBox, Clock, DataTable, Diagram, Distribution, FormField, Grid, Heading, Menu, Meter, Paragraph, RadioButton, RangeInput, RangeSelector, Select, Stack, Tab, Tabs, Text, TextArea, TextInput, Video } from '.';
-import { grommet, dark, hpe } from '../themes';
-import { generate } from '../themes/base';
-import { deepMerge } from '../utils';
+import { Grommet, Accordion, AccordionPanel, Anchor, Box, Button, Calendar, Chart, CheckBox, Clock, DataTable, Diagram, Distribution, FormField, Grid, Heading, Menu, Meter, Paragraph, RadioButton, RangeInput, RangeSelector, Select, Stack, Tab, Tabs, Text, TextArea, TextInput, Video } from 'grommet';
+import { grommet, dark } from 'grommet/themes';
+import { generate } from 'grommet/themes/base';
+import { deepMerge } from 'grommet/utils';
+import { hpe } from 'grommet-theme-hpe';
 
 var Node = function Node(_ref) {
   var id = _ref.id,
