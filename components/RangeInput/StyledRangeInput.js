@@ -21,7 +21,7 @@ var rangeThumbStyle = (0, _styledComponents.css)(["box-sizing:border-box;positio
 }, function (props) {
   return props.theme.global.spacing;
 }, function (props) {
-  return (0, _utils.normalizeColor)(props.theme.rangeInput.thumb.color || props.theme.global.control.color, props.theme);
+  return (0, _utils.normalizeColor)(props.theme.rangeInput.thumb.color || 'control', props.theme);
 });
 var firefoxMicrosoftThumbStyle = (0, _styledComponents.css)(["", " margin-top:0px;height:", ";width:", ";"], rangeThumbStyle, function (props) {
   return props.theme.global.spacing;
@@ -37,9 +37,9 @@ var StyledRangeInput = _styledComponents.default.input.withConfig({
 }, rangeTrackStyle, rangeThumbStyle, function (props) {
   return (0, _utils.parseMetricToNum)(props.theme.global.spacing) * 0.425;
 }, function (props) {
-  return !props.disabled && (0, _styledComponents.css)(["&:hover{box-shadow:0px 0px 0px 2px ", ";}"], (0, _utils.normalizeColor)(props.theme.rangeInput.thumb.color || props.theme.global.control.color, props.theme));
+  return !props.disabled && (0, _styledComponents.css)(["&:hover{box-shadow:0px 0px 0px 2px ", ";}"], (0, _utils.normalizeColor)(props.theme.rangeInput.thumb.color || 'control', props.theme));
 }, rangeTrackStyle, firefoxMicrosoftThumbStyle, firefoxMicrosoftThumbStyle, function (props) {
-  return !props.disabled && (0, _styledComponents.css)(["&:hover::-moz-range-thumb{box-shadow:0px 0px 0px 2px ", ";}&:hover::-ms-thumb{box-shadow:0px 0px 0px 2px ", ";}"], (0, _utils.normalizeColor)(props.theme.rangeInput.thumb.color || props.theme.global.control.color, props.theme), (0, _utils.normalizeColor)(props.theme.rangeInput.thumb.color || props.theme.global.control.color, props.theme));
+  return !props.disabled && (0, _styledComponents.css)(["&:hover::-moz-range-thumb{box-shadow:0px 0px 0px 2px ", ";}&:hover::-ms-thumb{box-shadow:0px 0px 0px 2px ", ";}"], (0, _utils.normalizeColor)(props.theme.rangeInput.thumb.color || 'control', props.theme), (0, _utils.normalizeColor)(props.theme.rangeInput.thumb.color || 'control', props.theme));
 }, rangeTrackStyle, function (props) {
   return (0, _utils.normalizeColor)(props.theme.rangeInput.track.color, props.theme);
 }, function (props) {

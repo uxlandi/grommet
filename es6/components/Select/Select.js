@@ -16,7 +16,7 @@ import { DropButton } from '../DropButton';
 import { Keyboard } from '../Keyboard';
 import { TextInput } from '../TextInput';
 import { withForwardRef, withTheme } from '../hocs';
-import { controlBorderStyle, colorIsDark, evalStyle } from '../../utils';
+import { controlBorderStyle, normalizeColor } from '../../utils';
 import { SelectContainer } from './SelectContainer';
 var SelectTextInput = styled(TextInput).withConfig({
   displayName: "Select__SelectTextInput",
@@ -143,10 +143,10 @@ function (_Component) {
       }
     } else {
       selectValue = value;
-    }
+    } // const dark = theme.select.background ? colorIsDark(theme.select.background) : theme.dark;
 
-    var dark = theme.select.background ? colorIsDark(theme.select.background) : theme.dark;
-    var iconColor = evalStyle((theme.select.icons.color || theme.global.control.color)[dark ? 'dark' : 'light'], theme);
+
+    var iconColor = normalizeColor(theme.select.icons.color || 'control', theme);
     return React.createElement(Keyboard, {
       onDown: this.onOpen,
       onUp: this.onOpen

@@ -8,6 +8,7 @@ import { Box } from '../Box';
 import { Button } from '../Button';
 import { TableCell } from '../TableCell';
 import { withTheme } from '../hocs';
+import { normalizeColor } from '../../utils';
 
 var ExpanderCell = function ExpanderCell(_ref) {
   var context = _ref.context,
@@ -32,7 +33,7 @@ var ExpanderCell = function ExpanderCell(_ref) {
     }, React.createElement(Box, _extends({}, theme.dataTable[context], rest, {
       pad: "xsmall"
     }), React.createElement(ExpandIcon, {
-      color: theme.dark ? 'border-dark' : 'border-light'
+      color: normalizeColor('border', theme)
     }))));
   }
 

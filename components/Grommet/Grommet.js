@@ -83,7 +83,7 @@ function (_Component) {
       var lightIconTheme = (0, _utils.deepMerge)(iconTheme, nextTheme.icon);
       var iconThemes = {
         dark: (0, _utils.deepMerge)(lightIconTheme, {
-          color: nextTheme.global.text.color.dark
+          color: nextTheme.global.colors.text.dark
         }),
         light: lightIconTheme
       };

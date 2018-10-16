@@ -51,7 +51,7 @@ exports.StyledVideoControls = StyledVideoControls;
 var headStyle = (0, _styledComponents.css)(["::after{content:'';height:100%;width:", ";background:", ";position:absolute;left:", ";}"], function (props) {
   return props.theme.global.edgeSize.xsmall;
 }, function (props) {
-  return (0, _utils.colorForName)('light-5', props.theme);
+  return (0, _utils.normalizeColor)('light-5', props.theme);
 }, function (props) {
   return props.value + "%";
 });

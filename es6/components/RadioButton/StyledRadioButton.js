@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { focusStyle } from '../../utils';
+import { focusStyle, normalizeColor } from '../../utils';
 var disabledStyle = "\n  opacity: 0.5;\n  cursor: default;\n";
 export var StyledRadioButtonContainer = styled.label.withConfig({
   displayName: "StyledRadioButton__StyledRadioButtonContainer",
@@ -15,11 +15,11 @@ export var StyledRadioButtonInput = styled.input.withConfig({
   displayName: "StyledRadioButton__StyledRadioButtonInput",
   componentId: "g1f6ld-1"
 })(["position:absolute;opacity:0;top:0;left:0;width:100%;height:100%;margin:0;z-index:1;:focus + div,:focus + span{", "}:checked + div{border-color:", ";}:checked + div > svg{display:block;}:checked + span > span{left:", ";background:", ";}"], focusStyle, function (props) {
-  return (props.theme.radioButton.check.color || props.theme.global.control.color)[props.theme.dark ? 'dark' : 'light'];
+  return normalizeColor(props.theme.radioButton.check.color || 'control', props.theme);
 }, function (props) {
   return props.theme.radioButton.size;
 }, function (props) {
-  return (props.theme.radioButton.check.color || props.theme.global.control.color)[props.theme.dark ? 'dark' : 'light'];
+  return normalizeColor(props.theme.radioButton.check.color || 'control', props.theme);
 });
 export var StyledRadioButtonButton = styled.div.withConfig({
   displayName: "StyledRadioButton__StyledRadioButtonButton",
@@ -31,7 +31,7 @@ export var StyledRadioButtonButton = styled.div.withConfig({
 }, function (props) {
   return props.theme.radioButton.border.width;
 }, function (props) {
-  return props.theme.radioButton.border.color[props.theme.dark ? 'dark' : 'light'];
+  return normalizeColor(props.theme.radioButton.border.color || 'border', props.theme);
 }, function (props) {
   return props.theme.radioButton.border.radius;
 }, function (props) {
@@ -39,7 +39,7 @@ export var StyledRadioButtonButton = styled.div.withConfig({
 }, function (props) {
   return props.theme.radioButton.size;
 }, function (props) {
-  return (props.theme.radioButton.check.color || props.theme.global.control.color)[props.theme.dark ? 'dark' : 'light'];
+  return normalizeColor(props.theme.radioButton.check.color || 'control', props.theme);
 });
 export var StyledRadioButton = styled.div.withConfig({
   displayName: "StyledRadioButton",

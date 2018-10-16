@@ -12,7 +12,7 @@ import React, { Component } from 'react';
 import { compose } from 'recompose';
 import { Box } from '../Box';
 import { Keyboard } from '../Keyboard';
-import { colorForName, evalStyle, normalizeColor, parseMetricToNum } from '../../utils';
+import { normalizeColor, parseMetricToNum } from '../../utils';
 import { withForwardRef } from '../hocs';
 var DIRECTION_PROPS = {
   horizontal: {
@@ -115,7 +115,7 @@ function (_Component) {
       cx: halfSize,
       cy: halfSize,
       r: halfSize,
-      fill: color ? colorForName(color, theme) : evalStyle(normalizeColor(theme.global.control.color, theme), theme)
+      fill: normalizeColor(color || 'control', theme)
     }))))));
   };
 

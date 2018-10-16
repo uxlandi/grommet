@@ -112,7 +112,7 @@ var wrapStyle = 'flex-wrap: wrap;';
 
 var borderStyle = function borderStyle(data, responsive, theme) {
   var styles = [];
-  var color = (0, _utils.colorForName)(data.color || (theme.dark ? 'border-dark' : 'border-light'), theme);
+  var color = (0, _utils.normalizeColor)(data.color || 'border', theme);
   var borderSize = data.size || 'xsmall';
   var side = typeof data === 'string' ? data : data.side || 'all';
   var value = "solid " + (theme.global.borderSize[borderSize] || borderSize) + " " + color;

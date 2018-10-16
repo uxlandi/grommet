@@ -26,20 +26,25 @@ var statusColors = {
 };
 var darkColors = ['#333333', '#444444', '#555555', '#666666', '#777777', '#999999'];
 var lightColors = ['#F6F6F6', '#EEEEEE', '#DDDDDD', '#CCCCCC', '#BBBBBB', '#AAAAAA'];
-var textColor = '#444444';
-var borderColor = 'rgba(0, 0, 0, 0.33)';
-var borderColorDark = 'rgba(255, 255, 255, 0.33)';
 var focusColor = accentColors[0];
-var activeColor = (0, _polished.rgba)('#DDDDDD', 0.5);
 var colors = {
-  'active': activeColor,
+  'active': (0, _polished.rgba)(221, 221, 221, 0.5),
   'black': '#000000',
-  'border-light': borderColor,
-  'border-dark': borderColorDark,
+  'border': {
+    'dark': (0, _polished.rgba)(255, 255, 255, 0.33),
+    'light': (0, _polished.rgba)(0, 0, 0, 0.33)
+  },
   'brand': brandColor,
+  'control': {
+    'dark': 'accent-1',
+    'light': 'brand'
+  },
   'focus': focusColor,
   'placeholder': '#AAAAAA',
-  'text': textColor,
+  'text': {
+    'dark': '#f8f8f8',
+    'light': '#444444'
+  },
   'white': '#FFFFFF'
 };
 
@@ -158,22 +163,7 @@ var generate = function generate(baseSpacing, scale) {
         border: {
           width: '1px',
           radius: '4px',
-          color: {
-            dark: (0, _styledComponents.css)(["", ""], function (props) {
-              return props.theme.global.colors['border-dark'];
-            }),
-            light: (0, _styledComponents.css)(["", ""], function (props) {
-              return props.theme.global.colors['border-light'];
-            })
-          }
-        },
-        color: {
-          dark: (0, _styledComponents.css)(["", ""], function (props) {
-            return props.theme.global.colors['accent-1'];
-          }),
-          light: (0, _styledComponents.css)(["", ""], function (props) {
-            return props.theme.global.colors.brand;
-          })
+          color: 'border'
         }
       },
       drop: {
@@ -225,7 +215,7 @@ var generate = function generate(baseSpacing, scale) {
       focus: {
         border: {
           color: (0, _styledComponents.css)(["", ""], function (props) {
-            return (0, _utils.colorForName)('focus', props.theme);
+            return (0, _utils.normalizeColor)('focus', props.theme);
           }),
           width: '2px'
         }
@@ -270,12 +260,6 @@ var generate = function generate(baseSpacing, scale) {
         xlarge: baseSpacing * 48 + "px",
         // 1152
         full: '100%'
-      },
-      text: {
-        color: {
-          dark: '#f8f8f8',
-          light: textColor
-        }
       }
     },
     accordion: {
@@ -290,7 +274,7 @@ var generate = function generate(baseSpacing, scale) {
       fontWeight: 600,
       color: {
         dark: '#6194EB',
-        light: '#6194EB'
+        light: '#1D67E3'
       }
     },
     box: {
@@ -374,10 +358,10 @@ var generate = function generate(baseSpacing, scale) {
         border: {
           color: {
             dark: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.colorForName)('white', props.theme);
+              return (0, _utils.normalizeColor)('white', props.theme);
             }),
             light: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.colorForName)('black', props.theme);
+              return (0, _utils.normalizeColor)('black', props.theme);
             })
           }
         }
@@ -402,10 +386,10 @@ var generate = function generate(baseSpacing, scale) {
         hour: {
           color: {
             dark: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.colorForName)('light-3', props.theme);
+              return (0, _utils.normalizeColor)('light-3', props.theme);
             }),
             light: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.colorForName)('dark-3', props.theme);
+              return (0, _utils.normalizeColor)('dark-3', props.theme);
             })
           },
           width: baseSpacing / 3 + "px",
@@ -415,10 +399,10 @@ var generate = function generate(baseSpacing, scale) {
         minute: {
           color: {
             dark: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.colorForName)('light-5', props.theme);
+              return (0, _utils.normalizeColor)('light-5', props.theme);
             }),
             light: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.colorForName)('dark-5', props.theme);
+              return (0, _utils.normalizeColor)('dark-5', props.theme);
             })
           },
           width: baseSpacing / 6 + "px",
@@ -428,10 +412,10 @@ var generate = function generate(baseSpacing, scale) {
         second: {
           color: {
             dark: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.colorForName)('accent-1', props.theme);
+              return (0, _utils.normalizeColor)('accent-1', props.theme);
             }),
             light: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.colorForName)('accent-1', props.theme);
+              return (0, _utils.normalizeColor)('accent-1', props.theme);
             })
           },
           width: baseSpacing / 8 + "px",
@@ -533,10 +517,7 @@ var generate = function generate(baseSpacing, scale) {
       resize: {
         border: {
           side: 'right',
-          color: {
-            dark: 'border-dark',
-            light: 'border-light'
-          }
+          color: 'border'
         }
       }
     },
@@ -545,10 +526,7 @@ var generate = function generate(baseSpacing, scale) {
     // },
     formField: {
       border: {
-        color: {
-          dark: 'border-dark',
-          light: 'border-light'
-        },
+        color: 'border',
         position: 'inner',
         side: 'bottom',
         error: {
@@ -644,14 +622,9 @@ var generate = function generate(baseSpacing, scale) {
     rangeInput: {
       track: {
         height: '4px',
-        color: {
-          dark: (0, _styledComponents.css)(["", ""], function (props) {
-            return (0, _polished.rgba)(props.theme.global.colors['border-dark'], 0.2);
-          }),
-          light: (0, _styledComponents.css)(["", ""], function (props) {
-            return (0, _polished.rgba)(props.theme.global.colors['border-light'], 0.2);
-          })
-        }
+        color: (0, _styledComponents.css)(["", ""], function (props) {
+          return (0, _polished.rgba)((0, _utils.normalizeColor)('border', props.theme), 0.2);
+        })
       },
       thumb: {// color: { dark: undefined, light: undefined },
       }

@@ -237,7 +237,7 @@ function (_Component) {
           path = _react.default.createElement("path", _extends({
             key: "" + (index + 0)
           }, cleanedRest, {
-            stroke: (0, _utils.colorForName)(color || 'accent-1', theme),
+            stroke: (0, _utils.normalizeColor)(color || 'accent-1', theme),
             strokeWidth: strokeWidth,
             strokeLinecap: round ? 'round' : 'butt',
             strokeLinejoin: round ? 'round' : 'miter',

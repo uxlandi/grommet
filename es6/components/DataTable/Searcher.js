@@ -11,6 +11,7 @@ import { Button } from '../Button';
 import { Keyboard } from '../Keyboard';
 import { Text } from '../Text';
 import { TextInput } from '../TextInput';
+import { normalizeColor } from '../../utils';
 export var Searcher =
 /*#__PURE__*/
 function (_Component) {
@@ -49,7 +50,8 @@ function (_Component) {
         filters = _this$props2.filters,
         onFilter = _this$props2.onFilter,
         onFiltering = _this$props2.onFiltering,
-        property = _this$props2.property;
+        property = _this$props2.property,
+        theme = _this$props2.theme;
 
     if (filtering === property) {
       return React.createElement(Keyboard, {
@@ -80,7 +82,7 @@ function (_Component) {
       }
     }, React.createElement(Text, null, filters[property])) : null, React.createElement(Button, {
       icon: React.createElement(FormSearch, {
-        color: filtering === property ? 'brand' : 'border'
+        color: normalizeColor(filtering === property ? 'brand' : 'border', theme)
       }),
       hoverIndicator: true,
       onClick: function onClick() {

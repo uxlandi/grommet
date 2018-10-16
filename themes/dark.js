@@ -22,16 +22,16 @@ var statusColors = {
 };
 var backgroundColor = '#111111';
 var textColor = '#eeeeee';
-var borderColor = 'rgba(255, 255, 255, 0.33)';
-var focusColor = accentColors[0];
-var activeColor = (0, _polished.rgba)('#666666', 0.5);
+var borderColor = (0, _polished.rgba)(255, 255, 255, 0.33);
+var activeColor = (0, _polished.rgba)(102, 102, 102, 0.5);
 var colors = {
   active: activeColor,
   background: backgroundColor,
   black: '#000000',
   border: borderColor,
   brand: brandColor,
-  focus: focusColor,
+  control: brandColor,
+  focus: brandColor,
   placeholder: '#AAAAAA',
   text: textColor,
   white: '#FFFFFF'
@@ -60,7 +60,7 @@ var dark = (0, _utils.deepFreeze)({
     focus: {
       border: {
         color: (0, _styledComponents.css)(["", ""], function (props) {
-          return (0, _utils.colorForName)('focus', props.theme);
+          return (0, _utils.normalizeColor)('focus', props.theme);
         }),
         width: '2px'
       }
@@ -86,7 +86,7 @@ var dark = (0, _utils.deepFreeze)({
   layer: {
     background: backgroundColor,
     overlay: {
-      background: 'rgba(48, 48, 48, 0.5)'
+      background: (0, _polished.rgba)(48, 48, 48, 0.5)
     }
   }
 });

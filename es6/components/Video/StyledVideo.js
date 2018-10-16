@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { colorForName } from '../../utils';
+import { normalizeColor } from '../../utils';
 var FIT_MAP = {
   cover: 'cover',
   contain: 'contain'
@@ -33,7 +33,7 @@ export var StyledVideoControls = styled.div.withConfig({
 var headStyle = css(["::after{content:'';height:100%;width:", ";background:", ";position:absolute;left:", ";}"], function (props) {
   return props.theme.global.edgeSize.xsmall;
 }, function (props) {
-  return colorForName('light-5', props.theme);
+  return normalizeColor('light-5', props.theme);
 }, function (props) {
   return props.value + "%";
 });

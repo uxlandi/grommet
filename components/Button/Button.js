@@ -7,11 +7,11 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _recompose = require("recompose");
 
+var _utils = require("../../utils");
+
 var _Box = require("../Box");
 
 var _hocs = require("../hocs");
-
-var _utils = require("../../utils");
 
 var _StyledButton = require("./StyledButton");
 
@@ -26,8 +26,8 @@ function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.crea
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var isDarkBackground = function isDarkBackground(props) {
-  var backgroundColor = (0, _utils.normalizeBackground)((0, _utils.normalizeColor)(props.color || props.theme.button.primary.color || props.theme.global.control.color || 'brand', props.theme), props.theme);
-  return (0, _utils.colorIsDark)((0, _utils.colorForName)(backgroundColor, props.theme));
+  var backgroundColor = (0, _utils.normalizeBackground)((0, _utils.normalizeColor)(props.color || props.theme.button.primary.color || props.theme.global.colors.control || 'brand', props.theme), props.theme);
+  return (0, _utils.colorIsDark)(backgroundColor, props.theme);
 };
 
 var Button =
@@ -76,7 +76,7 @@ function (_Component) {
 
     if (primary && icon && !icon.props.color) {
       buttonIcon = (0, _react.cloneElement)(icon, {
-        color: theme.global.text.color[isDarkBackground(this.props) ? 'dark' : 'light']
+        color: theme.global.colors.text[isDarkBackground(this.props) ? 'dark' : 'light']
       });
     }
 

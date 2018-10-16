@@ -162,10 +162,10 @@ function (_Component) {
       }
     } else {
       selectValue = value;
-    }
+    } // const dark = theme.select.background ? colorIsDark(theme.select.background) : theme.dark;
 
-    var dark = theme.select.background ? (0, _utils.colorIsDark)(theme.select.background) : theme.dark;
-    var iconColor = (0, _utils.evalStyle)((theme.select.icons.color || theme.global.control.color)[dark ? 'dark' : 'light'], theme);
+
+    var iconColor = (0, _utils.normalizeColor)(theme.select.icons.color || 'control', theme);
     return _react.default.createElement(_Keyboard.Keyboard, {
       onDown: this.onOpen,
       onUp: this.onOpen

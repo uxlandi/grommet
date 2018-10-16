@@ -11,7 +11,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { compose } from 'recompose';
-import { colorForName, parseMetricToNum } from '../../utils';
+import { normalizeColor, parseMetricToNum } from '../../utils';
 import { withTheme } from '../hocs';
 import { StyledDiagram } from './StyledDiagram';
 
@@ -225,7 +225,7 @@ function (_Component) {
           path = React.createElement("path", _extends({
             key: "" + (index + 0)
           }, cleanedRest, {
-            stroke: colorForName(color || 'accent-1', theme),
+            stroke: normalizeColor(color || 'accent-1', theme),
             strokeWidth: strokeWidth,
             strokeLinecap: round ? 'round' : 'butt',
             strokeLinejoin: round ? 'round' : 'miter',

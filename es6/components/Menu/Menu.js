@@ -18,7 +18,7 @@ import { DropButton } from '../DropButton';
 import { Keyboard } from '../Keyboard';
 import { Text } from '../Text';
 import { withForwardRef, withTheme } from '../hocs';
-import { evalStyle } from '../../utils';
+import { normalizeColor } from '../../utils';
 var ContainerBox = styled(Box).withConfig({
   displayName: "Menu__ContainerBox",
   componentId: "sc-17fcys9-0"
@@ -138,7 +138,7 @@ function (_Component) {
         activeItemIndex = _this$state3.activeItemIndex,
         open = _this$state3.open;
     var MenuIcon = theme.menu.icons.down;
-    var iconColor = evalStyle(theme.global.control.color[theme.dark ? 'dark' : 'light'], theme) || 'brand';
+    var iconColor = normalizeColor('control', theme);
     var content = children || React.createElement(Box, {
       direction: "row",
       justify: "start",

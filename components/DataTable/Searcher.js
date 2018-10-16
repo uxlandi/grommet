@@ -17,6 +17,8 @@ var _Text = require("../Text");
 
 var _TextInput = require("../TextInput");
 
+var _utils = require("../../utils");
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
@@ -63,7 +65,8 @@ function (_Component) {
         filters = _this$props2.filters,
         onFilter = _this$props2.onFilter,
         onFiltering = _this$props2.onFiltering,
-        property = _this$props2.property;
+        property = _this$props2.property,
+        theme = _this$props2.theme;
 
     if (filtering === property) {
       return _react.default.createElement(_Keyboard.Keyboard, {
@@ -94,7 +97,7 @@ function (_Component) {
       }
     }, _react.default.createElement(_Text.Text, null, filters[property])) : null, _react.default.createElement(_Button.Button, {
       icon: _react.default.createElement(_grommetIcons.FormSearch, {
-        color: filtering === property ? 'brand' : 'border'
+        color: (0, _utils.normalizeColor)(filtering === property ? 'brand' : 'border', theme)
       }),
       hoverIndicator: true,
       onClick: function onClick() {

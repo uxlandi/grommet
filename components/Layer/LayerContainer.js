@@ -145,6 +145,7 @@ function (_Component) {
         tabIndex: "-1",
         ref: this.layerRef
       }, _react.default.createElement(_StyledLayer.StyledOverlay, {
+        plain: plain,
         onMouseDown: onClickOutside,
         responsive: responsive,
         theme: theme

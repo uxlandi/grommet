@@ -10,13 +10,13 @@ var strokeProps = function strokeProps(color, theme) {
 
   if (color) {
     if (typeof color === 'object') {
-      result.stroke = (0, _utils.colorForName)(color.color, theme);
+      result.stroke = (0, _utils.normalizeColor)(color.color, theme);
 
       if (color.opacity) {
         result.strokeOpacity = color.opacity === true ? theme.global.opacity.medium : theme.global.opacity[color.opacity];
       }
     } else {
-      result.stroke = (0, _utils.colorForName)(color, theme);
+      result.stroke = (0, _utils.normalizeColor)(color, theme);
     }
   }
 

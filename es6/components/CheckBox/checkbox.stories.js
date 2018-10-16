@@ -11,7 +11,7 @@ import { storiesOf } from '@storybook/react';
 import { css } from 'styled-components';
 import { Grommet, CheckBox } from 'grommet';
 import { grommet } from 'grommet/themes';
-import { colorForName, deepMerge } from 'grommet/utils';
+import { normalizeColor, deepMerge } from 'grommet/utils';
 import { FormCheckmark } from "grommet-icons/es6/icons/FormCheckmark";
 
 var SimpleCheckBox =
@@ -62,21 +62,21 @@ var customCheckBoxTheme = {
     border: {
       color: {
         light: css(["", ""], function (props) {
-          return colorForName('neutral-1', props.theme);
+          return normalizeColor('neutral-1', props.theme);
         })
       },
       radius: '2px'
     },
     color: {
       light: css(["", ""], function (props) {
-        return colorForName('neutral-1', props.theme);
+        return normalizeColor('neutral-1', props.theme);
       })
     },
     check: {
       extend: function extend(_ref) {
         var theme = _ref.theme,
             checked = _ref.checked;
-        return "\n        " + (checked && "background-color: " + colorForName('neutral-1', theme) + ";") + "\n      ";
+        return "\n        " + (checked && "background-color: " + normalizeColor('neutral-1', theme) + ";") + "\n      ";
       }
     },
     hover: {
@@ -144,13 +144,13 @@ var customToggleTheme = {
     border: {
       color: {
         light: css(["", ""], function (props) {
-          return colorForName('light-2', props.theme);
+          return normalizeColor('light-2', props.theme);
         })
       }
     },
     color: {
       light: css(["", ""], function (props) {
-        return colorForName('neutral-1', props.theme);
+        return normalizeColor('neutral-1', props.theme);
       })
     },
     check: {
@@ -163,11 +163,11 @@ var customToggleTheme = {
     },
     toggle: {
       background: css(["", ""], function (props) {
-        return colorForName('light-2', props.theme);
+        return normalizeColor('light-2', props.theme);
       }),
       color: {
         light: css(["", ""], function (props) {
-          return colorForName('light-4', props.theme);
+          return normalizeColor('light-4', props.theme);
         })
       },
       size: '36px'

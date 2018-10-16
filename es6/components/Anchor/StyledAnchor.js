@@ -11,7 +11,7 @@ export var StyledAnchor = styled.a.withConfig({
 }, function (props) {
   return !props.disabled && "\n    &:hover {\n      text-decoration: underline;\n    }\n  ";
 }, function (props) {
-  return !props.primary && props.hasIcon && props.hasLabel && "\n    color: " + props.theme.global.colors.text + ";\n  ";
+  return !props.primary && props.hasIcon && props.hasLabel && "\n    color: " + normalizeColor('text', props.theme) + ";\n  ";
 }, function (props) {
   return props.hasIcon && !props.hasLabel && "\n    padding: " + props.theme.global.edgeSize.small + ";\n  ";
 }, function (props) {

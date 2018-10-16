@@ -33,7 +33,7 @@ export var StyledOverlay = styled.div.withConfig({
 
   return '';
 }, function (props) {
-  return props.theme.layer.overlay.background && backgroundStyle(props.theme.layer.overlay.background, props.theme);
+  return !props.plain && props.theme.layer.overlay.background && backgroundStyle(props.theme.layer.overlay.background, props.theme);
 });
 var MARGINS = {
   top: function top(margin, theme) {
@@ -166,7 +166,7 @@ var desktopContainerStyle = css(["position:", ";max-height:", ";max-width:", ";b
 }, function (props) {
   return "calc(100% - " + MARGINS.left(props.margin, props.theme) + " - " + MARGINS.right(props.margin, props.theme) + ")";
 }, function (props) {
-  return props.plain ? 'none' : props.theme.layer.border.radius;
+  return props.plain ? 0 : props.theme.layer.border.radius;
 }, function (props) {
   return props.position !== 'hidden' && POSITIONS[props.position][props.full](props.margin, props.theme) || '';
 });
@@ -179,7 +179,7 @@ export var StyledContainer = styled.div.withConfig({
 }, function (props) {
   return props.theme.global.size.xxsmall;
 }, function (props) {
-  return props.theme.layer.background && backgroundStyle(props.theme.layer.background, props.theme);
+  return !props.plain && props.theme.layer.background && backgroundStyle(props.theme.layer.background, props.theme);
 }, desktopContainerStyle, function (props) {
   if (props.responsive && props.theme.layer.responsiveBreakpoint) {
     var breakpoint = props.theme.global.breakpoints[props.theme.layer.responsiveBreakpoint];

@@ -146,7 +146,7 @@ var renderArea = function renderArea(values, bounds, scale, height, _ref3) {
   }
 
   return _react.default.createElement("g", {
-    fill: (0, _utils.colorForName)(color.color || color, theme)
+    fill: (0, _utils.normalizeColor)(color.color || color, theme)
   }, _react.default.createElement("path", _extends({
     d: d
   }, hoverProps, clickProps)));
@@ -270,7 +270,7 @@ function (_Component) {
       width: size === 'full' ? '100%' : width,
       height: size === 'full' ? '100%' : height
     }, rest), _react.default.createElement("g", {
-      stroke: (0, _utils.colorForName)(colorName, theme),
+      stroke: (0, _utils.normalizeColor)(colorName, theme),
       strokeWidth: strokeWidth,
       strokeLinecap: round ? 'round' : 'butt',
       strokeLinejoin: round ? 'round' : 'miter',

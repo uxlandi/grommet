@@ -1,20 +1,19 @@
 import { css } from 'styled-components';
+import { normalizeColor } from './colors';
 import { breakpointStyle, parseMetricToNum } from './mixins';
-export var baseStyle = css(["font-family:", ";font-size:", ";line-height:", ";", " ", " box-sizing:border-box;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;"], function (props) {
+export var baseStyle = css(["font-family:", ";font-size:", ";line-height:", ";", " box-sizing:border-box;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;"], function (props) {
   return props.theme.global.font.family;
 }, function (props) {
   return props.theme.global.font.size;
 }, function (props) {
   return props.theme.global.font.height;
 }, function (props) {
-  return props.theme.global.colors.text && "color: " + props.theme.global.colors.text + ";";
-}, function (props) {
-  return props.theme.global.colors.background && "background: " + props.theme.global.colors.background + ";";
+  return !props.plain && props.theme.global.colors.background && css(["background:", ";color:", ";"], normalizeColor('background', props.theme, true), normalizeColor('text', props.theme, true));
 });
 export var controlBorderStyle = css(["border:", " solid ", ";border-radius:", ";"], function (props) {
   return props.theme.global.control.border.width;
 }, function (props) {
-  return (props.theme.global.control.border.color || props.theme.global.control.border.color)[props.theme.dark ? 'dark' : 'light'];
+  return normalizeColor('border', props.theme);
 }, function (props) {
   return props.theme.global.control.border.radius;
 });
@@ -74,7 +73,8 @@ export var overflowStyle = function overflowStyle(overflowProp) {
   }
 
   return css(["", " ", ""], overflowProp.horizontal && "overflow-x: " + overflowProp.horizontal + ";", overflowProp.vertical && "overflow-y: " + overflowProp.vertical + ";");
-};
+}; // evalStyle() converts a styled-components item into a string
+
 export var evalStyle = function evalStyle(arg, theme) {
   if (arg && Array.isArray(arg) && typeof arg[0] === 'function') {
     return arg[0]({

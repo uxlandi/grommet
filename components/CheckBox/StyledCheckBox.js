@@ -20,7 +20,7 @@ var StyledCheckBoxIcon = _styledComponents.default.svg.withConfig({
 })(["stroke-width:", ";stroke:", ";width:", ";height:", ";", ""], function (props) {
   return props.theme.checkBox.check.thickness;
 }, function (props) {
-  return (0, _utils.normalizeColor)((props.theme.checkBox.color || props.theme.global.control.color)[props.theme.dark ? 'dark' : 'light'], props.theme);
+  return (0, _utils.normalizeColor)(props.theme.checkBox.color || 'control', props.theme);
 }, function (props) {
   return props.theme.checkBox.size;
 }, function (props) {
@@ -52,7 +52,7 @@ var StyledCheckBoxInput = _styledComponents.default.input.withConfig({
 }, function (props) {
   return props.theme.checkBox.size;
 }, function (props) {
-  return (props.theme.checkBox.color || props.theme.global.control.color)[props.theme.dark ? 'dark' : 'light'];
+  return (0, _utils.normalizeColor)(props.theme.checkBox.color || 'control', props.theme);
 });
 
 exports.StyledCheckBoxInput = StyledCheckBoxInput;

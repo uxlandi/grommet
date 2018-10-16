@@ -42,14 +42,14 @@ var backgroundIsDark = function backgroundIsDark(backgroundArg, theme) {
         result = dark;
       } else if (color // weak opacity means we keep the existing darkness
       && (!opacity || opacity !== 'weak')) {
-        var backgroundColor = (0, _colors.colorForName)(background.color, theme);
+        var backgroundColor = (0, _colors.normalizeColor)(background.color, theme);
 
         if (backgroundColor) {
           result = (0, _colors.colorIsDark)(backgroundColor);
         }
       }
     } else {
-      var _color = (0, _colors.colorForName)(background, theme);
+      var _color = (0, _colors.normalizeColor)(background, theme);
 
       if (_color) {
         result = (0, _colors.colorIsDark)(_color);
@@ -73,9 +73,9 @@ var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
       var color;
 
       if (background.dark === false) {
-        color = theme.global.text.color.light;
+        color = theme.global.colors.text.light;
       } else if (background.dark) {
-        color = theme.global.text.color.dark;
+        color = theme.global.colors.text.dark;
       } else {
         color = 'inherit';
       }
@@ -84,19 +84,19 @@ var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
     }
 
     if (background.color) {
-      var _color2 = (0, _colors.colorForName)(background.color, theme);
+      var _color2 = (0, _colors.normalizeColor)(background.color, theme);
 
       var backgroundColor = (0, _colors.getRGBA)(_color2, background.opacity === true ? theme.global.opacity.medium : theme.global.opacity[background.opacity]) || _color2;
 
-      styles.push((0, _styledComponents.css)(["background-color:", ";", ""], backgroundColor, (!background.opacity || background.opacity !== 'weak') && "color: " + theme.global.text.color[background.dark || (0, _colors.colorIsDark)(backgroundColor) ? 'dark' : 'light'] + ";"));
+      styles.push((0, _styledComponents.css)(["background-color:", ";", ""], backgroundColor, (!background.opacity || background.opacity !== 'weak') && "color: " + theme.global.colors.text[background.dark || (0, _colors.colorIsDark)(backgroundColor) ? 'dark' : 'light'] + ";"));
     }
 
     if (background.dark === false) {
-      styles.push((0, _styledComponents.css)(["color:", ";"], theme.global.text.color.light));
+      styles.push((0, _styledComponents.css)(["color:", ";"], theme.global.colors.text.light));
     }
 
     if (background.dark) {
-      styles.push((0, _styledComponents.css)(["color:", ";"], theme.global.text.color.dark));
+      styles.push((0, _styledComponents.css)(["color:", ";"], theme.global.colors.text.dark));
     }
 
     return styles;
@@ -107,10 +107,10 @@ var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
       return (0, _styledComponents.css)(["background:", " no-repeat center center;background-size:cover;"], background);
     }
 
-    var _color3 = (0, _colors.colorForName)(background, theme);
+    var _color3 = (0, _colors.normalizeColor)(background, theme);
 
     if (_color3) {
-      return (0, _styledComponents.css)(["background:", ";color:", ";"], _color3, theme.global.text.color[(0, _colors.colorIsDark)(_color3) ? 'dark' : 'light']);
+      return (0, _styledComponents.css)(["background:", ";color:", ";"], _color3, theme.global.colors.text[(0, _colors.colorIsDark)(_color3) ? 'dark' : 'light']);
     }
   }
 

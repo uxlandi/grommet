@@ -10,11 +10,11 @@ var _utils = require("../../utils");
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 var basicStyle = function basicStyle(props) {
-  return (0, _styledComponents.css)(["border:", " solid ", ";border-radius:", ";color:", ";padding:", " ", ";font-size:", ";line-height:", ";"], props.theme.button.border.width, (0, _utils.colorForName)((0, _utils.normalizeColor)(props.colorValue || props.theme.button.border.color || props.theme.global.control.color || 'brand', props.theme), props.theme), props.theme.button.border.radius, (props.theme.button.color || props.theme.global.text.color)[props.theme.dark ? 'dark' : 'light'], props.theme.button.padding.vertical, props.theme.button.padding.horizontal, props.theme.text.medium.size, props.theme.text.medium.height);
+  return (0, _styledComponents.css)(["border:", " solid ", ";border-radius:", ";color:", ";padding:", " ", ";font-size:", ";line-height:", ";"], props.theme.button.border.width, (0, _utils.normalizeColor)(props.colorValue || props.theme.button.border.color || 'control', props.theme), props.theme.button.border.radius, (0, _utils.normalizeColor)(props.theme.button.color || 'text', props.theme), props.theme.button.padding.vertical, props.theme.button.padding.horizontal, props.theme.text.medium.size, props.theme.text.medium.height);
 };
 
 var primaryStyle = function primaryStyle(props) {
-  return (0, _styledComponents.css)(["", " border-radius:", ";"], (0, _utils.backgroundStyle)((0, _utils.normalizeColor)(props.colorValue || props.theme.button.primary.color || props.theme.global.control.color || 'brand', props.theme), props.theme), props.theme.button.border.radius);
+  return (0, _styledComponents.css)(["", " border-radius:", ";"], (0, _utils.backgroundStyle)((0, _utils.normalizeColor)(props.colorValue || props.theme.button.primary.color || 'control', props.theme), props.theme), props.theme.button.border.radius);
 };
 
 var disabledStyle = (0, _styledComponents.css)(["opacity:", ";cursor:default;"], function (props) {
@@ -23,10 +23,10 @@ var disabledStyle = (0, _styledComponents.css)(["opacity:", ";cursor:default;"],
 
 function getHoverColor(props) {
   if (props.colorValue) {
-    return (0, _utils.colorForName)(props.colorValue, props.theme);
+    return (0, _utils.normalizeColor)(props.colorValue, props.theme);
   }
 
-  return (0, _utils.normalizeColor)(props.theme.button.border.color || props.theme.global.control.color, props.theme);
+  return (0, _utils.normalizeColor)(props.theme.button.border.color || 'control', props.theme);
 }
 
 function getHoverIndicatorStyle(hoverIndicator, theme) {

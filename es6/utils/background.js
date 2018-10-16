@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { colorForName, colorIsDark, getRGBA, normalizeColor } from './colors';
+import { colorIsDark, getRGBA, normalizeColor } from './colors';
 import { evalStyle } from './styles';
 export var normalizeBackground = function normalizeBackground(background, theme) {
   // If the background has a light or dark object, use that
@@ -31,14 +31,14 @@ export var backgroundIsDark = function backgroundIsDark(backgroundArg, theme) {
         result = dark;
       } else if (color // weak opacity means we keep the existing darkness
       && (!opacity || opacity !== 'weak')) {
-        var backgroundColor = colorForName(background.color, theme);
+        var backgroundColor = normalizeColor(background.color, theme);
 
         if (backgroundColor) {
           result = colorIsDark(backgroundColor);
         }
       }
     } else {
-      var _color = colorForName(background, theme);
+      var _color = normalizeColor(background, theme);
 
       if (_color) {
         result = colorIsDark(_color);
@@ -59,9 +59,9 @@ export var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
       var color;
 
       if (background.dark === false) {
-        color = theme.global.text.color.light;
+        color = theme.global.colors.text.light;
       } else if (background.dark) {
-        color = theme.global.text.color.dark;
+        color = theme.global.colors.text.dark;
       } else {
         color = 'inherit';
       }
@@ -70,19 +70,19 @@ export var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
     }
 
     if (background.color) {
-      var _color2 = colorForName(background.color, theme);
+      var _color2 = normalizeColor(background.color, theme);
 
       var backgroundColor = getRGBA(_color2, background.opacity === true ? theme.global.opacity.medium : theme.global.opacity[background.opacity]) || _color2;
 
-      styles.push(css(["background-color:", ";", ""], backgroundColor, (!background.opacity || background.opacity !== 'weak') && "color: " + theme.global.text.color[background.dark || colorIsDark(backgroundColor) ? 'dark' : 'light'] + ";"));
+      styles.push(css(["background-color:", ";", ""], backgroundColor, (!background.opacity || background.opacity !== 'weak') && "color: " + theme.global.colors.text[background.dark || colorIsDark(backgroundColor) ? 'dark' : 'light'] + ";"));
     }
 
     if (background.dark === false) {
-      styles.push(css(["color:", ";"], theme.global.text.color.light));
+      styles.push(css(["color:", ";"], theme.global.colors.text.light));
     }
 
     if (background.dark) {
-      styles.push(css(["color:", ";"], theme.global.text.color.dark));
+      styles.push(css(["color:", ";"], theme.global.colors.text.dark));
     }
 
     return styles;
@@ -93,10 +93,10 @@ export var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
       return css(["background:", " no-repeat center center;background-size:cover;"], background);
     }
 
-    var _color3 = colorForName(background, theme);
+    var _color3 = normalizeColor(background, theme);
 
     if (_color3) {
-      return css(["background:", ";color:", ";"], _color3, theme.global.text.color[colorIsDark(_color3) ? 'dark' : 'light']);
+      return css(["background:", ";color:", ";"], _color3, theme.global.colors.text[colorIsDark(_color3) ? 'dark' : 'light']);
     }
   }
 

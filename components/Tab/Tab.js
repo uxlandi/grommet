@@ -118,7 +118,7 @@ function (_Component) {
         weight: "bold"
       }, title);
     } else {
-      var color = (0, _utils.normalizeColor)(theme.global.text.color, theme);
+      var color = (0, _utils.normalizeColor)('text', theme);
       normalizedTitle = _react.default.createElement(_Text.Text, {
         color: color
       }, title);

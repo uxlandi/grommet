@@ -281,7 +281,7 @@ function (_Component3) {
       elevation: suggestionOpen ? 'medium' : undefined,
       border: {
         side: 'all',
-        color: suggestionOpen ? 'transparent' : 'border-dark'
+        color: suggestionOpen ? 'transparent' : 'border'
       },
       style: suggestionOpen ? {
         borderBottomLeftRadius: '0px',

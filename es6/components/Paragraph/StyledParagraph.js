@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
-import { colorForName } from '../../utils';
+import { normalizeColor } from '../../utils';
 var colorStyle = css(["color:", ";"], function (props) {
-  return colorForName(props.color, props.theme);
+  return normalizeColor(props.color, props.theme);
 });
 
 var marginStyle = function marginStyle(props) {

@@ -5,6 +5,8 @@ exports.theme = void 0;
 
 var _styledComponents = require("styled-components");
 
+var _polished = require("polished");
+
 var _grommetIcons = require("grommet-icons");
 
 var _utils = require("../../../utils");
@@ -18,7 +20,7 @@ var theme = {
     colors: {
       border: '#e0e0e0',
       focus: '#2196F3',
-      gray: 'rgba(0, 0, 0, 0.54)'
+      gray: (0, _polished.rgba)(0, 0, 0, 0.54)
     },
     drop: {
       background: '#ffffff'
@@ -42,7 +44,7 @@ var theme = {
     border: {
       color: {
         light: (0, _styledComponents.css)(["", ""], function (props) {
-          return (0, _utils.colorForName)('gray', props.theme);
+          return (0, _utils.normalizeColor)('gray', props.theme);
         })
       },
       radius: '2px'
@@ -57,7 +59,7 @@ var theme = {
     },
     size: '18px',
     extend: function extend(props) {
-      return "\n      input:checked + div {\n        border-color: " + (0, _utils.colorForName)('brand', props.theme) + ";\n        background: " + (0, _utils.colorForName)('brand', props.theme) + ";\n\n        > svg {\n          stroke: " + (0, _utils.colorForName)('white', props.theme) + ";\n        }\n      }\n    ";
+      return "\n      input:checked + div {\n        border-color: " + (0, _utils.normalizeColor)('brand', props.theme) + ";\n        background: " + (0, _utils.normalizeColor)('brand', props.theme) + ";\n\n        > svg {\n          stroke: " + (0, _utils.normalizeColor)('white', props.theme) + ";\n        }\n      }\n    ";
     }
   },
   drop: {
@@ -71,7 +73,7 @@ var theme = {
   },
   textInput: {
     extend: function extend(props) {
-      return "\n      color: " + (0, _utils.colorForName)('gray', props.theme) + ";\n      font-weight: 400;\n      font-size: 13px;\n      padding: 14px;\n    ";
+      return "\n      color: " + (0, _utils.normalizeColor)('gray', props.theme) + ";\n      font-weight: 400;\n      font-size: 13px;\n      padding: 14px;\n    ";
     }
   }
 };

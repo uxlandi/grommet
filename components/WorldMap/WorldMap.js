@@ -350,7 +350,7 @@ function (_Component) {
         d: dots,
         strokeLinecap: "round",
         strokeWidth: (0, _utils.parseMetricToNum)(theme.worldMap.continent[active ? 'active' : 'base']),
-        stroke: (0, _utils.colorForName)(continentColor || color || 'light-3', theme)
+        stroke: (0, _utils.normalizeColor)(continentColor || color || 'light-3', theme)
       }));
     });
     var places = placeStates.map(function (place) {
@@ -378,7 +378,7 @@ function (_Component) {
         key: key,
         strokeLinecap: "round",
         strokeWidth: (0, _utils.parseMetricToNum)(theme.worldMap.place[active ? 'active' : 'base']),
-        stroke: (0, _utils.colorForName)(placeColor || color || 'light-3', theme)
+        stroke: (0, _utils.normalizeColor)(placeColor || color || 'light-3', theme)
       }, interactiveProps, restPlace, {
         d: d
       }));
@@ -408,7 +408,7 @@ function (_Component) {
       }, _react.default.createElement("path", {
         strokeLinecap: "round",
         strokeWidth: (0, _utils.parseMetricToNum)(theme.worldMap.place.active),
-        stroke: (0, _utils.colorForName)(hoverColor || color || 'light-4', theme),
+        stroke: (0, _utils.normalizeColor)(hoverColor || color || 'light-4', theme),
         d: d
       }));
     }

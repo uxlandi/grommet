@@ -1,5 +1,22 @@
-export var colorForName = function colorForName(name, theme) {
-  return theme.global.colors[name] || name;
+export var normalizeColor = function normalizeColor(color, theme, required) {
+  var colorSpec = theme.global.colors[color] || color; // If the color has a light or dark object, use that
+
+  var result = colorSpec;
+
+  if (colorSpec) {
+    if (theme.dark && colorSpec.dark) {
+      result = colorSpec.dark;
+    } else if (!theme.dark && colorSpec.light) {
+      result = colorSpec.light;
+    }
+  } // allow one level of indirection in color names
+
+
+  if (result && theme.global.colors[result]) {
+    result = normalizeColor(result, theme);
+  }
+
+  return required && result === color ? 'inherit' : result;
 };
 
 var parseHexToRGB = function parseHexToRGB(color) {
@@ -48,18 +65,4 @@ export var getRGBA = function getRGBA(color, opacity) {
   }
 
   return undefined;
-};
-export var normalizeColor = function normalizeColor(color, theme) {
-  // If the color has a light or dark object, use that
-  var result = color;
-
-  if (color) {
-    if (theme.dark && color.dark) {
-      result = color.dark;
-    } else if (!theme.dark && color.light) {
-      result = color.light;
-    }
-  }
-
-  return result;
 };

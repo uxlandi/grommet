@@ -103,6 +103,7 @@ var Header = function Header(_ref) {
         filtering: filtering,
         filters: filters,
         property: property,
+        theme: theme,
         onFilter: onFilter,
         onFiltering: onFiltering
       }));

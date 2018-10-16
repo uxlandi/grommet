@@ -11,7 +11,7 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { compose } from 'recompose';
-import { colorForName, parseMetricToNum } from '../../utils';
+import { normalizeColor, parseMetricToNum } from '../../utils';
 import { withTheme } from '../hocs';
 import { StyledChart } from './StyledChart';
 import { normalizeValues, normalizeBounds } from './utils';
@@ -133,7 +133,7 @@ var renderArea = function renderArea(values, bounds, scale, height, _ref3) {
   }
 
   return React.createElement("g", {
-    fill: colorForName(color.color || color, theme)
+    fill: normalizeColor(color.color || color, theme)
   }, React.createElement("path", _extends({
     d: d
   }, hoverProps, clickProps)));
@@ -257,7 +257,7 @@ function (_Component) {
       width: size === 'full' ? '100%' : width,
       height: size === 'full' ? '100%' : height
     }, rest), React.createElement("g", {
-      stroke: colorForName(colorName, theme),
+      stroke: normalizeColor(colorName, theme),
       strokeWidth: strokeWidth,
       strokeLinecap: round ? 'round' : 'butt',
       strokeLinejoin: round ? 'round' : 'miter',

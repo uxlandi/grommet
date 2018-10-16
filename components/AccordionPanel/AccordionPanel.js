@@ -139,8 +139,7 @@ function (_Component) {
         rest = _objectWithoutPropertiesLoose(_this$props3, ["children", "header", "label", "theme", "onMouseOut", "onMouseOver", "onFocus", "onBlur"]);
 
     var hover = this.state.hover;
-    var dark = theme.dark;
-    var iconColor = (0, _utils.evalStyle)((0, _utils.normalizeColor)(theme.accordion.icons.color || theme.global.control.color, theme), theme);
+    var iconColor = (0, _utils.normalizeColor)(theme.accordion.icons.color || 'control', theme);
     return _react.default.createElement(_AccordionContext.AccordionContext, null, function (panelContext) {
       var active = panelContext.active,
           animate = panelContext.animate,
@@ -177,7 +176,7 @@ function (_Component) {
       })))), _react.default.createElement(_Box.Box, {
         border: {
           side: 'bottom',
-          color: dark ? 'border-dark' : 'border-light'
+          color: 'border'
         }
       }, animate ? _react.default.createElement(_Collapsible.Collapsible, {
         open: active

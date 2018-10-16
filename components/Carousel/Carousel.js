@@ -147,8 +147,7 @@ function (_Component) {
     var onLeft = activeIndex > 0 ? this.onLeft : undefined;
     var onRight = activeIndex < lastIndex ? this.onRight : undefined;
     var CurrentIcon = theme.carousel.icons.current;
-    var dark = theme.dark;
-    var iconColor = (0, _utils.evalStyle)((theme.carousel.icons.color || theme.global.control.color)[dark ? 'dark' : 'light'], theme);
+    var iconColor = (0, _utils.normalizeColor)(theme.carousel.icons.color || 'control', theme);
     var selectors = [];
 
     var wrappedChildren = _react.Children.map(children, function (child, index) {

@@ -1,16 +1,16 @@
-import { colorForName } from '../../utils';
+import { normalizeColor } from '../../utils';
 export var strokeProps = function strokeProps(color, theme) {
   var result = {};
 
   if (color) {
     if (typeof color === 'object') {
-      result.stroke = colorForName(color.color, theme);
+      result.stroke = normalizeColor(color.color, theme);
 
       if (color.opacity) {
         result.strokeOpacity = color.opacity === true ? theme.global.opacity.medium : theme.global.opacity[color.opacity];
       }
     } else {
-      result.stroke = colorForName(color, theme);
+      result.stroke = normalizeColor(color, theme);
     }
   }
 

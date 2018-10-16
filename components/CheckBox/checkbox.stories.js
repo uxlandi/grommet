@@ -72,21 +72,21 @@ var customCheckBoxTheme = {
     border: {
       color: {
         light: (0, _styledComponents.css)(["", ""], function (props) {
-          return (0, _utils.colorForName)('neutral-1', props.theme);
+          return (0, _utils.normalizeColor)('neutral-1', props.theme);
         })
       },
       radius: '2px'
     },
     color: {
       light: (0, _styledComponents.css)(["", ""], function (props) {
-        return (0, _utils.colorForName)('neutral-1', props.theme);
+        return (0, _utils.normalizeColor)('neutral-1', props.theme);
       })
     },
     check: {
       extend: function extend(_ref) {
         var theme = _ref.theme,
             checked = _ref.checked;
-        return "\n        " + (checked && "background-color: " + (0, _utils.colorForName)('neutral-1', theme) + ";") + "\n      ";
+        return "\n        " + (checked && "background-color: " + (0, _utils.normalizeColor)('neutral-1', theme) + ";") + "\n      ";
       }
     },
     hover: {
@@ -154,13 +154,13 @@ var customToggleTheme = {
     border: {
       color: {
         light: (0, _styledComponents.css)(["", ""], function (props) {
-          return (0, _utils.colorForName)('light-2', props.theme);
+          return (0, _utils.normalizeColor)('light-2', props.theme);
         })
       }
     },
     color: {
       light: (0, _styledComponents.css)(["", ""], function (props) {
-        return (0, _utils.colorForName)('neutral-1', props.theme);
+        return (0, _utils.normalizeColor)('neutral-1', props.theme);
       })
     },
     check: {
@@ -173,11 +173,11 @@ var customToggleTheme = {
     },
     toggle: {
       background: (0, _styledComponents.css)(["", ""], function (props) {
-        return (0, _utils.colorForName)('light-2', props.theme);
+        return (0, _utils.normalizeColor)('light-2', props.theme);
       }),
       color: {
         light: (0, _styledComponents.css)(["", ""], function (props) {
-          return (0, _utils.colorForName)('light-4', props.theme);
+          return (0, _utils.normalizeColor)('light-4', props.theme);
         })
       },
       size: '36px'

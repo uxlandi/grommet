@@ -1,6 +1,6 @@
 import { rgba } from 'polished';
 import { css } from 'styled-components';
-import { colorForName, deepFreeze } from '../utils';
+import { normalizeColor, deepFreeze } from '../utils';
 var brandColor = '#FFCA58';
 var accentColors = ['#FD6FFF', '#60EB9F', '#60EBE1', '#FFCA58'];
 var neutralColors = ['#EB6060', '#01C781', '#6095EB', '#FFB200'];
@@ -14,16 +14,16 @@ var statusColors = {
 };
 var backgroundColor = '#111111';
 var textColor = '#eeeeee';
-var borderColor = 'rgba(255, 255, 255, 0.33)';
-var focusColor = accentColors[0];
-var activeColor = rgba('#666666', 0.5);
+var borderColor = rgba(255, 255, 255, 0.33);
+var activeColor = rgba(102, 102, 102, 0.5);
 var colors = {
   active: activeColor,
   background: backgroundColor,
   black: '#000000',
   border: borderColor,
   brand: brandColor,
-  focus: focusColor,
+  control: brandColor,
+  focus: brandColor,
   placeholder: '#AAAAAA',
   text: textColor,
   white: '#FFFFFF'
@@ -52,7 +52,7 @@ export var dark = deepFreeze({
     focus: {
       border: {
         color: css(["", ""], function (props) {
-          return colorForName('focus', props.theme);
+          return normalizeColor('focus', props.theme);
         }),
         width: '2px'
       }
@@ -78,7 +78,7 @@ export var dark = deepFreeze({
   layer: {
     background: backgroundColor,
     overlay: {
-      background: 'rgba(48, 48, 48, 0.5)'
+      background: rgba(48, 48, 48, 0.5)
     }
   }
 });

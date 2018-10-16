@@ -158,7 +158,7 @@ function (_Component) {
         activeItemIndex = _this$state3.activeItemIndex,
         open = _this$state3.open;
     var MenuIcon = theme.menu.icons.down;
-    var iconColor = (0, _utils.evalStyle)(theme.global.control.color[theme.dark ? 'dark' : 'light'], theme) || 'brand';
+    var iconColor = (0, _utils.normalizeColor)('control', theme);
 
     var content = children || _react.default.createElement(_Box.Box, {
       direction: "row",

@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
-import { activeStyle, backgroundStyle, colorForName, focusStyle, normalizeColor } from '../../utils';
+import { activeStyle, backgroundStyle, focusStyle, normalizeColor } from '../../utils';
 
 var basicStyle = function basicStyle(props) {
-  return css(["border:", " solid ", ";border-radius:", ";color:", ";padding:", " ", ";font-size:", ";line-height:", ";"], props.theme.button.border.width, colorForName(normalizeColor(props.colorValue || props.theme.button.border.color || props.theme.global.control.color || 'brand', props.theme), props.theme), props.theme.button.border.radius, (props.theme.button.color || props.theme.global.text.color)[props.theme.dark ? 'dark' : 'light'], props.theme.button.padding.vertical, props.theme.button.padding.horizontal, props.theme.text.medium.size, props.theme.text.medium.height);
+  return css(["border:", " solid ", ";border-radius:", ";color:", ";padding:", " ", ";font-size:", ";line-height:", ";"], props.theme.button.border.width, normalizeColor(props.colorValue || props.theme.button.border.color || 'control', props.theme), props.theme.button.border.radius, normalizeColor(props.theme.button.color || 'text', props.theme), props.theme.button.padding.vertical, props.theme.button.padding.horizontal, props.theme.text.medium.size, props.theme.text.medium.height);
 };
 
 var primaryStyle = function primaryStyle(props) {
-  return css(["", " border-radius:", ";"], backgroundStyle(normalizeColor(props.colorValue || props.theme.button.primary.color || props.theme.global.control.color || 'brand', props.theme), props.theme), props.theme.button.border.radius);
+  return css(["", " border-radius:", ";"], backgroundStyle(normalizeColor(props.colorValue || props.theme.button.primary.color || 'control', props.theme), props.theme), props.theme.button.border.radius);
 };
 
 var disabledStyle = css(["opacity:", ";cursor:default;"], function (props) {
@@ -15,10 +15,10 @@ var disabledStyle = css(["opacity:", ";cursor:default;"], function (props) {
 
 function getHoverColor(props) {
   if (props.colorValue) {
-    return colorForName(props.colorValue, props.theme);
+    return normalizeColor(props.colorValue, props.theme);
   }
 
-  return normalizeColor(props.theme.button.border.color || props.theme.global.control.color, props.theme);
+  return normalizeColor(props.theme.button.border.color || 'control', props.theme);
 }
 
 function getHoverIndicatorStyle(hoverIndicator, theme) {

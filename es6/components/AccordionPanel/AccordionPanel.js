@@ -15,7 +15,7 @@ import { Button } from '../Button';
 import { Collapsible } from '../Collapsible';
 import { Heading } from '../Heading';
 import { withTheme, withForwardRef } from '../hocs';
-import { evalStyle, normalizeColor } from '../../utils';
+import { normalizeColor } from '../../utils';
 import { AccordionContext } from '../Accordion/AccordionContext';
 
 var AccordionPanel =
@@ -124,8 +124,7 @@ function (_Component) {
         rest = _objectWithoutPropertiesLoose(_this$props3, ["children", "header", "label", "theme", "onMouseOut", "onMouseOver", "onFocus", "onBlur"]);
 
     var hover = this.state.hover;
-    var dark = theme.dark;
-    var iconColor = evalStyle(normalizeColor(theme.accordion.icons.color || theme.global.control.color, theme), theme);
+    var iconColor = normalizeColor(theme.accordion.icons.color || 'control', theme);
     return React.createElement(AccordionContext, null, function (panelContext) {
       var active = panelContext.active,
           animate = panelContext.animate,
@@ -162,7 +161,7 @@ function (_Component) {
       })))), React.createElement(Box, {
         border: {
           side: 'bottom',
-          color: dark ? 'border-dark' : 'border-light'
+          color: 'border'
         }
       }, animate ? React.createElement(Collapsible, {
         open: active

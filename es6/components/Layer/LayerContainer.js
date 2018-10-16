@@ -130,6 +130,7 @@ function (_Component) {
         tabIndex: "-1",
         ref: this.layerRef
       }, React.createElement(StyledOverlay, {
+        plain: plain,
         onMouseDown: onClickOutside,
         responsive: responsive,
         theme: theme

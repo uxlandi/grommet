@@ -11,7 +11,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { compose } from 'recompose';
-import { colorForName, parseMetricToNum } from '../../utils';
+import { normalizeColor, parseMetricToNum } from '../../utils';
 import { withTheme } from '../hocs';
 import { StyledWorldMap } from './StyledWorldMap'; // The graphic is drawn as a rectangular grid using coordinates spaced
 // by FACTOR pixels. The contents have both an area boundary for interaction
@@ -337,7 +337,7 @@ function (_Component) {
         d: dots,
         strokeLinecap: "round",
         strokeWidth: parseMetricToNum(theme.worldMap.continent[active ? 'active' : 'base']),
-        stroke: colorForName(continentColor || color || 'light-3', theme)
+        stroke: normalizeColor(continentColor || color || 'light-3', theme)
       }));
     });
     var places = placeStates.map(function (place) {
@@ -365,7 +365,7 @@ function (_Component) {
         key: key,
         strokeLinecap: "round",
         strokeWidth: parseMetricToNum(theme.worldMap.place[active ? 'active' : 'base']),
-        stroke: colorForName(placeColor || color || 'light-3', theme)
+        stroke: normalizeColor(placeColor || color || 'light-3', theme)
       }, interactiveProps, restPlace, {
         d: d
       }));
@@ -395,7 +395,7 @@ function (_Component) {
       }, React.createElement("path", {
         strokeLinecap: "round",
         strokeWidth: parseMetricToNum(theme.worldMap.place.active),
-        stroke: colorForName(hoverColor || color || 'light-4', theme),
+        stroke: normalizeColor(hoverColor || color || 'light-4', theme),
         d: d
       }));
     }

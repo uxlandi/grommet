@@ -15,7 +15,7 @@ import { Button } from '../Button';
 import { Keyboard } from '../Keyboard';
 import { Stack } from '../Stack';
 import { withFocus, withTheme } from '../hocs';
-import { evalStyle } from '../../utils';
+import { normalizeColor } from '../../utils';
 
 var Carousel =
 /*#__PURE__*/
@@ -133,8 +133,7 @@ function (_Component) {
     var onLeft = activeIndex > 0 ? this.onLeft : undefined;
     var onRight = activeIndex < lastIndex ? this.onRight : undefined;
     var CurrentIcon = theme.carousel.icons.current;
-    var dark = theme.dark;
-    var iconColor = evalStyle((theme.carousel.icons.color || theme.global.control.color)[dark ? 'dark' : 'light'], theme);
+    var iconColor = normalizeColor(theme.carousel.icons.color || 'control', theme);
     var selectors = [];
     var wrappedChildren = Children.map(children, function (child, index) {
       selectors.push(React.createElement(Button, {

@@ -16,7 +16,7 @@ import { Previous } from "grommet-icons/es6/icons/Previous";
 import { Subtract } from "grommet-icons/es6/icons/Subtract";
 import { Volume } from "grommet-icons/es6/icons/Volume";
 import { VolumeLow } from "grommet-icons/es6/icons/VolumeLow";
-import { colorForName, deepFreeze } from '../utils';
+import { normalizeColor, deepFreeze } from '../utils';
 var brandColor = '#7D4CDB';
 var accentColors = ['#FD6FFF', '#61EC9F', '#60EBE1', '#FFCA58'];
 var neutralColors = ['#3D138D', '#BE60EB', '#00C781', '#6194EB', '#FFB202'];
@@ -30,20 +30,25 @@ var statusColors = {
 };
 var darkColors = ['#333333', '#444444', '#555555', '#666666', '#777777', '#999999'];
 var lightColors = ['#F6F6F6', '#EEEEEE', '#DDDDDD', '#CCCCCC', '#BBBBBB', '#AAAAAA'];
-var textColor = '#444444';
-var borderColor = 'rgba(0, 0, 0, 0.33)';
-var borderColorDark = 'rgba(255, 255, 255, 0.33)';
 var focusColor = accentColors[0];
-var activeColor = rgba('#DDDDDD', 0.5);
 var colors = {
-  'active': activeColor,
+  'active': rgba(221, 221, 221, 0.5),
   'black': '#000000',
-  'border-light': borderColor,
-  'border-dark': borderColorDark,
+  'border': {
+    'dark': rgba(255, 255, 255, 0.33),
+    'light': rgba(0, 0, 0, 0.33)
+  },
   'brand': brandColor,
+  'control': {
+    'dark': 'accent-1',
+    'light': 'brand'
+  },
   'focus': focusColor,
   'placeholder': '#AAAAAA',
-  'text': textColor,
+  'text': {
+    'dark': '#f8f8f8',
+    'light': '#444444'
+  },
   'white': '#FFFFFF'
 };
 
@@ -161,22 +166,7 @@ export var generate = function generate(baseSpacing, scale) {
         border: {
           width: '1px',
           radius: '4px',
-          color: {
-            dark: css(["", ""], function (props) {
-              return props.theme.global.colors['border-dark'];
-            }),
-            light: css(["", ""], function (props) {
-              return props.theme.global.colors['border-light'];
-            })
-          }
-        },
-        color: {
-          dark: css(["", ""], function (props) {
-            return props.theme.global.colors['accent-1'];
-          }),
-          light: css(["", ""], function (props) {
-            return props.theme.global.colors.brand;
-          })
+          color: 'border'
         }
       },
       drop: {
@@ -228,7 +218,7 @@ export var generate = function generate(baseSpacing, scale) {
       focus: {
         border: {
           color: css(["", ""], function (props) {
-            return colorForName('focus', props.theme);
+            return normalizeColor('focus', props.theme);
           }),
           width: '2px'
         }
@@ -273,12 +263,6 @@ export var generate = function generate(baseSpacing, scale) {
         xlarge: baseSpacing * 48 + "px",
         // 1152
         full: '100%'
-      },
-      text: {
-        color: {
-          dark: '#f8f8f8',
-          light: textColor
-        }
       }
     },
     accordion: {
@@ -293,7 +277,7 @@ export var generate = function generate(baseSpacing, scale) {
       fontWeight: 600,
       color: {
         dark: '#6194EB',
-        light: '#6194EB'
+        light: '#1D67E3'
       }
     },
     box: {
@@ -377,10 +361,10 @@ export var generate = function generate(baseSpacing, scale) {
         border: {
           color: {
             dark: css(["", ""], function (props) {
-              return colorForName('white', props.theme);
+              return normalizeColor('white', props.theme);
             }),
             light: css(["", ""], function (props) {
-              return colorForName('black', props.theme);
+              return normalizeColor('black', props.theme);
             })
           }
         }
@@ -405,10 +389,10 @@ export var generate = function generate(baseSpacing, scale) {
         hour: {
           color: {
             dark: css(["", ""], function (props) {
-              return colorForName('light-3', props.theme);
+              return normalizeColor('light-3', props.theme);
             }),
             light: css(["", ""], function (props) {
-              return colorForName('dark-3', props.theme);
+              return normalizeColor('dark-3', props.theme);
             })
           },
           width: baseSpacing / 3 + "px",
@@ -418,10 +402,10 @@ export var generate = function generate(baseSpacing, scale) {
         minute: {
           color: {
             dark: css(["", ""], function (props) {
-              return colorForName('light-5', props.theme);
+              return normalizeColor('light-5', props.theme);
             }),
             light: css(["", ""], function (props) {
-              return colorForName('dark-5', props.theme);
+              return normalizeColor('dark-5', props.theme);
             })
           },
           width: baseSpacing / 6 + "px",
@@ -431,10 +415,10 @@ export var generate = function generate(baseSpacing, scale) {
         second: {
           color: {
             dark: css(["", ""], function (props) {
-              return colorForName('accent-1', props.theme);
+              return normalizeColor('accent-1', props.theme);
             }),
             light: css(["", ""], function (props) {
-              return colorForName('accent-1', props.theme);
+              return normalizeColor('accent-1', props.theme);
             })
           },
           width: baseSpacing / 8 + "px",
@@ -536,10 +520,7 @@ export var generate = function generate(baseSpacing, scale) {
       resize: {
         border: {
           side: 'right',
-          color: {
-            dark: 'border-dark',
-            light: 'border-light'
-          }
+          color: 'border'
         }
       }
     },
@@ -548,10 +529,7 @@ export var generate = function generate(baseSpacing, scale) {
     // },
     formField: {
       border: {
-        color: {
-          dark: 'border-dark',
-          light: 'border-light'
-        },
+        color: 'border',
         position: 'inner',
         side: 'bottom',
         error: {
@@ -647,14 +625,9 @@ export var generate = function generate(baseSpacing, scale) {
     rangeInput: {
       track: {
         height: '4px',
-        color: {
-          dark: css(["", ""], function (props) {
-            return rgba(props.theme.global.colors['border-dark'], 0.2);
-          }),
-          light: css(["", ""], function (props) {
-            return rgba(props.theme.global.colors['border-light'], 0.2);
-          })
-        }
+        color: css(["", ""], function (props) {
+          return rgba(normalizeColor('border', props.theme), 0.2);
+        })
       },
       thumb: {// color: { dark: undefined, light: undefined },
       }

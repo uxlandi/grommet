@@ -352,6 +352,27 @@ var MarginLayer = function MarginLayer() {
   }, "text"))));
 };
 
+var PlainLayer = function PlainLayer() {
+  return _react.default.createElement(_grommet.Grommet, {
+    theme: _themes.grommet,
+    full: true
+  }, _react.default.createElement(_grommet.Box, {
+    fill: true,
+    background: "dark-3"
+  }, _react.default.createElement(_grommet.Layer, {
+    margin: "medium",
+    plain: true
+  }, _react.default.createElement(_grommet.Box, {
+    pad: "large",
+    border: {
+      color: 'accent-1',
+      size: 'large'
+    }
+  }, _react.default.createElement(_grommet.Text, {
+    color: "accent-2"
+  }, "Text")))));
+};
+
 (0, _react2.storiesOf)('Layer', module).add('Center', function () {
   return _react.default.createElement(CenterLayer, null);
 }).add('Form', function () {
@@ -360,4 +381,6 @@ var MarginLayer = function MarginLayer() {
   return _react.default.createElement(NotificationLayer, null);
 }).add('Margin', function () {
   return _react.default.createElement(MarginLayer, null);
+}).add('Plain', function () {
+  return _react.default.createElement(PlainLayer, null);
 });

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { colorForName } from '../../utils';
+import { normalizeColor } from '../../utils';
 
 var marginStyle = function marginStyle(props) {
   if (typeof props.margin === 'string') {
@@ -51,7 +51,7 @@ var textAlignStyle = css(["text-align:", ";"], function (props) {
 });
 var truncateStyle = "\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n";
 var colorStyle = css(["color:", ";"], function (props) {
-  return colorForName(props.colorValue, props.theme);
+  return normalizeColor(props.colorValue, props.theme);
 });
 var weightStyle = css(["font-weight:", ";"], function (props) {
   return props.weight;

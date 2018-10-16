@@ -12,7 +12,7 @@ var rangeThumbStyle = css(["box-sizing:border-box;position:relative;border-radiu
 }, function (props) {
   return props.theme.global.spacing;
 }, function (props) {
-  return normalizeColor(props.theme.rangeInput.thumb.color || props.theme.global.control.color, props.theme);
+  return normalizeColor(props.theme.rangeInput.thumb.color || 'control', props.theme);
 });
 var firefoxMicrosoftThumbStyle = css(["", " margin-top:0px;height:", ";width:", ";"], rangeThumbStyle, function (props) {
   return props.theme.global.spacing;
@@ -27,9 +27,9 @@ export var StyledRangeInput = styled.input.withConfig({
 }, rangeTrackStyle, rangeThumbStyle, function (props) {
   return parseMetricToNum(props.theme.global.spacing) * 0.425;
 }, function (props) {
-  return !props.disabled && css(["&:hover{box-shadow:0px 0px 0px 2px ", ";}"], normalizeColor(props.theme.rangeInput.thumb.color || props.theme.global.control.color, props.theme));
+  return !props.disabled && css(["&:hover{box-shadow:0px 0px 0px 2px ", ";}"], normalizeColor(props.theme.rangeInput.thumb.color || 'control', props.theme));
 }, rangeTrackStyle, firefoxMicrosoftThumbStyle, firefoxMicrosoftThumbStyle, function (props) {
-  return !props.disabled && css(["&:hover::-moz-range-thumb{box-shadow:0px 0px 0px 2px ", ";}&:hover::-ms-thumb{box-shadow:0px 0px 0px 2px ", ";}"], normalizeColor(props.theme.rangeInput.thumb.color || props.theme.global.control.color, props.theme), normalizeColor(props.theme.rangeInput.thumb.color || props.theme.global.control.color, props.theme));
+  return !props.disabled && css(["&:hover::-moz-range-thumb{box-shadow:0px 0px 0px 2px ", ";}&:hover::-ms-thumb{box-shadow:0px 0px 0px 2px ", ";}"], normalizeColor(props.theme.rangeInput.thumb.color || 'control', props.theme), normalizeColor(props.theme.rangeInput.thumb.color || 'control', props.theme));
 }, rangeTrackStyle, function (props) {
   return normalizeColor(props.theme.rangeInput.track.color, props.theme);
 }, function (props) {

@@ -65,7 +65,7 @@ function (_Component) {
     var borderColor = (0, _utils.normalizeColor)(theme.checkBox.border.color, theme);
 
     if (checked) {
-      borderColor = (0, _utils.normalizeColor)(theme.checkBox.color || theme.global.control.color, theme);
+      borderColor = (0, _utils.normalizeColor)(theme.checkBox.color || 'control', theme);
     }
 
     var visual = toggle ? _react.default.createElement(_StyledCheckBox.StyledCheckBoxToggle, {

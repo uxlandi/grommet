@@ -1,13 +1,30 @@
 "use strict";
 
 exports.__esModule = true;
-exports.normalizeColor = exports.getRGBA = exports.colorIsDark = exports.colorForName = void 0;
+exports.getRGBA = exports.colorIsDark = exports.normalizeColor = void 0;
 
-var colorForName = function colorForName(name, theme) {
-  return theme.global.colors[name] || name;
+var normalizeColor = function normalizeColor(color, theme, required) {
+  var colorSpec = theme.global.colors[color] || color; // If the color has a light or dark object, use that
+
+  var result = colorSpec;
+
+  if (colorSpec) {
+    if (theme.dark && colorSpec.dark) {
+      result = colorSpec.dark;
+    } else if (!theme.dark && colorSpec.light) {
+      result = colorSpec.light;
+    }
+  } // allow one level of indirection in color names
+
+
+  if (result && theme.global.colors[result]) {
+    result = normalizeColor(result, theme);
+  }
+
+  return required && result === color ? 'inherit' : result;
 };
 
-exports.colorForName = colorForName;
+exports.normalizeColor = normalizeColor;
 
 var parseHexToRGB = function parseHexToRGB(color) {
   return (// https://stackoverflow.com/a/42429333
@@ -61,20 +78,3 @@ var getRGBA = function getRGBA(color, opacity) {
 };
 
 exports.getRGBA = getRGBA;
-
-var normalizeColor = function normalizeColor(color, theme) {
-  // If the color has a light or dark object, use that
-  var result = color;
-
-  if (color) {
-    if (theme.dark && color.dark) {
-      result = color.dark;
-    } else if (!theme.dark && color.light) {
-      result = color.light;
-    }
-  }
-
-  return result;
-};
-
-exports.normalizeColor = normalizeColor;

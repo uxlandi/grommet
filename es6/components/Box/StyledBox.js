@@ -1,7 +1,7 @@
 var _FLEX_MAP;
 
 import styled, { css, keyframes } from 'styled-components';
-import { backgroundStyle, breakpointStyle, colorForName, edgeStyle, focusStyle, overflowStyle } from '../../utils';
+import { backgroundStyle, breakpointStyle, edgeStyle, focusStyle, normalizeColor, overflowStyle } from '../../utils';
 var ALIGN_MAP = {
   baseline: 'baseline',
   center: 'center',
@@ -103,7 +103,7 @@ var wrapStyle = 'flex-wrap: wrap;';
 
 var borderStyle = function borderStyle(data, responsive, theme) {
   var styles = [];
-  var color = colorForName(data.color || (theme.dark ? 'border-dark' : 'border-light'), theme);
+  var color = normalizeColor(data.color || 'border', theme);
   var borderSize = data.size || 'xsmall';
   var side = typeof data === 'string' ? data : data.side || 'all';
   var value = "solid " + (theme.global.borderSize[borderSize] || borderSize) + " " + color;
