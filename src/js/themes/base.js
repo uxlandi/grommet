@@ -141,14 +141,6 @@ export const generate = (baseSpacing = 24, scale = 6) => { // 24
           color: 'border',
         },
       },
-      drop: {
-        background: '#ffffff',
-        border: {
-          width: '0px',
-          radius: '0px',
-        },
-        shadowSize: 'small',
-      },
       edgeSize: {
         none: '0px',
         hair: '1px', // for Chart
@@ -426,9 +418,14 @@ export const generate = (baseSpacing = 24, scale = 6) => { // 24
         },
       },
     },
-    // drop: {
-    //   maxHeight: undefined,
-    // },
+    drop: {
+      background: '#ffffff',
+      border: {
+        width: '0px',
+        radius: '0px',
+      },
+      shadowSize: 'small',
+    },
     formField: {
       border: {
         color: 'border',

@@ -28,13 +28,13 @@ const dropKeyFrames = keyframes`
 export const StyledDrop = styled.div`
   ${baseStyle}
 
-  border-radius: ${props => props.theme.global.drop.border.radius};
+  border-radius: ${props => props.theme.drop.border.radius};
   position: fixed;
   z-index: 20;
   outline: none;
 
   ${props => backgroundStyle(
-    props.theme.global.drop.background,
+    props.theme.drop.background,
     props.theme
   )}
 
@@ -49,5 +49,5 @@ export const StyledDrop = styled.div`
     align-items: stretch;
   }
 
-  ${props => props.theme.global.drop && props.theme.global.drop.extend}
+  ${props => props.theme.drop && props.theme.drop.extend}
 `;

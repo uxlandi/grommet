@@ -27,7 +27,7 @@ export class DropContainer extends Component {
     const { theme: propsTheme } = nextProps;
     const { theme: stateTheme, priorTheme } = prevState;
 
-    const dark = backgroundIsDark(propsTheme.global.drop.background, propsTheme);
+    const dark = backgroundIsDark(propsTheme.drop.background, propsTheme);
 
     if (dark === propsTheme.dark && stateTheme) {
       return { theme: undefined, priorTheme: undefined };
@@ -257,7 +257,7 @@ export class DropContainer extends Component {
     let content = (
       <StyledDrop
         as={Box}
-        elevation={theme.global.drop.shadowSize || 'small'}
+        elevation={theme.drop.shadowSize || 'small'}
         tabIndex='-1'
         ref={this.dropRef}
         theme={theme}
