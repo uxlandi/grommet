@@ -180,6 +180,30 @@ var MultipleButton = function MultipleButton() {
   })));
 };
 
+var ColoredButton = function ColoredButton(props) {
+  return React.createElement(Grommet, {
+    theme: grommet
+  }, React.createElement(Box, {
+    align: "start",
+    gap: "small"
+  }, React.createElement(Button, _extends({
+    primary: true,
+    color: "dark-1",
+    label: "Submit",
+    onClick: function onClick() {}
+  }, props)), React.createElement(Button, _extends({
+    primary: true,
+    color: "#111111",
+    label: "Submit",
+    onClick: function onClick() {}
+  }, props)), React.createElement(Button, _extends({
+    primary: true,
+    color: "#000",
+    label: "Submit",
+    onClick: function onClick() {}
+  }, props))));
+};
+
 storiesOf('Button', module).add('Default', function () {
   return React.createElement(SimpleButton, null);
 }).add('Primary', function () {
@@ -208,4 +232,6 @@ storiesOf('Button', module).add('Default', function () {
   return React.createElement(CustomThemeButton, null);
 }).add('Multiple Same Line', function () {
   return React.createElement(MultipleButton, null);
+}).add('Colored', function () {
+  return React.createElement(ColoredButton, null);
 });

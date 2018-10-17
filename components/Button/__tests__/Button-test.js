@@ -69,6 +69,16 @@ test('Button color renders', function () {
     primary: true,
     label: "Test",
     onClick: function onClick() {}
+  }), _react.default.createElement(_.Button, {
+    color: "#111111",
+    primary: true,
+    label: "Test",
+    onClick: function onClick() {}
+  }), _react.default.createElement(_.Button, {
+    color: "#123",
+    primary: true,
+    label: "Test",
+    onClick: function onClick() {}
   })));
 
   var tree = component.toJSON();
