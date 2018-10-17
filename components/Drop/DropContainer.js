@@ -284,12 +284,13 @@ function (_Component) {
 
   _proto.render = function render() {
     var _this$props3 = this.props,
+        alignProp = _this$props3.align,
         children = _this$props3.children,
         onClickOutside = _this$props3.onClickOutside,
         onEsc = _this$props3.onEsc,
         onKeyDown = _this$props3.onKeyDown,
         propsTheme = _this$props3.theme,
-        rest = _objectWithoutPropertiesLoose(_this$props3, ["children", "onClickOutside", "onEsc", "onKeyDown", "theme"]);
+        rest = _objectWithoutPropertiesLoose(_this$props3, ["align", "children", "onClickOutside", "onEsc", "onKeyDown", "theme"]);
 
     var stateTheme = this.state.theme;
     var theme = stateTheme || propsTheme;
@@ -299,6 +300,7 @@ function (_Component) {
       elevation: theme.global.drop.shadowSize || 'small',
       tabIndex: "-1",
       ref: this.dropRef,
+      alignProp: alignProp,
       theme: theme
     }, rest), children);
 

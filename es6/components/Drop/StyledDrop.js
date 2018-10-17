@@ -26,7 +26,7 @@ export var StyledDrop = styled.div.withConfig({
 }, function (props) {
   return backgroundStyle(props.theme.global.drop.background, props.theme);
 }, function (props) {
-  return getTransformOriginStyle(props.align);
+  return getTransformOriginStyle(props.alignProp);
 }, dropKeyFrames, function (props) {
   return props.theme.global.drop && props.theme.global.drop.extend;
 });
