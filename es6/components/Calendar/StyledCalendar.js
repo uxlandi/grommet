@@ -63,8 +63,8 @@ export var StyledDay = styled.div.withConfig({
 })(["display:flex;justify-content:center;align-items:center;", " ", " ", " ", ""], function (props) {
   return daySizeStyle(props);
 }, function (props) {
-  return props.isSelected && backgroundStyle('brand', props.theme) || props.inRange && backgroundStyle({
-    color: 'brand',
+  return props.isSelected && backgroundStyle('control', props.theme) || props.inRange && backgroundStyle({
+    color: 'control',
     opacity: 'weak'
   }, props.theme);
 }, function (props) {

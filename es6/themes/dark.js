@@ -1,7 +1,7 @@
 import { rgba } from 'polished';
 import { css } from 'styled-components';
 import { normalizeColor, deepFreeze } from '../utils';
-var brandColor = '#FFCA58';
+var controlColor = '#FFCA58';
 var accentColors = ['#FD6FFF', '#60EB9F', '#60EBE1', '#FFCA58'];
 var neutralColors = ['#EB6060', '#01C781', '#6095EB', '#FFB200'];
 var statusColors = {
@@ -21,9 +21,9 @@ var colors = {
   background: backgroundColor,
   black: '#000000',
   border: borderColor,
-  brand: brandColor,
-  control: brandColor,
-  focus: brandColor,
+  brand: '#FD6FFF',
+  control: controlColor,
+  focus: controlColor,
   placeholder: '#AAAAAA',
   text: textColor,
   white: '#FFFFFF'
@@ -43,9 +43,6 @@ Object.keys(statusColors).forEach(function (color) {
 export var dark = deepFreeze({
   global: {
     colors: colors,
-    control: {
-      color: brandColor
-    },
     drop: {
       background: '#333333'
     },
@@ -69,7 +66,7 @@ export var dark = deepFreeze({
     }
   },
   anchor: {
-    color: brandColor
+    color: controlColor
   },
   icon: {
     color: textColor,

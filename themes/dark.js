@@ -9,7 +9,7 @@ var _styledComponents = require("styled-components");
 
 var _utils = require("../utils");
 
-var brandColor = '#FFCA58';
+var controlColor = '#FFCA58';
 var accentColors = ['#FD6FFF', '#60EB9F', '#60EBE1', '#FFCA58'];
 var neutralColors = ['#EB6060', '#01C781', '#6095EB', '#FFB200'];
 var statusColors = {
@@ -29,9 +29,9 @@ var colors = {
   background: backgroundColor,
   black: '#000000',
   border: borderColor,
-  brand: brandColor,
-  control: brandColor,
-  focus: brandColor,
+  brand: '#FD6FFF',
+  control: controlColor,
+  focus: controlColor,
   placeholder: '#AAAAAA',
   text: textColor,
   white: '#FFFFFF'
@@ -51,9 +51,6 @@ Object.keys(statusColors).forEach(function (color) {
 var dark = (0, _utils.deepFreeze)({
   global: {
     colors: colors,
-    control: {
-      color: brandColor
-    },
     drop: {
       background: '#333333'
     },
@@ -77,7 +74,7 @@ var dark = (0, _utils.deepFreeze)({
     }
   },
   anchor: {
-    color: brandColor
+    color: controlColor
   },
   icon: {
     color: textColor,

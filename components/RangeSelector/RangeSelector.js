@@ -240,7 +240,7 @@ function (_Component) {
         cursor: direction === 'vertical' ? 'ns-resize' : 'ew-resize'
       },
       background: invert ? undefined : {
-        color: color || 'brand',
+        color: color || 'control',
         opacity: opacity
       },
       fill: fill,

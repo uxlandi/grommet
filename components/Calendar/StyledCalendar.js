@@ -84,8 +84,8 @@ var StyledDay = _styledComponents.default.div.withConfig({
 })(["display:flex;justify-content:center;align-items:center;", " ", " ", " ", ""], function (props) {
   return daySizeStyle(props);
 }, function (props) {
-  return props.isSelected && (0, _utils.backgroundStyle)('brand', props.theme) || props.inRange && (0, _utils.backgroundStyle)({
-    color: 'brand',
+  return props.isSelected && (0, _utils.backgroundStyle)('control', props.theme) || props.inRange && (0, _utils.backgroundStyle)({
+    color: 'control',
     opacity: 'weak'
   }, props.theme);
 }, function (props) {
