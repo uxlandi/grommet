@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { activeStyle, backgroundStyle, focusStyle, normalizeColor } from '../../utils';
+import { activeStyle, backgroundStyle, focusStyle, genericStyles, normalizeColor } from '../../utils';
 
 var basicStyle = function basicStyle(props) {
   return css(["border:", " solid ", ";border-radius:", ";color:", ";padding:", " ", ";font-size:", ";line-height:", ";"], props.theme.button.border.width, normalizeColor(props.colorValue || props.theme.button.border.color || 'control', props.theme), props.theme.button.border.radius, normalizeColor(props.theme.button.color || 'text', props.theme), props.theme.button.padding.vertical, props.theme.button.padding.horizontal, props.theme.text.medium.size, props.theme.text.medium.height);
@@ -43,7 +43,7 @@ var plainStyle = css(["color:inherit;border:none;padding:0;text-align:inherit;"]
 export var StyledButton = styled.button.withConfig({
   displayName: "StyledButton",
   componentId: "sc-323bzc-0"
-})(["display:inline-block;box-sizing:border-box;cursor:pointer;outline:none;font:inherit;text-decoration:none;margin:0;background:transparent;overflow:visible;text-transform:none;", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", ""], function (props) {
+})(["display:inline-block;box-sizing:border-box;cursor:pointer;outline:none;font:inherit;text-decoration:none;margin:0;background:transparent;overflow:visible;text-transform:none;", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", ""], genericStyles, function (props) {
   return props.plain && plainStyle;
 }, function (props) {
   return !props.plain && basicStyle(props);

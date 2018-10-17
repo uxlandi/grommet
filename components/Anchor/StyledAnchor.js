@@ -14,11 +14,11 @@ var disabledStyle = "\n  opacity: 0.3;\n  cursor: default;\n  text-decoration: n
 var StyledAnchor = _styledComponents.default.a.withConfig({
   displayName: "StyledAnchor",
   componentId: "sc-1rp7lwl-0"
-})(["box-sizing:border-box;font-size:inherit;line-height:inherit;color:", ";text-decoration:", ";cursor:pointer;outline:none;", " ", " ", " ", " ", " ", ""], function (props) {
+})(["box-sizing:border-box;font-size:inherit;line-height:inherit;color:", ";text-decoration:", ";cursor:pointer;outline:none;", " ", " ", " ", " ", " ", " ", ""], function (props) {
   return (0, _utils.normalizeColor)(props.theme.anchor.color, props.theme);
 }, function (props) {
   return props.hasIcon ? 'none' : props.theme.anchor.textDecoration;
-}, function (props) {
+}, _utils.genericStyles, function (props) {
   return !props.disabled && "\n    &:hover {\n      text-decoration: underline;\n    }\n  ";
 }, function (props) {
   return !props.primary && props.hasIcon && props.hasLabel && "\n    color: " + (0, _utils.normalizeColor)('text', props.theme) + ";\n  ";

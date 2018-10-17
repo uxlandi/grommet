@@ -84,3 +84,16 @@ export var evalStyle = function evalStyle(arg, theme) {
 
   return arg;
 };
+var ALIGN_SELF_MAP = {
+  center: 'center',
+  end: 'flex-end',
+  start: 'flex-start',
+  stretch: 'stretch'
+};
+export var genericStyles = css(["", " ", " ", ""], function (props) {
+  return props.alignSelf && "align-self: " + ALIGN_SELF_MAP[props.alignSelf] + ";";
+}, function (props) {
+  return props.gridArea && "grid-area: " + props.gridArea + ";";
+}, function (props) {
+  return props.margin && edgeStyle('margin', props.margin, props.responsive, props.theme.global.edgeSize.responsiveBreakpoint, props.theme);
+});

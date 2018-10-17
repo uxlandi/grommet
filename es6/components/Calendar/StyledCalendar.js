@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { backgroundStyle, parseMetricToNum } from '../../utils';
+import { backgroundStyle, genericStyles, parseMetricToNum } from '../../utils';
 
 var sizeStyle = function sizeStyle(props) {
   var data = props.theme.calendar[props.sizeProp];
@@ -9,7 +9,7 @@ var sizeStyle = function sizeStyle(props) {
 export var StyledCalendar = styled.div.withConfig({
   displayName: "StyledCalendar",
   componentId: "sc-1y4xhmp-0"
-})(["", " ", ""], function (props) {
+})(["", " ", " ", ""], genericStyles, function (props) {
   return sizeStyle(props);
 }, function (props) {
   return props.theme.calendar && props.theme.calendar.extend;

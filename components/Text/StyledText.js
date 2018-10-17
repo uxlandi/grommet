@@ -68,7 +68,7 @@ var weightStyle = (0, _styledComponents.css)(["font-weight:", ";"], function (pr
 var StyledText = _styledComponents.default.span.withConfig({
   displayName: "StyledText",
   componentId: "sc-1sadyjn-0"
-})(["", " ", " ", " ", " ", " ", " ", ""], function (props) {
+})(["", " ", " ", " ", " ", " ", " ", " ", ""], _utils.genericStyles, function (props) {
   return sizeStyle(props);
 }, function (props) {
   return props.margin && marginStyle(props);

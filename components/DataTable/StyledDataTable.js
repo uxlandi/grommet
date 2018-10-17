@@ -5,12 +5,14 @@ exports.StyledDataTableFooter = exports.StyledDataTableHeader = exports.StyledDa
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
+var _utils = require("../../utils");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var StyledDataTable = _styledComponents.default.table.withConfig({
   displayName: "StyledDataTable",
   componentId: "xrlyjm-0"
-})(["border-spacing:0;border-collapse:collapse;height:100%;"]);
+})(["border-spacing:0;border-collapse:collapse;height:100%;", ""], _utils.genericStyles);
 
 exports.StyledDataTable = StyledDataTable;
 

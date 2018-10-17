@@ -188,8 +188,9 @@ var generate = function generate(baseSpacing, scale) {
         // 24
         large: baseSpacing * 2 + "px",
         // 48
-        xlarge: baseSpacing * 4 + "px" // 96
-
+        xlarge: baseSpacing * 4 + "px",
+        // 96
+        responsiveBreakpoint: 'small'
       },
       elevation: {
         light: {

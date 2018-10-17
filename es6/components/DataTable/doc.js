@@ -1,8 +1,10 @@
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 import { describe, PropTypes } from 'react-desc';
-import { getAvailableAtBadge } from '../../utils';
+import { genericProps, getAvailableAtBadge } from '../../utils';
 export var doc = function doc(DataTable) {
   var DocumentedDataTable = describe(DataTable).availableAt(getAvailableAtBadge('DataTable')).description('A data driven table.').usage("import { DataTable } from 'grommet';\n<DataTable />");
-  DocumentedDataTable.propTypes = {
+  DocumentedDataTable.propTypes = _extends({}, genericProps, {
     columns: PropTypes.arrayOf(PropTypes.shape({
       align: PropTypes.oneOf(['center', 'start', 'end']),
       aggregate: PropTypes.oneOf(['avg', 'max', 'min', 'sum']),
@@ -23,6 +25,6 @@ export var doc = function doc(DataTable) {
     resizeable: PropTypes.bool.description('Whether to allow the user to resize column widths.'),
     size: PropTypes.oneOfType([PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']), PropTypes.string]).description("\n      The height of the table body. If set, the table body will have a fixed\n      height and the rows will be scrollable within it. In order to preserve\n      header and footer cell alignment, all cells will have the same\n      width. This cannot be used in combination with 'resizeable'.\n    "),
     sortable: PropTypes.bool.description('Whether to allow the user to sort columns.')
-  };
+  });
   return DocumentedDataTable;
 };

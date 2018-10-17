@@ -5,6 +5,8 @@ exports.StyledStackLayer = exports.StyledStack = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
+var _utils = require("../../utils");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var fillStyle = "\n  width: 100%;\n  height: 100%;\n  max-width: none;\n  flex-grow: 1;\n  display: flex;\n";
@@ -12,7 +14,7 @@ var fillStyle = "\n  width: 100%;\n  height: 100%;\n  max-width: none;\n  flex-g
 var StyledStack = _styledComponents.default.div.withConfig({
   displayName: "StyledStack",
   componentId: "ajspsk-0"
-})(["position:relative;", " ", ""], function (props) {
+})(["position:relative;", " ", " ", ""], _utils.genericStyles, function (props) {
   return props.fillContainer && fillStyle;
 }, function (props) {
   return props.theme.stack && props.theme.stack.extend;

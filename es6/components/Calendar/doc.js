@@ -1,8 +1,10 @@
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 import { describe, PropTypes } from 'react-desc';
-import { getAvailableAtBadge } from '../../utils';
+import { genericProps, getAvailableAtBadge } from '../../utils';
 export var doc = function doc(Calendar) {
   var DocumentedCalendar = describe(Calendar).availableAt(getAvailableAtBadge('Calendar')).description("Calendar of days in months.\n      It can be used to select a single date, a range of dates, or multiple\n      individual dates.").usage("import { Calendar } from 'grommet';\n<Calendar />");
-  DocumentedCalendar.propTypes = {
+  DocumentedCalendar.propTypes = _extends({}, genericProps, {
     animate: PropTypes.bool.description("\n      Whether to animate the calender as the user interacts with it.\n    ").defaultValue(true),
     bounds: PropTypes.arrayOf(PropTypes.string).description("An array of two numbers indicating the limits on\n        navigation in ISO8601 format"),
     date: PropTypes.string.description('The selected date in ISO8601 format'),
@@ -17,6 +19,6 @@ export var doc = function doc(Calendar) {
     reference: PropTypes.string.description('The date to show if `date` isn\'t set, in ISO8601 format'),
     showAdjacentDays: PropTypes.bool.description("\n      Whether to show the days from the previous and next months.\n    ").defaultValue(true),
     size: PropTypes.oneOfType([PropTypes.oneOf(['small', 'medium', 'large']), PropTypes.string]).description('What size to make it.')
-  };
+  });
   return DocumentedCalendar;
 };

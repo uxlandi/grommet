@@ -404,7 +404,8 @@ function (_Component) {
       viewBox: x + " " + y + " " + width + " " + height,
       preserveAspectRatio: "xMinYMin meet",
       width: width,
-      height: height
+      height: height,
+      theme: theme
     }, interactiveProps, rest), React.createElement("g", {
       ref: function ref(_ref5) {
         _this2.containerRef = _ref5;

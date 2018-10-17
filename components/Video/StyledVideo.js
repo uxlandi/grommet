@@ -33,7 +33,7 @@ exports.StyledVideo = StyledVideo;
 var StyledVideoContainer = _styledComponents.default.div.withConfig({
   displayName: "StyledVideo__StyledVideoContainer",
   componentId: "w4v8h9-1"
-})(["flex:1 1;display:flex;flex-direction:column;overflow:hidden;position:relative;"]);
+})(["flex:1 1;display:flex;flex-direction:column;overflow:hidden;position:relative;", ""], _utils.genericStyles);
 
 exports.StyledVideoContainer = StyledVideoContainer;
 var positionStyle = (0, _styledComponents.css)(["position:absolute;left:0;right:0;bottom:0;"]);

@@ -1,9 +1,10 @@
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 import { describe, PropTypes } from 'react-desc';
-import { getAvailableAtBadge } from '../../utils';
+import { genericProps, getAvailableAtBadge } from '../../utils';
 export var doc = function doc(DropButton) {
   var DocumentedDropButton = describe(DropButton).availableAt(getAvailableAtBadge('DropButton')).description("A Button that when clicked will a Drop with the specified 'dropContent'.\n      When opened, the drop will control the focus so that the contents behind\n      it are not focusable. All properties of Button can be passed through.\n      ").usage("import { DropButton } from 'grommet';\n<DropButton dropContent={...} />");
-  DocumentedDropButton.propTypes = {
-    a11yTitle: PropTypes.string.description('Custom title to be used by screen readers.'),
+  DocumentedDropButton.propTypes = _extends({}, genericProps, {
     disabled: PropTypes.bool.description('Whether the button should be disabled.'),
     dropAlign: PropTypes.shape({
       top: PropTypes.oneOf(['top', 'bottom']),
@@ -19,6 +20,6 @@ export var doc = function doc(DropButton) {
     onClose: PropTypes.func.description('Callback for when the drop is closed'),
     onOpen: PropTypes.func.description('Callback for when the drop is opened'),
     open: PropTypes.bool.description("Whether the drop should be open or not. Setting this property does not\n      influence user interaction after it has been rendered.")
-  };
+  });
   return DocumentedDropButton;
 };

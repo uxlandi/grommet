@@ -1,7 +1,7 @@
 "use strict";
 
 exports.__esModule = true;
-exports.evalStyle = exports.overflowStyle = exports.inputStyle = exports.focusStyle = exports.edgeStyle = exports.controlBorderStyle = exports.baseStyle = void 0;
+exports.genericStyles = exports.evalStyle = exports.overflowStyle = exports.inputStyle = exports.focusStyle = exports.edgeStyle = exports.controlBorderStyle = exports.baseStyle = void 0;
 
 var _styledComponents = require("styled-components");
 
@@ -105,3 +105,17 @@ var evalStyle = function evalStyle(arg, theme) {
 };
 
 exports.evalStyle = evalStyle;
+var ALIGN_SELF_MAP = {
+  center: 'center',
+  end: 'flex-end',
+  start: 'flex-start',
+  stretch: 'stretch'
+};
+var genericStyles = (0, _styledComponents.css)(["", " ", " ", ""], function (props) {
+  return props.alignSelf && "align-self: " + ALIGN_SELF_MAP[props.alignSelf] + ";";
+}, function (props) {
+  return props.gridArea && "grid-area: " + props.gridArea + ";";
+}, function (props) {
+  return props.margin && edgeStyle('margin', props.margin, props.responsive, props.theme.global.edgeSize.responsiveBreakpoint, props.theme);
+});
+exports.genericStyles = genericStyles;

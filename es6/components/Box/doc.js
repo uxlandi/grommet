@@ -1,5 +1,7 @@
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 import { describe, PropTypes } from 'react-desc';
-import { a11yTitlePropType, getAvailableAtBadge } from '../../utils';
+import { getAvailableAtBadge, genericProps } from '../../utils';
 var PAD_SIZES = ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge'];
 var OVERFLOW_VALUES = ['auto', 'hidden', 'scroll', 'visible'];
 var ANIMATION_TYPE = PropTypes.oneOf(['fadeIn', 'fadeOut', 'jiggle', 'pulse', 'slideUp', 'slideDown', 'slideLeft', 'slideRight', 'zoomIn', 'zoomOut']);
@@ -11,11 +13,9 @@ var ANIMATION_SHAPE = PropTypes.shape({
 });
 export var doc = function doc(Box) {
   var DocumentedBox = describe(Box).availableAt(getAvailableAtBadge('Box')).description('A flexible box that lays out its contents along a single direction.').usage("import { Box } from 'grommet';\n<Box />");
-  DocumentedBox.propTypes = {
-    a11yTitle: a11yTitlePropType,
+  DocumentedBox.propTypes = _extends({}, genericProps, {
     align: PropTypes.oneOf(['start', 'center', 'end', 'baseline', 'stretch']).description('How to align the contents along the cross axis.'),
     alignContent: PropTypes.oneOf(['start', 'center', 'end', 'between', 'around', 'stretch']).description("How to align the contents when there is extra space in\n        the cross axis.").defaultValue('stretch'),
-    alignSelf: PropTypes.oneOf(['start', 'center', 'end', 'stretch']).description("How to align along the cross axis when contained in\n        a Box or along the column axis when contained in a Grid."),
     animation: PropTypes.oneOfType([ANIMATION_TYPE, ANIMATION_SHAPE, PropTypes.arrayOf(PropTypes.oneOfType([ANIMATION_TYPE, ANIMATION_SHAPE]))]).description("Animation effect(s) to use. 'duration' and 'delay' should\n        be in milliseconds. 'jiggle' and 'pulse' types are intended for\n        small elements, like icons."),
     background: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({
       color: PropTypes.string,
@@ -39,17 +39,8 @@ export var doc = function doc(Box) {
     flex: PropTypes.oneOf(['grow', 'shrink', true, false]).description('Whether flex-grow and/or flex-shrink is true.'),
     fill: PropTypes.oneOf(['horizontal', 'vertical', true, false]).description('Whether the width and/or height should fill the container.'),
     gap: PropTypes.oneOfType([PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge']), PropTypes.string]).description("The amount of spacing between child elements. This\n        should not be used in conjunction with 'wrap' as the gap elements\n        will not wrap gracefully."),
-    gridArea: PropTypes.string.description("The name of the area to place\n      this Box in inside a parent Grid."),
     height: PropTypes.oneOfType([PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge']), PropTypes.string]).description('A fixed height.'),
     justify: PropTypes.oneOf(['start', 'center', 'between', 'end']).description('How to align the contents along the main axis.'),
-    margin: PropTypes.oneOfType([PropTypes.oneOf(['none'].concat(PAD_SIZES)), PropTypes.shape({
-      bottom: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string]),
-      horizontal: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string]),
-      left: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string]),
-      right: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string]),
-      top: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string]),
-      vertical: PropTypes.oneOfType([PropTypes.oneOf(PAD_SIZES), PropTypes.string])
-    }), PropTypes.string]).description("The amount of margin around the box. An object can\n        be specified to distinguish horizontal margin, vertical margin, and\n        margin on a particular side of the box"),
     overflow: PropTypes.oneOfType([PropTypes.oneOf(OVERFLOW_VALUES), PropTypes.shape({
       horizontal: PropTypes.oneOf(OVERFLOW_VALUES),
       vertical: PropTypes.oneOf(OVERFLOW_VALUES)
@@ -70,6 +61,6 @@ export var doc = function doc(Box) {
     tag: PropTypes.string.description('The DOM tag to use for the element.').defaultValue('div'),
     width: PropTypes.oneOfType([PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge']), PropTypes.string]).description('A fixed width.'),
     wrap: PropTypes.bool.description("Whether children can wrap if they\n      can't all fit.")
-  };
+  });
   return DocumentedBox;
 };

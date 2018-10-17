@@ -1,14 +1,14 @@
 import styled from 'styled-components';
-import { focusStyle, normalizeColor } from '../../utils';
+import { focusStyle, genericStyles, normalizeColor } from '../../utils';
 var disabledStyle = "\n  opacity: 0.3;\n  cursor: default;\n  text-decoration: none;\n";
 export var StyledAnchor = styled.a.withConfig({
   displayName: "StyledAnchor",
   componentId: "sc-1rp7lwl-0"
-})(["box-sizing:border-box;font-size:inherit;line-height:inherit;color:", ";text-decoration:", ";cursor:pointer;outline:none;", " ", " ", " ", " ", " ", ""], function (props) {
+})(["box-sizing:border-box;font-size:inherit;line-height:inherit;color:", ";text-decoration:", ";cursor:pointer;outline:none;", " ", " ", " ", " ", " ", " ", ""], function (props) {
   return normalizeColor(props.theme.anchor.color, props.theme);
 }, function (props) {
   return props.hasIcon ? 'none' : props.theme.anchor.textDecoration;
-}, function (props) {
+}, genericStyles, function (props) {
   return !props.disabled && "\n    &:hover {\n      text-decoration: underline;\n    }\n  ";
 }, function (props) {
   return !props.primary && props.hasIcon && props.hasLabel && "\n    color: " + normalizeColor('text', props.theme) + ";\n  ";

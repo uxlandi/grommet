@@ -7,9 +7,11 @@ var _reactDesc = require("react-desc");
 
 var _utils = require("../../utils");
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 var doc = function doc(Text) {
   var DocumentedText = (0, _reactDesc.describe)(Text).availableAt((0, _utils.getAvailableAtBadge)('Text')).description('Arbitrary text.').usage("import { Text } from 'grommet';\n<Text />");
-  DocumentedText.propTypes = {
+  DocumentedText.propTypes = _extends({}, _utils.genericProps, {
     color: _reactDesc.PropTypes.string.description("A color identifier to use for the text color. For example:\n'status-critical'."),
     margin: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['none', 'small', 'medium', 'large']), _reactDesc.PropTypes.shape({
       bottom: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['small', 'medium', 'large']), _reactDesc.PropTypes.string]),
@@ -20,7 +22,7 @@ var doc = function doc(Text) {
     textAlign: _reactDesc.PropTypes.oneOf(['start', 'center', 'end']).description('How to align the text inside the component.'),
     truncate: _reactDesc.PropTypes.bool.description("Restrict the text to a single line and truncate with ellipsis if it\nis too long to all fit."),
     weight: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['normal', 'bold']), _reactDesc.PropTypes.number]).description('Font weight')
-  };
+  });
   return DocumentedText;
 };
 

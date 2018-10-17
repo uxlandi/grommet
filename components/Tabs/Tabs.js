@@ -5,7 +5,13 @@ exports.Tabs = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _recompose = require("recompose");
+
 var _Box = require("../Box");
+
+var _hocs = require("../hocs");
+
+var _StyledTabs = require("./StyledTabs");
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -110,13 +116,13 @@ function (_Component) {
     }, this);
 
     var tabContentTitle = (activeTitle || '') + " " + tabContents;
-    return _react.default.createElement("div", {
+    return _react.default.createElement(_StyledTabs.StyledTabs, _extends({
       role: "tablist"
-    }, _react.default.createElement(_Box.Box, _extends({
+    }, rest), _react.default.createElement(_Box.Box, {
       direction: "row",
       justify: justify,
       wrap: true
-    }, rest), tabs), _react.default.createElement("div", {
+    }, tabs), _react.default.createElement("div", {
       "aria-label": tabContentTitle,
       role: "tabpanel"
     }, activeContent));
@@ -139,5 +145,5 @@ if (process.env.NODE_ENV !== 'production') {
   TabsDoc = require('./doc').doc(Tabs); // eslint-disable-line global-require
 }
 
-var TabsWrapper = TabsDoc || Tabs;
+var TabsWrapper = (0, _recompose.compose)(_hocs.withTheme)(TabsDoc || Tabs);
 exports.Tabs = TabsWrapper;

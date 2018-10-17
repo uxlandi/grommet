@@ -1,8 +1,10 @@
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 import { describe, PropTypes } from 'react-desc';
-import { getAvailableAtBadge } from '../../utils';
+import { genericProps, getAvailableAtBadge } from '../../utils';
 export var doc = function doc(Chart) {
   var DocumentedChart = describe(Chart).availableAt(getAvailableAtBadge('Chart')).description('A graphical chart.').usage("import { Chart } from 'grommet';\n<Chart />");
-  DocumentedChart.propTypes = {
+  DocumentedChart.propTypes = _extends({}, genericProps, {
     bounds: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).description("The limits for the values, specified as a two dimensional array.\n      If not specified, the bounds will automatically be set to fit\n      the provided values."),
     color: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({
       color: PropTypes.string,
@@ -28,7 +30,7 @@ export var doc = function doc(Chart) {
       onHover: PropTypes.func,
       value: PropTypes.oneOfType([PropTypes.number.isRequired, PropTypes.arrayOf(PropTypes.number).isRequired]).isRequired
     })])).description("Array of value objects describing the data.\n      'value' is a tuple indicating the coordinate of the value or a triple\n      indicating the x coordinate and a range of two y coordinates.\n      'label' is a text string describing it.\n      'onHover' and 'onClick' only work when type='bar'.").isRequired
-  };
+  });
   return DocumentedChart;
 };
 export var docCalcs = function docCalcs(calcs) {

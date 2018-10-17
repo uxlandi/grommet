@@ -268,7 +268,8 @@ function (_Component) {
       viewBox: viewBox,
       preserveAspectRatio: "none",
       width: size === 'full' ? '100%' : width,
-      height: size === 'full' ? '100%' : height
+      height: size === 'full' ? '100%' : height,
+      theme: theme
     }, rest), _react.default.createElement("g", {
       stroke: (0, _utils.normalizeColor)(colorName, theme),
       strokeWidth: strokeWidth,

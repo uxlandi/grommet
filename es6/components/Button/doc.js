@@ -1,9 +1,10 @@
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 import { describe, PropTypes } from 'react-desc';
-import { getAvailableAtBadge } from '../../utils';
+import { genericProps, getAvailableAtBadge } from '../../utils';
 export var doc = function doc(Button) {
   var DocumentedButton = describe(Button).availableAt(getAvailableAtBadge('Button')).description('A button. We have a separate component from the browser base so we can style it.').usage("import { Button } from 'grommet';\n<Button primary={true} label='Label' />");
-  DocumentedButton.propTypes = {
-    a11yTitle: PropTypes.string.description('Custom title to be used by screen readers.'),
+  DocumentedButton.propTypes = _extends({}, genericProps, {
     active: PropTypes.bool.description('Whether the button is active.'),
     color: PropTypes.string.description('Fill color for primary, border color otherwise.'),
     disabled: PropTypes.bool.description('Whether the button is disabled.'),
@@ -20,6 +21,6 @@ export var doc = function doc(Button) {
     primary: PropTypes.bool.description('Whether this is a primary button. There should be at most one per page or screen.'),
     reverse: PropTypes.bool.description("Whether an icon and label should be reversed so that the icon is at the\nend of the anchor."),
     type: PropTypes.oneOf(['button', 'reset', 'submit']).description('The type of button. Set the type to submit for the default button on forms.').defaultValue('button')
-  };
+  });
   return DocumentedButton;
 };

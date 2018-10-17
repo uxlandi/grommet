@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import { genericStyles } from '../../utils';
 export var StyledHour = styled.line.withConfig({
   displayName: "StyledClock__StyledHour",
   componentId: "y4xw8s-0"
@@ -26,11 +27,11 @@ export var StyledSecond = styled.line.withConfig({
 export var StyledAnalog = styled.svg.withConfig({
   displayName: "StyledClock__StyledAnalog",
   componentId: "y4xw8s-3"
-})(["width:", ";height:", ";", ""], function (props) {
+})(["width:", ";height:", ";", " ", ""], function (props) {
   return props.theme.clock.analog.size[props.size];
 }, function (props) {
   return props.theme.clock.analog.size[props.size];
-}, function (props) {
+}, genericStyles, function (props) {
   return props.theme.clock.analog && props.theme.clock.analog.extend;
 });
 

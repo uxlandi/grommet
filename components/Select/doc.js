@@ -7,10 +7,11 @@ var _reactDesc = require("react-desc");
 
 var _utils = require("../../utils");
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 var doc = function doc(Select) {
   var DocumentedSelect = (0, _reactDesc.describe)(Select).availableAt((0, _utils.getAvailableAtBadge)('Select')).description('An select-like field with optional search capability.').usage("import { Select } from 'grommet';\n<Select />");
-  DocumentedSelect.propTypes = {
-    a11yTitle: _utils.a11yTitlePropType,
+  DocumentedSelect.propTypes = _extends({}, _utils.genericProps, {
     children: _reactDesc.PropTypes.func.description('Function that will be called when each option is rendered.'),
     closeOnChange: _reactDesc.PropTypes.bool.description('Wether to close the drop when a selection is made.').defaultValue(true),
     disabled: _reactDesc.PropTypes.bool.description('Whether the select should be disabled.'),
@@ -39,7 +40,7 @@ var doc = function doc(Select) {
     selected: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.number, _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.number)]).description("Index of the currently selected option. When multiple, the set of\n      options selected. This property is required when multiple."),
     size: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']), _reactDesc.PropTypes.string]).description('The size of the select.'),
     value: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.string, _reactDesc.PropTypes.element, _reactDesc.PropTypes.object, _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.string, _reactDesc.PropTypes.object]))]).description("Currently selected value. This can be an array\n      when multiple. Passing an element allows the caller to control how\n      the value is rendered.")
-  };
+  });
   return DocumentedSelect;
 };
 

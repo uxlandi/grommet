@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { normalizeColor } from '../../utils';
+import { genericStyles, normalizeColor } from '../../utils';
 var FIT_MAP = {
   cover: 'cover',
   contain: 'contain'
@@ -20,7 +20,7 @@ export var StyledVideo = styled.video.withConfig({
 export var StyledVideoContainer = styled.div.withConfig({
   displayName: "StyledVideo__StyledVideoContainer",
   componentId: "w4v8h9-1"
-})(["flex:1 1;display:flex;flex-direction:column;overflow:hidden;position:relative;"]);
+})(["flex:1 1;display:flex;flex-direction:column;overflow:hidden;position:relative;", ""], genericStyles);
 var positionStyle = css(["position:absolute;left:0;right:0;bottom:0;"]);
 export var StyledVideoControls = styled.div.withConfig({
   displayName: "StyledVideo__StyledVideoControls",

@@ -7,12 +7,14 @@ var _reactDesc = require("react-desc");
 
 var _utils = require("../../utils");
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 var VERTICAL_ALIGN_OPTIONS = ['top', 'bottom'];
 var HORIZONTAL_ALIGN_OPTIONS = ['right', 'left'];
 
 var doc = function doc(Menu) {
   var DocumentedMenu = (0, _reactDesc.describe)(Menu).availableAt((0, _utils.getAvailableAtBadge)('Menu')).description("Presents a list of choices within a drop down via a control that\n      opens it.").usage("import { Menu } from 'grommet';\n<Menu />");
-  DocumentedMenu.propTypes = {
+  DocumentedMenu.propTypes = _extends({}, _utils.genericProps, {
     disabled: _reactDesc.PropTypes.bool.description('Whether the menu should be disabled.'),
     dropAlign: _reactDesc.PropTypes.shape({
       top: _reactDesc.PropTypes.oneOf(VERTICAL_ALIGN_OPTIONS),
@@ -33,7 +35,7 @@ var doc = function doc(Menu) {
       openMenu: _reactDesc.PropTypes.string
     }).description('Custom messages. Used for accessibility by screen readers.'),
     size: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']), _reactDesc.PropTypes.string]).description('The size of the menu.')
-  };
+  });
   return DocumentedMenu;
 };
 

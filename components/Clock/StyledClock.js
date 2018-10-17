@@ -5,6 +5,8 @@ exports.StyledDigitalNext = exports.StyledDigitalPrevious = exports.StyledDigita
 
 var _styledComponents = _interopRequireWildcard(require("styled-components"));
 
+var _utils = require("../../utils");
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 var StyledHour = _styledComponents.default.line.withConfig({
@@ -43,11 +45,11 @@ exports.StyledSecond = StyledSecond;
 var StyledAnalog = _styledComponents.default.svg.withConfig({
   displayName: "StyledClock__StyledAnalog",
   componentId: "y4xw8s-3"
-})(["width:", ";height:", ";", ""], function (props) {
+})(["width:", ";height:", ";", " ", ""], function (props) {
   return props.theme.clock.analog.size[props.size];
 }, function (props) {
   return props.theme.clock.analog.size[props.size];
-}, function (props) {
+}, _utils.genericStyles, function (props) {
   return props.theme.clock.analog && props.theme.clock.analog.extend;
 });
 

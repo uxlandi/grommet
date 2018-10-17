@@ -102,13 +102,16 @@ function (_Component) {
 
     var _this$props = this.props,
         a11yTitle = _this$props.a11yTitle,
+        alignSelf = _this$props.alignSelf,
         children = _this$props.children,
         closeOnChange = _this$props.closeOnChange,
         disabled = _this$props.disabled,
         dropAlign = _this$props.dropAlign,
         dropTarget = _this$props.dropTarget,
         forwardRef = _this$props.forwardRef,
+        gridArea = _this$props.gridArea,
         id = _this$props.id,
+        margin = _this$props.margin,
         messages = _this$props.messages,
         onChange = _this$props.onChange,
         onClose = _this$props.onClose,
@@ -117,7 +120,7 @@ function (_Component) {
         size = _this$props.size,
         theme = _this$props.theme,
         value = _this$props.value,
-        rest = _objectWithoutPropertiesLoose(_this$props, ["a11yTitle", "children", "closeOnChange", "disabled", "dropAlign", "dropTarget", "forwardRef", "id", "messages", "onChange", "onClose", "placeholder", "plain", "size", "theme", "value"]);
+        rest = _objectWithoutPropertiesLoose(_this$props, ["a11yTitle", "alignSelf", "children", "closeOnChange", "disabled", "dropAlign", "dropTarget", "forwardRef", "gridArea", "id", "margin", "messages", "onChange", "onClose", "placeholder", "plain", "size", "theme", "value"]);
 
     var open = this.state.open;
     delete rest.onSearch;
@@ -176,6 +179,9 @@ function (_Component) {
       dropAlign: dropAlign,
       dropTarget: dropTarget,
       open: open,
+      alignSelf: alignSelf,
+      gridArea: gridArea,
+      margin: margin,
       onOpen: this.onOpen,
       onClose: this.onClose,
       dropContent: _react.default.createElement(_SelectContainer.SelectContainer, _extends({}, this.props, {

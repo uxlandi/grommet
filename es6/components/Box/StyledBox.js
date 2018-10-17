@@ -1,7 +1,7 @@
 var _FLEX_MAP;
 
 import styled, { css, keyframes } from 'styled-components';
-import { backgroundStyle, breakpointStyle, edgeStyle, focusStyle, normalizeColor, overflowStyle } from '../../utils';
+import { backgroundStyle, breakpointStyle, edgeStyle, focusStyle, genericStyles, normalizeColor, overflowStyle } from '../../utils';
 var ALIGN_MAP = {
   baseline: 'baseline',
   center: 'center',
@@ -22,15 +22,6 @@ var ALIGN_CONTENT_MAP = {
 };
 var alignContentStyle = css(["align-content:", ";"], function (props) {
   return ALIGN_CONTENT_MAP[props.alignContent];
-});
-var ALIGN_SELF_MAP = {
-  center: 'center',
-  end: 'flex-end',
-  start: 'flex-start',
-  stretch: 'stretch'
-};
-var alignSelfStyle = css(["align-self:", ";"], function (props) {
-  return ALIGN_SELF_MAP[props.alignSelf];
 });
 var BASIS_MAP = {
   'auto': 'auto',
@@ -87,9 +78,6 @@ var fillStyle = function fillStyle(fillProp) {
   return undefined;
 };
 
-var gridAreaStyle = css(["grid-area:", ";"], function (props) {
-  return props.gridArea;
-});
 var JUSTIFY_MAP = {
   between: 'space-between',
   center: 'center',
@@ -383,9 +371,9 @@ var animationStyle = css(["", ""], function (props) {
 export var StyledBox = styled.div.withConfig({
   displayName: "StyledBox",
   componentId: "sc-13pk1d4-0"
-})(["display:flex;box-sizing:border-box;outline:none;", ";", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", ""], function (props) {
+})(["display:flex;box-sizing:border-box;outline:none;", ";", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", ""], function (props) {
   return !props.basis && 'max-width: 100%;';
-}, function (props) {
+}, genericStyles, function (props) {
   return props.heightProp && "height: " + (props.theme.global.size[props.heightProp] || props.heightProp) + ";";
 }, function (props) {
   return props.widthProp && "width: " + (props.theme.global.size[props.widthProp] || props.widthProp) + ";";
@@ -393,8 +381,6 @@ export var StyledBox = styled.div.withConfig({
   return props.align && alignStyle;
 }, function (props) {
   return props.alignContent && alignContentStyle;
-}, function (props) {
-  return props.alignSelf && alignSelfStyle;
 }, function (props) {
   return props.background && backgroundStyle(props.background, props.theme);
 }, function (props) {
@@ -408,11 +394,7 @@ export var StyledBox = styled.div.withConfig({
 }, function (props) {
   return props.fillProp && fillStyle(props.fillProp);
 }, function (props) {
-  return props.gridArea && gridAreaStyle;
-}, function (props) {
   return props.justify && justifyStyle;
-}, function (props) {
-  return props.margin && edgeStyle('margin', props.margin, props.responsive, props.theme.box.responsiveBreakpoint, props.theme);
 }, function (props) {
   return props.pad && edgeStyle('padding', props.pad, props.responsive, props.theme.box.responsiveBreakpoint, props.theme);
 }, function (props) {

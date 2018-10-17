@@ -188,7 +188,7 @@ function (_Component) {
       onEsc: this.onDropClose,
       onTab: this.onDropClose,
       onKeyDown: onKeyDown
-    }, _react.default.createElement("div", null, _react.default.createElement(_DropButton.DropButton, _extends({
+    }, _react.default.createElement(_DropButton.DropButton, _extends({
       ref: forwardRef
     }, rest, {
       a11yTitle: messages.openMenu || 'Open Menu',
@@ -196,6 +196,7 @@ function (_Component) {
       dropAlign: dropAlign,
       dropTarget: dropTarget,
       open: open,
+      theme: theme,
       onOpen: function onOpen() {
         return _this2.setState({
           open: true
@@ -235,7 +236,7 @@ function (_Component) {
           direction: "row"
         }, item.icon, item.label)));
       })), dropAlign.bottom === 'bottom' ? controlMirror : undefined)
-    }), content)));
+    }), content));
   };
 
   return Menu;

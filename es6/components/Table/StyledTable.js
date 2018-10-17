@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { genericStyles } from '../../utils';
 var SIZE_MAP = {
   '1/2': '50%',
   '1/4': '25%',
@@ -47,6 +48,6 @@ export var StyledTableFooter = styled.tfoot.withConfig({
 export var StyledTable = styled.table.withConfig({
   displayName: "StyledTable",
   componentId: "sc-1m3u5g-6"
-})(["border-spacing:0;border-collapse:collapse;", ""], function (props) {
+})(["border-spacing:0;border-collapse:collapse;", " ", ""], genericStyles, function (props) {
   return props.theme.table && props.theme.table.extend;
 });

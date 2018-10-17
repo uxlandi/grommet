@@ -1,8 +1,10 @@
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 import { describe, PropTypes } from 'react-desc';
-import { getAvailableAtBadge } from '../../utils';
+import { genericProps, getAvailableAtBadge } from '../../utils';
 export var doc = function doc(WorldMap) {
   var DocumentedWorldMap = describe(WorldMap).availableAt(getAvailableAtBadge('WorldMap')).description('A map of the world, or a continent.').usage("import { WorldMap } from 'grommet';\n<WorldMap />");
-  DocumentedWorldMap.propTypes = {
+  DocumentedWorldMap.propTypes = _extends({}, genericProps, {
     color: PropTypes.string.description('Default color'),
     continents: PropTypes.arrayOf(PropTypes.shape({
       color: PropTypes.string,
@@ -20,6 +22,6 @@ export var doc = function doc(WorldMap) {
       onHover: PropTypes.func
     })).description('Place details.'),
     hoverColor: PropTypes.string.description('Color when hovering over places while selecting.')
-  };
+  });
   return DocumentedWorldMap;
 };

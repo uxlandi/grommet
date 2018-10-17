@@ -9,7 +9,10 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 import React, { cloneElement, Children, Component } from 'react';
+import { compose } from 'recompose';
 import { Box } from '../Box';
+import { withTheme } from '../hocs';
+import { StyledTabs } from './StyledTabs';
 
 var Tabs =
 /*#__PURE__*/
@@ -100,13 +103,13 @@ function (_Component) {
       });
     }, this);
     var tabContentTitle = (activeTitle || '') + " " + tabContents;
-    return React.createElement("div", {
+    return React.createElement(StyledTabs, _extends({
       role: "tablist"
-    }, React.createElement(Box, _extends({
+    }, rest), React.createElement(Box, {
       direction: "row",
       justify: justify,
       wrap: true
-    }, rest), tabs), React.createElement("div", {
+    }, tabs), React.createElement("div", {
       "aria-label": tabContentTitle,
       role: "tabpanel"
     }, activeContent));
@@ -129,5 +132,5 @@ if (process.env.NODE_ENV !== 'production') {
   TabsDoc = require('./doc').doc(Tabs); // eslint-disable-line global-require
 }
 
-var TabsWrapper = TabsDoc || Tabs;
+var TabsWrapper = compose(withTheme)(TabsDoc || Tabs);
 export { TabsWrapper as Tabs };

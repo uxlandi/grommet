@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { genericStyles } from '../../utils';
 
 var fillStyle = function fillStyle(fill) {
   if (fill === 'horizontal') {
@@ -157,7 +158,7 @@ var areasStyle = function areasStyle(props) {
 export var StyledGrid = styled.div.withConfig({
   displayName: "StyledGrid",
   componentId: "sc-1wofa1l-0"
-})(["display:grid;box-sizing:border-box;", " ", " ", " ", " ", " ", " ", " ", " ", " ", ""], function (props) {
+})(["display:grid;box-sizing:border-box;", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", ""], genericStyles, function (props) {
   return props.fillContainer && fillStyle(props.fillContainer);
 }, function (props) {
   return props.align && alignStyle;

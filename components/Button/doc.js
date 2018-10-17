@@ -7,10 +7,11 @@ var _reactDesc = require("react-desc");
 
 var _utils = require("../../utils");
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 var doc = function doc(Button) {
   var DocumentedButton = (0, _reactDesc.describe)(Button).availableAt((0, _utils.getAvailableAtBadge)('Button')).description('A button. We have a separate component from the browser base so we can style it.').usage("import { Button } from 'grommet';\n<Button primary={true} label='Label' />");
-  DocumentedButton.propTypes = {
-    a11yTitle: _reactDesc.PropTypes.string.description('Custom title to be used by screen readers.'),
+  DocumentedButton.propTypes = _extends({}, _utils.genericProps, {
     active: _reactDesc.PropTypes.bool.description('Whether the button is active.'),
     color: _reactDesc.PropTypes.string.description('Fill color for primary, border color otherwise.'),
     disabled: _reactDesc.PropTypes.bool.description('Whether the button is disabled.'),
@@ -27,7 +28,7 @@ var doc = function doc(Button) {
     primary: _reactDesc.PropTypes.bool.description('Whether this is a primary button. There should be at most one per page or screen.'),
     reverse: _reactDesc.PropTypes.bool.description("Whether an icon and label should be reversed so that the icon is at the\nend of the anchor."),
     type: _reactDesc.PropTypes.oneOf(['button', 'reset', 'submit']).description('The type of button. Set the type to submit for the default button on forms.').defaultValue('button')
-  };
+  });
   return DocumentedButton;
 };
 

@@ -481,12 +481,15 @@ function (_Component) {
 
   _proto.render = function render() {
     var _this$props2 = this.props,
+        alignSelf = _this$props2.alignSelf,
         autoPlay = _this$props2.autoPlay,
         children = _this$props2.children,
         controls = _this$props2.controls,
+        gridArea = _this$props2.gridArea,
         loop = _this$props2.loop,
+        margin = _this$props2.margin,
         theme = _this$props2.theme,
-        rest = _objectWithoutPropertiesLoose(_this$props2, ["autoPlay", "children", "controls", "loop", "theme"]);
+        rest = _objectWithoutPropertiesLoose(_this$props2, ["alignSelf", "autoPlay", "children", "controls", "gridArea", "loop", "margin", "theme"]);
 
     var _this$state5 = this.state,
         height = _this$state5.height,
@@ -519,6 +522,9 @@ function (_Component) {
     }
 
     return React.createElement(StyledVideoContainer, _extends({}, mouseEventListeners, {
+      alignSelf: alignSelf,
+      gridArea: gridArea,
+      margin: margin,
       theme: theme,
       style: style
     }), React.createElement(StyledVideo, _extends({}, rest, {

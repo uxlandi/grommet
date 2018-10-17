@@ -17,7 +17,7 @@ var sizeStyle = function sizeStyle(props) {
 var StyledCalendar = _styledComponents.default.div.withConfig({
   displayName: "StyledCalendar",
   componentId: "sc-1y4xhmp-0"
-})(["", " ", ""], function (props) {
+})(["", " ", " ", ""], _utils.genericStyles, function (props) {
   return sizeStyle(props);
 }, function (props) {
   return props.theme.calendar && props.theme.calendar.extend;

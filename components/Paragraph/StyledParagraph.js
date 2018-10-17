@@ -13,23 +13,6 @@ var colorStyle = (0, _styledComponents.css)(["color:", ";"], function (props) {
   return (0, _utils.normalizeColor)(props.color, props.theme);
 });
 
-var marginStyle = function marginStyle(props) {
-  if (typeof props.margin === 'string') {
-    var margin = props.theme.global.edgeSize[props.margin];
-    return "\n      margin-top: " + margin + ";\n      margin-bottom: " + margin + ";\n    ";
-  }
-
-  if (props.margin.top) {
-    return "margin-top: " + props.theme.global.edgeSize[props.margin.top] + ";";
-  }
-
-  if (props.margin.bottom) {
-    return "margin-bottom: " + props.theme.global.edgeSize[props.margin.bottom] + ";";
-  }
-
-  return '';
-};
-
 var sizeStyle = function sizeStyle(props) {
   var size = props.size || 'medium';
   var data = props.theme.paragraph[size];
@@ -48,10 +31,8 @@ var textAlignStyle = (0, _styledComponents.css)(["text-align:", ";"], function (
 var StyledParagraph = _styledComponents.default.p.withConfig({
   displayName: "StyledParagraph",
   componentId: "tbetod-0"
-})(["", " ", " ", " ", " ", ""], function (props) {
+})(["", " ", " ", " ", " ", ""], _utils.genericStyles, function (props) {
   return sizeStyle(props);
-}, function (props) {
-  return props.margin && marginStyle(props);
 }, function (props) {
   return props.textAlign && textAlignStyle;
 }, function (props) {

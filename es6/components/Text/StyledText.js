@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { normalizeColor } from '../../utils';
+import { genericStyles, normalizeColor } from '../../utils';
 
 var marginStyle = function marginStyle(props) {
   if (typeof props.margin === 'string') {
@@ -59,7 +59,7 @@ var weightStyle = css(["font-weight:", ";"], function (props) {
 export var StyledText = styled.span.withConfig({
   displayName: "StyledText",
   componentId: "sc-1sadyjn-0"
-})(["", " ", " ", " ", " ", " ", " ", ""], function (props) {
+})(["", " ", " ", " ", " ", " ", " ", " ", ""], genericStyles, function (props) {
   return sizeStyle(props);
 }, function (props) {
   return props.margin && marginStyle(props);

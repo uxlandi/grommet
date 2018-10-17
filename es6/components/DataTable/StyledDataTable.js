@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { genericStyles } from '../../utils';
 export var StyledDataTable = styled.table.withConfig({
   displayName: "StyledDataTable",
   componentId: "xrlyjm-0"
-})(["border-spacing:0;border-collapse:collapse;height:100%;"]);
+})(["border-spacing:0;border-collapse:collapse;height:100%;", ""], genericStyles);
 export var StyledDataTableRow = styled.tr.withConfig({
   displayName: "StyledDataTable__StyledDataTableRow",
   componentId: "xrlyjm-1"

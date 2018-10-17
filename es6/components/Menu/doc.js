@@ -1,10 +1,12 @@
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 import { describe, PropTypes } from 'react-desc';
-import { getAvailableAtBadge } from '../../utils';
+import { genericProps, getAvailableAtBadge } from '../../utils';
 var VERTICAL_ALIGN_OPTIONS = ['top', 'bottom'];
 var HORIZONTAL_ALIGN_OPTIONS = ['right', 'left'];
 export var doc = function doc(Menu) {
   var DocumentedMenu = describe(Menu).availableAt(getAvailableAtBadge('Menu')).description("Presents a list of choices within a drop down via a control that\n      opens it.").usage("import { Menu } from 'grommet';\n<Menu />");
-  DocumentedMenu.propTypes = {
+  DocumentedMenu.propTypes = _extends({}, genericProps, {
     disabled: PropTypes.bool.description('Whether the menu should be disabled.'),
     dropAlign: PropTypes.shape({
       top: PropTypes.oneOf(VERTICAL_ALIGN_OPTIONS),
@@ -25,6 +27,6 @@ export var doc = function doc(Menu) {
       openMenu: PropTypes.string
     }).description('Custom messages. Used for accessibility by screen readers.'),
     size: PropTypes.oneOfType([PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']), PropTypes.string]).description('The size of the menu.')
-  };
+  });
   return DocumentedMenu;
 };

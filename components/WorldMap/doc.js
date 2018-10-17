@@ -7,9 +7,11 @@ var _reactDesc = require("react-desc");
 
 var _utils = require("../../utils");
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 var doc = function doc(WorldMap) {
   var DocumentedWorldMap = (0, _reactDesc.describe)(WorldMap).availableAt((0, _utils.getAvailableAtBadge)('WorldMap')).description('A map of the world, or a continent.').usage("import { WorldMap } from 'grommet';\n<WorldMap />");
-  DocumentedWorldMap.propTypes = {
+  DocumentedWorldMap.propTypes = _extends({}, _utils.genericProps, {
     color: _reactDesc.PropTypes.string.description('Default color'),
     continents: _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.shape({
       color: _reactDesc.PropTypes.string,
@@ -27,7 +29,7 @@ var doc = function doc(WorldMap) {
       onHover: _reactDesc.PropTypes.func
     })).description('Place details.'),
     hoverColor: _reactDesc.PropTypes.string.description('Color when hovering over places while selecting.')
-  };
+  });
   return DocumentedWorldMap;
 };
 

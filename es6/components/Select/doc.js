@@ -1,9 +1,10 @@
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 import { describe, PropTypes } from 'react-desc';
-import { a11yTitlePropType, getAvailableAtBadge } from '../../utils';
+import { genericProps, getAvailableAtBadge } from '../../utils';
 export var doc = function doc(Select) {
   var DocumentedSelect = describe(Select).availableAt(getAvailableAtBadge('Select')).description('An select-like field with optional search capability.').usage("import { Select } from 'grommet';\n<Select />");
-  DocumentedSelect.propTypes = {
-    a11yTitle: a11yTitlePropType,
+  DocumentedSelect.propTypes = _extends({}, genericProps, {
     children: PropTypes.func.description('Function that will be called when each option is rendered.'),
     closeOnChange: PropTypes.bool.description('Wether to close the drop when a selection is made.').defaultValue(true),
     disabled: PropTypes.bool.description('Whether the select should be disabled.'),
@@ -32,6 +33,6 @@ export var doc = function doc(Select) {
     selected: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)]).description("Index of the currently selected option. When multiple, the set of\n      options selected. This property is required when multiple."),
     size: PropTypes.oneOfType([PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']), PropTypes.string]).description('The size of the select.'),
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.object, PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))]).description("Currently selected value. This can be an array\n      when multiple. Passing an element allows the caller to control how\n      the value is rendered.")
-  };
+  });
   return DocumentedSelect;
 };
