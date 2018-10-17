@@ -5,7 +5,7 @@ export var StyledAnchor = styled.a.withConfig({
   displayName: "StyledAnchor",
   componentId: "sc-1rp7lwl-0"
 })(["box-sizing:border-box;font-size:inherit;line-height:inherit;color:", ";", " text-decoration:", ";cursor:pointer;outline:none;", " ", " ", " ", " ", " ", ""], function (props) {
-  return normalizeColor(props.color || props.theme.anchor.color, props.theme);
+  return normalizeColor(props.colorProp || props.theme.anchor.color, props.theme);
 }, function (props) {
   return props.theme.anchor.fontWeight && "font-weight: " + props.theme.anchor.fontWeight + ";";
 }, function (props) {

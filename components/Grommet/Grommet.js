@@ -100,7 +100,17 @@ function (_Component) {
     var nextTheme;
 
     if (theme && (theme !== themeProp || iconTheme !== iconThemeProp)) {
-      nextTheme = (0, _utils.deepMerge)(_base.base, theme);
+      // in case the supplied theme has global.colors but not icon.colors,
+      // pre-merge the current base icon colors with the new theme colors.
+      var iconColoredTheme = theme;
+
+      if (!theme.icon || !theme.icon.colors) {
+        iconColoredTheme = _extends({}, theme);
+        iconColoredTheme.icon = _extends({}, theme.icon || {});
+        iconColoredTheme.icon.colors = (0, _utils.deepMerge)(_base.base.icon.colors, theme.global.colors);
+      }
+
+      nextTheme = (0, _utils.deepMerge)(_base.base, iconColoredTheme);
     } else if (!theme && (themeProp || !stateTheme)) {
       nextTheme = _base.base;
     }

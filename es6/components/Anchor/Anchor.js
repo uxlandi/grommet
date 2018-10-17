@@ -64,7 +64,7 @@ function (_Component) {
     return React.createElement(StyledAnchor, _extends({}, rest, {
       ref: forwardRef,
       "aria-label": a11yTitle,
-      color: color,
+      colorProp: color,
       disabled: disabled,
       hasIcon: !!icon,
       focus: focus,
