@@ -18,6 +18,31 @@ var Simple = function Simple() {
   }));
 };
 
+var Fit = function Fit() {
+  return _react.default.createElement(_grommet.Grommet, {
+    theme: _themes.grommet
+  }, _react.default.createElement(_grommet.Box, {
+    align: "start",
+    gap: "medium"
+  }, _react.default.createElement(_grommet.Box, {
+    height: "small",
+    width: "small",
+    border: true
+  }, _react.default.createElement(_grommet.Image, {
+    src: "//v2.grommet.io/assets/IMG_4245.jpg",
+    fit: "contain"
+  })), _react.default.createElement(_grommet.Box, {
+    height: "small",
+    width: "small",
+    border: true
+  }, _react.default.createElement(_grommet.Image, {
+    src: "//v2.grommet.io/assets/IMG_4245.jpg",
+    fit: "cover"
+  }))));
+};
+
 (0, _react2.storiesOf)('Image', module).add('Simple', function () {
   return _react.default.createElement(Simple, null);
+}).add('Fit', function () {
+  return _react.default.createElement(Fit, null);
 });
