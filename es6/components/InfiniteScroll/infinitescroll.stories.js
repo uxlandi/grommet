@@ -31,4 +31,13 @@ storiesOf('InfiniteScroll', module).add('Simple', function () {
   return React.createElement(SimpleInfiniteScroll, {
     show: 117
   });
+}).add('Marker', function () {
+  return React.createElement(SimpleInfiniteScroll, {
+    renderMarker: function renderMarker(marker) {
+      return React.createElement(Box, {
+        pad: "medium",
+        background: "accent-1"
+      }, marker);
+    }
+  });
 });

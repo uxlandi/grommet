@@ -39,4 +39,13 @@ var SimpleInfiniteScroll = function SimpleInfiniteScroll(props) {
   return _react.default.createElement(SimpleInfiniteScroll, {
     show: 117
   });
+}).add('Marker', function () {
+  return _react.default.createElement(SimpleInfiniteScroll, {
+    renderMarker: function renderMarker(marker) {
+      return _react.default.createElement(_grommet.Box, {
+        pad: "medium",
+        background: "accent-1"
+      }, marker);
+    }
+  });
 });
