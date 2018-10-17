@@ -4,12 +4,13 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-import React, { Component } from 'react';
+import React, { cloneElement, Component } from 'react';
 import { compose } from 'recompose';
 import { Box } from '../Box';
 import { Text } from '../Text';
 import { withFocus, withForwardRef, withTheme } from '../hocs';
 import { StyledAnchor } from './StyledAnchor';
+import { normalizeColor } from '../../utils';
 
 var Anchor =
 /*#__PURE__*/
@@ -37,29 +38,37 @@ function (_Component) {
     var _this$props = this.props,
         a11yTitle = _this$props.a11yTitle,
         children = _this$props.children,
+        color = _this$props.color,
         disabled = _this$props.disabled,
         forwardRef = _this$props.forwardRef,
         href = _this$props.href,
         icon = _this$props.icon,
         focus = _this$props.focus,
         label = _this$props.label,
-        primary = _this$props.primary,
         onClick = _this$props.onClick,
         reverse = _this$props.reverse,
         theme = _this$props.theme,
-        rest = _objectWithoutPropertiesLoose(_this$props, ["a11yTitle", "children", "disabled", "forwardRef", "href", "icon", "focus", "label", "primary", "onClick", "reverse", "theme"]);
+        rest = _objectWithoutPropertiesLoose(_this$props, ["a11yTitle", "children", "color", "disabled", "forwardRef", "href", "icon", "focus", "label", "onClick", "reverse", "theme"]);
 
-    var anchorLabel = typeof label === 'string' ? React.createElement(Text, null, React.createElement("strong", null, label)) : label;
-    var first = reverse ? anchorLabel : icon;
-    var second = reverse ? icon : anchorLabel;
+    var anchorLabel = typeof label === 'string' ? React.createElement(Text, null, label) : label;
+    var coloredIcon = icon;
+
+    if (icon && !icon.props.color) {
+      coloredIcon = cloneElement(icon, {
+        color: normalizeColor(color || theme.anchor.color, theme)
+      });
+    }
+
+    var first = reverse ? anchorLabel : coloredIcon;
+    var second = reverse ? coloredIcon : anchorLabel;
     return React.createElement(StyledAnchor, _extends({}, rest, {
       ref: forwardRef,
       "aria-label": a11yTitle,
+      color: color,
       disabled: disabled,
       hasIcon: !!icon,
       focus: focus,
       hasLabel: label,
-      primary: primary,
       reverse: reverse,
       theme: theme,
       href: !disabled ? href : undefined,

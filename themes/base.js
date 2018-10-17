@@ -273,6 +273,11 @@ var generate = function generate(baseSpacing, scale) {
       color: {
         dark: '#6194EB',
         light: '#1D67E3'
+      },
+      hover: {
+        textDecoration: 'underline' // fontWeight: undefined,
+        // extend: undefined,
+
       }
     },
     box: {

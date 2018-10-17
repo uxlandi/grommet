@@ -13,7 +13,6 @@ export var grommet = deepFreeze({
     }
   },
   anchor: {
-    textDecoration: 'underline',
     color: {
       dark: '#FD6FFF',
       light: '#9060EB'

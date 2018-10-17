@@ -6,6 +6,7 @@ export var doc = function doc(Anchor) {
   var DocumentedAnchor = describe(Anchor).availableAt(getAvailableAtBadge('Anchor')).description("A text link. We have a separate component from the browser\nbase so we can style it. You can either set the icon and/or label properties\nor just use children.").usage("import { Anchor } from 'grommet';\n<Anchor href={location} label='Label' />");
   DocumentedAnchor.propTypes = _extends({}, genericProps, {
     a11yTitle: PropTypes.string.description('Custom title to be used by screen readers.'),
+    color: PropTypes.string.description("\n      Label color and icon color, if not specified on the icon.\n    "),
     href: PropTypes.string.description('Hyperlink reference to place in the anchor.'),
     icon: PropTypes.element.description('Icon element to place in the anchor.'),
     label: PropTypes.node.description('Label text to place in the anchor.'),

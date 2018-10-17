@@ -23,13 +23,41 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+// grommet-icons isn't aware of the grommet dark background context.
+// Here, we reduce the grommet theme colors to the correct flat color
+// namespace for grommet-icons.
+var reduceIconTheme = function reduceIconTheme(iconTheme, dark) {
+  var result = _extends({}, iconTheme, {
+    colors: _extends({}, iconTheme.colors)
+  });
+
+  Object.keys(result.colors).forEach(function (key) {
+    if (typeof result.colors[key] === 'object') {
+      result.colors[key] = (0, _utils.normalizeColor)(result.colors[key][dark ? 'dark' : 'light'], {
+        dark: dark,
+        global: {
+          colors: result.colors
+        }
+      });
+    } else {
+      result.colors[key] = (0, _utils.normalizeColor)(result.colors[key], {
+        dark: dark,
+        global: {
+          colors: result.colors
+        }
+      });
+    }
+  });
+  return result;
+};
 
 var Grommet =
 /*#__PURE__*/
@@ -82,10 +110,10 @@ function (_Component) {
       var dark = color ? (0, _utils.colorIsDark)(color) : false;
       var lightIconTheme = (0, _utils.deepMerge)(iconTheme, nextTheme.icon);
       var iconThemes = {
-        dark: (0, _utils.deepMerge)(lightIconTheme, {
+        dark: reduceIconTheme((0, _utils.deepMerge)(lightIconTheme, {
           color: nextTheme.global.colors.text.dark
-        }),
-        light: lightIconTheme
+        }), true),
+        light: reduceIconTheme(lightIconTheme, false)
       };
       return {
         theme: _extends({}, nextTheme, {

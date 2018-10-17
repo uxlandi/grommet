@@ -15,6 +15,8 @@ var _hocs = require("../hocs");
 
 var _StyledAnchor = require("./StyledAnchor");
 
+var _utils = require("../../utils");
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -49,29 +51,37 @@ function (_Component) {
     var _this$props = this.props,
         a11yTitle = _this$props.a11yTitle,
         children = _this$props.children,
+        color = _this$props.color,
         disabled = _this$props.disabled,
         forwardRef = _this$props.forwardRef,
         href = _this$props.href,
         icon = _this$props.icon,
         focus = _this$props.focus,
         label = _this$props.label,
-        primary = _this$props.primary,
         onClick = _this$props.onClick,
         reverse = _this$props.reverse,
         theme = _this$props.theme,
-        rest = _objectWithoutPropertiesLoose(_this$props, ["a11yTitle", "children", "disabled", "forwardRef", "href", "icon", "focus", "label", "primary", "onClick", "reverse", "theme"]);
+        rest = _objectWithoutPropertiesLoose(_this$props, ["a11yTitle", "children", "color", "disabled", "forwardRef", "href", "icon", "focus", "label", "onClick", "reverse", "theme"]);
 
-    var anchorLabel = typeof label === 'string' ? _react.default.createElement(_Text.Text, null, _react.default.createElement("strong", null, label)) : label;
-    var first = reverse ? anchorLabel : icon;
-    var second = reverse ? icon : anchorLabel;
+    var anchorLabel = typeof label === 'string' ? _react.default.createElement(_Text.Text, null, label) : label;
+    var coloredIcon = icon;
+
+    if (icon && !icon.props.color) {
+      coloredIcon = (0, _react.cloneElement)(icon, {
+        color: (0, _utils.normalizeColor)(color || theme.anchor.color, theme)
+      });
+    }
+
+    var first = reverse ? anchorLabel : coloredIcon;
+    var second = reverse ? coloredIcon : anchorLabel;
     return _react.default.createElement(_StyledAnchor.StyledAnchor, _extends({}, rest, {
       ref: forwardRef,
       "aria-label": a11yTitle,
+      color: color,
       disabled: disabled,
       hasIcon: !!icon,
       focus: focus,
       hasLabel: label,
-      primary: primary,
       reverse: reverse,
       theme: theme,
       href: !disabled ? href : undefined,

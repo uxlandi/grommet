@@ -18,19 +18,46 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   }, _react.default.createElement(_grommet.Anchor, {
     href: "#"
   }, "Link"));
-}).add('Icon', function () {
+}).add('Colors', function () {
   return _react.default.createElement(_grommet.Grommet, {
     theme: _themes.grommet
+  }, _react.default.createElement(_grommet.Box, {
+    pad: "medium",
+    gap: "medium"
   }, _react.default.createElement(_grommet.Anchor, {
+    icon: _react.default.createElement(_grommetIcons.Add, null),
+    href: "#"
+  }), _react.default.createElement(_grommet.Anchor, {
     icon: _react.default.createElement(_grommetIcons.Add, null),
     label: "Add",
     href: "#"
-  }));
-}).add('With Text', function () {
+  }), _react.default.createElement(_grommet.Anchor, {
+    label: "Add",
+    href: "#"
+  })), _react.default.createElement(_grommet.Box, {
+    background: "dark-1",
+    pad: "medium",
+    gap: "medium"
+  }, _react.default.createElement(_grommet.Anchor, {
+    icon: _react.default.createElement(_grommetIcons.Add, null),
+    href: "#"
+  }), _react.default.createElement(_grommet.Anchor, {
+    icon: _react.default.createElement(_grommetIcons.Add, null),
+    label: "Add",
+    href: "#"
+  }), _react.default.createElement(_grommet.Anchor, {
+    icon: _react.default.createElement(_grommetIcons.Add, null),
+    label: "Add",
+    href: "#"
+  }), _react.default.createElement(_grommet.Anchor, {
+    label: "Add",
+    href: "#"
+  })));
+}).add('Inline', function () {
   return _react.default.createElement(_grommet.Grommet, {
     theme: _themes.grommet
-  }, "This is a ", _react.default.createElement(_grommet.Anchor, {
-    label: "link",
+  }, "This is ", _react.default.createElement(_grommet.Anchor, {
+    label: "an inline link",
     href: "#"
-  }), " with text.");
+  }), " with surrounding text.");
 });
