@@ -92,7 +92,9 @@ function (_Component) {
         height = _this$props.height,
         rest = _objectWithoutPropertiesLoose(_this$props, ["a11yTitle", "children", "direction", "elevation", "fill", "forwardRef", "gap", "overflow", "responsive", "tag", "theme", "wrap", "width", "height"]);
 
-    var stateTheme = this.state.theme;
+    var _this$state = this.state,
+        stateTheme = _this$state.theme,
+        priorTheme = _this$state.priorTheme;
     var theme = stateTheme || propsTheme;
     var StyledComponent = styledComponents[tag];
 
@@ -136,7 +138,8 @@ function (_Component) {
       widthProp: width,
       heightProp: height,
       responsive: responsive,
-      theme: theme
+      theme: theme,
+      priorTheme: priorTheme
     }, rest), contents);
 
     if (stateTheme) {

@@ -207,7 +207,8 @@ var BackgroundBox = function BackgroundBox() {
     align: "start"
   }, _react.default.createElement(_2.Box, {
     pad: "small",
-    background: "brand"
+    background: "brand",
+    elevation: "large"
   }, "brand"), _react.default.createElement(_2.Box, {
     pad: "small",
     background: {
@@ -222,6 +223,24 @@ var BackgroundBox = function BackgroundBox() {
   }, "image + color")));
 };
 
+var ElevationBox = function ElevationBox() {
+  return _react.default.createElement(_2.Grommet, {
+    theme: _themes.grommet
+  }, _react.default.createElement(_2.Box, {
+    pad: "small",
+    gap: "small",
+    align: "start"
+  }, _react.default.createElement(_2.Box, {
+    pad: "medium",
+    background: "dark-1",
+    elevation: "medium",
+    gap: "medium"
+  }, _react.default.createElement(_2.Text, null, "on white"), _react.default.createElement(_2.Box, {
+    pad: "medium",
+    elevation: "medium"
+  }, _react.default.createElement(_2.Text, null, "on dark")))));
+};
+
 (0, _react2.storiesOf)('Box', module).add('Simple Box', function () {
   return _react.default.createElement(SimpleBox, null);
 }).add('Custom color', function () {
@@ -234,4 +253,6 @@ var BackgroundBox = function BackgroundBox() {
   return _react.default.createElement(RoundBox, null);
 }).add('Background', function () {
   return _react.default.createElement(BackgroundBox, null);
+}).add('Elevation', function () {
+  return _react.default.createElement(ElevationBox, null);
 });

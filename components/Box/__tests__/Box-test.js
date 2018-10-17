@@ -442,7 +442,12 @@ describe('Box', function () {
       elevation: "large"
     }), _react.default.createElement(_.Box, {
       elevation: "xlarge"
-    })));
+    }), _react.default.createElement(_.Box, {
+      background: "dark-1",
+      elevation: "small"
+    }, _react.default.createElement(_.Box, {
+      elevation: "small"
+    }))));
 
     var tree = component.toJSON();
     expect(tree).toMatchSnapshot();
