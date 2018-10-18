@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
 import { Grommet, Grid, Heading } from 'grommet';
 import { grommet } from 'grommet/themes';
+import { deepMerge } from 'grommet/utils';
 
 var H = function H(_ref) {
   var level = _ref.level,
@@ -56,8 +57,39 @@ var Color = function Color() {
   }, "Colored Heading"));
 };
 
+var customlevel = deepMerge(grommet, {
+  heading: {
+    level: {
+      5: {
+        small: {
+          size: '12px',
+          height: '16px'
+        },
+        medium: {
+          size: '14px',
+          height: '18px'
+        },
+        large: {
+          size: '16px',
+          height: '20px'
+        }
+      }
+    }
+  }
+});
+
+var CustomLevel = function CustomLevel() {
+  return React.createElement(Grommet, {
+    theme: customlevel
+  }, React.createElement(Heading, {
+    level: 5
+  }, "Heading level 5"));
+};
+
 storiesOf('Heading', module).add('All', function () {
   return React.createElement(All, null);
 }).add('Color', function () {
   return React.createElement(Color, null);
+}).add('Custom Level', function () {
+  return React.createElement(CustomLevel, null);
 });

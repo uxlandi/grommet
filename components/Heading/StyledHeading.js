@@ -13,19 +13,26 @@ var sizeStyle = function sizeStyle(props) {
   // size is a combination of the level and size properties
   var size = props.size || 'medium';
   var headingTheme = props.theme.heading;
-  var data = headingTheme.level[props.level][size];
-  var styles = [(0, _styledComponents.css)(["font-size:", ";line-height:", ";max-width:", ";font-weight:", ";"], data.size, data.height, data.maxWidth, headingTheme.weight)];
+  var levelStyle = headingTheme.level[props.level];
 
-  if (props.responsive && headingTheme.responsiveBreakpoint) {
-    var breakpoint = props.theme.global.breakpoints[headingTheme.responsiveBreakpoint];
+  if (levelStyle) {
+    var data = levelStyle[size];
+    var styles = [(0, _styledComponents.css)(["font-size:", ";line-height:", ";max-width:", ";font-weight:", ";"], data.size, data.height, data.maxWidth, headingTheme.weight)];
 
-    if (breakpoint) {
-      var responsiveData = headingTheme.level[Math.min(props.level + 1, 4)][size];
-      styles.push((0, _utils.breakpointStyle)(breakpoint, "\n        font-size: " + responsiveData.size + ";\n        line-height: " + responsiveData.height + ";\n        max-width: " + responsiveData.maxWidth + ";\n      "));
+    if (props.responsive && headingTheme.responsiveBreakpoint) {
+      var breakpoint = props.theme.global.breakpoints[headingTheme.responsiveBreakpoint];
+
+      if (breakpoint) {
+        var responsiveData = headingTheme.level[Math.min(props.level + 1, 4)][size];
+        styles.push((0, _utils.breakpointStyle)(breakpoint, "\n          font-size: " + responsiveData.size + ";\n          line-height: " + responsiveData.height + ";\n          max-width: " + responsiveData.maxWidth + ";\n        "));
+      }
     }
+
+    return styles;
   }
 
-  return styles;
+  console.warn("Heading level " + props.level + " is not defined in your theme.");
+  return '';
 };
 
 var TEXT_ALIGN_MAP = {
