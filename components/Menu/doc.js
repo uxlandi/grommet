@@ -15,13 +15,16 @@ var HORIZONTAL_ALIGN_OPTIONS = ['right', 'left'];
 var doc = function doc(Menu) {
   var DocumentedMenu = (0, _reactDesc.describe)(Menu).availableAt((0, _utils.getAvailableAtBadge)('Menu')).description("Presents a list of choices within a drop down via a control that\n      opens it.").usage("import { Menu } from 'grommet';\n<Menu />");
   DocumentedMenu.propTypes = _extends({}, _utils.genericProps, {
-    disabled: _reactDesc.PropTypes.bool.description('Whether the menu should be disabled.'),
+    disabled: _reactDesc.PropTypes.bool.description('Whether the menu should be disabled.').defaultValue(false),
     dropAlign: _reactDesc.PropTypes.shape({
       top: _reactDesc.PropTypes.oneOf(VERTICAL_ALIGN_OPTIONS),
       bottom: _reactDesc.PropTypes.oneOf(VERTICAL_ALIGN_OPTIONS),
       left: _reactDesc.PropTypes.oneOf(HORIZONTAL_ALIGN_OPTIONS),
       right: _reactDesc.PropTypes.oneOf(HORIZONTAL_ALIGN_OPTIONS)
-    }).description("Where to place the drop down. The keys correspond to a side of the drop down.\nThe values correspond to a side of the control. For instance,\n{left: 'left', top: 'bottom'} would align the left edges and the top of\nthe drop down to the bottom of the control. At most one of left or right and\none of top or bottom should be specified."),
+    }).description("Where to place the drop down. The keys correspond to a side of the drop down.\nThe values correspond to a side of the control. For instance,\n{left: 'left', top: 'bottom'} would align the left edges and the top of\nthe drop down to the bottom of the control. At most one of left or right and\none of top or bottom should be specified.").defaultValue({
+      top: 'top',
+      left: 'left'
+    }),
     dropBackground: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.string, _reactDesc.PropTypes.shape({
       color: _reactDesc.PropTypes.string,
       opacity: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['weak', 'medium', 'strong']), _reactDesc.PropTypes.bool])
@@ -33,8 +36,11 @@ var doc = function doc(Menu) {
     messages: _reactDesc.PropTypes.shape({
       closeMenu: _reactDesc.PropTypes.string,
       openMenu: _reactDesc.PropTypes.string
-    }).description('Custom messages. Used for accessibility by screen readers.'),
-    size: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']), _reactDesc.PropTypes.string]).description('The size of the menu.')
+    }).description('Custom messages. Used for accessibility by screen readers.').defaultValue({
+      openMenu: 'Open Menu',
+      closeMenu: 'Close Menu'
+    }),
+    size: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']), _reactDesc.PropTypes.string]).description('The size of the menu.').defaultValue('medium')
   });
   return DocumentedMenu;
 };
