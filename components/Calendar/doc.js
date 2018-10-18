@@ -17,15 +17,15 @@ var doc = function doc(Calendar) {
     date: _reactDesc.PropTypes.string.description('The selected date in ISO8601 format'),
     dates: _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.string, _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.string)])).description("Multiple selected dates in ISO8601 format.\n      Items that are an array indicate a range of dates."),
     disabled: _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.string, _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.string)])).description("Multiple dates in ISO8601 format that should not be\n        selectable. Items that are an array indicate a range of dates."),
-    firstDayOfWeek: _reactDesc.PropTypes.oneOf([0, 1]).description('The first day of the week. 0 for Sunday. 1 for Monday.'),
+    firstDayOfWeek: _reactDesc.PropTypes.oneOf([0, 1]).description('The first day of the week. 0 for Sunday. 1 for Monday.').defaultValue(0),
     header: _reactDesc.PropTypes.func.description("If specified, the entire calendar header will be managed by the caller.\nThe function passes the following options:\n\n```\n  {\n    date: Date,\n    locale: string,\n    onPreviousMonth: func,\n    onNextMonth: func,\n    previousInBound: bool,\n    nextInBound: bool,\n  }\n```\n\n`onPreviousMonth` and `onNextMonth` are callbacks that will tell the calendar to move between months.\n`previousInBound` and `nextInBound` are booleans that tell, when using `bounds`, if the current date is within that range.\nYou can then use that to disable the previous and next buttons.\n"),
-    locale: _reactDesc.PropTypes.string.description('The locale to use.'),
+    locale: _reactDesc.PropTypes.string.description('The locale to use.').defaultValue('en-US'),
     onReference: _reactDesc.PropTypes.func.description("\n      Called with an ISO8601 date when the user navigates to a different month.\n    "),
     onSelect: _reactDesc.PropTypes.func.description("Called with an ISO8601 date when\n      the user selects a day.\n      For single select, make this the subsequent `date` property value.\n      For multiple select or ranges, toggle values in `dates`.\n      Not specifying this property makes the component read only."),
-    range: _reactDesc.PropTypes.bool.description("\n      Whether to automatically manage multiple date selection as a range.\n      When the user clicks the first date, onSelect will be called with that\n      date. When the user selects another date, onSelect will be called with\n      an array of two dates.\n    "),
+    range: _reactDesc.PropTypes.bool.description("\n      Whether to automatically manage multiple date selection as a range.\n      When the user clicks the first date, onSelect will be called with that\n      date. When the user selects another date, onSelect will be called with\n      an array of two dates.\n    ").defaultValue(false),
     reference: _reactDesc.PropTypes.string.description('The date to show if `date` isn\'t set, in ISO8601 format'),
     showAdjacentDays: _reactDesc.PropTypes.bool.description("\n      Whether to show the days from the previous and next months.\n    ").defaultValue(true),
-    size: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['small', 'medium', 'large']), _reactDesc.PropTypes.string]).description('What size to make it.')
+    size: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['small', 'medium', 'large']), _reactDesc.PropTypes.string]).description('What size to make it.').defaultValue('medium')
   });
   return DocumentedCalendar;
 };
