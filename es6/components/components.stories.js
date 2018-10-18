@@ -15,6 +15,9 @@ import { grommet, dark } from 'grommet/themes';
 import { generate } from 'grommet/themes/base';
 import { deepMerge } from 'grommet/utils';
 import { hpe } from 'grommet-theme-hpe';
+import { aruba } from 'grommet-theme-aruba';
+import { hp } from 'grommet-theme-hp';
+import { dxc } from 'grommet-theme-dxc';
 
 var Node = function Node(_ref) {
   var id = _ref.id,
@@ -48,7 +51,10 @@ var connection = function connection(fromTarget, toTarget, _temp) {
 var themes = {
   dark: dark,
   grommet: grommet,
-  hpe: hpe
+  hpe: hpe,
+  aruba: aruba,
+  hp: hp,
+  dxc: dxc
 };
 
 var Components =
@@ -332,7 +338,7 @@ function (_Component) {
     }, React.createElement(Select, {
       plain: true,
       size: "small",
-      options: ['grommet', 'dark', 'hpe'],
+      options: ['grommet', 'dark', 'hpe', 'aruba', 'hp', 'dxc'],
       value: themeName,
       onChange: function onChange(event) {
         return _this2.setState({

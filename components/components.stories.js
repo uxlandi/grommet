@@ -14,6 +14,12 @@ var _utils = require("grommet/utils");
 
 var _grommetThemeHpe = require("grommet-theme-hpe");
 
+var _grommetThemeAruba = require("grommet-theme-aruba");
+
+var _grommetThemeHp = require("grommet-theme-hp");
+
+var _grommetThemeDxc = require("grommet-theme-dxc");
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
@@ -58,7 +64,10 @@ var connection = function connection(fromTarget, toTarget, _temp) {
 var themes = {
   dark: _themes.dark,
   grommet: _themes.grommet,
-  hpe: _grommetThemeHpe.hpe
+  hpe: _grommetThemeHpe.hpe,
+  aruba: _grommetThemeAruba.aruba,
+  hp: _grommetThemeHp.hp,
+  dxc: _grommetThemeDxc.dxc
 };
 
 var Components =
@@ -342,7 +351,7 @@ function (_Component) {
     }, _react.default.createElement(_grommet.Select, {
       plain: true,
       size: "small",
-      options: ['grommet', 'dark', 'hpe'],
+      options: ['grommet', 'dark', 'hpe', 'aruba', 'hp', 'dxc'],
       value: themeName,
       onChange: function onChange(event) {
         return _this2.setState({
