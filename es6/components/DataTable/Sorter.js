@@ -24,14 +24,14 @@ export var Sorter = function Sorter(_ref) {
     icon = React.createElement(Icon, null);
   }
 
-  var content = React.createElement(Box, _extends({
+  var content = React.createElement(Box, _extends({}, themeProps, {
     flex: "shrink",
     direction: "row",
     justify: align,
     align: "center",
     gap: "xsmall",
     fill: fill
-  }, themeProps), children, icon);
+  }), children, icon);
 
   if (onSort) {
     content = React.createElement(SorterButton, {

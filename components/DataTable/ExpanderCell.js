@@ -43,7 +43,8 @@ var ExpanderCell = function ExpanderCell(_ref) {
       hoverIndicator: true,
       disabled: !onToggle,
       onClick: onToggle
-    }, _react.default.createElement(_Box.Box, _extends({}, theme.dataTable[context], rest, {
+    }, _react.default.createElement(_Box.Box, _extends({}, _extends({}, theme.table[context], theme.dataTable[context]), rest, {
+      align: "center",
       pad: "xsmall"
     }), _react.default.createElement(ExpandIcon, {
       color: (0, _utils.normalizeColor)('border', theme)

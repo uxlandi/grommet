@@ -11,6 +11,8 @@ var _Box = require("../Box");
 
 var _TableRow = require("../TableRow");
 
+var _TableFooter = require("../TableFooter");
+
 var _TableCell = require("../TableCell");
 
 var _hocs = require("../hocs");
@@ -21,6 +23,8 @@ var _StyledDataTable = require("./StyledDataTable");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 var Footer = function Footer(_ref) {
@@ -30,11 +34,13 @@ var Footer = function Footer(_ref) {
       theme = _ref.theme,
       rest = _objectWithoutPropertiesLoose(_ref, ["columns", "footerValues", "groups", "theme"]);
 
-  return _react.default.createElement(_StyledDataTable.StyledDataTableFooter, rest, _react.default.createElement(_TableRow.TableRow, null, groups && _react.default.createElement(_TableCell.TableCell, {
+  return _react.default.createElement(_StyledDataTable.StyledDataTableFooter, _extends({
+    as: _TableFooter.TableFooter
+  }, rest), _react.default.createElement(_TableRow.TableRow, null, groups && _react.default.createElement(_TableCell.TableCell, {
     size: "xxsmall",
     plain: true,
     verticalAlign: "top"
-  }, _react.default.createElement(_Box.Box, theme.dataTable.footer)), columns.map(function (column) {
+  }, _react.default.createElement(_Box.Box, _extends({}, theme.table.footer, theme.dataTable.footer))), columns.map(function (column) {
     return _react.default.createElement(_Cell.Cell, {
       key: column.property,
       context: "footer",

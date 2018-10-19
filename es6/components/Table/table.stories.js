@@ -33,7 +33,9 @@ var COLUMNS = [{
   label: 'Name',
   dataScope: 'row',
   format: function format(datum) {
-    return React.createElement("strong", null, datum.name);
+    return React.createElement(Text, {
+      weight: "bold"
+    }, datum.name);
   }
 }, {
   property: 'email',
@@ -48,16 +50,15 @@ var COLUMNS = [{
   }
 }];
 
-var SimpleTable = function SimpleTable() {
+var DefaultTable = function DefaultTable() {
   return React.createElement(Grommet, {
     theme: grommet
   }, React.createElement(Table, {
-    caption: "Simple Table"
+    caption: "Default Table"
   }, React.createElement(TableHeader, null, React.createElement(TableRow, null, COLUMNS.map(function (c) {
     return React.createElement(TableCell, {
       key: c.property,
       scope: "col",
-      border: "bottom",
       align: c.align
     }, React.createElement(Text, null, c.label));
   }))), React.createElement(TableBody, null, DATA.map(function (datum) {
@@ -73,12 +74,60 @@ var SimpleTable = function SimpleTable() {
   })), React.createElement(TableFooter, null, React.createElement(TableRow, null, COLUMNS.map(function (c) {
     return React.createElement(TableCell, {
       key: c.property,
-      border: "top",
       align: c.align
     }, React.createElement(Text, null, c.footer));
   })))));
 };
 
-storiesOf('Table', module).add('Simple Table', function () {
-  return React.createElement(SimpleTable, null);
+var customTheme = {
+  global: {},
+  table: {
+    header: {
+      background: {
+        color: 'accent-1',
+        opacity: true
+      }
+    },
+    body: {
+      border: 'bottom'
+    },
+    footer: {
+      border: undefined
+    }
+  }
+};
+
+var CustomThemeTable = function CustomThemeTable() {
+  return React.createElement(Grommet, {
+    theme: customTheme
+  }, React.createElement(Table, {
+    caption: "Custom Theme Table"
+  }, React.createElement(TableHeader, null, React.createElement(TableRow, null, COLUMNS.map(function (c) {
+    return React.createElement(TableCell, {
+      key: c.property,
+      scope: "col",
+      align: c.align
+    }, React.createElement(Text, null, c.label));
+  }))), React.createElement(TableBody, null, DATA.map(function (datum) {
+    return React.createElement(TableRow, {
+      key: datum.id
+    }, COLUMNS.map(function (c) {
+      return React.createElement(TableCell, {
+        key: c.property,
+        scope: c.dataScope,
+        align: c.align
+      }, React.createElement(Text, null, c.format ? c.format(datum) : datum[c.property]));
+    }));
+  })), React.createElement(TableFooter, null, React.createElement(TableRow, null, COLUMNS.map(function (c) {
+    return React.createElement(TableCell, {
+      key: c.property,
+      align: c.align
+    }, React.createElement(Text, null, c.footer));
+  })))));
+};
+
+storiesOf('Table', module).add('Default', function () {
+  return React.createElement(DefaultTable, null);
+}).add('Custom Theme', function () {
+  return React.createElement(CustomThemeTable, null);
 });

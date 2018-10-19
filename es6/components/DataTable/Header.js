@@ -4,6 +4,8 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 import React from 'react';
 import { Box } from '../Box';
+import { TableHeader } from '../TableHeader';
+import { TableRow } from '../TableRow';
 import { TableCell } from '../TableCell';
 import { Text } from '../Text';
 import { Resizer } from './Resizer';
@@ -27,9 +29,11 @@ export var Header = function Header(_ref) {
       widths = _ref.widths,
       rest = _objectWithoutPropertiesLoose(_ref, ["columns", "filtering", "filters", "groups", "groupState", "onFilter", "onFiltering", "onResize", "onSort", "onToggle", "sort", "theme", "widths"]);
 
-  // The tricky part here is that we need to manage the theme styling
+  var dataTableContextTheme = _extends({}, theme.table.header, theme.dataTable.header); // The tricky part here is that we need to manage the theme styling
   // to make sure that the background, border, and padding are applied
   // at the right places depending on the mix of controls in each header cell.
+
+
   var outerThemeProps = function (_ref2) {
     var border = _ref2.border,
         background = _ref2.background;
@@ -37,14 +41,17 @@ export var Header = function Header(_ref) {
       border: border,
       background: background
     };
-  }(theme.dataTable.header);
+  }(dataTableContextTheme);
 
-  var _theme$dataTable$head = theme.dataTable.header,
-      border = _theme$dataTable$head.border,
-      background = _theme$dataTable$head.background,
-      innerThemeProps = _objectWithoutPropertiesLoose(_theme$dataTable$head, ["border", "background"]);
+  var border = dataTableContextTheme.border,
+      background = dataTableContextTheme.background,
+      innerThemeProps = _objectWithoutPropertiesLoose(dataTableContextTheme, ["border", "background"]);
 
-  return React.createElement(StyledDataTableHeader, rest, React.createElement(StyledDataTableRow, null, groups && React.createElement(ExpanderCell, {
+  return React.createElement(StyledDataTableHeader, _extends({
+    as: TableHeader
+  }, rest), React.createElement(StyledDataTableRow, {
+    as: TableRow
+  }, groups && React.createElement(ExpanderCell, {
     context: "header",
     expanded: Object.keys(groupState).filter(function (k) {
       return !groupState[k].expanded;
@@ -66,7 +73,7 @@ export var Header = function Header(_ref) {
         onSort: onSort,
         sort: sort,
         theme: theme,
-        themeProps: search ? innerThemeProps : theme.dataTable.header
+        themeProps: search ? innerThemeProps : dataTableContextTheme
       }, content);
     }
 
@@ -92,11 +99,11 @@ export var Header = function Header(_ref) {
         onFiltering: onFiltering
       }));
     } else if (!onSort) {
-      content = React.createElement(Box, _extends({
+      content = React.createElement(Box, _extends({}, dataTableContextTheme, {
         fill: true,
         justify: "center",
         align: align
-      }, theme.dataTable.header), content);
+      }), content);
     }
 
     if (onResize) {
@@ -111,7 +118,6 @@ export var Header = function Header(_ref) {
       key: property,
       scope: "col",
       plain: true,
-      verticalAlign: "bottom",
       style: widths && widths[property] ? {
         width: widths[property]
       } : undefined

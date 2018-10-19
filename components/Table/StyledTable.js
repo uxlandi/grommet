@@ -26,14 +26,12 @@ var sizeStyle = (0, _styledComponents.css)(["width:", ";max-width:", ";overflow:
 var StyledTableCell = _styledComponents.default.td.withConfig({
   displayName: "StyledTable__StyledTableCell",
   componentId: "sc-1m3u5g-0"
-})(["margin:0;padding:0;font-weight:inherit;text-align:inherit;height:inherit;", " ", " ", " ", ""], function (props) {
+})(["margin:0;padding:0;font-weight:inherit;text-align:inherit;height:100%;", " ", " ", ""], function (props) {
   return props.size && sizeStyle;
 }, function (props) {
   return props.verticalAlign && "vertical-align: " + props.verticalAlign + ";";
 }, function (props) {
-  return !props.verticalAlign && props.tableContext === 'header' && 'vertical-align: bottom;';
-}, function (props) {
-  return !props.verticalAlign && props.tableContext === 'footer' && 'vertical-align: top;';
+  return props.tableContextTheme && props.tableContextTheme.extend;
 });
 
 exports.StyledTableCell = StyledTableCell;
@@ -48,7 +46,7 @@ exports.StyledTableDataCaption = StyledTableDataCaption;
 var StyledTableRow = _styledComponents.default.tr.withConfig({
   displayName: "StyledTable__StyledTableRow",
   componentId: "sc-1m3u5g-2"
-})([""]);
+})(["height:100%;"]);
 
 exports.StyledTableRow = StyledTableRow;
 

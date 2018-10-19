@@ -147,13 +147,14 @@ function (_Component) {
   _proto.render = function render() {
     var _this$props = this.props,
         columns = _this$props.columns,
+        propsData = _this$props.data,
         groupBy = _this$props.groupBy,
         onMore = _this$props.onMore,
         resizeable = _this$props.resizeable,
         size = _this$props.size,
         sortable = _this$props.sortable,
         theme = _this$props.theme,
-        rest = _objectWithoutPropertiesLoose(_this$props, ["columns", "groupBy", "onMore", "resizeable", "size", "sortable", "theme"]);
+        rest = _objectWithoutPropertiesLoose(_this$props, ["columns", "data", "groupBy", "onMore", "resizeable", "size", "sortable", "theme"]);
 
     var _this$state = this.state,
         data = _this$state.data,

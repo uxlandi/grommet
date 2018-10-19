@@ -7,6 +7,10 @@ var _react = _interopRequireDefault(require("react"));
 
 var _Box = require("../Box");
 
+var _TableHeader = require("../TableHeader");
+
+var _TableRow = require("../TableRow");
+
 var _TableCell = require("../TableCell");
 
 var _Text = require("../Text");
@@ -43,9 +47,11 @@ var Header = function Header(_ref) {
       widths = _ref.widths,
       rest = _objectWithoutPropertiesLoose(_ref, ["columns", "filtering", "filters", "groups", "groupState", "onFilter", "onFiltering", "onResize", "onSort", "onToggle", "sort", "theme", "widths"]);
 
-  // The tricky part here is that we need to manage the theme styling
+  var dataTableContextTheme = _extends({}, theme.table.header, theme.dataTable.header); // The tricky part here is that we need to manage the theme styling
   // to make sure that the background, border, and padding are applied
   // at the right places depending on the mix of controls in each header cell.
+
+
   var outerThemeProps = function (_ref2) {
     var border = _ref2.border,
         background = _ref2.background;
@@ -53,14 +59,17 @@ var Header = function Header(_ref) {
       border: border,
       background: background
     };
-  }(theme.dataTable.header);
+  }(dataTableContextTheme);
 
-  var _theme$dataTable$head = theme.dataTable.header,
-      border = _theme$dataTable$head.border,
-      background = _theme$dataTable$head.background,
-      innerThemeProps = _objectWithoutPropertiesLoose(_theme$dataTable$head, ["border", "background"]);
+  var border = dataTableContextTheme.border,
+      background = dataTableContextTheme.background,
+      innerThemeProps = _objectWithoutPropertiesLoose(dataTableContextTheme, ["border", "background"]);
 
-  return _react.default.createElement(_StyledDataTable.StyledDataTableHeader, rest, _react.default.createElement(_StyledDataTable.StyledDataTableRow, null, groups && _react.default.createElement(_ExpanderCell.ExpanderCell, {
+  return _react.default.createElement(_StyledDataTable.StyledDataTableHeader, _extends({
+    as: _TableHeader.TableHeader
+  }, rest), _react.default.createElement(_StyledDataTable.StyledDataTableRow, {
+    as: _TableRow.TableRow
+  }, groups && _react.default.createElement(_ExpanderCell.ExpanderCell, {
     context: "header",
     expanded: Object.keys(groupState).filter(function (k) {
       return !groupState[k].expanded;
@@ -82,7 +91,7 @@ var Header = function Header(_ref) {
         onSort: onSort,
         sort: sort,
         theme: theme,
-        themeProps: search ? innerThemeProps : theme.dataTable.header
+        themeProps: search ? innerThemeProps : dataTableContextTheme
       }, content);
     }
 
@@ -108,11 +117,11 @@ var Header = function Header(_ref) {
         onFiltering: onFiltering
       }));
     } else if (!onSort) {
-      content = _react.default.createElement(_Box.Box, _extends({
+      content = _react.default.createElement(_Box.Box, _extends({}, dataTableContextTheme, {
         fill: true,
         justify: "center",
         align: align
-      }, theme.dataTable.header), content);
+      }), content);
     }
 
     if (onResize) {
@@ -127,7 +136,6 @@ var Header = function Header(_ref) {
       key: property,
       scope: "col",
       plain: true,
-      verticalAlign: "bottom",
       style: widths && widths[property] ? {
         width: widths[property]
       } : undefined

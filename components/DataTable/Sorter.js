@@ -36,14 +36,14 @@ var Sorter = function Sorter(_ref) {
     icon = _react.default.createElement(Icon, null);
   }
 
-  var content = _react.default.createElement(_Box.Box, _extends({
+  var content = _react.default.createElement(_Box.Box, _extends({}, themeProps, {
     flex: "shrink",
     direction: "row",
     justify: align,
     align: "center",
     gap: "xsmall",
     fill: fill
-  }, themeProps), children, icon);
+  }), children, icon);
 
   if (onSort) {
     content = _react.default.createElement(SorterButton, {

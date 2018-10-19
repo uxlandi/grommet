@@ -453,27 +453,13 @@ export var generate = function generate(baseSpacing, scale) {
       baseline: 500
     },
     dataTable: {
-      body: {
-        pad: {
-          horizontal: 'small',
-          vertical: 'xsmall'
-        }
-      },
-      footer: {
-        border: {
-          side: 'top',
-          size: 'small'
-        },
-        pad: {
-          horizontal: 'small',
-          vertical: 'xsmall'
-        }
-      },
+      header: {},
       groupHeader: {
         border: {
           side: 'bottom',
           size: 'xsmall'
         },
+        fill: 'vertical',
         pad: {
           horizontal: 'small',
           vertical: 'xsmall'
@@ -481,20 +467,6 @@ export var generate = function generate(baseSpacing, scale) {
         background: {
           dark: 'dark-2',
           light: 'light-2'
-        }
-      },
-      header: {
-        border: {
-          side: 'bottom',
-          size: 'small'
-        },
-        pad: {
-          horizontal: 'small',
-          vertical: 'xsmall'
-        },
-        background: {
-          dark: 'dark-1',
-          light: 'light-1'
         }
       },
       icons: {
@@ -508,6 +480,9 @@ export var generate = function generate(baseSpacing, scale) {
           side: 'right',
           color: 'border'
         }
+      },
+      primary: {
+        weight: 'bold'
       }
     },
     // drop: {
@@ -687,6 +662,40 @@ export var generate = function generate(baseSpacing, scale) {
         // extend: undefined,
       } // gap: undefined,
 
+    },
+    table: {
+      header: {
+        align: 'start',
+        pad: {
+          horizontal: 'small',
+          vertical: 'xsmall'
+        },
+        border: 'bottom',
+        verticalAlign: 'bottom',
+        fill: 'vertical' // background: undefined,
+        // extend: undefined,
+
+      },
+      body: {
+        align: 'start',
+        pad: {
+          horizontal: 'small',
+          vertical: 'xsmall'
+        } // border: undefined,
+        // extend: undefined,
+
+      },
+      footer: {
+        align: 'start',
+        pad: {
+          horizontal: 'small',
+          vertical: 'xsmall'
+        },
+        border: 'top',
+        verticalAlign: 'top',
+        fill: 'vertical' // extend: undefined,
+
+      }
     },
     text: {
       xsmall: _extends({}, fontSizing(-1.5)),

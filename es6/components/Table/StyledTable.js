@@ -16,14 +16,12 @@ var sizeStyle = css(["width:", ";max-width:", ";overflow:hidden;"], function (pr
 export var StyledTableCell = styled.td.withConfig({
   displayName: "StyledTable__StyledTableCell",
   componentId: "sc-1m3u5g-0"
-})(["margin:0;padding:0;font-weight:inherit;text-align:inherit;height:inherit;", " ", " ", " ", ""], function (props) {
+})(["margin:0;padding:0;font-weight:inherit;text-align:inherit;height:100%;", " ", " ", ""], function (props) {
   return props.size && sizeStyle;
 }, function (props) {
   return props.verticalAlign && "vertical-align: " + props.verticalAlign + ";";
 }, function (props) {
-  return !props.verticalAlign && props.tableContext === 'header' && 'vertical-align: bottom;';
-}, function (props) {
-  return !props.verticalAlign && props.tableContext === 'footer' && 'vertical-align: top;';
+  return props.tableContextTheme && props.tableContextTheme.extend;
 });
 export var StyledTableDataCaption = styled.caption.withConfig({
   displayName: "StyledTable__StyledTableDataCaption",
@@ -32,7 +30,7 @@ export var StyledTableDataCaption = styled.caption.withConfig({
 export var StyledTableRow = styled.tr.withConfig({
   displayName: "StyledTable__StyledTableRow",
   componentId: "sc-1m3u5g-2"
-})([""]);
+})(["height:100%;"]);
 export var StyledTableBody = styled.tbody.withConfig({
   displayName: "StyledTable__StyledTableBody",
   componentId: "sc-1m3u5g-3"

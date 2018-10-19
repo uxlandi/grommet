@@ -41,7 +41,9 @@ var COLUMNS = [{
   label: 'Name',
   dataScope: 'row',
   format: function format(datum) {
-    return _react.default.createElement("strong", null, datum.name);
+    return _react.default.createElement(_grommet.Text, {
+      weight: "bold"
+    }, datum.name);
   }
 }, {
   property: 'email',
@@ -56,16 +58,15 @@ var COLUMNS = [{
   }
 }];
 
-var SimpleTable = function SimpleTable() {
+var DefaultTable = function DefaultTable() {
   return _react.default.createElement(_grommet.Grommet, {
     theme: _themes.grommet
   }, _react.default.createElement(_grommet.Table, {
-    caption: "Simple Table"
+    caption: "Default Table"
   }, _react.default.createElement(_grommet.TableHeader, null, _react.default.createElement(_grommet.TableRow, null, COLUMNS.map(function (c) {
     return _react.default.createElement(_grommet.TableCell, {
       key: c.property,
       scope: "col",
-      border: "bottom",
       align: c.align
     }, _react.default.createElement(_grommet.Text, null, c.label));
   }))), _react.default.createElement(_grommet.TableBody, null, DATA.map(function (datum) {
@@ -81,12 +82,60 @@ var SimpleTable = function SimpleTable() {
   })), _react.default.createElement(_grommet.TableFooter, null, _react.default.createElement(_grommet.TableRow, null, COLUMNS.map(function (c) {
     return _react.default.createElement(_grommet.TableCell, {
       key: c.property,
-      border: "top",
       align: c.align
     }, _react.default.createElement(_grommet.Text, null, c.footer));
   })))));
 };
 
-(0, _react2.storiesOf)('Table', module).add('Simple Table', function () {
-  return _react.default.createElement(SimpleTable, null);
+var customTheme = {
+  global: {},
+  table: {
+    header: {
+      background: {
+        color: 'accent-1',
+        opacity: true
+      }
+    },
+    body: {
+      border: 'bottom'
+    },
+    footer: {
+      border: undefined
+    }
+  }
+};
+
+var CustomThemeTable = function CustomThemeTable() {
+  return _react.default.createElement(_grommet.Grommet, {
+    theme: customTheme
+  }, _react.default.createElement(_grommet.Table, {
+    caption: "Custom Theme Table"
+  }, _react.default.createElement(_grommet.TableHeader, null, _react.default.createElement(_grommet.TableRow, null, COLUMNS.map(function (c) {
+    return _react.default.createElement(_grommet.TableCell, {
+      key: c.property,
+      scope: "col",
+      align: c.align
+    }, _react.default.createElement(_grommet.Text, null, c.label));
+  }))), _react.default.createElement(_grommet.TableBody, null, DATA.map(function (datum) {
+    return _react.default.createElement(_grommet.TableRow, {
+      key: datum.id
+    }, COLUMNS.map(function (c) {
+      return _react.default.createElement(_grommet.TableCell, {
+        key: c.property,
+        scope: c.dataScope,
+        align: c.align
+      }, _react.default.createElement(_grommet.Text, null, c.format ? c.format(datum) : datum[c.property]));
+    }));
+  })), _react.default.createElement(_grommet.TableFooter, null, _react.default.createElement(_grommet.TableRow, null, COLUMNS.map(function (c) {
+    return _react.default.createElement(_grommet.TableCell, {
+      key: c.property,
+      align: c.align
+    }, _react.default.createElement(_grommet.Text, null, c.footer));
+  })))));
+};
+
+(0, _react2.storiesOf)('Table', module).add('Default', function () {
+  return _react.default.createElement(DefaultTable, null);
+}).add('Custom Theme', function () {
+  return _react.default.createElement(CustomThemeTable, null);
 });

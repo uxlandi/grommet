@@ -30,25 +30,36 @@ var TableCell = function TableCell(_ref) {
       verticalAlign = _ref.verticalAlign,
       rest = _objectWithoutPropertiesLoose(_ref, ["children", "plain", "scope", "size", "theme", "verticalAlign"]);
 
-  var Cell = scope ? _StyledTable.StyledTableCell.withComponent('th') : _StyledTable.StyledTableCell;
   return _react.default.createElement(_TableContext.TableContext.Consumer, null, function (tableContext) {
-    return _react.default.createElement(Cell, _extends({
+    var tableContextTheme;
+
+    if (tableContext === 'header') {
+      tableContextTheme = theme.table && theme.table.header;
+    } else if (tableContext === 'footer') {
+      tableContextTheme = theme.table && theme.table.footer;
+    } else {
+      tableContextTheme = theme.table && theme.table.body;
+    }
+
+    var boxProps = _extends({}, rest);
+
+    Object.keys(boxProps).forEach(function (key) {
+      if (tableContextTheme[key] && boxProps[key] === undefined) {
+        delete boxProps[key];
+      }
+    });
+    return _react.default.createElement(_StyledTable.StyledTableCell, _extends({
+      as: scope ? 'th' : undefined,
       scope: scope,
       size: size,
       tableContext: tableContext,
+      tableContextTheme: tableContextTheme,
       theme: theme,
-      verticalAlign: verticalAlign
-    }, plain ? rest : {}), plain ? children : _react.default.createElement(_Box.Box, rest, children));
+      verticalAlign: verticalAlign || (tableContextTheme ? tableContextTheme.verticalAlign : undefined)
+    }, plain ? rest : {}), plain ? children : _react.default.createElement(_Box.Box, _extends({}, tableContextTheme, boxProps), children));
   });
 };
 
-TableCell.defaultProps = {
-  align: 'start',
-  pad: {
-    horizontal: 'small',
-    vertical: 'xsmall'
-  }
-};
 var TableCellDoc;
 
 if (process.env.NODE_ENV !== 'production') {
