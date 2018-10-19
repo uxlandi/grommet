@@ -24,7 +24,7 @@ var doc = function doc(Grid) {
       end: _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.number)
     })).description('Area names and column,row coordinates.'),
     columns: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(sizes), _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.oneOf(sizes)), _reactDesc.PropTypes.string])), _reactDesc.PropTypes.oneOf(fixedSizes), _reactDesc.PropTypes.shape({
-      count: _reactDesc.PropTypes.oneOf(['fit', 'fill']),
+      count: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['fit', 'fill']), _reactDesc.PropTypes.number]),
       size: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(fixedSizes), _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.oneOf(sizes)), _reactDesc.PropTypes.string])
     }), _reactDesc.PropTypes.string]).description("Column sizes.\n      If an array value is an array, the inner array indicates the\n      minimum and maximum sizes for the column.\n      Specifying a single string will repeat multiple columns\n      of that size, as long as there is room for more.\n      Specifying an object allows indicating how the columns\n      stretch to fit the available space."),
     fill: _reactDesc.PropTypes.oneOf(['horizontal', 'vertical', true, false]).description('Whether the width and/or height should fill the container.'),

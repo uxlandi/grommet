@@ -90,6 +90,14 @@ var SIZE_MAP = {
   '2/3': '66.66%'
 };
 
+var getRepeatCount = function getRepeatCount(count) {
+  return typeof count === 'number' ? count : "auto-" + count;
+};
+
+var getRepeatSize = function getRepeatSize(size, theme) {
+  return "minmax(" + (theme.global.size[size] || size) + ", 1fr)";
+};
+
 var sizeFor = function sizeFor(size, props, isRow) {
   var mapped = SIZE_MAP[size];
 
@@ -112,10 +120,10 @@ var columnsStyle = function columnsStyle(props) {
   }
 
   if (typeof props.columns === 'object') {
-    return css(["grid-template-columns:repeat(auto-", ",minmax(", ",1fr));"], props.columns.count, props.theme.global.size[props.columns.size]);
+    return css(["grid-template-columns:repeat(", ",", ");"], getRepeatCount(props.columns.count), getRepeatSize(props.columns.size, props.theme));
   }
 
-  return css(["grid-template-columns:repeat(auto-fill,minmax(", ",1fr));"], props.theme.global.size[props.columns]);
+  return css(["grid-template-columns:repeat(auto-fill,", ");"], getRepeatSize(props.columns, props.theme));
 };
 
 var rowsStyle = function rowsStyle(props) {

@@ -16,7 +16,7 @@ export var doc = function doc(Grid) {
       end: PropTypes.arrayOf(PropTypes.number)
     })).description('Area names and column,row coordinates.'),
     columns: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.oneOf(sizes), PropTypes.arrayOf(PropTypes.oneOf(sizes)), PropTypes.string])), PropTypes.oneOf(fixedSizes), PropTypes.shape({
-      count: PropTypes.oneOf(['fit', 'fill']),
+      count: PropTypes.oneOfType([PropTypes.oneOf(['fit', 'fill']), PropTypes.number]),
       size: PropTypes.oneOfType([PropTypes.oneOf(fixedSizes), PropTypes.arrayOf(PropTypes.oneOf(sizes)), PropTypes.string])
     }), PropTypes.string]).description("Column sizes.\n      If an array value is an array, the inner array indicates the\n      minimum and maximum sizes for the column.\n      Specifying a single string will repeat multiple columns\n      of that size, as long as there is room for more.\n      Specifying an object allows indicating how the columns\n      stretch to fit the available space."),
     fill: PropTypes.oneOf(['horizontal', 'vertical', true, false]).description('Whether the width and/or height should fill the container.'),

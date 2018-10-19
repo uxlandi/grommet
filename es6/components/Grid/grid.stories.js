@@ -132,8 +132,35 @@ var Percentages = function Percentages() {
   })));
 };
 
+var NColumnGrid = function NColumnGrid() {
+  return React.createElement(Grommet, {
+    theme: grommet,
+    full: true
+  }, React.createElement(Grid, {
+    columns: {
+      count: 6,
+      size: 'auto'
+    },
+    gap: "small"
+  }, React.createElement(Box, {
+    background: "brand"
+  }, "Item 1"), React.createElement(Box, {
+    background: "brand"
+  }, "Item 2"), React.createElement(Box, {
+    background: "brand"
+  }, "Item 3"), React.createElement(Box, {
+    background: "brand"
+  }, "Item 4"), React.createElement(Box, {
+    background: "brand"
+  }, "Item 5"), React.createElement(Box, {
+    background: "brand"
+  }, "Item 6")));
+};
+
 storiesOf('Grid', module).add('App', function () {
   return React.createElement(AppGrid, null);
 }).add('Percentages', function () {
   return React.createElement(Percentages, null);
+}).add('N-column layout', function () {
+  return React.createElement(NColumnGrid, null);
 });
