@@ -22,7 +22,9 @@ import { normalizeColor } from '../../utils';
 var ContainerBox = styled(Box).withConfig({
   displayName: "Menu__ContainerBox",
   componentId: "sc-17fcys9-0"
-})(["max-height:inherit;@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){width:100%;}"]);
+})(["max-height:inherit;@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){width:100%;}", ""], function (props) {
+  return props.theme.menu.extend;
+});
 
 var Menu =
 /*#__PURE__*/
@@ -185,7 +187,8 @@ function (_Component) {
         });
       },
       dropContent: React.createElement(ContainerBox, {
-        background: dropBackground
+        theme: theme,
+        background: dropBackground || theme.menu.background
       }, dropAlign.top === 'top' ? controlMirror : undefined, React.createElement(Box, {
         overflow: "auto"
       }, items.map(function (item, index) {

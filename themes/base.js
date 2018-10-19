@@ -212,9 +212,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       focus: {
         border: {
-          color: (0, _styledComponents.css)(["", ""], function (props) {
-            return (0, _utils.normalizeColor)('focus', props.theme);
-          }),
+          color: 'focus',
           width: '2px'
         }
       },
@@ -353,19 +351,16 @@ var generate = function generate(baseSpacing, scale) {
         thickness: '4px' // extend: undefined,
 
       },
-      icon: {// extend: undefined,
+      icon: {// size: undefined,
+        // extend: undefined,
       },
       icons: {// checked: undefined,
       },
       hover: {
         border: {
           color: {
-            dark: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.normalizeColor)('white', props.theme);
-            }),
-            light: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.normalizeColor)('black', props.theme);
-            })
+            dark: 'white',
+            light: 'black'
           }
         }
       },
@@ -388,12 +383,8 @@ var generate = function generate(baseSpacing, scale) {
       analog: {
         hour: {
           color: {
-            dark: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.normalizeColor)('light-3', props.theme);
-            }),
-            light: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.normalizeColor)('dark-3', props.theme);
-            })
+            dark: 'light-2',
+            light: 'dark-3'
           },
           width: baseSpacing / 3 + "px",
           size: baseSpacing + "px",
@@ -401,12 +392,8 @@ var generate = function generate(baseSpacing, scale) {
         },
         minute: {
           color: {
-            dark: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.normalizeColor)('light-5', props.theme);
-            }),
-            light: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.normalizeColor)('dark-5', props.theme);
-            })
+            dark: 'light-5',
+            light: 'dark-5'
           },
           width: baseSpacing / 6 + "px",
           size: Math.round(baseSpacing / 2) + "px",
@@ -414,12 +401,8 @@ var generate = function generate(baseSpacing, scale) {
         },
         second: {
           color: {
-            dark: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.normalizeColor)('accent-1', props.theme);
-            }),
-            light: (0, _styledComponents.css)(["", ""], function (props) {
-              return (0, _utils.normalizeColor)('accent-1', props.theme);
-            })
+            dark: 'accent-1',
+            light: 'accent-1'
           },
           width: baseSpacing / 8 + "px",
           size: Math.round(baseSpacing / 2.666) + "px",
@@ -599,6 +582,8 @@ var generate = function generate(baseSpacing, scale) {
 
     },
     menu: {
+      // background: undefined,
+      // extend: undefined,
       icons: {
         down: _grommetIcons.FormDown
       }
@@ -610,16 +595,32 @@ var generate = function generate(baseSpacing, scale) {
       xlarge: _extends({}, fontSizing(2))
     },
     radioButton: {
-      check: {// color: { dark: undefined, light: undefined },
-      },
       border: {
         color: {
           dark: 'rgba(255, 255, 255, 0.5)',
           light: 'rgba(0, 0, 0, 0.15)'
         },
-        radius: '100%',
         width: '2px'
       },
+      check: {
+        radius: '100%' // color: { dark: undefined, light: undefined },
+        // extend: undefined,
+
+      },
+      hover: {
+        border: {
+          color: {
+            dark: 'white',
+            light: 'black'
+          }
+        }
+      },
+      icon: {// size: undefined,
+        // extend: undefined,
+      },
+      icons: {// circle: undefined,
+      },
+      gap: 'small',
       size: baseSpacing + "px"
     },
     rangeInput: {

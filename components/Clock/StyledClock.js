@@ -15,7 +15,7 @@ var StyledHour = _styledComponents.default.line.withConfig({
 })(["stroke-width:", ";stroke:", ";transition:stroke 1s ease-out;"], function (props) {
   return props.theme.clock.analog.hour.width;
 }, function (props) {
-  return props.theme.clock.analog.hour.color[props.theme.dark ? 'dark' : 'light'];
+  return (0, _utils.normalizeColor)(props.theme.clock.analog.hour.color, props.theme);
 });
 
 exports.StyledHour = StyledHour;
@@ -26,7 +26,7 @@ var StyledMinute = _styledComponents.default.line.withConfig({
 })(["stroke-width:", ";stroke:", ";transition:stroke 1s ease-out;"], function (props) {
   return props.theme.clock.analog.minute.width;
 }, function (props) {
-  return props.theme.clock.analog.minute.color[props.theme.dark ? 'dark' : 'light'];
+  return (0, _utils.normalizeColor)(props.theme.clock.analog.minute.color, props.theme);
 });
 
 exports.StyledMinute = StyledMinute;
@@ -37,7 +37,7 @@ var StyledSecond = _styledComponents.default.line.withConfig({
 })(["stroke-width:", ";stroke:", ";transition:stroke 1s ease-out;"], function (props) {
   return props.theme.clock.analog.second.width;
 }, function (props) {
-  return props.theme.clock.analog.second.color[props.theme.dark ? 'dark' : 'light'];
+  return (0, _utils.normalizeColor)(props.theme.clock.analog.second.color, props.theme);
 });
 
 exports.StyledSecond = StyledSecond;

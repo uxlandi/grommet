@@ -30,15 +30,6 @@ var grommet = (0, _utils.deepFreeze)({
       return !props.plain && 'font-weight: bold;';
     })
   },
-  checkBox: {
-    icon: {
-      extend: (0, _styledComponents.css)(["box-sizing:border-box;position:absolute;top:0px;left:0px;width:", ";height:", ";"], function (props) {
-        return props.theme.checkBox.size;
-      }, function (props) {
-        return props.theme.checkBox.size;
-      })
-    }
-  },
   heading: {
     font: {
       family: "'Zilla Slab', 'Work Sans', Arial, sans-serif"

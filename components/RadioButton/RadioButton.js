@@ -7,9 +7,11 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _recompose = require("recompose");
 
-var _hocs = require("../hocs");
+var _utils = require("../../utils");
 
-var _object = require("../../utils/object");
+var _Box = require("../Box");
+
+var _hocs = require("../hocs");
 
 var _StyledRadioButton = require("./StyledRadioButton");
 
@@ -36,26 +38,43 @@ function (_Component) {
     var _this$props = this.props,
         checked = _this$props.checked,
         disabled = _this$props.disabled,
+        focus = _this$props.focus,
         forwardRef = _this$props.forwardRef,
         id = _this$props.id,
         label = _this$props.label,
         name = _this$props.name,
         onChange = _this$props.onChange,
         theme = _this$props.theme,
-        rest = _objectWithoutPropertiesLoose(_this$props, ["checked", "disabled", "forwardRef", "id", "label", "name", "onChange", "theme"]);
+        rest = _objectWithoutPropertiesLoose(_this$props, ["checked", "disabled", "focus", "forwardRef", "id", "label", "name", "onChange", "theme"]);
 
-    var normalizedLabel = typeof label === 'string' ? _react.default.createElement("div", null, label) : label;
-    return _react.default.createElement(_StyledRadioButton.StyledRadioButtonContainer, _extends({}, (0, _object.removeUndefined)({
+    var normalizedLabel = typeof label === 'string' ? _react.default.createElement("span", null, label) : label;
+    var Icon = theme.radioButton.icons.circle;
+    var borderColor = (0, _utils.normalizeColor)(theme.radioButton.border.color, theme);
+
+    if (checked) {
+      borderColor = (0, _utils.normalizeColor)(theme.radioButton.color || 'control', theme);
+    }
+
+    return _react.default.createElement(_StyledRadioButton.StyledRadioButtonContainer, _extends({
+      as: _Box.Box,
+      tag: "label",
+      direction: "row",
+      align: "center"
+    }, (0, _utils.removeUndefined)({
       htmlFor: id,
       disabled: disabled
     }), {
       theme: theme
     }), _react.default.createElement(_StyledRadioButton.StyledRadioButton, {
+      as: _Box.Box,
+      margin: {
+        right: theme.radioButton.gap || 'small'
+      },
       theme: theme
     }, _react.default.createElement(_StyledRadioButton.StyledRadioButtonInput, _extends({}, rest, {
       ref: forwardRef,
       type: "radio"
-    }, (0, _object.removeUndefined)({
+    }, (0, _utils.removeUndefined)({
       id: id,
       name: name,
       checked: checked,
@@ -63,16 +82,31 @@ function (_Component) {
       onChange: onChange
     }), {
       theme: theme
-    })), _react.default.createElement(_StyledRadioButton.StyledRadioButtonButton, {
+    })), _react.default.createElement(_StyledRadioButton.StyledRadioButtonBox, {
+      theme: theme,
+      focus: focus,
+      as: _Box.Box,
+      align: "center",
+      justify: "center",
+      width: theme.radioButton.size,
+      height: theme.radioButton.size,
+      border: {
+        size: theme.radioButton.border.width,
+        color: borderColor
+      },
+      round: theme.radioButton.check.radius
+    }, checked && (Icon ? _react.default.createElement(Icon, {
+      as: _StyledRadioButton.StyledRadioButtonIcon,
       theme: theme
-    }, _react.default.createElement("svg", {
+    }) : _react.default.createElement(_StyledRadioButton.StyledRadioButtonIcon, {
       viewBox: "0 0 24 24",
-      preserveAspectRatio: "xMidYMid meet"
+      preserveAspectRatio: "xMidYMid meet",
+      theme: theme
     }, _react.default.createElement("circle", {
       cx: 12,
       cy: 12,
       r: 6
-    })))), normalizedLabel);
+    }))))), normalizedLabel);
   };
 
   return RadioButton;
@@ -84,5 +118,5 @@ if (process.env.NODE_ENV !== 'production') {
   RadioButtonDoc = require('./doc').doc(RadioButton); // eslint-disable-line global-require
 }
 
-var RadioButtonWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(RadioButtonDoc || RadioButton);
+var RadioButtonWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(RadioButtonDoc || RadioButton);
 exports.RadioButton = RadioButtonWrapper;

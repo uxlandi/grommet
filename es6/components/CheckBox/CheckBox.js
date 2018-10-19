@@ -10,7 +10,7 @@ import { Box } from '../Box';
 import { withFocus, withForwardRef, withTheme } from '../hocs';
 import { removeUndefined } from '../../utils/object';
 import { StyledCheckBox, StyledCheckBoxBox, StyledCheckBoxIcon, StyledCheckBoxContainer, StyledCheckBoxInput, StyledCheckBoxToggle, StyledCheckBoxKnob } from './StyledCheckBox';
-import { evalStyle, normalizeColor } from '../../utils';
+import { normalizeColor } from '../../utils';
 
 var CheckBox =
 /*#__PURE__*/
@@ -69,7 +69,7 @@ function (_Component) {
       height: theme.checkBox.size,
       border: {
         size: theme.checkBox.border.width,
-        color: evalStyle(borderColor, theme)
+        color: borderColor
       },
       round: theme.checkBox.check.radius,
       focus: focus,
@@ -90,8 +90,7 @@ function (_Component) {
       as: Box,
       align: "center",
       justify: "center",
-      theme: theme,
-      checked: checked
+      theme: theme
     }, React.createElement(StyledCheckBoxInput, _extends({}, rest, {
       ref: forwardRef,
       type: "checkbox"
@@ -103,7 +102,8 @@ function (_Component) {
       onChange: onChange
     }), {
       theme: theme,
-      checked: checked
+      checked: checked,
+      disabled: disabled
     })), visual, hidden);
     var normalizedLabel = typeof label === 'string' ? React.createElement("span", null, label) : label;
     var first = reverse ? normalizedLabel : checkBoxNode;

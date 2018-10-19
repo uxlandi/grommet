@@ -6,9 +6,10 @@ function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.crea
 
 import React, { Component } from 'react';
 import { compose } from 'recompose';
-import { withForwardRef, withTheme } from '../hocs';
-import { removeUndefined } from '../../utils/object';
-import { StyledRadioButton, StyledRadioButtonContainer, StyledRadioButtonInput, StyledRadioButtonButton } from './StyledRadioButton';
+import { normalizeColor, removeUndefined } from '../../utils';
+import { Box } from '../Box';
+import { withFocus, withForwardRef, withTheme } from '../hocs';
+import { StyledRadioButton, StyledRadioButtonContainer, StyledRadioButtonIcon, StyledRadioButtonInput, StyledRadioButtonBox } from './StyledRadioButton';
 
 var RadioButton =
 /*#__PURE__*/
@@ -25,21 +26,38 @@ function (_Component) {
     var _this$props = this.props,
         checked = _this$props.checked,
         disabled = _this$props.disabled,
+        focus = _this$props.focus,
         forwardRef = _this$props.forwardRef,
         id = _this$props.id,
         label = _this$props.label,
         name = _this$props.name,
         onChange = _this$props.onChange,
         theme = _this$props.theme,
-        rest = _objectWithoutPropertiesLoose(_this$props, ["checked", "disabled", "forwardRef", "id", "label", "name", "onChange", "theme"]);
+        rest = _objectWithoutPropertiesLoose(_this$props, ["checked", "disabled", "focus", "forwardRef", "id", "label", "name", "onChange", "theme"]);
 
-    var normalizedLabel = typeof label === 'string' ? React.createElement("div", null, label) : label;
-    return React.createElement(StyledRadioButtonContainer, _extends({}, removeUndefined({
+    var normalizedLabel = typeof label === 'string' ? React.createElement("span", null, label) : label;
+    var Icon = theme.radioButton.icons.circle;
+    var borderColor = normalizeColor(theme.radioButton.border.color, theme);
+
+    if (checked) {
+      borderColor = normalizeColor(theme.radioButton.color || 'control', theme);
+    }
+
+    return React.createElement(StyledRadioButtonContainer, _extends({
+      as: Box,
+      tag: "label",
+      direction: "row",
+      align: "center"
+    }, removeUndefined({
       htmlFor: id,
       disabled: disabled
     }), {
       theme: theme
     }), React.createElement(StyledRadioButton, {
+      as: Box,
+      margin: {
+        right: theme.radioButton.gap || 'small'
+      },
       theme: theme
     }, React.createElement(StyledRadioButtonInput, _extends({}, rest, {
       ref: forwardRef,
@@ -52,16 +70,31 @@ function (_Component) {
       onChange: onChange
     }), {
       theme: theme
-    })), React.createElement(StyledRadioButtonButton, {
+    })), React.createElement(StyledRadioButtonBox, {
+      theme: theme,
+      focus: focus,
+      as: Box,
+      align: "center",
+      justify: "center",
+      width: theme.radioButton.size,
+      height: theme.radioButton.size,
+      border: {
+        size: theme.radioButton.border.width,
+        color: borderColor
+      },
+      round: theme.radioButton.check.radius
+    }, checked && (Icon ? React.createElement(Icon, {
+      as: StyledRadioButtonIcon,
       theme: theme
-    }, React.createElement("svg", {
+    }) : React.createElement(StyledRadioButtonIcon, {
       viewBox: "0 0 24 24",
-      preserveAspectRatio: "xMidYMid meet"
+      preserveAspectRatio: "xMidYMid meet",
+      theme: theme
     }, React.createElement("circle", {
       cx: 12,
       cy: 12,
       r: 6
-    })))), normalizedLabel);
+    }))))), normalizedLabel);
   };
 
   return RadioButton;
@@ -73,5 +106,5 @@ if (process.env.NODE_ENV !== 'production') {
   RadioButtonDoc = require('./doc').doc(RadioButton); // eslint-disable-line global-require
 }
 
-var RadioButtonWrapper = compose(withTheme, withForwardRef)(RadioButtonDoc || RadioButton);
+var RadioButtonWrapper = compose(withFocus, withTheme, withForwardRef)(RadioButtonDoc || RadioButton);
 export { RadioButtonWrapper as RadioButton };

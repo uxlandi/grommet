@@ -112,9 +112,11 @@ describe('TextInput', function () {
         which: 27
       });
 
-      expect(document.getElementById('text-input-drop__item')).toBeNull();
-      expect(container.firstChild).toMatchSnapshot();
-      done();
+      setTimeout(function () {
+        expect(document.getElementById('text-input-drop__item')).toBeNull();
+        expect(container.firstChild).toMatchSnapshot();
+        done();
+      }, 50);
     }, 50);
   });
   test('select suggestion', function (done) {

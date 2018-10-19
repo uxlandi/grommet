@@ -1,12 +1,12 @@
 import styled, { css, keyframes } from 'styled-components';
-import { genericStyles } from '../../utils';
+import { normalizeColor, genericStyles } from '../../utils';
 export var StyledHour = styled.line.withConfig({
   displayName: "StyledClock__StyledHour",
   componentId: "y4xw8s-0"
 })(["stroke-width:", ";stroke:", ";transition:stroke 1s ease-out;"], function (props) {
   return props.theme.clock.analog.hour.width;
 }, function (props) {
-  return props.theme.clock.analog.hour.color[props.theme.dark ? 'dark' : 'light'];
+  return normalizeColor(props.theme.clock.analog.hour.color, props.theme);
 });
 export var StyledMinute = styled.line.withConfig({
   displayName: "StyledClock__StyledMinute",
@@ -14,7 +14,7 @@ export var StyledMinute = styled.line.withConfig({
 })(["stroke-width:", ";stroke:", ";transition:stroke 1s ease-out;"], function (props) {
   return props.theme.clock.analog.minute.width;
 }, function (props) {
-  return props.theme.clock.analog.minute.color[props.theme.dark ? 'dark' : 'light'];
+  return normalizeColor(props.theme.clock.analog.minute.color, props.theme);
 });
 export var StyledSecond = styled.line.withConfig({
   displayName: "StyledClock__StyledSecond",
@@ -22,7 +22,7 @@ export var StyledSecond = styled.line.withConfig({
 })(["stroke-width:", ";stroke:", ";transition:stroke 1s ease-out;"], function (props) {
   return props.theme.clock.analog.second.width;
 }, function (props) {
-  return props.theme.clock.analog.second.color[props.theme.dark ? 'dark' : 'light'];
+  return normalizeColor(props.theme.clock.analog.second.color, props.theme);
 });
 export var StyledAnalog = styled.svg.withConfig({
   displayName: "StyledClock__StyledAnalog",

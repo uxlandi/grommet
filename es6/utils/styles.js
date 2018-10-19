@@ -54,11 +54,11 @@ export var edgeStyle = function edgeStyle(kind, data, responsive, responsiveBrea
 }; // focus also supports clickable elements inside svg
 
 export var focusStyle = css(["> circle,> ellipse,> line,> path,> polygon,> polyline,> rect{outline:", " solid 2px;}border-color:", ";box-shadow:0 0 2px 2px ", ";"], function (props) {
-  return props.theme.global.focus.border.color;
+  return normalizeColor(props.theme.global.focus.border.color, props.theme);
 }, function (props) {
-  return props.theme.global.focus.border.color;
+  return normalizeColor(props.theme.global.focus.border.color, props.theme);
 }, function (props) {
-  return props.theme.global.focus.border.color;
+  return normalizeColor(props.theme.global.focus.border.color, props.theme);
 });
 export var inputStyle = css(["box-sizing:border-box;font-size:inherit;border:none;-webkit-appearance:none;padding:", "px;outline:none;background:transparent;color:inherit;", " margin:0;", " ", "::-webkit-search-decoration{-webkit-appearance:none;}"], function (props) {
   return parseMetricToNum(props.theme.global.spacing) / 2 - parseMetricToNum(props.theme.global.control.border.width);

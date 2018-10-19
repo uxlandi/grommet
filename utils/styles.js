@@ -67,11 +67,11 @@ var edgeStyle = function edgeStyle(kind, data, responsive, responsiveBreakpoint,
 
 exports.edgeStyle = edgeStyle;
 var focusStyle = (0, _styledComponents.css)(["> circle,> ellipse,> line,> path,> polygon,> polyline,> rect{outline:", " solid 2px;}border-color:", ";box-shadow:0 0 2px 2px ", ";"], function (props) {
-  return props.theme.global.focus.border.color;
+  return (0, _colors.normalizeColor)(props.theme.global.focus.border.color, props.theme);
 }, function (props) {
-  return props.theme.global.focus.border.color;
+  return (0, _colors.normalizeColor)(props.theme.global.focus.border.color, props.theme);
 }, function (props) {
-  return props.theme.global.focus.border.color;
+  return (0, _colors.normalizeColor)(props.theme.global.focus.border.color, props.theme);
 });
 exports.focusStyle = focusStyle;
 var inputStyle = (0, _styledComponents.css)(["box-sizing:border-box;font-size:inherit;border:none;-webkit-appearance:none;padding:", "px;outline:none;background:transparent;color:inherit;", " margin:0;", " ", "::-webkit-search-decoration{-webkit-appearance:none;}"], function (props) {

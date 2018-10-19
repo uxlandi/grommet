@@ -82,7 +82,7 @@ function (_Component) {
       height: theme.checkBox.size,
       border: {
         size: theme.checkBox.border.width,
-        color: (0, _utils.evalStyle)(borderColor, theme)
+        color: borderColor
       },
       round: theme.checkBox.check.radius,
       focus: focus,
@@ -104,8 +104,7 @@ function (_Component) {
       as: _Box.Box,
       align: "center",
       justify: "center",
-      theme: theme,
-      checked: checked
+      theme: theme
     }, _react.default.createElement(_StyledCheckBox.StyledCheckBoxInput, _extends({}, rest, {
       ref: forwardRef,
       type: "checkbox"
@@ -117,7 +116,8 @@ function (_Component) {
       onChange: onChange
     }), {
       theme: theme,
-      checked: checked
+      checked: checked,
+      disabled: disabled
     })), visual, hidden);
 
     var normalizedLabel = typeof label === 'string' ? _react.default.createElement("span", null, label) : label;
