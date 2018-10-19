@@ -3,8 +3,6 @@
 exports.__esModule = true;
 exports.theme = void 0;
 
-var _styledComponents = require("styled-components");
-
 var _polished = require("polished");
 
 var _grommetIcons = require("grommet-icons");
@@ -43,24 +41,35 @@ var theme = {
   checkBox: {
     border: {
       color: {
-        light: (0, _styledComponents.css)(["", ""], function (props) {
-          return (0, _utils.normalizeColor)('gray', props.theme);
-        })
+        light: 'brand'
       },
       radius: '2px'
+    },
+    color: {
+      light: 'brand'
+    },
+    check: {
+      extend: function extend(_ref) {
+        var extendTheme = _ref.theme,
+            checked = _ref.checked;
+        return "\n        " + (checked && "background-color: " + (0, _utils.normalizeColor)('brand', extendTheme) + ";") + "\n      ";
+      }
     },
     hover: {
       border: {
         color: undefined
       }
     },
+    icon: {
+      size: '18px',
+      extend: 'stroke: white;'
+    },
     icons: {
       checked: _grommetIcons.FormCheckmark
     },
+    gap: 'small',
     size: '18px',
-    extend: function extend(props) {
-      return "\n      input:checked + div {\n        border-color: " + (0, _utils.normalizeColor)('brand', props.theme) + ";\n        background: " + (0, _utils.normalizeColor)('brand', props.theme) + ";\n\n        > svg {\n          stroke: " + (0, _utils.normalizeColor)('white', props.theme) + ";\n        }\n      }\n    ";
-    }
+    extend: "\n      color: #9C9C9C;\n    "
   },
   drop: {
     maxHeight: '384px'

@@ -1,4 +1,3 @@
-import { css } from 'styled-components';
 import { rgba } from 'polished';
 import { FormCheckmark } from "grommet-icons/es6/icons/FormCheckmark";
 import { normalizeColor } from '../../../utils';
@@ -32,24 +31,35 @@ export var theme = {
   checkBox: {
     border: {
       color: {
-        light: css(["", ""], function (props) {
-          return normalizeColor('gray', props.theme);
-        })
+        light: 'brand'
       },
       radius: '2px'
+    },
+    color: {
+      light: 'brand'
+    },
+    check: {
+      extend: function extend(_ref) {
+        var extendTheme = _ref.theme,
+            checked = _ref.checked;
+        return "\n        " + (checked && "background-color: " + normalizeColor('brand', extendTheme) + ";") + "\n      ";
+      }
     },
     hover: {
       border: {
         color: undefined
       }
     },
+    icon: {
+      size: '18px',
+      extend: 'stroke: white;'
+    },
     icons: {
       checked: FormCheckmark
     },
+    gap: 'small',
     size: '18px',
-    extend: function extend(props) {
-      return "\n      input:checked + div {\n        border-color: " + normalizeColor('brand', props.theme) + ";\n        background: " + normalizeColor('brand', props.theme) + ";\n\n        > svg {\n          stroke: " + normalizeColor('white', props.theme) + ";\n        }\n      }\n    ";
-    }
+    extend: "\n      color: #9C9C9C;\n    "
   },
   drop: {
     maxHeight: '384px'

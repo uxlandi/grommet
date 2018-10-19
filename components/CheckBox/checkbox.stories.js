@@ -213,6 +213,53 @@ function (_Component3) {
   return ThemedToggle;
 }(_react.Component);
 
+var CheckBoxInsideButton =
+/*#__PURE__*/
+function (_Component4) {
+  _inheritsLoose(CheckBoxInsideButton, _Component4);
+
+  function CheckBoxInsideButton() {
+    var _this4;
+
+    for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+      args[_key3] = arguments[_key3];
+    }
+
+    _this4 = _Component4.call.apply(_Component4, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this4)), "state", {
+      checked: false
+    });
+
+    return _this4;
+  }
+
+  var _proto4 = CheckBoxInsideButton.prototype;
+
+  _proto4.render = function render() {
+    var _this5 = this;
+
+    var checked = this.state.checked;
+    return _react.default.createElement(_grommet.Grommet, {
+      theme: _themes.grommet
+    }, _react.default.createElement(_grommet.Box, null, _react.default.createElement(_grommet.Button, {
+      hoverIndicator: "background",
+      onClick: function onClick() {
+        _this5.setState({
+          checked: !checked
+        });
+      }
+    }, _react.default.createElement(_grommet.CheckBox, {
+      tabIndex: "-1",
+      checked: checked,
+      label: _react.default.createElement(_grommet.Text, null, "Hi"),
+      onChange: function onChange() {}
+    }))));
+  };
+
+  return CheckBoxInsideButton;
+}(_react.Component);
+
 (0, _react2.storiesOf)('CheckBox', module).add('Simple', function () {
   return _react.default.createElement(SimpleCheckBox, null);
 }).add('Toggle', function () {
@@ -232,4 +279,6 @@ function (_Component3) {
   return _react.default.createElement(ThemedCheckBox, null);
 }).add('Themed Toggle', function () {
   return _react.default.createElement(ThemedToggle, null);
+}).add('Inside a Button', function () {
+  return _react.default.createElement(CheckBoxInsideButton, null);
 });

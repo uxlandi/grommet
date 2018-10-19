@@ -141,6 +141,59 @@ function (_Component2) {
   return CustomRadioButton;
 }(_react.Component);
 
+var CheckBoxInsideButton =
+/*#__PURE__*/
+function (_Component3) {
+  _inheritsLoose(CheckBoxInsideButton, _Component3);
+
+  function CheckBoxInsideButton() {
+    var _this3;
+
+    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    _this3 = _Component3.call.apply(_Component3, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this3)), "state", {
+      selected: undefined
+    });
+
+    return _this3;
+  }
+
+  var _proto3 = CheckBoxInsideButton.prototype;
+
+  _proto3.render = function render() {
+    var _this4 = this;
+
+    var selected = this.state.selected;
+    return _react.default.createElement(_grommet.Grommet, {
+      theme: _themes.grommet
+    }, _react.default.createElement(_grommet.Button, {
+      hoverIndicator: "background",
+      onClick: function onClick() {
+        if (selected) {
+          _this4.setState({
+            selected: undefined
+          });
+        } else {
+          _this4.setState({
+            selected: 'c1'
+          });
+        }
+      }
+    }, _react.default.createElement(_grommet.RadioButton, _extends({
+      label: "Choice 1",
+      name: "radio",
+      value: "c1",
+      checked: selected === 'c1'
+    }, this.props))));
+  };
+
+  return CheckBoxInsideButton;
+}(_react.Component);
+
 (0, _react2.storiesOf)('RadioButton', module).add('Simple RadioButton', function () {
   return _react.default.createElement(SimpleRadioButton, null);
 }).add('Disabled RadioButton', function () {
@@ -150,4 +203,6 @@ function (_Component2) {
   });
 }).add('Custom Theme', function () {
   return _react.default.createElement(CustomRadioButton, null);
+}).add('Inside a Button Theme', function () {
+  return _react.default.createElement(CheckBoxInsideButton, null);
 });

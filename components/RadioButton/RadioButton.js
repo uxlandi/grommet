@@ -64,7 +64,14 @@ function (_Component) {
       htmlFor: id,
       disabled: disabled
     }), {
-      theme: theme
+      theme: theme,
+      onClick: function onClick(event) {
+        // prevents clicking on the label trigging the event twice
+        // https://stackoverflow.com/questions/24501497/why-the-onclick-element-will-trigger-twice-for-label-element
+        if (event.target.type !== 'radio') {
+          event.stopPropagation();
+        }
+      }
     }), _react.default.createElement(_StyledRadioButton.StyledRadioButton, {
       as: _Box.Box,
       margin: {

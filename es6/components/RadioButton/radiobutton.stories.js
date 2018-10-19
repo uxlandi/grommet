@@ -8,7 +8,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import { Box, Grommet, RadioButton } from 'grommet';
+import { Box, Button, Grommet, RadioButton } from 'grommet';
 import { grommet } from 'grommet/themes';
 import { deepMerge } from 'grommet/utils';
 
@@ -133,6 +133,59 @@ function (_Component2) {
   return CustomRadioButton;
 }(Component);
 
+var CheckBoxInsideButton =
+/*#__PURE__*/
+function (_Component3) {
+  _inheritsLoose(CheckBoxInsideButton, _Component3);
+
+  function CheckBoxInsideButton() {
+    var _this3;
+
+    for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    _this3 = _Component3.call.apply(_Component3, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this3)), "state", {
+      selected: undefined
+    });
+
+    return _this3;
+  }
+
+  var _proto3 = CheckBoxInsideButton.prototype;
+
+  _proto3.render = function render() {
+    var _this4 = this;
+
+    var selected = this.state.selected;
+    return React.createElement(Grommet, {
+      theme: grommet
+    }, React.createElement(Button, {
+      hoverIndicator: "background",
+      onClick: function onClick() {
+        if (selected) {
+          _this4.setState({
+            selected: undefined
+          });
+        } else {
+          _this4.setState({
+            selected: 'c1'
+          });
+        }
+      }
+    }, React.createElement(RadioButton, _extends({
+      label: "Choice 1",
+      name: "radio",
+      value: "c1",
+      checked: selected === 'c1'
+    }, this.props))));
+  };
+
+  return CheckBoxInsideButton;
+}(Component);
+
 storiesOf('RadioButton', module).add('Simple RadioButton', function () {
   return React.createElement(SimpleRadioButton, null);
 }).add('Disabled RadioButton', function () {
@@ -142,4 +195,6 @@ storiesOf('RadioButton', module).add('Simple RadioButton', function () {
   });
 }).add('Custom Theme', function () {
   return React.createElement(CustomRadioButton, null);
+}).add('Inside a Button Theme', function () {
+  return React.createElement(CheckBoxInsideButton, null);
 });

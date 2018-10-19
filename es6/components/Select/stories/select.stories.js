@@ -381,11 +381,11 @@ function (_Component4) {
         checked: selectedContentPartners.some(function (partner) {
           return partner.name === name;
         }),
-        value: name,
+        label: React.createElement(Text, {
+          size: "small"
+        }, name),
         onChange: function onChange() {}
-      }), React.createElement(Text, {
-        size: "small"
-      }, name));
+      }));
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this7)), "renderContentPartners", function () {

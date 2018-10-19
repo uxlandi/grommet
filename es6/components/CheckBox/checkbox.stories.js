@@ -8,7 +8,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 import React, { Component } from 'react';
 import { storiesOf } from '@storybook/react';
-import { Grommet, CheckBox } from 'grommet';
+import { Box, Button, Grommet, CheckBox, Text } from 'grommet';
 import { grommet } from 'grommet/themes';
 import { normalizeColor, deepMerge } from 'grommet/utils';
 import { FormCheckmark } from "grommet-icons/es6/icons/FormCheckmark";
@@ -204,6 +204,53 @@ function (_Component3) {
   return ThemedToggle;
 }(Component);
 
+var CheckBoxInsideButton =
+/*#__PURE__*/
+function (_Component4) {
+  _inheritsLoose(CheckBoxInsideButton, _Component4);
+
+  function CheckBoxInsideButton() {
+    var _this4;
+
+    for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+      args[_key3] = arguments[_key3];
+    }
+
+    _this4 = _Component4.call.apply(_Component4, [this].concat(args)) || this;
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this4)), "state", {
+      checked: false
+    });
+
+    return _this4;
+  }
+
+  var _proto4 = CheckBoxInsideButton.prototype;
+
+  _proto4.render = function render() {
+    var _this5 = this;
+
+    var checked = this.state.checked;
+    return React.createElement(Grommet, {
+      theme: grommet
+    }, React.createElement(Box, null, React.createElement(Button, {
+      hoverIndicator: "background",
+      onClick: function onClick() {
+        _this5.setState({
+          checked: !checked
+        });
+      }
+    }, React.createElement(CheckBox, {
+      tabIndex: "-1",
+      checked: checked,
+      label: React.createElement(Text, null, "Hi"),
+      onChange: function onChange() {}
+    }))));
+  };
+
+  return CheckBoxInsideButton;
+}(Component);
+
 storiesOf('CheckBox', module).add('Simple', function () {
   return React.createElement(SimpleCheckBox, null);
 }).add('Toggle', function () {
@@ -223,4 +270,6 @@ storiesOf('CheckBox', module).add('Simple', function () {
   return React.createElement(ThemedCheckBox, null);
 }).add('Themed Toggle', function () {
   return React.createElement(ThemedToggle, null);
+}).add('Inside a Button', function () {
+  return React.createElement(CheckBoxInsideButton, null);
 });
