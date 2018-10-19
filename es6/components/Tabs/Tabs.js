@@ -12,7 +12,7 @@ import React, { cloneElement, Children, Component } from 'react';
 import { compose } from 'recompose';
 import { Box } from '../Box';
 import { withTheme } from '../hocs';
-import { StyledTabs } from './StyledTabs';
+import { StyledTabs, StyledTabsHeader } from './StyledTabs';
 
 var Tabs =
 /*#__PURE__*/
@@ -73,7 +73,8 @@ function (_Component) {
         children = _this$props2.children,
         justify = _this$props2.justify,
         tabContents = _this$props2.messages.tabContents,
-        rest = _objectWithoutPropertiesLoose(_this$props2, ["children", "justify", "messages"]);
+        theme = _this$props2.theme,
+        rest = _objectWithoutPropertiesLoose(_this$props2, ["children", "justify", "messages", "theme"]);
 
     delete rest.activeIndex;
     delete rest.onActive;
@@ -104,11 +105,19 @@ function (_Component) {
     }, this);
     var tabContentTitle = (activeTitle || '') + " " + tabContents;
     return React.createElement(StyledTabs, _extends({
+      as: Box,
       role: "tablist"
-    }, rest), React.createElement(Box, {
+    }, rest, {
+      background: theme.tabs.background,
+      theme: theme
+    }), React.createElement(StyledTabsHeader, {
+      theme: theme,
+      as: Box,
       direction: "row",
       justify: justify,
-      wrap: true
+      wrap: true,
+      background: theme.tabs.header.background,
+      gap: theme.tabs.gap
     }, tabs), React.createElement("div", {
       "aria-label": tabContentTitle,
       role: "tabpanel"

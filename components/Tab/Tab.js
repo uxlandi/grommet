@@ -17,6 +17,8 @@ var _hocs = require("../hocs");
 
 var _utils = require("../../utils");
 
+var _StyledTab = require("./StyledTab");
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -101,37 +103,53 @@ function (_Component) {
     var _this$props = this.props,
         active = _this$props.active,
         forwardRef = _this$props.forwardRef,
+        plain = _this$props.plain,
         title = _this$props.title,
         onMouseOver = _this$props.onMouseOver,
         onMouseOut = _this$props.onMouseOut,
         theme = _this$props.theme,
-        rest = _objectWithoutPropertiesLoose(_this$props, ["active", "forwardRef", "title", "onMouseOver", "onMouseOut", "theme"]);
+        rest = _objectWithoutPropertiesLoose(_this$props, ["active", "forwardRef", "plain", "title", "onMouseOver", "onMouseOut", "theme"]);
 
     var over = this.state.over;
     delete rest.onActivate;
-    var normalizedTitle;
+    var normalizedTitle = title;
+    var tabStyles = {};
 
-    if (typeof title !== 'string') {
-      normalizedTitle = title;
-    } else if (active) {
-      normalizedTitle = _react.default.createElement(_Text.Text, {
-        weight: "bold"
-      }, title);
-    } else {
-      var color = (0, _utils.normalizeColor)('text', theme);
-      normalizedTitle = _react.default.createElement(_Text.Text, {
-        color: color
-      }, title);
-    }
+    if (!plain) {
+      if (typeof title !== 'string') {
+        normalizedTitle = title;
+      } else if (active) {
+        normalizedTitle = _react.default.createElement(_Text.Text, {
+          weight: theme.tab.active.weight
+        }, title);
+      } else {
+        var color = (0, _utils.normalizeColor)(theme.tab.color, theme);
+        normalizedTitle = _react.default.createElement(_Text.Text, {
+          color: color
+        }, title);
+      }
 
-    var borderColor;
+      if (theme.tab.border) {
+        var borderColor;
 
-    if (active) {
-      borderColor = theme.dark ? 'white' : 'black';
-    } else if (over) {
-      borderColor = theme.dark ? 'white' : 'black';
-    } else {
-      borderColor = (0, _utils.evalStyle)((0, _utils.normalizeColor)(theme.global.control.border.color, theme), theme);
+        if (active) {
+          borderColor = (0, _utils.normalizeColor)(theme.tab.border.color, theme);
+        } else if (over) {
+          borderColor = (0, _utils.normalizeColor)(theme.tab.border.hover.color, theme);
+        } else {
+          borderColor = (0, _utils.normalizeColor)(theme.global.control.border.color, theme);
+        }
+
+        tabStyles.border = {
+          side: theme.tab.border.side,
+          size: theme.tab.border.size,
+          color: borderColor
+        };
+      }
+
+      tabStyles.background = active ? theme.tab.active.background || theme.tab.background : theme.tab.background;
+      tabStyles.pad = theme.tab.pad;
+      tabStyles.margin = theme.tab.margin;
     }
 
     return _react.default.createElement(_Button.Button, _extends({
@@ -146,20 +164,11 @@ function (_Component) {
       onMouseOut: this.onMouseOut,
       onFocus: this.onMouseOver,
       onBlur: this.onMouseOut
-    }), _react.default.createElement(_Box.Box, {
-      pad: {
-        bottom: 'xsmall'
-      },
-      margin: {
-        vertical: 'xxsmall',
-        horizontal: 'small'
-      },
-      border: {
-        side: 'bottom',
-        size: 'small',
-        color: borderColor
-      }
-    }, normalizedTitle));
+    }), _react.default.createElement(_StyledTab.StyledTab, _extends({
+      as: _Box.Box,
+      theme: theme,
+      plain: plain
+    }, tabStyles), normalizedTitle));
   };
 
   return Tab;

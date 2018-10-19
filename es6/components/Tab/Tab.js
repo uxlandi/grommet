@@ -14,7 +14,8 @@ import { Box } from '../Box';
 import { Button } from '../Button';
 import { Text } from '../Text';
 import { withForwardRef, withTheme } from '../hocs';
-import { evalStyle, normalizeColor } from '../../utils';
+import { normalizeColor } from '../../utils';
+import { StyledTab } from './StyledTab';
 
 var Tab =
 /*#__PURE__*/
@@ -88,37 +89,53 @@ function (_Component) {
     var _this$props = this.props,
         active = _this$props.active,
         forwardRef = _this$props.forwardRef,
+        plain = _this$props.plain,
         title = _this$props.title,
         onMouseOver = _this$props.onMouseOver,
         onMouseOut = _this$props.onMouseOut,
         theme = _this$props.theme,
-        rest = _objectWithoutPropertiesLoose(_this$props, ["active", "forwardRef", "title", "onMouseOver", "onMouseOut", "theme"]);
+        rest = _objectWithoutPropertiesLoose(_this$props, ["active", "forwardRef", "plain", "title", "onMouseOver", "onMouseOut", "theme"]);
 
     var over = this.state.over;
     delete rest.onActivate;
-    var normalizedTitle;
+    var normalizedTitle = title;
+    var tabStyles = {};
 
-    if (typeof title !== 'string') {
-      normalizedTitle = title;
-    } else if (active) {
-      normalizedTitle = React.createElement(Text, {
-        weight: "bold"
-      }, title);
-    } else {
-      var color = normalizeColor('text', theme);
-      normalizedTitle = React.createElement(Text, {
-        color: color
-      }, title);
-    }
+    if (!plain) {
+      if (typeof title !== 'string') {
+        normalizedTitle = title;
+      } else if (active) {
+        normalizedTitle = React.createElement(Text, {
+          weight: theme.tab.active.weight
+        }, title);
+      } else {
+        var color = normalizeColor(theme.tab.color, theme);
+        normalizedTitle = React.createElement(Text, {
+          color: color
+        }, title);
+      }
 
-    var borderColor;
+      if (theme.tab.border) {
+        var borderColor;
 
-    if (active) {
-      borderColor = theme.dark ? 'white' : 'black';
-    } else if (over) {
-      borderColor = theme.dark ? 'white' : 'black';
-    } else {
-      borderColor = evalStyle(normalizeColor(theme.global.control.border.color, theme), theme);
+        if (active) {
+          borderColor = normalizeColor(theme.tab.border.color, theme);
+        } else if (over) {
+          borderColor = normalizeColor(theme.tab.border.hover.color, theme);
+        } else {
+          borderColor = normalizeColor(theme.global.control.border.color, theme);
+        }
+
+        tabStyles.border = {
+          side: theme.tab.border.side,
+          size: theme.tab.border.size,
+          color: borderColor
+        };
+      }
+
+      tabStyles.background = active ? theme.tab.active.background || theme.tab.background : theme.tab.background;
+      tabStyles.pad = theme.tab.pad;
+      tabStyles.margin = theme.tab.margin;
     }
 
     return React.createElement(Button, _extends({
@@ -133,20 +150,11 @@ function (_Component) {
       onMouseOut: this.onMouseOut,
       onFocus: this.onMouseOver,
       onBlur: this.onMouseOut
-    }), React.createElement(Box, {
-      pad: {
-        bottom: 'xsmall'
-      },
-      margin: {
-        vertical: 'xxsmall',
-        horizontal: 'small'
-      },
-      border: {
-        side: 'bottom',
-        size: 'small',
-        color: borderColor
-      }
-    }, normalizedTitle));
+    }), React.createElement(StyledTab, _extends({
+      as: Box,
+      theme: theme,
+      plain: plain
+    }, tabStyles), normalizedTitle));
   };
 
   return Tab;

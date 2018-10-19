@@ -6,11 +6,15 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _react2 = require("@storybook/react");
 
+var _styledComponents = require("styled-components");
+
 var _grommetIcons = require("grommet-icons");
 
 var _grommet = require("grommet");
 
 var _themes = require("grommet/themes");
+
+var _utils = require("grommet/utils");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22,10 +26,12 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var UncontrolledTabs = function UncontrolledTabs() {
+var UncontrolledTabs = function UncontrolledTabs(_ref) {
+  var plain = _ref.plain;
   return _react.default.createElement(_grommet.Grommet, {
     theme: _themes.grommet
   }, _react.default.createElement(_grommet.Tabs, null, _react.default.createElement(_grommet.Tab, {
+    plain: plain,
     title: "Tab 1"
   }, _react.default.createElement(_grommet.Box, {
     margin: "small",
@@ -35,6 +41,7 @@ var UncontrolledTabs = function UncontrolledTabs() {
   }, _react.default.createElement(_grommetIcons.Attraction, {
     size: "xlarge"
   }))), _react.default.createElement(_grommet.Tab, {
+    plain: plain,
     title: "Tab 2"
   }, _react.default.createElement(_grommet.Box, {
     margin: "small",
@@ -44,6 +51,7 @@ var UncontrolledTabs = function UncontrolledTabs() {
   }, _react.default.createElement(_grommetIcons.TreeOption, {
     size: "xlarge"
   }))), _react.default.createElement(_grommet.Tab, {
+    plain: plain,
     title: "Tab 3"
   }, _react.default.createElement(_grommet.Box, {
     margin: "small",
@@ -53,6 +61,13 @@ var UncontrolledTabs = function UncontrolledTabs() {
   }, _react.default.createElement(_grommetIcons.Car, {
     size: "xlarge"
   })))));
+};
+
+UncontrolledTabs.defaultProps = {
+  plain: false
+};
+UncontrolledTabs.propTypes = {
+  plain: _propTypes.default.bool
 };
 
 var ControlledTabs =
@@ -342,9 +357,9 @@ function (_Component2) {
   return ResponsiveTabs;
 }(_react.Component);
 
-var RichTabTitle = function RichTabTitle(_ref) {
-  var icon = _ref.icon,
-      label = _ref.label;
+var RichTabTitle = function RichTabTitle(_ref2) {
+  var icon = _ref2.icon,
+      label = _ref2.label;
   return _react.default.createElement(_grommet.Box, {
     direction: "row",
     align: "center",
@@ -388,6 +403,75 @@ var RichTabs = function RichTabs() {
   })))));
 };
 
+var customTheme = (0, _utils.deepMerge)(_themes.grommet, {
+  global: {
+    elevation: {
+      light: {
+        small: '0px 1px 5px rgba(0, 0, 0, 0.50)',
+        medium: '0px 3px 8px rgba(0, 0, 0, 0.50)'
+      }
+    }
+  },
+  tab: {
+    active: {
+      background: 'dark-1'
+    },
+    background: 'dark-3',
+    hover: {
+      background: 'dark-1'
+    },
+    border: undefined,
+    margin: undefined,
+    pad: {
+      bottom: undefined,
+      horizontal: 'xsmall'
+    },
+    extend: function extend(_ref3) {
+      var theme = _ref3.theme;
+      return (0, _styledComponents.css)(["border-radius:", ";box-shadow:", ";"], theme.global.control.border.radius, theme.global.elevation.light.small);
+    }
+  },
+  tabs: {
+    background: 'dark-4',
+    header: {
+      background: 'dark-2',
+      extend: function extend(_ref4) {
+        var theme = _ref4.theme;
+        return (0, _styledComponents.css)(["padding:", ";box-shadow:", ";"], theme.global.edgeSize.small, theme.global.elevation.light.medium);
+      }
+    },
+    gap: 'medium'
+  }
+});
+
+var CustomTabs = function CustomTabs() {
+  return _react.default.createElement(_grommet.Grommet, {
+    theme: customTheme
+  }, _react.default.createElement(_grommet.Tabs, null, _react.default.createElement(_grommet.Tab, {
+    title: _react.default.createElement(RichTabTitle, {
+      icon: _react.default.createElement(_grommetIcons.CircleInformation, {
+        color: "accent-1"
+      }),
+      label: "Personal Data"
+    })
+  }, _react.default.createElement(_grommet.FormField, {
+    label: "Name"
+  }, _react.default.createElement(_grommet.TextInput, {
+    placeholder: "Enter your name..."
+  }))), _react.default.createElement(_grommet.Tab, {
+    title: _react.default.createElement(RichTabTitle, {
+      icon: _react.default.createElement(_grommetIcons.Currency, {
+        color: "neutral-5"
+      }),
+      label: "Payment"
+    })
+  }, _react.default.createElement(_grommet.FormField, {
+    label: "Card Number"
+  }, _react.default.createElement(_grommet.TextInput, {
+    placeholder: "Enter your card number..."
+  })))));
+};
+
 (0, _react2.storiesOf)('Tabs', module).add('Uncontrolled Tabs', function () {
   return _react.default.createElement(UncontrolledTabs, null);
 }).add('Controlled Tabs', function () {
@@ -396,4 +480,10 @@ var RichTabs = function RichTabs() {
   return _react.default.createElement(ResponsiveTabs, null);
 }).add('Rich Tabs', function () {
   return _react.default.createElement(RichTabs, null);
+}).add('CustomTheme', function () {
+  return _react.default.createElement(CustomTabs, null);
+}).add('Plain', function () {
+  return _react.default.createElement(UncontrolledTabs, {
+    plain: true
+  });
 });

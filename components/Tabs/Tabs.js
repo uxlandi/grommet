@@ -84,7 +84,8 @@ function (_Component) {
         children = _this$props2.children,
         justify = _this$props2.justify,
         tabContents = _this$props2.messages.tabContents,
-        rest = _objectWithoutPropertiesLoose(_this$props2, ["children", "justify", "messages"]);
+        theme = _this$props2.theme,
+        rest = _objectWithoutPropertiesLoose(_this$props2, ["children", "justify", "messages", "theme"]);
 
     delete rest.activeIndex;
     delete rest.onActive;
@@ -117,11 +118,19 @@ function (_Component) {
 
     var tabContentTitle = (activeTitle || '') + " " + tabContents;
     return _react.default.createElement(_StyledTabs.StyledTabs, _extends({
+      as: _Box.Box,
       role: "tablist"
-    }, rest), _react.default.createElement(_Box.Box, {
+    }, rest, {
+      background: theme.tabs.background,
+      theme: theme
+    }), _react.default.createElement(_StyledTabs.StyledTabsHeader, {
+      theme: theme,
+      as: _Box.Box,
       direction: "row",
       justify: justify,
-      wrap: true
+      wrap: true,
+      background: theme.tabs.header.background,
+      gap: theme.tabs.gap
     }, tabs), _react.default.createElement("div", {
       "aria-label": tabContentTitle,
       role: "tabpanel"
