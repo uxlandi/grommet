@@ -5,9 +5,10 @@ import { grommet } from 'grommet/themes';
 
 var SimpleDistribution = function SimpleDistribution() {
   return React.createElement(Grommet, {
-    theme: grommet
+    theme: grommet,
+    full: true
   }, React.createElement(Distribution, {
-    basis: "medium",
+    fill: true,
     values: [{
       value: 50,
       color: 'light-3'
@@ -35,6 +36,6 @@ var SimpleDistribution = function SimpleDistribution() {
   }));
 };
 
-storiesOf('Distribution', module).add('Simple Distribution', function () {
+storiesOf('Distribution', module).add('Simple', function () {
   return React.createElement(SimpleDistribution, null);
 });

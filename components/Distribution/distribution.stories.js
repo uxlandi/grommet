@@ -12,9 +12,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var SimpleDistribution = function SimpleDistribution() {
   return _react.default.createElement(_grommet.Grommet, {
-    theme: _themes.grommet
+    theme: _themes.grommet,
+    full: true
   }, _react.default.createElement(_grommet.Distribution, {
-    basis: "medium",
+    fill: true,
     values: [{
       value: 50,
       color: 'light-3'
@@ -42,6 +43,6 @@ var SimpleDistribution = function SimpleDistribution() {
   }));
 };
 
-(0, _react2.storiesOf)('Distribution', module).add('Simple Distribution', function () {
+(0, _react2.storiesOf)('Distribution', module).add('Simple', function () {
   return _react.default.createElement(SimpleDistribution, null);
 });

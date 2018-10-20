@@ -11,6 +11,8 @@ var _recompose = require("recompose");
 
 var _Box = require("../Box");
 
+var _Text = require("../Text");
+
 var _hocs = require("../hocs");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -56,10 +58,11 @@ function (_Component) {
         basis = _this$props.basis,
         children = _this$props.children,
         direction = _this$props.direction,
+        fill = _this$props.fill,
         gap = _this$props.gap,
         theme = _this$props.theme,
         values = _this$props.values,
-        rest = _objectWithoutPropertiesLoose(_this$props, ["basis", "children", "direction", "gap", "theme", "values"]);
+        rest = _objectWithoutPropertiesLoose(_this$props, ["basis", "children", "direction", "fill", "gap", "theme", "values"]);
 
     if (values.length === 1) {
       var value = values[0];
@@ -112,7 +115,8 @@ function (_Component) {
         basis: basis,
         flex: basis ? 'shrink' : true,
         overflow: "hidden",
-        gap: gap
+        gap: gap,
+        fill: fill
       }, rest), _react.default.createElement(Distribution, {
         values: values.slice(0, subIndex),
         basis: childBasis[0],
@@ -133,8 +137,16 @@ function (_Component) {
 }(_react.Component);
 
 _defineProperty(Distribution, "defaultProps", {
+  basis: undefined,
+  children: function children(value) {
+    return _react.default.createElement(_Box.Box, {
+      fill: true,
+      border: true
+    }, _react.default.createElement(_Text.Text, null, value.value));
+  },
   direction: 'row',
-  gap: 'xsmall'
+  gap: 'xsmall',
+  values: []
 });
 
 var DistributionDoc;
