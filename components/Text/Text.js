@@ -34,7 +34,7 @@ var Text = function Text(_ref) {
   }
 
   return _react.default.createElement(StyledComponent, _extends({
-    colorValue: color
+    colorProp: color
   }, rest));
 };
 

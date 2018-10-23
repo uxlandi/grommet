@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { genericStyles, normalizeColor } from '../../utils';
 var colorStyle = css(["color:", ";"], function (props) {
-  return normalizeColor(props.color, props.theme);
+  return normalizeColor(props.colorProp, props.theme);
 });
 
 var sizeStyle = function sizeStyle(props) {
@@ -26,7 +26,7 @@ export var StyledParagraph = styled.p.withConfig({
 }, function (props) {
   return props.textAlign && textAlignStyle;
 }, function (props) {
-  return props.color && colorStyle;
+  return props.colorProp && colorStyle;
 }, function (props) {
   return props.theme.paragraph && props.theme.paragraph.extend;
 });

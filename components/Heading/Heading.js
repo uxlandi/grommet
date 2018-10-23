@@ -36,7 +36,7 @@ var Heading = function Heading(props) {
 
 
   return _react.default.createElement(StyledComponent, _extends({
-    colorValue: color,
+    colorProp: color,
     level: +level
   }, rest));
 };
