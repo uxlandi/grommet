@@ -12,11 +12,14 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 var doc = function doc(Meter) {
   var DocumentedMeter = (0, _reactDesc.describe)(Meter).availableAt((0, _utils.getAvailableAtBadge)('Meter')).description('A graphical meter.').usage("import { Meter } from 'grommet';\n<Meter />");
   DocumentedMeter.propTypes = _extends({}, _utils.genericProps, {
-    background: _utils.backgroundPropType,
-    round: _reactDesc.PropTypes.bool.description('Whether to round the line ends'),
+    background: _utils.backgroundPropType.defaultValue({
+      color: 'light-2',
+      opacity: 'medium'
+    }),
+    round: _reactDesc.PropTypes.bool.description('Whether to round the line ends').defaultValue(false),
     size: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'full']), _reactDesc.PropTypes.string]).description('The size of the Meter.').defaultValue('medium'),
     thickness: _reactDesc.PropTypes.oneOfType([_reactDesc.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge']), _reactDesc.PropTypes.string]).description('The size of the Meter.').defaultValue('medium'),
-    type: _reactDesc.PropTypes.oneOf(['bar', 'circle']).description('The visual type of meter.'),
+    type: _reactDesc.PropTypes.oneOf(['bar', 'circle']).description('The visual type of meter.').defaultValue('bar'),
     values: _reactDesc.PropTypes.arrayOf(_reactDesc.PropTypes.shape({
       color: _reactDesc.PropTypes.string,
       highlight: _reactDesc.PropTypes.bool,
