@@ -140,7 +140,7 @@ function (_Component) {
 
     var hover = this.state.hover;
     var iconColor = (0, _utils.normalizeColor)(theme.accordion.icons.color || 'control', theme);
-    return _react.default.createElement(_AccordionContext.AccordionContext, null, function (panelContext) {
+    return _react.default.createElement(_AccordionContext.AccordionContext.Consumer, null, function (panelContext) {
       var active = panelContext.active,
           animate = panelContext.animate,
           onPanelChange = panelContext.onPanelChange;

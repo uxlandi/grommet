@@ -40,6 +40,9 @@ test('Heading size renders', function () {
     level: 1,
     size: "large"
   }), React.createElement(Heading, {
+    level: 1,
+    size: "xlarge"
+  }), React.createElement(Heading, {
     level: 2,
     size: "small"
   }), React.createElement(Heading, {
@@ -48,6 +51,9 @@ test('Heading size renders', function () {
   }), React.createElement(Heading, {
     level: 2,
     size: "large"
+  }), React.createElement(Heading, {
+    level: 2,
+    size: "xlarge"
   }), React.createElement(Heading, {
     level: 3,
     size: "small"
@@ -58,6 +64,9 @@ test('Heading size renders', function () {
     level: 3,
     size: "large"
   }), React.createElement(Heading, {
+    level: 3,
+    size: "xlarge"
+  }), React.createElement(Heading, {
     level: 4,
     size: "small"
   }), React.createElement(Heading, {
@@ -66,6 +75,9 @@ test('Heading size renders', function () {
   }), React.createElement(Heading, {
     level: 4,
     size: "large"
+  }), React.createElement(Heading, {
+    level: 4,
+    size: "xlarge"
   })));
   var tree = component.toJSON();
   expect(tree).toMatchSnapshot();

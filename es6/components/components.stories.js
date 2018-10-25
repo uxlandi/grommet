@@ -18,6 +18,7 @@ import { hpe } from 'grommet-theme-hpe';
 import { aruba } from 'grommet-theme-aruba';
 import { hp } from 'grommet-theme-hp';
 import { dxc } from 'grommet-theme-dxc';
+import { v1 } from 'grommet-theme-v1';
 
 var Node = function Node(_ref) {
   var id = _ref.id,
@@ -54,7 +55,8 @@ var themes = {
   hpe: hpe,
   aruba: aruba,
   hp: hp,
-  dxc: dxc
+  dxc: dxc,
+  v1: v1
 };
 
 var Components =
@@ -338,7 +340,7 @@ function (_Component) {
     }, React.createElement(Select, {
       plain: true,
       size: "small",
-      options: ['grommet', 'dark', 'hpe', 'aruba', 'hp', 'dxc'],
+      options: ['grommet', 'dark', 'hpe', 'aruba', 'hp', 'dxc', 'v1'],
       value: themeName,
       onChange: function onChange(event) {
         return _this2.setState({
@@ -363,9 +365,9 @@ function (_Component) {
       theme: theme
     }, React.createElement(Box, {
       pad: "medium",
-      background: theme.global.colors.background || theme.global.colors.white
+      background: theme.global.colors.background || theme.global.colors.white,
+      overflow: "auto"
     }, Grid.available ? React.createElement(Grid, {
-      fill: true,
       columns: "small",
       gap: "medium"
     }, content) : React.createElement(Box, {

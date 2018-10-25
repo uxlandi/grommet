@@ -522,22 +522,26 @@ export var generate = function generate(baseSpacing, scale) {
         1: {
           small: _extends({}, fontSizing(4)),
           medium: _extends({}, fontSizing(8)),
-          large: _extends({}, fontSizing(16))
+          large: _extends({}, fontSizing(16)),
+          xlarge: _extends({}, fontSizing(24))
         },
         2: {
           small: _extends({}, fontSizing(2)),
           medium: _extends({}, fontSizing(4)),
-          large: _extends({}, fontSizing(8))
+          large: _extends({}, fontSizing(8)),
+          xlarge: _extends({}, fontSizing(12))
         },
         3: {
           small: _extends({}, fontSizing(1)),
           medium: _extends({}, fontSizing(1)),
-          large: _extends({}, fontSizing(4))
+          large: _extends({}, fontSizing(4)),
+          xlarge: _extends({}, fontSizing(6))
         },
         4: {
           small: _extends({}, fontSizing(0)),
           medium: _extends({}, fontSizing(0)),
-          large: _extends({}, fontSizing(0))
+          large: _extends({}, fontSizing(0)),
+          xlarge: _extends({}, fontSizing(0))
         }
       },
       responsiveBreakpoint: 'small',
@@ -570,7 +574,8 @@ export var generate = function generate(baseSpacing, scale) {
       small: _extends({}, fontSizing(-1)),
       medium: _extends({}, fontSizing(0)),
       large: _extends({}, fontSizing(1)),
-      xlarge: _extends({}, fontSizing(2))
+      xlarge: _extends({}, fontSizing(2)),
+      xxlarge: _extends({}, fontSizing(4))
     },
     radioButton: {
       border: {

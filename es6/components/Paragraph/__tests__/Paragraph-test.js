@@ -17,6 +17,8 @@ test('Paragraph size renders', function () {
     size: "large"
   }), React.createElement(Paragraph, {
     size: "xlarge"
+  }), React.createElement(Paragraph, {
+    size: "xxlarge"
   })));
   var tree = component.toJSON();
   expect(tree).toMatchSnapshot();

@@ -34,8 +34,39 @@ var CircleMeter = function CircleMeter() {
   }));
 };
 
-(0, _react2.storiesOf)('Meter', module).add('Bar Meter', function () {
+var LabelledMeter = function LabelledMeter() {
+  return _react.default.createElement(_grommet.Grommet, {
+    theme: _themes.grommet
+  }, _react.default.createElement(_grommet.Box, {
+    align: "start"
+  }, _react.default.createElement(_grommet.Stack, {
+    anchor: "center"
+  }, _react.default.createElement(_grommet.Meter, {
+    type: "circle",
+    background: "light-2",
+    values: [{
+      value: 30
+    }],
+    size: "xsmall",
+    thickness: "small"
+  }), _react.default.createElement(_grommet.Box, {
+    direction: "row",
+    align: "center",
+    pad: {
+      bottom: 'xsmall'
+    }
+  }, _react.default.createElement(_grommet.Text, {
+    size: "xlarge",
+    weight: "bold"
+  }, "30"), _react.default.createElement(_grommet.Text, {
+    size: "small"
+  }, "%")))));
+};
+
+(0, _react2.storiesOf)('Meter', module).add('Bar', function () {
   return _react.default.createElement(BarMeter, null);
-}).add('Circle Meter', function () {
+}).add('Circle', function () {
   return _react.default.createElement(CircleMeter, null);
+}).add('Labelled', function () {
+  return _react.default.createElement(LabelledMeter, null);
 });

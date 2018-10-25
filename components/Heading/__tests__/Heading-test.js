@@ -51,6 +51,9 @@ test('Heading size renders', function () {
     level: 1,
     size: "large"
   }), _react.default.createElement(_.Heading, {
+    level: 1,
+    size: "xlarge"
+  }), _react.default.createElement(_.Heading, {
     level: 2,
     size: "small"
   }), _react.default.createElement(_.Heading, {
@@ -59,6 +62,9 @@ test('Heading size renders', function () {
   }), _react.default.createElement(_.Heading, {
     level: 2,
     size: "large"
+  }), _react.default.createElement(_.Heading, {
+    level: 2,
+    size: "xlarge"
   }), _react.default.createElement(_.Heading, {
     level: 3,
     size: "small"
@@ -69,6 +75,9 @@ test('Heading size renders', function () {
     level: 3,
     size: "large"
   }), _react.default.createElement(_.Heading, {
+    level: 3,
+    size: "xlarge"
+  }), _react.default.createElement(_.Heading, {
     level: 4,
     size: "small"
   }), _react.default.createElement(_.Heading, {
@@ -77,6 +86,9 @@ test('Heading size renders', function () {
   }), _react.default.createElement(_.Heading, {
     level: 4,
     size: "large"
+  }), _react.default.createElement(_.Heading, {
+    level: 4,
+    size: "xlarge"
   })));
 
   var tree = component.toJSON();

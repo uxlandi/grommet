@@ -20,6 +20,8 @@ var _grommetThemeHp = require("grommet-theme-hp");
 
 var _grommetThemeDxc = require("grommet-theme-dxc");
 
+var _grommetThemeV = require("grommet-theme-v1");
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
@@ -67,7 +69,8 @@ var themes = {
   hpe: _grommetThemeHpe.hpe,
   aruba: _grommetThemeAruba.aruba,
   hp: _grommetThemeHp.hp,
-  dxc: _grommetThemeDxc.dxc
+  dxc: _grommetThemeDxc.dxc,
+  v1: _grommetThemeV.v1
 };
 
 var Components =
@@ -351,7 +354,7 @@ function (_Component) {
     }, _react.default.createElement(_grommet.Select, {
       plain: true,
       size: "small",
-      options: ['grommet', 'dark', 'hpe', 'aruba', 'hp', 'dxc'],
+      options: ['grommet', 'dark', 'hpe', 'aruba', 'hp', 'dxc', 'v1'],
       value: themeName,
       onChange: function onChange(event) {
         return _this2.setState({
@@ -376,9 +379,9 @@ function (_Component) {
       theme: theme
     }, _react.default.createElement(_grommet.Box, {
       pad: "medium",
-      background: theme.global.colors.background || theme.global.colors.white
+      background: theme.global.colors.background || theme.global.colors.white,
+      overflow: "auto"
     }, _grommet.Grid.available ? _react.default.createElement(_grommet.Grid, {
-      fill: true,
       columns: "small",
       gap: "medium"
     }, content) : _react.default.createElement(_grommet.Box, {
