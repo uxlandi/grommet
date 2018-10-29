@@ -16,7 +16,7 @@ export var doc = function doc(Calendar) {
     onReference: PropTypes.func.description("\n      Called with an ISO8601 date when the user navigates to a different month.\n    "),
     onSelect: PropTypes.func.description("Called with an ISO8601 date when\n      the user selects a day.\n      For single select, make this the subsequent `date` property value.\n      For multiple select or ranges, toggle values in `dates`.\n      Not specifying this property makes the component read only."),
     range: PropTypes.bool.description("\n      Whether to automatically manage multiple date selection as a range.\n      When the user clicks the first date, onSelect will be called with that\n      date. When the user selects another date, onSelect will be called with\n      an array of two dates.\n    ").defaultValue(false),
-    reference: PropTypes.string.description('The date to show if `date` isn\'t set, in ISO8601 format'),
+    reference: PropTypes.string.description("The date to show if `date` isn't set, in ISO8601 format"),
     showAdjacentDays: PropTypes.bool.description("\n      Whether to show the days from the previous and next months.\n    ").defaultValue(true),
     size: PropTypes.oneOfType([PropTypes.oneOf(['small', 'medium', 'large']), PropTypes.string]).description('What size to make it.').defaultValue('medium')
   });

@@ -10,7 +10,7 @@ export var fontSize = function fontSize(size, lineHeight) {
   });
 };
 export var breakpointStyle = function breakpointStyle(breakpoint, content) {
-  return css(["@media only screen ", "{", "}"], breakpoint.value && "and (max-width: " + breakpoint.value + "px)", content);
+  return css(["@media only screen ", "{", ";}"], breakpoint.value && "and (max-width: " + breakpoint.value + "px)", content);
 };
 export var findAllByType = function findAllByType(component, type) {
   var matches = [];

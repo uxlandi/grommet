@@ -22,7 +22,7 @@ var fontSize = function fontSize(size, lineHeight) {
 exports.fontSize = fontSize;
 
 var breakpointStyle = function breakpointStyle(breakpoint, content) {
-  return (0, _styledComponents.css)(["@media only screen ", "{", "}"], breakpoint.value && "and (max-width: " + breakpoint.value + "px)", content);
+  return (0, _styledComponents.css)(["@media only screen ", "{", ";}"], breakpoint.value && "and (max-width: " + breakpoint.value + "px)", content);
 };
 
 exports.breakpointStyle = breakpointStyle;

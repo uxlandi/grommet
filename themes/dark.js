@@ -56,7 +56,7 @@ var dark = (0, _utils.deepFreeze)({
     },
     focus: {
       border: {
-        color: (0, _styledComponents.css)(["", ""], function (props) {
+        color: (0, _styledComponents.css)(["", ";"], function (props) {
           return (0, _utils.normalizeColor)('focus', props.theme);
         }),
         width: '2px'

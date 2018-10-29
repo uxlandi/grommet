@@ -12,7 +12,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var StyledChart = _styledComponents.default.svg.withConfig({
   displayName: "StyledChart",
   componentId: "sc-1nae0gf-0"
-})(["display:block;max-width:100%;overflow:visible;", " ", ""], _utils.genericStyles, function (props) {
+})(["display:block;max-width:100%;overflow:visible;", " ", ";"], _utils.genericStyles, function (props) {
   return props.theme.chart && props.theme.chart.extend;
 });
 

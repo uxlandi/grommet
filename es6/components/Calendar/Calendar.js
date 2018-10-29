@@ -19,9 +19,9 @@ import { withTheme } from '../hocs';
 import { StyledCalendar, StyledDay, StyledDayContainer, StyledWeek, StyledWeeks, StyledWeeksContainer } from './StyledCalendar';
 import { addDays, addMonths, betweenDates, daysApart, endOfMonth, startOfMonth, subtractDays, subtractMonths, withinDates, updateDateRange } from './utils';
 var headingPadMap = {
-  'small': 'xsmall',
-  'medium': 'small',
-  'large': 'medium'
+  small: 'xsmall',
+  medium: 'small',
+  large: 'medium'
 };
 
 var buildStartEnd = function buildStartEnd(reference, firstDayOfWeek) {

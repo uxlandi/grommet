@@ -79,8 +79,8 @@ function (_Component) {
 
       var dropNode = (0, _reactDom.findDOMNode)(_this.dropRef.current);
 
-      if (onClickOutside && dropNode // need this for ie11
-      && !dropTargetNode.contains(event.target) && !dropNode.contains(event.target)) {
+      if (onClickOutside && dropNode && // need this for ie11
+      !dropTargetNode.contains(event.target) && !dropNode.contains(event.target)) {
         onClickOutside();
       }
     });

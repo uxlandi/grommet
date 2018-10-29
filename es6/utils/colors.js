@@ -22,8 +22,8 @@ export var normalizeColor = function normalizeColor(color, theme, required) {
 var parseHexToRGB = function parseHexToRGB(color) {
   return color.length === 4 ? color.match(/[A-Za-z0-9]{1}/g).map(function (v) {
     return parseInt(v, 16);
-  }) // https://stackoverflow.com/a/42429333
-  : color.match(/[A-Za-z0-9]{2}/g).map(function (v) {
+  }) : // https://stackoverflow.com/a/42429333
+  color.match(/[A-Za-z0-9]{2}/g).map(function (v) {
     return parseInt(v, 16);
   });
 };

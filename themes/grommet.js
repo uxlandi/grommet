@@ -23,7 +23,7 @@ var grommet = (0, _utils.deepFreeze)({
     }
   },
   button: {
-    extend: (0, _styledComponents.css)(["", ""], function (props) {
+    extend: (0, _styledComponents.css)(["", ";"], function (props) {
       return !props.plain && 'font-weight: bold;';
     })
   }

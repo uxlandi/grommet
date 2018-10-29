@@ -33,7 +33,7 @@ function getHoverIndicatorStyle(hoverIndicator, theme) {
   return css(["", " color:", ";"], backgroundStyle(background, theme), normalizeColor(theme.global.hover.color, theme));
 }
 
-var hoverStyle = css(["&:hover{", " ", "}"], function (props) {
+var hoverStyle = css(["&:hover{", " ", ";}"], function (props) {
   return props.hoverIndicator && getHoverIndicatorStyle(props.hoverIndicator, props.theme);
 }, function (props) {
   return !props.plain && css(["box-shadow:0px 0px 0px 2px ", ";"], getHoverColor(props));

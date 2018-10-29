@@ -7,7 +7,7 @@ var roundStyle = css(["border-radius:", ";"], function (props) {
 export var StyledMeter = styled.svg.withConfig({
   displayName: "StyledMeter",
   componentId: "nsxarx-0"
-})(["max-width:100%;overflow:hidden;", " ", " path{transition:all 0.3s;}", ""], genericStyles, function (props) {
+})(["max-width:100%;overflow:hidden;", " ", " path{transition:all 0.3s;}", ";"], genericStyles, function (props) {
   return props.round && roundStyle;
 }, function (props) {
   return props.theme.meter && props.theme.meter.extend;

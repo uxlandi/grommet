@@ -74,7 +74,7 @@ exports.StyledTableFooter = StyledTableFooter;
 var StyledTable = _styledComponents.default.table.withConfig({
   displayName: "StyledTable",
   componentId: "sc-1m3u5g-6"
-})(["border-spacing:0;border-collapse:collapse;", " ", ""], _utils.genericStyles, function (props) {
+})(["border-spacing:0;border-collapse:collapse;", " ", ";"], _utils.genericStyles, function (props) {
   return props.theme.table && props.theme.table.extend;
 });
 

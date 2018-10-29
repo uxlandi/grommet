@@ -33,8 +33,8 @@ var alignContentStyle = (0, _styledComponents.css)(["align-content:", ";"], func
   return ALIGN_CONTENT_MAP[props.alignContent];
 });
 var BASIS_MAP = {
-  'auto': 'auto',
-  'full': '100%',
+  auto: 'auto',
+  full: '100%',
   '1/2': '50%',
   '1/4': '25%',
   '2/4': '50%',
@@ -137,7 +137,7 @@ var borderStyle = function borderStyle(data, responsive, theme) {
 };
 
 var ROUND_MAP = {
-  'full': '100%'
+  full: '100%'
 };
 
 var roundStyle = function roundStyle(data, responsive, theme) {
@@ -306,7 +306,7 @@ var animationObjectStyle = function animationObjectStyle(animation, theme) {
   var bounds = animationBounds(animation.type, animation.size);
 
   if (bounds) {
-    var animationTransition = (0, _styledComponents.css)(["from{", "}to{", "}"], bounds[0], bounds[1]);
+    var animationTransition = (0, _styledComponents.css)(["from{", ";}to{", ";}"], bounds[0], bounds[1]);
     return (0, _styledComponents.css)(["", " ", " ", " ", ""], (0, _styledComponents.keyframes)(["", ""], animationTransition), normalizeTiming(animation.duration, (theme.global.animation[animation.type] ? theme.global.animation[animation.type].duration : undefined) || theme.global.animation.duration), normalizeTiming(animation.delay, '0s'), animationEnding(animation.type));
   }
 
@@ -315,9 +315,9 @@ var animationObjectStyle = function animationObjectStyle(animation, theme) {
 
 var animationItemStyle = function animationItemStyle(item, theme) {
   if (typeof item === 'string') {
-    return (0, _styledComponents.css)(["", ""], animationObjectStyle({
+    return animationObjectStyle({
       type: item
-    }, theme));
+    }, theme);
   }
 
   if (Array.isArray(item)) {
@@ -327,7 +327,7 @@ var animationItemStyle = function animationItemStyle(item, theme) {
   }
 
   if (typeof item === 'object') {
-    return (0, _styledComponents.css)(["", ""], animationObjectStyle(item, theme));
+    return animationObjectStyle(item, theme);
   }
 
   return '';
@@ -373,7 +373,7 @@ var animationInitialStyle = function animationInitialStyle(item) {
   return '';
 };
 
-var animationStyle = (0, _styledComponents.css)(["", ""], function (props) {
+var animationStyle = (0, _styledComponents.css)(["", ";"], function (props) {
   return (0, _styledComponents.css)(["", " animation:", ";"], animationInitialStyle(props.animation), animationItemStyle(props.animation, props.theme));
 }); // NOTE: basis must be after flex! Otherwise, flex overrides basis
 

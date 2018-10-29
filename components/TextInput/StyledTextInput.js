@@ -23,7 +23,7 @@ var plainStyle = (0, _styledComponents.css)(["border:none;"]);
 var StyledTextInput = _styledComponents.default.input.withConfig({
   displayName: "StyledTextInput",
   componentId: "sc-1x30a0s-0"
-})(["", " width:100%;", " ", " &::-webkit-input-placeholder{", "}&::-moz-placeholder{", "}&:-ms-input-placeholder{", "}&::-moz-focus-inner{border:none;outline:none;}", ""], _utils.inputStyle, function (props) {
+})(["", " width:100%;", " ", " &::-webkit-input-placeholder{", ";}&::-moz-placeholder{", ";}&:-ms-input-placeholder{", ";}&::-moz-focus-inner{border:none;outline:none;}", ";"], _utils.inputStyle, function (props) {
   return props.size && sizeStyle(props);
 }, function (props) {
   return props.plain && plainStyle;

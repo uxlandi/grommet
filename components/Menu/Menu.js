@@ -42,7 +42,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var ContainerBox = (0, _styledComponents.default)(_Box.Box).withConfig({
   displayName: "Menu__ContainerBox",
   componentId: "sc-17fcys9-0"
-})(["max-height:inherit;@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){width:100%;}", ""], function (props) {
+})(["max-height:inherit;@media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){width:100%;}", ";"], function (props) {
   return props.theme.menu.extend;
 });
 

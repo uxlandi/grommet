@@ -10,7 +10,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var StyledDiagram = _styledComponents.default.svg.withConfig({
   displayName: "StyledDiagram",
   componentId: "sc-1vzeu9f-0"
-})(["max-width:100%;width:100%;height:100%;", ""], function (props) {
+})(["max-width:100%;width:100%;height:100%;", ";"], function (props) {
   return props.theme.diagram && props.theme.diagram.extend;
 });
 

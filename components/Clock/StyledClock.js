@@ -45,7 +45,7 @@ exports.StyledSecond = StyledSecond;
 var StyledAnalog = _styledComponents.default.svg.withConfig({
   displayName: "StyledClock__StyledAnalog",
   componentId: "y4xw8s-3"
-})(["width:", ";height:", ";", " ", ""], function (props) {
+})(["width:", ";height:", ";", " ", ";"], function (props) {
   return props.theme.clock.analog.size[props.size];
 }, function (props) {
   return props.theme.clock.analog.size[props.size];
@@ -65,7 +65,7 @@ var sizeStyle = function sizeStyle(props) {
 var StyledDigitalDigit = _styledComponents.default.div.withConfig({
   displayName: "StyledClock__StyledDigitalDigit",
   componentId: "y4xw8s-4"
-})(["position:relative;width:0.8em;text-align:center;overflow:hidden;", ""], function (props) {
+})(["position:relative;width:0.8em;text-align:center;overflow:hidden;", ";"], function (props) {
   return sizeStyle(props);
 });
 

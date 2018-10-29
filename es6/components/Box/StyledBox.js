@@ -24,8 +24,8 @@ var alignContentStyle = css(["align-content:", ";"], function (props) {
   return ALIGN_CONTENT_MAP[props.alignContent];
 });
 var BASIS_MAP = {
-  'auto': 'auto',
-  'full': '100%',
+  auto: 'auto',
+  full: '100%',
   '1/2': '50%',
   '1/4': '25%',
   '2/4': '50%',
@@ -128,7 +128,7 @@ var borderStyle = function borderStyle(data, responsive, theme) {
 };
 
 var ROUND_MAP = {
-  'full': '100%'
+  full: '100%'
 };
 
 var roundStyle = function roundStyle(data, responsive, theme) {
@@ -297,7 +297,7 @@ var animationObjectStyle = function animationObjectStyle(animation, theme) {
   var bounds = animationBounds(animation.type, animation.size);
 
   if (bounds) {
-    var animationTransition = css(["from{", "}to{", "}"], bounds[0], bounds[1]);
+    var animationTransition = css(["from{", ";}to{", ";}"], bounds[0], bounds[1]);
     return css(["", " ", " ", " ", ""], keyframes(["", ""], animationTransition), normalizeTiming(animation.duration, (theme.global.animation[animation.type] ? theme.global.animation[animation.type].duration : undefined) || theme.global.animation.duration), normalizeTiming(animation.delay, '0s'), animationEnding(animation.type));
   }
 
@@ -306,9 +306,9 @@ var animationObjectStyle = function animationObjectStyle(animation, theme) {
 
 var animationItemStyle = function animationItemStyle(item, theme) {
   if (typeof item === 'string') {
-    return css(["", ""], animationObjectStyle({
+    return animationObjectStyle({
       type: item
-    }, theme));
+    }, theme);
   }
 
   if (Array.isArray(item)) {
@@ -318,7 +318,7 @@ var animationItemStyle = function animationItemStyle(item, theme) {
   }
 
   if (typeof item === 'object') {
-    return css(["", ""], animationObjectStyle(item, theme));
+    return animationObjectStyle(item, theme);
   }
 
   return '';
@@ -364,7 +364,7 @@ var animationInitialStyle = function animationInitialStyle(item) {
   return '';
 };
 
-var animationStyle = css(["", ""], function (props) {
+var animationStyle = css(["", ";"], function (props) {
   return css(["", " animation:", ";"], animationInitialStyle(props.animation), animationItemStyle(props.animation, props.theme));
 }); // NOTE: basis must be after flex! Otherwise, flex overrides basis
 

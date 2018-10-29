@@ -32,33 +32,33 @@ var edgeStyle = function edgeStyle(kind, data, responsive, responsiveBreakpoint,
   var breakpoint = responsiveBreakpoint && theme.global.breakpoints[responsiveBreakpoint];
 
   if (typeof data === 'string') {
-    return (0, _styledComponents.css)(["", ":", ";", ""], kind, theme.global.edgeSize[data], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + ": " + breakpoint.edgeSize[data] + ";\n      ") : '');
+    return (0, _styledComponents.css)(["", ":", ";", ";"], kind, theme.global.edgeSize[data], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + ": " + breakpoint.edgeSize[data] + ";\n      ") : '');
   }
 
   var result = [];
 
   if (data.horizontal) {
-    result.push((0, _styledComponents.css)(["", "-left:", ";", "-right:", ";", ""], kind, theme.global.edgeSize[data.horizontal], kind, theme.global.edgeSize[data.horizontal], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-left: " + breakpoint.edgeSize[data.horizontal] + ";\n        " + kind + "-right: " + breakpoint.edgeSize[data.horizontal] + ";\n      ") : ''));
+    result.push((0, _styledComponents.css)(["", "-left:", ";", "-right:", ";", ";"], kind, theme.global.edgeSize[data.horizontal], kind, theme.global.edgeSize[data.horizontal], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-left: " + breakpoint.edgeSize[data.horizontal] + ";\n        " + kind + "-right: " + breakpoint.edgeSize[data.horizontal] + ";\n      ") : ''));
   }
 
   if (data.vertical) {
-    result.push((0, _styledComponents.css)(["", "-top:", ";", "-bottom:", ";", ""], kind, theme.global.edgeSize[data.vertical], kind, theme.global.edgeSize[data.vertical], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-top: " + breakpoint.edgeSize[data.vertical] + ";\n        " + kind + "-bottom: " + breakpoint.edgeSize[data.vertical] + ";\n      ") : ''));
+    result.push((0, _styledComponents.css)(["", "-top:", ";", "-bottom:", ";", ";"], kind, theme.global.edgeSize[data.vertical], kind, theme.global.edgeSize[data.vertical], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-top: " + breakpoint.edgeSize[data.vertical] + ";\n        " + kind + "-bottom: " + breakpoint.edgeSize[data.vertical] + ";\n      ") : ''));
   }
 
   if (data.top) {
-    result.push((0, _styledComponents.css)(["", "-top:", ";", ""], kind, theme.global.edgeSize[data.top], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-top: " + breakpoint.edgeSize[data.top] + ";\n      ") : ''));
+    result.push((0, _styledComponents.css)(["", "-top:", ";", ";"], kind, theme.global.edgeSize[data.top], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-top: " + breakpoint.edgeSize[data.top] + ";\n      ") : ''));
   }
 
   if (data.bottom) {
-    result.push((0, _styledComponents.css)(["", "-bottom:", ";", ""], kind, theme.global.edgeSize[data.bottom], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-bottom: " + breakpoint.edgeSize[data.bottom] + ";\n      ") : ''));
+    result.push((0, _styledComponents.css)(["", "-bottom:", ";", ";"], kind, theme.global.edgeSize[data.bottom], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-bottom: " + breakpoint.edgeSize[data.bottom] + ";\n      ") : ''));
   }
 
   if (data.left) {
-    result.push((0, _styledComponents.css)(["", "-left:", ";", ""], kind, theme.global.edgeSize[data.left], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-left: " + breakpoint.edgeSize[data.left] + ";\n      ") : ''));
+    result.push((0, _styledComponents.css)(["", "-left:", ";", ";"], kind, theme.global.edgeSize[data.left], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-left: " + breakpoint.edgeSize[data.left] + ";\n      ") : ''));
   }
 
   if (data.right) {
-    result.push((0, _styledComponents.css)(["", "-right:", ";", ""], kind, theme.global.edgeSize[data.right], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-right: " + breakpoint.edgeSize[data.left] + ";\n      ") : ''));
+    result.push((0, _styledComponents.css)(["", "-right:", ";", ";"], kind, theme.global.edgeSize[data.right], responsive && breakpoint ? (0, _mixins.breakpointStyle)(breakpoint, "\n        " + kind + "-right: " + breakpoint.edgeSize[data.left] + ";\n      ") : ''));
   }
 
   return result;
@@ -88,7 +88,7 @@ var overflowStyle = function overflowStyle(overflowProp) {
     return (0, _styledComponents.css)(["overflow:", ";"], overflowProp);
   }
 
-  return (0, _styledComponents.css)(["", " ", ""], overflowProp.horizontal && "overflow-x: " + overflowProp.horizontal + ";", overflowProp.vertical && "overflow-y: " + overflowProp.vertical + ";");
+  return (0, _styledComponents.css)(["", " ", ";"], overflowProp.horizontal && "overflow-x: " + overflowProp.horizontal + ";", overflowProp.vertical && "overflow-y: " + overflowProp.vertical + ";");
 }; // evalStyle() converts a styled-components item into a string
 
 

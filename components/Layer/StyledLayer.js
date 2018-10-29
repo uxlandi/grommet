@@ -16,7 +16,7 @@ var responsiveLayerStyle = "\n  position: absolute;\n  width: 100%;\n  height: 1
 var StyledLayer = _styledComponents.default.div.withConfig({
   displayName: "StyledLayer",
   componentId: "rmtehz-0"
-})(["", " background:unset;position:relative;z-index:10;pointer-events:none;outline:none;", " ", ""], _utils.baseStyle, function (props) {
+})(["", " background:unset;position:relative;z-index:10;pointer-events:none;outline:none;", " ", ";"], _utils.baseStyle, function (props) {
   if (props.position === 'hidden') {
     return hiddenPositionStyle;
   }
@@ -174,7 +174,7 @@ var POSITIONS = {
     }
   }
 };
-var desktopContainerStyle = (0, _styledComponents.css)(["position:", ";max-height:", ";max-width:", ";border-radius:", ";", ""], function (props) {
+var desktopContainerStyle = (0, _styledComponents.css)(["position:", ";max-height:", ";max-width:", ";border-radius:", ";", ";"], function (props) {
   return props.modal ? 'absolute' : 'fixed';
 }, function (props) {
   return "calc(100% - " + MARGINS.top(props.margin, props.theme) + " - " + MARGINS.bottom(props.margin, props.theme) + ")";
@@ -190,7 +190,7 @@ var responsiveContainerStyle = (0, _styledComponents.css)(["position:relative;ma
 var StyledContainer = _styledComponents.default.div.withConfig({
   displayName: "StyledLayer__StyledContainer",
   componentId: "rmtehz-2"
-})(["", " display:flex;flex-direction:column;min-height:", ";", " outline:none;pointer-events:all;z-index:15;", " ", ""], function (props) {
+})(["", " display:flex;flex-direction:column;min-height:", ";", " outline:none;pointer-events:all;z-index:15;", " ", ";"], function (props) {
   return !props.modal ? _utils.baseStyle : '';
 }, function (props) {
   return props.theme.global.size.xxsmall;

@@ -32,24 +32,24 @@ var darkColors = ['#333333', '#444444', '#555555', '#666666', '#777777', '#99999
 var lightColors = ['#F6F6F6', '#EEEEEE', '#DDDDDD', '#CCCCCC', '#BBBBBB', '#AAAAAA'];
 var focusColor = accentColors[0];
 var colors = {
-  'active': rgba(221, 221, 221, 0.5),
-  'black': '#000000',
-  'border': {
-    'dark': rgba(255, 255, 255, 0.33),
-    'light': rgba(0, 0, 0, 0.33)
+  active: rgba(221, 221, 221, 0.5),
+  black: '#000000',
+  border: {
+    dark: rgba(255, 255, 255, 0.33),
+    light: rgba(0, 0, 0, 0.33)
   },
-  'brand': brandColor,
-  'control': {
-    'dark': 'accent-1',
-    'light': 'brand'
+  brand: brandColor,
+  control: {
+    dark: 'accent-1',
+    light: 'brand'
   },
-  'focus': focusColor,
-  'placeholder': '#AAAAAA',
-  'text': {
-    'dark': '#f8f8f8',
-    'light': '#444444'
+  focus: focusColor,
+  placeholder: '#AAAAAA',
+  text: {
+    dark: '#f8f8f8',
+    light: '#444444'
   },
-  'white': '#FFFFFF'
+  white: '#FFFFFF'
 };
 
 var colorArray = function colorArray(array, prefix) {
@@ -609,7 +609,7 @@ export var generate = function generate(baseSpacing, scale) {
     rangeInput: {
       track: {
         height: '4px',
-        color: css(["", ""], function (props) {
+        color: css(["", ";"], function (props) {
           return rgba(normalizeColor('border', props.theme), 0.2);
         })
       },

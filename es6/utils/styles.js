@@ -21,33 +21,33 @@ export var edgeStyle = function edgeStyle(kind, data, responsive, responsiveBrea
   var breakpoint = responsiveBreakpoint && theme.global.breakpoints[responsiveBreakpoint];
 
   if (typeof data === 'string') {
-    return css(["", ":", ";", ""], kind, theme.global.edgeSize[data], responsive && breakpoint ? breakpointStyle(breakpoint, "\n        " + kind + ": " + breakpoint.edgeSize[data] + ";\n      ") : '');
+    return css(["", ":", ";", ";"], kind, theme.global.edgeSize[data], responsive && breakpoint ? breakpointStyle(breakpoint, "\n        " + kind + ": " + breakpoint.edgeSize[data] + ";\n      ") : '');
   }
 
   var result = [];
 
   if (data.horizontal) {
-    result.push(css(["", "-left:", ";", "-right:", ";", ""], kind, theme.global.edgeSize[data.horizontal], kind, theme.global.edgeSize[data.horizontal], responsive && breakpoint ? breakpointStyle(breakpoint, "\n        " + kind + "-left: " + breakpoint.edgeSize[data.horizontal] + ";\n        " + kind + "-right: " + breakpoint.edgeSize[data.horizontal] + ";\n      ") : ''));
+    result.push(css(["", "-left:", ";", "-right:", ";", ";"], kind, theme.global.edgeSize[data.horizontal], kind, theme.global.edgeSize[data.horizontal], responsive && breakpoint ? breakpointStyle(breakpoint, "\n        " + kind + "-left: " + breakpoint.edgeSize[data.horizontal] + ";\n        " + kind + "-right: " + breakpoint.edgeSize[data.horizontal] + ";\n      ") : ''));
   }
 
   if (data.vertical) {
-    result.push(css(["", "-top:", ";", "-bottom:", ";", ""], kind, theme.global.edgeSize[data.vertical], kind, theme.global.edgeSize[data.vertical], responsive && breakpoint ? breakpointStyle(breakpoint, "\n        " + kind + "-top: " + breakpoint.edgeSize[data.vertical] + ";\n        " + kind + "-bottom: " + breakpoint.edgeSize[data.vertical] + ";\n      ") : ''));
+    result.push(css(["", "-top:", ";", "-bottom:", ";", ";"], kind, theme.global.edgeSize[data.vertical], kind, theme.global.edgeSize[data.vertical], responsive && breakpoint ? breakpointStyle(breakpoint, "\n        " + kind + "-top: " + breakpoint.edgeSize[data.vertical] + ";\n        " + kind + "-bottom: " + breakpoint.edgeSize[data.vertical] + ";\n      ") : ''));
   }
 
   if (data.top) {
-    result.push(css(["", "-top:", ";", ""], kind, theme.global.edgeSize[data.top], responsive && breakpoint ? breakpointStyle(breakpoint, "\n        " + kind + "-top: " + breakpoint.edgeSize[data.top] + ";\n      ") : ''));
+    result.push(css(["", "-top:", ";", ";"], kind, theme.global.edgeSize[data.top], responsive && breakpoint ? breakpointStyle(breakpoint, "\n        " + kind + "-top: " + breakpoint.edgeSize[data.top] + ";\n      ") : ''));
   }
 
   if (data.bottom) {
-    result.push(css(["", "-bottom:", ";", ""], kind, theme.global.edgeSize[data.bottom], responsive && breakpoint ? breakpointStyle(breakpoint, "\n        " + kind + "-bottom: " + breakpoint.edgeSize[data.bottom] + ";\n      ") : ''));
+    result.push(css(["", "-bottom:", ";", ";"], kind, theme.global.edgeSize[data.bottom], responsive && breakpoint ? breakpointStyle(breakpoint, "\n        " + kind + "-bottom: " + breakpoint.edgeSize[data.bottom] + ";\n      ") : ''));
   }
 
   if (data.left) {
-    result.push(css(["", "-left:", ";", ""], kind, theme.global.edgeSize[data.left], responsive && breakpoint ? breakpointStyle(breakpoint, "\n        " + kind + "-left: " + breakpoint.edgeSize[data.left] + ";\n      ") : ''));
+    result.push(css(["", "-left:", ";", ";"], kind, theme.global.edgeSize[data.left], responsive && breakpoint ? breakpointStyle(breakpoint, "\n        " + kind + "-left: " + breakpoint.edgeSize[data.left] + ";\n      ") : ''));
   }
 
   if (data.right) {
-    result.push(css(["", "-right:", ";", ""], kind, theme.global.edgeSize[data.right], responsive && breakpoint ? breakpointStyle(breakpoint, "\n        " + kind + "-right: " + breakpoint.edgeSize[data.left] + ";\n      ") : ''));
+    result.push(css(["", "-right:", ";", ";"], kind, theme.global.edgeSize[data.right], responsive && breakpoint ? breakpointStyle(breakpoint, "\n        " + kind + "-right: " + breakpoint.edgeSize[data.left] + ";\n      ") : ''));
   }
 
   return result;
@@ -72,7 +72,7 @@ export var overflowStyle = function overflowStyle(overflowProp) {
     return css(["overflow:", ";"], overflowProp);
   }
 
-  return css(["", " ", ""], overflowProp.horizontal && "overflow-x: " + overflowProp.horizontal + ";", overflowProp.vertical && "overflow-y: " + overflowProp.vertical + ";");
+  return css(["", " ", ";"], overflowProp.horizontal && "overflow-x: " + overflowProp.horizontal + ";", overflowProp.vertical && "overflow-y: " + overflowProp.vertical + ";");
 }; // evalStyle() converts a styled-components item into a string
 
 export var evalStyle = function evalStyle(arg, theme) {

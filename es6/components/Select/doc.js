@@ -18,7 +18,7 @@ export var doc = function doc(Select) {
       left: 'left'
     }),
     dropTarget: PropTypes.object.description("Target where the options drop will be aligned to. This should be\n      a React reference. Typically, this is not required as the drop will be\n      aligned to the Select itself by default."),
-    focusIndicator: PropTypes.bool.description('Whether when \'plain\' it should receive a focus outline.'),
+    focusIndicator: PropTypes.bool.description("Whether when 'plain' it should receive a focus outline."),
     messages: PropTypes.shape({
       multiple: PropTypes.string
     }).description('Custom messages.'),

@@ -79,9 +79,9 @@ function (_Component) {
         var nextValue = _extends({}, previousValue);
 
         nextValue[currentValue] = function (e) {
-          if (currentValue in _this.props
+          if (currentValue in _this.props &&
           /* eslint-disable react/destructuring-assignment */
-          && typeof _this.props[currentValue] === 'function') {
+          typeof _this.props[currentValue] === 'function') {
             _this.props[currentValue](e);
             /* eslint-enable react/destructuring-assignment */
 
@@ -215,7 +215,7 @@ function (_Component) {
       } else if (video.webkitRequestFullscreen) {
         video.webkitRequestFullscreen();
       } else {
-        console.warn('Your browser doesn\'t support fullscreen.');
+        console.warn("Your browser doesn't support fullscreen.");
       }
     });
 

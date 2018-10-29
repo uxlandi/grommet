@@ -41,7 +41,7 @@ function getHoverIndicatorStyle(hoverIndicator, theme) {
   return (0, _styledComponents.css)(["", " color:", ";"], (0, _utils.backgroundStyle)(background, theme), (0, _utils.normalizeColor)(theme.global.hover.color, theme));
 }
 
-var hoverStyle = (0, _styledComponents.css)(["&:hover{", " ", "}"], function (props) {
+var hoverStyle = (0, _styledComponents.css)(["&:hover{", " ", ";}"], function (props) {
   return props.hoverIndicator && getHoverIndicatorStyle(props.hoverIndicator, props.theme);
 }, function (props) {
   return !props.plain && (0, _styledComponents.css)(["box-shadow:0px 0px 0px 2px ", ";"], getHoverColor(props));

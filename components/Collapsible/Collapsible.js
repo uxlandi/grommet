@@ -32,7 +32,7 @@ var animatedBoxProperty = function animatedBoxProperty(direction) {
 var AnimatedBox = (0, _styledComponents.default)(_Box.Box).withConfig({
   displayName: "Collapsible__AnimatedBox",
   componentId: "sc-15kniua-0"
-})(["", ""], function (props) {
+})(["", ";"], function (props) {
   return !props.animate && (props.open ? "\n    max-" + animatedBoxProperty(props.collapsibleDirection) + ": unset;\n    visibility: visible;\n  " : "\n    max-" + animatedBoxProperty(props.collapsibleDirection) + ": 0;\n    visibility: hidden;\n  ");
 });
 

@@ -40,8 +40,8 @@ var backgroundIsDark = function backgroundIsDark(backgroundArg, theme) {
 
       if (typeof dark === 'boolean') {
         result = dark;
-      } else if (color // weak opacity means we keep the existing darkness
-      && (!opacity || opacity !== 'weak')) {
+      } else if (color && ( // weak opacity means we keep the existing darkness
+      !opacity || opacity !== 'weak')) {
         var backgroundColor = (0, _colors.normalizeColor)(background.color, theme);
 
         if (backgroundColor) {
@@ -88,7 +88,7 @@ var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
 
       var backgroundColor = (0, _colors.getRGBA)(_color2, background.opacity === true ? theme.global.opacity.medium : theme.global.opacity[background.opacity]) || _color2;
 
-      styles.push((0, _styledComponents.css)(["background-color:", ";", ""], backgroundColor, (!background.opacity || background.opacity !== 'weak') && "color: " + theme.global.colors.text[background.dark || (0, _colors.colorIsDark)(backgroundColor) ? 'dark' : 'light'] + ";"));
+      styles.push((0, _styledComponents.css)(["background-color:", ";", ";"], backgroundColor, (!background.opacity || background.opacity !== 'weak') && "color: " + theme.global.colors.text[background.dark || (0, _colors.colorIsDark)(backgroundColor) ? 'dark' : 'light'] + ";"));
     }
 
     if (background.dark === false) {

@@ -88,8 +88,8 @@ var gapStyle = function gapStyle(props) {
 };
 
 var SIZE_MAP = {
-  'flex': '1fr',
-  'full': '100%',
+  flex: '1fr',
+  full: '100%',
   '1/2': '50%',
   '1/4': '25%',
   '2/4': '50%',
@@ -128,10 +128,10 @@ var columnsStyle = function columnsStyle(props) {
   }
 
   if (typeof props.columns === 'object') {
-    return (0, _styledComponents.css)(["grid-template-columns:repeat(", ",", ");"], getRepeatCount(props.columns.count), getRepeatSize(props.columns.size, props.theme));
+    return (0, _styledComponents.css)(["grid-template-columns:repeat( ", ",", " );"], getRepeatCount(props.columns.count), getRepeatSize(props.columns.size, props.theme));
   }
 
-  return (0, _styledComponents.css)(["grid-template-columns:repeat(auto-fill,", ");"], getRepeatSize(props.columns, props.theme));
+  return (0, _styledComponents.css)(["grid-template-columns:repeat( auto-fill,", " );"], getRepeatSize(props.columns, props.theme));
 };
 
 var rowsStyle = function rowsStyle(props) {

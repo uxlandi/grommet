@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { genericStyles, normalizeColor } from '../../utils';
-var tabHoverStyle = css(["&:hover{", "}", ""], function (props) {
+var tabHoverStyle = css(["&:hover{", ";}", ";"], function (props) {
   return props.theme.tab.hover.background && css(["background:", ";"], normalizeColor(props.theme.tab.hover.background, props.theme));
 }, function (props) {
   return props.theme.tab.hover.extend;

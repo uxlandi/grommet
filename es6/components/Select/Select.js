@@ -25,7 +25,7 @@ var SelectTextInput = styled(TextInput).withConfig({
 var StyledSelectBox = styled(Box).withConfig({
   displayName: "Select__StyledSelectBox",
   componentId: "sc-17idtfo-1"
-})(["", ";", ""], function (props) {
+})(["", ";", ";"], function (props) {
   return !props.plain && controlBorderStyle;
 }, function (props) {
   return props.theme.select && props.theme.select.control && props.theme.select.control.extend;

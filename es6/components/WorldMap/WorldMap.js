@@ -185,13 +185,13 @@ var buildInteractiveProps = function buildInteractiveProps(_ref4, activeFunc, ac
       onClick = _ref4.onClick,
       onHover = _ref4.onHover;
   return {
-    'role': 'button',
+    role: 'button',
     'aria-label': name,
-    'tabIndex': '0',
-    'onClick': onClick ? function () {
+    tabIndex: '0',
+    onClick: onClick ? function () {
       return onClick(name);
     } : undefined,
-    'onMouseOver': function onMouseOver() {
+    onMouseOver: function onMouseOver() {
       if (!active) {
         activeFunc(name);
 
@@ -200,7 +200,7 @@ var buildInteractiveProps = function buildInteractiveProps(_ref4, activeFunc, ac
         }
       }
     },
-    'onMouseLeave': function onMouseLeave() {
+    onMouseLeave: function onMouseLeave() {
       if (active) {
         activeFunc(undefined);
 
@@ -209,7 +209,7 @@ var buildInteractiveProps = function buildInteractiveProps(_ref4, activeFunc, ac
         }
       }
     },
-    'onFocus': function onFocus() {
+    onFocus: function onFocus() {
       // This moves the map unnecessarily. Instead, we should check
       // the position and scroll if it isn't already visible
       // this._worldMapRef.scrollIntoView();
@@ -217,7 +217,7 @@ var buildInteractiveProps = function buildInteractiveProps(_ref4, activeFunc, ac
         activeFunc(name);
       }
     },
-    'onBlur': function onBlur() {
+    onBlur: function onBlur() {
       if (active) {
         activeFunc(undefined);
       }

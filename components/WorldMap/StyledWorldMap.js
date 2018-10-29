@@ -12,7 +12,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var StyledWorldMap = _styledComponents.default.svg.withConfig({
   displayName: "StyledWorldMap",
   componentId: "had4c3-0"
-})(["width:100%;", " ", ""], _utils.genericStyles, function (props) {
+})(["width:100%;", " ", ";"], _utils.genericStyles, function (props) {
   return props.theme.worldMap && props.theme.worldMap.extend;
 });
 
