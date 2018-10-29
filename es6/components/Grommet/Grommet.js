@@ -92,7 +92,7 @@ function (_Component) {
       if (!theme.icon || !theme.icon.colors) {
         iconColoredTheme = _extends({}, theme);
         iconColoredTheme.icon = _extends({}, theme.icon || {});
-        iconColoredTheme.icon.colors = deepMerge(baseTheme.icon.colors, theme.global.colors);
+        iconColoredTheme.icon.colors = deepMerge(baseTheme.icon.colors, (theme.global || {}).colors);
       }
 
       nextTheme = deepMerge(baseTheme, iconColoredTheme);
@@ -101,12 +101,15 @@ function (_Component) {
     }
 
     if (nextTheme) {
-      var color = nextTheme.global.colors.background;
+      var _ref = nextTheme.global || baseTheme.global,
+          colors = _ref.colors;
+
+      var color = colors.background;
       var dark = color ? colorIsDark(color) : false;
       var lightIconTheme = deepMerge(iconTheme, nextTheme.icon);
       var iconThemes = {
         dark: reduceIconTheme(deepMerge(lightIconTheme, {
-          color: nextTheme.global.colors.text.dark
+          color: colors.text.dark
         }), true),
         light: reduceIconTheme(lightIconTheme, false)
       };

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Grommet, Paragraph } from 'grommet';
 import { grommet } from 'grommet/themes';
-var sizes = ['xlarge', 'large', 'medium', 'small'];
+var sizes = ['xxlarge', 'xlarge', 'large', 'medium', 'small'];
 var paragraphFiller = "\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\n";
 
 var All = function All() {

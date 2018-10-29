@@ -55,6 +55,8 @@ var All = function All() {
     size: "small"
   }), _react.default.createElement(Set, {
     size: "large"
+  }), _react.default.createElement(Set, {
+    size: "xlarge"
   })));
 };
 

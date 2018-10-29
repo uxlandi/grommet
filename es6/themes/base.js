@@ -258,6 +258,8 @@ export var generate = function generate(baseSpacing, scale) {
         // 768
         xlarge: baseSpacing * 48 + "px",
         // 1152
+        xxlarge: baseSpacing * 64 + "px",
+        // 1536
         full: '100%'
       }
     },
