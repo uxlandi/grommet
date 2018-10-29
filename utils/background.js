@@ -62,9 +62,10 @@ var backgroundIsDark = function backgroundIsDark(backgroundArg, theme) {
 
 exports.backgroundIsDark = backgroundIsDark;
 
-var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
+var backgroundStyle = function backgroundStyle(backgroundArg, theme, textColorArg) {
   // If the background has a light or dark object, use that
   var background = normalizeBackground(backgroundArg, theme);
+  var textColor = textColorArg || theme.global.colors.text;
 
   if (typeof background === 'object') {
     var styles = [];
@@ -73,10 +74,10 @@ var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
       var color;
 
       if (background.dark === false) {
-        color = theme.global.colors.text.light;
+        color = textColor.light;
       } else if (background.dark) {
-        color = theme.global.colors.text.dark;
-      } else {
+        color = textColor.dark;
+      } else if (!textColorArg) {
         color = 'inherit';
       }
 
@@ -88,15 +89,13 @@ var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
 
       var backgroundColor = (0, _colors.getRGBA)(_color2, background.opacity === true ? theme.global.opacity.medium : theme.global.opacity[background.opacity]) || _color2;
 
-      styles.push((0, _styledComponents.css)(["background-color:", ";", ";"], backgroundColor, (!background.opacity || background.opacity !== 'weak') && "color: " + theme.global.colors.text[background.dark || (0, _colors.colorIsDark)(backgroundColor) ? 'dark' : 'light'] + ";"));
+      styles.push((0, _styledComponents.css)(["background-color:", ";", ""], backgroundColor, (!background.opacity || background.opacity !== 'weak') && "color: " + textColor[background.dark || (0, _colors.colorIsDark)(backgroundColor) ? 'dark' : 'light'] + ";"));
     }
 
     if (background.dark === false) {
-      styles.push((0, _styledComponents.css)(["color:", ";"], theme.global.colors.text.light));
-    }
-
-    if (background.dark) {
-      styles.push((0, _styledComponents.css)(["color:", ";"], theme.global.colors.text.dark));
+      styles.push((0, _styledComponents.css)(["color:", ";"], textColor.light));
+    } else if (background.dark) {
+      styles.push((0, _styledComponents.css)(["color:", ";"], textColor.dark));
     }
 
     return styles;
@@ -110,7 +109,7 @@ var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
     var _color3 = (0, _colors.normalizeColor)(background, theme);
 
     if (_color3) {
-      return (0, _styledComponents.css)(["background:", ";color:", ";"], _color3, theme.global.colors.text[(0, _colors.colorIsDark)(_color3) ? 'dark' : 'light']);
+      return (0, _styledComponents.css)(["background:", ";color:", ";"], _color3, textColor[(0, _colors.colorIsDark)(_color3) ? 'dark' : 'light']);
     }
   }
 

@@ -14,7 +14,7 @@ var basicStyle = function basicStyle(props) {
 };
 
 var primaryStyle = function primaryStyle(props) {
-  return (0, _styledComponents.css)(["", " border-radius:", ";"], (0, _utils.backgroundStyle)((0, _utils.normalizeColor)(props.colorValue || props.theme.button.primary.color || 'control', props.theme), props.theme), props.theme.button.border.radius);
+  return (0, _styledComponents.css)(["", " border-radius:", ";"], (0, _utils.backgroundStyle)((0, _utils.normalizeColor)(props.colorValue || props.theme.button.primary.color || 'control', props.theme), props.theme, props.theme.button.color), props.theme.button.border.radius);
 };
 
 var disabledStyle = (0, _styledComponents.css)(["opacity:", ";cursor:default;"], function (props) {

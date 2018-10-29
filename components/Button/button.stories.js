@@ -10,6 +10,8 @@ var _grommet = require("grommet");
 
 var _themes = require("grommet/themes");
 
+var _utils = require("../../utils");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -212,6 +214,41 @@ var ColoredButton = function ColoredButton(props) {
   }, props))));
 };
 
+var customButtonColor = (0, _utils.deepMerge)(_themes.grommet, {
+  global: {
+    colors: {
+      text: {
+        light: 'grey',
+        dark: 'grey'
+      }
+    }
+  },
+  button: {
+    color: {
+      light: 'white',
+      dark: 'white'
+    }
+  }
+});
+
+var ThemeColored = function ThemeColored() {
+  return _react.default.createElement(_grommet.Grommet, {
+    theme: customButtonColor
+  }, _react.default.createElement(_grommet.Box, {
+    align: "start",
+    gap: "small"
+  }, _react.default.createElement(_grommet.Button, {
+    primary: true,
+    label: "Submit",
+    onClick: function onClick() {}
+  }), _react.default.createElement(_grommet.Button, {
+    primary: true,
+    color: "dark-1",
+    label: "Submit",
+    onClick: function onClick() {}
+  })));
+};
+
 (0, _react2.storiesOf)('Button', module).add('Default', function () {
   return _react.default.createElement(SimpleButton, null);
 }).add('Primary', function () {
@@ -242,4 +279,6 @@ var ColoredButton = function ColoredButton(props) {
   return _react.default.createElement(MultipleButton, null);
 }).add('Colored', function () {
   return _react.default.createElement(ColoredButton, null);
+}).add('Theme Colored', function () {
+  return _react.default.createElement(ThemeColored, null);
 });

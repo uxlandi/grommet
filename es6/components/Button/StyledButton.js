@@ -6,7 +6,7 @@ var basicStyle = function basicStyle(props) {
 };
 
 var primaryStyle = function primaryStyle(props) {
-  return css(["", " border-radius:", ";"], backgroundStyle(normalizeColor(props.colorValue || props.theme.button.primary.color || 'control', props.theme), props.theme), props.theme.button.border.radius);
+  return css(["", " border-radius:", ";"], backgroundStyle(normalizeColor(props.colorValue || props.theme.button.primary.color || 'control', props.theme), props.theme, props.theme.button.color), props.theme.button.border.radius);
 };
 
 var disabledStyle = css(["opacity:", ";cursor:default;"], function (props) {

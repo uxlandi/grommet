@@ -5,6 +5,7 @@ import { storiesOf } from '@storybook/react';
 import { Add } from "grommet-icons/es6/icons/Add";
 import { Box, Button, Grommet, RoutedButton, Text } from 'grommet';
 import { grommet } from 'grommet/themes';
+import { deepMerge } from '../../utils';
 
 var SimpleButton = function SimpleButton(props) {
   return React.createElement(Grommet, {
@@ -204,6 +205,41 @@ var ColoredButton = function ColoredButton(props) {
   }, props))));
 };
 
+var customButtonColor = deepMerge(grommet, {
+  global: {
+    colors: {
+      text: {
+        light: 'grey',
+        dark: 'grey'
+      }
+    }
+  },
+  button: {
+    color: {
+      light: 'white',
+      dark: 'white'
+    }
+  }
+});
+
+var ThemeColored = function ThemeColored() {
+  return React.createElement(Grommet, {
+    theme: customButtonColor
+  }, React.createElement(Box, {
+    align: "start",
+    gap: "small"
+  }, React.createElement(Button, {
+    primary: true,
+    label: "Submit",
+    onClick: function onClick() {}
+  }), React.createElement(Button, {
+    primary: true,
+    color: "dark-1",
+    label: "Submit",
+    onClick: function onClick() {}
+  })));
+};
+
 storiesOf('Button', module).add('Default', function () {
   return React.createElement(SimpleButton, null);
 }).add('Primary', function () {
@@ -234,4 +270,6 @@ storiesOf('Button', module).add('Default', function () {
   return React.createElement(MultipleButton, null);
 }).add('Colored', function () {
   return React.createElement(ColoredButton, null);
+}).add('Theme Colored', function () {
+  return React.createElement(ThemeColored, null);
 });

@@ -48,9 +48,10 @@ export var backgroundIsDark = function backgroundIsDark(backgroundArg, theme) {
 
   return result;
 };
-export var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
+export var backgroundStyle = function backgroundStyle(backgroundArg, theme, textColorArg) {
   // If the background has a light or dark object, use that
   var background = normalizeBackground(backgroundArg, theme);
+  var textColor = textColorArg || theme.global.colors.text;
 
   if (typeof background === 'object') {
     var styles = [];
@@ -59,10 +60,10 @@ export var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
       var color;
 
       if (background.dark === false) {
-        color = theme.global.colors.text.light;
+        color = textColor.light;
       } else if (background.dark) {
-        color = theme.global.colors.text.dark;
-      } else {
+        color = textColor.dark;
+      } else if (!textColorArg) {
         color = 'inherit';
       }
 
@@ -74,15 +75,13 @@ export var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
 
       var backgroundColor = getRGBA(_color2, background.opacity === true ? theme.global.opacity.medium : theme.global.opacity[background.opacity]) || _color2;
 
-      styles.push(css(["background-color:", ";", ";"], backgroundColor, (!background.opacity || background.opacity !== 'weak') && "color: " + theme.global.colors.text[background.dark || colorIsDark(backgroundColor) ? 'dark' : 'light'] + ";"));
+      styles.push(css(["background-color:", ";", ""], backgroundColor, (!background.opacity || background.opacity !== 'weak') && "color: " + textColor[background.dark || colorIsDark(backgroundColor) ? 'dark' : 'light'] + ";"));
     }
 
     if (background.dark === false) {
-      styles.push(css(["color:", ";"], theme.global.colors.text.light));
-    }
-
-    if (background.dark) {
-      styles.push(css(["color:", ";"], theme.global.colors.text.dark));
+      styles.push(css(["color:", ";"], textColor.light));
+    } else if (background.dark) {
+      styles.push(css(["color:", ";"], textColor.dark));
     }
 
     return styles;
@@ -96,7 +95,7 @@ export var backgroundStyle = function backgroundStyle(backgroundArg, theme) {
     var _color3 = normalizeColor(background, theme);
 
     if (_color3) {
-      return css(["background:", ";color:", ";"], _color3, theme.global.colors.text[colorIsDark(_color3) ? 'dark' : 'light']);
+      return css(["background:", ";color:", ";"], _color3, textColor[colorIsDark(_color3) ? 'dark' : 'light']);
     }
   }
 
