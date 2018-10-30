@@ -1,13 +1,57 @@
 "use strict";
 
 exports.__esModule = true;
-exports.doc = void 0;
+exports.doc = exports.themeDoc = void 0;
 
 var _reactDesc = require("react-desc");
 
 var _utils = require("../../utils");
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var themeDoc = {
+  'global.focus.border.color': {
+    description: 'The color around the Anchor when in focus.',
+    type: 'string | { dark: string, light: string }',
+    defaultValue: '#FD6FFF'
+  },
+  'anchor.color': {
+    description: 'The color of the label text and icon strokes.',
+    type: 'string | { dark: string, light: string }',
+    defaultValue: "{ light: '#1D67E3', dark: '#6194EB' }"
+  },
+  'anchor.fontWeight': {
+    description: 'The font weight of the label.',
+    type: 'number',
+    defaultValue: 600
+  },
+  'anchor.textDecoration': {
+    description: 'The text decoration of the label. Refer to https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration for possible values.',
+    type: 'string',
+    defaultValue: 'none'
+  },
+  'anchor.hover.fontWeight': {
+    description: 'The font weight of the label when hovering.',
+    type: 'number',
+    defaultValue: undefined
+  },
+  'anchor.hover.textDecoration': {
+    description: 'The text decoration of the label when hovering. Refer to https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration for possible values.',
+    type: 'string',
+    defaultValue: 'underline'
+  },
+  'anchor.hover.extend': {
+    description: 'Any additional style for the Anchor when hovering.',
+    type: 'string | (props) => {}',
+    defaultValue: undefined
+  },
+  'anchor.extend': {
+    description: 'Any additional style for the Anchor.',
+    type: 'string | (props) => {}',
+    defaultValue: undefined
+  }
+};
+exports.themeDoc = themeDoc;
 
 var doc = function doc(Anchor) {
   var DocumentedAnchor = (0, _reactDesc.describe)(Anchor).availableAt((0, _utils.getAvailableAtBadge)('Anchor')).description("A text link. We have a separate component from the browser\nbase so we can style it. You can either set the icon and/or label properties\nor just use children.").usage("import { Anchor } from 'grommet';\n<Anchor href={location} label='Label' />");

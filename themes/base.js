@@ -212,8 +212,7 @@ var generate = function generate(baseSpacing, scale) {
       },
       focus: {
         border: {
-          color: 'focus',
-          width: '2px'
+          color: 'focus'
         }
       },
       font: _extends({}, fontSizing(0)),
@@ -278,7 +277,8 @@ var generate = function generate(baseSpacing, scale) {
         textDecoration: 'underline' // fontWeight: undefined,
         // extend: undefined,
 
-      }
+      } // extend: undefined,
+
     },
     box: {
       responsiveBreakpoint: 'small' // when we switch rows to columns
