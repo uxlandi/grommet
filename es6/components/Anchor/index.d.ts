@@ -10,8 +10,8 @@ export interface AnchorProps {
   icon?: JSX.Element;
   label?: React.ReactNode;
   onClick?: (...args: any[]) => any;
-  primary?: boolean;
   reverse?: boolean;
+  size?: "xsmall" | "small" | "medium" | "large" | "xlarge" | "xxlarge" | string;
 }
 
 declare const Anchor: React.ComponentType<AnchorProps>;

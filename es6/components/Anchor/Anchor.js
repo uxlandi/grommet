@@ -7,7 +7,6 @@ function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.crea
 import React, { cloneElement, Component } from 'react';
 import { compose } from 'recompose';
 import { Box } from '../Box';
-import { Text } from '../Text';
 import { withFocus, withForwardRef, withTheme } from '../hocs';
 import { StyledAnchor } from './StyledAnchor';
 import { normalizeColor } from '../../utils';
@@ -50,7 +49,6 @@ function (_Component) {
         theme = _this$props.theme,
         rest = _objectWithoutPropertiesLoose(_this$props, ["a11yTitle", "children", "color", "disabled", "forwardRef", "href", "icon", "focus", "label", "onClick", "reverse", "theme"]);
 
-    var anchorLabel = typeof label === 'string' ? React.createElement(Text, null, label) : label;
     var coloredIcon = icon;
 
     if (icon && !icon.props.color) {
@@ -59,8 +57,8 @@ function (_Component) {
       });
     }
 
-    var first = reverse ? anchorLabel : coloredIcon;
-    var second = reverse ? coloredIcon : anchorLabel;
+    var first = reverse ? label : coloredIcon;
+    var second = reverse ? coloredIcon : label;
     return React.createElement(StyledAnchor, _extends({}, rest, {
       ref: forwardRef,
       "aria-label": a11yTitle,
@@ -73,7 +71,7 @@ function (_Component) {
       theme: theme,
       href: !disabled ? href : undefined,
       onClick: !disabled ? onClick : undefined
-    }), first || second ? React.createElement(Box, {
+    }), first && second ? React.createElement(Box, {
       tag: "span",
       direction: "row",
       align: "center",
@@ -81,7 +79,7 @@ function (_Component) {
       style: {
         display: 'inline-flex'
       }
-    }, first, second) : children);
+    }, first, second) : first || second || children);
   };
 
   return Anchor;

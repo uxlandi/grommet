@@ -9,8 +9,6 @@ var _recompose = require("recompose");
 
 var _Box = require("../Box");
 
-var _Text = require("../Text");
-
 var _hocs = require("../hocs");
 
 var _StyledAnchor = require("./StyledAnchor");
@@ -63,7 +61,6 @@ function (_Component) {
         theme = _this$props.theme,
         rest = _objectWithoutPropertiesLoose(_this$props, ["a11yTitle", "children", "color", "disabled", "forwardRef", "href", "icon", "focus", "label", "onClick", "reverse", "theme"]);
 
-    var anchorLabel = typeof label === 'string' ? _react.default.createElement(_Text.Text, null, label) : label;
     var coloredIcon = icon;
 
     if (icon && !icon.props.color) {
@@ -72,8 +69,8 @@ function (_Component) {
       });
     }
 
-    var first = reverse ? anchorLabel : coloredIcon;
-    var second = reverse ? coloredIcon : anchorLabel;
+    var first = reverse ? label : coloredIcon;
+    var second = reverse ? coloredIcon : label;
     return _react.default.createElement(_StyledAnchor.StyledAnchor, _extends({}, rest, {
       ref: forwardRef,
       "aria-label": a11yTitle,
@@ -86,7 +83,7 @@ function (_Component) {
       theme: theme,
       href: !disabled ? href : undefined,
       onClick: !disabled ? onClick : undefined
-    }), first || second ? _react.default.createElement(_Box.Box, {
+    }), first && second ? _react.default.createElement(_Box.Box, {
       tag: "span",
       direction: "row",
       align: "center",
@@ -94,7 +91,7 @@ function (_Component) {
       style: {
         display: 'inline-flex'
       }
-    }, first, second) : children);
+    }, first, second) : first || second || children);
   };
 
   return Anchor;

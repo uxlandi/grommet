@@ -53,6 +53,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     label: "Add",
     href: "#"
   })));
+}).add('Size', function () {
+  return _react.default.createElement(_grommet.Grommet, {
+    theme: _themes.grommet
+  }, ['xxlarge', 'xlarge', 'large', 'medium', 'small', 'xsmall'].map(function (size) {
+    return _react.default.createElement(_grommet.Box, {
+      key: size,
+      margin: "small"
+    }, _react.default.createElement(_grommet.Anchor, {
+      size: size,
+      label: size,
+      href: "#"
+    }));
+  }));
 }).add('Inline', function () {
   return _react.default.createElement(_grommet.Grommet, {
     theme: _themes.grommet

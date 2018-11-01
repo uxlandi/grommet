@@ -44,6 +44,19 @@ storiesOf('Anchor', module).add('Default', function () {
     label: "Add",
     href: "#"
   })));
+}).add('Size', function () {
+  return React.createElement(Grommet, {
+    theme: grommet
+  }, ['xxlarge', 'xlarge', 'large', 'medium', 'small', 'xsmall'].map(function (size) {
+    return React.createElement(Box, {
+      key: size,
+      margin: "small"
+    }, React.createElement(Anchor, {
+      size: size,
+      label: size,
+      href: "#"
+    }));
+  }));
 }).add('Inline', function () {
   return React.createElement(Grommet, {
     theme: grommet

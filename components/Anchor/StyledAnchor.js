@@ -11,10 +11,22 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 var disabledStyle = "\n  opacity: 0.3;\n  cursor: default;\n  text-decoration: none;\n";
 
+var sizeStyle = function sizeStyle(props) {
+  if (props.size) {
+    var size = props.size || 'medium';
+    var data = props.theme.text[size];
+    return (0, _styledComponents.css)(["font-size:", ";line-height:", ";"], data.size, data.height);
+  }
+
+  return (0, _styledComponents.css)(["font-size:inherit;line-height:inherit;"]);
+};
+
 var StyledAnchor = _styledComponents.default.a.withConfig({
   displayName: "StyledAnchor",
   componentId: "sc-1rp7lwl-0"
-})(["box-sizing:border-box;font-size:inherit;line-height:inherit;color:", ";", " text-decoration:", ";cursor:pointer;outline:none;", " ", " ", " ", " ", " ", ""], function (props) {
+})(["box-sizing:border-box;", " color:", ";", " text-decoration:", ";cursor:pointer;outline:none;", " ", " ", " ", " ", " ", ""], function (props) {
+  return sizeStyle(props);
+}, function (props) {
   return (0, _utils.normalizeColor)(props.colorProp || props.theme.anchor.color, props.theme);
 }, function (props) {
   return props.theme.anchor.fontWeight && "font-weight: " + props.theme.anchor.fontWeight + ";";

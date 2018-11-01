@@ -35,7 +35,6 @@ var marginStyle = function marginStyle(props) {
 };
 
 var sizeStyle = function sizeStyle(props) {
-  // size is a combination of the level and size properties
   var size = props.size || 'medium';
   var data = props.theme.text[size];
   return css(["font-size:", ";line-height:", ";"], data.size, data.height);

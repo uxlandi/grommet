@@ -53,8 +53,8 @@ export var doc = function doc(Anchor) {
     icon: PropTypes.element.description('Icon element to place in the anchor.'),
     label: PropTypes.node.description('Label text to place in the anchor.'),
     onClick: PropTypes.func.description("Click handler. It can be used, for example, \n    to add analytics and track who clicked in the anchor."),
-    primary: PropTypes.bool.description('Whether this is a primary anchor.').defaultValue(false),
-    reverse: PropTypes.bool.description('Whether an icon and label should be reversed so that the icon is at the end of the anchor.').defaultValue(false)
+    reverse: PropTypes.bool.description('Whether an icon and label should be reversed so that the icon is at the end of the anchor.').defaultValue(false),
+    size: PropTypes.oneOfType([PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge']), PropTypes.string]).description("The font size is typically driven by the components containing\nthis component. But, it can be adjusted directly via this size property, typically\nwhen it is not contained in a 'Heading', 'Paragraph', or 'Text'.")
   });
   return DocumentedAnchor;
 };
