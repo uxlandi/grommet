@@ -239,9 +239,9 @@ export var generate = function generate(baseSpacing, scale) {
         weight: 600
       },
       opacity: {
-        strong: '0.8',
-        medium: '0.4',
-        weak: '0.1'
+        strong: 0.8,
+        medium: 0.4,
+        weak: 0.1
       },
       spacing: baseSpacing + "px",
       size: {
@@ -285,6 +285,7 @@ export var generate = function generate(baseSpacing, scale) {
     },
     box: {
       responsiveBreakpoint: 'small' // when we switch rows to columns
+      // extend: undefined,
 
     },
     button: {

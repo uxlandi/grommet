@@ -380,7 +380,7 @@ var animationStyle = (0, _styledComponents.css)(["", ";"], function (props) {
 var StyledBox = _styledComponents.default.div.withConfig({
   displayName: "StyledBox",
   componentId: "sc-13pk1d4-0"
-})(["display:flex;box-sizing:border-box;outline:none;", ";", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", ""], function (props) {
+})(["display:flex;box-sizing:border-box;outline:none;", ";", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", ""], function (props) {
   return !props.basis && 'max-width: 100%;';
 }, _utils.genericStyles, function (props) {
   return props.heightProp && "height: " + (props.theme.global.size[props.heightProp] || props.heightProp) + ";";
@@ -416,8 +416,6 @@ var StyledBox = _styledComponents.default.div.withConfig({
   return props.elevationProp && elevationStyle;
 }, function (props) {
   return props.animation && animationStyle;
-}, function (props) {
-  return props.focus && _utils.focusStyle;
 }, function (props) {
   return props.theme.box && props.theme.box.extend;
 });

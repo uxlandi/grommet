@@ -57,30 +57,18 @@ var SimpleBox = function SimpleBox() {
   }))));
 };
 
-var customColorBox = {
-  global: {
-    colors: {
-      'brand-gradient': 'linear-gradient(102.77deg, #865ED6 -9.18%, #18BAB9 209.09%)'
-    },
-    font: {
-      family: 'Arial'
-    }
-  }
-};
-
 var CustomColorBox = function CustomColorBox() {
   return _react.default.createElement(_2.Grommet, {
-    theme: customColorBox
+    theme: _themes.grommet
   }, _react.default.createElement(_2.Box, {
     justify: "center",
     align: "center",
     pad: "xlarge",
-    background: {
-      color: 'brand-gradient',
-      dark: true
-    },
+    background: "linear-gradient(102.77deg, #865ED6 -9.18%, #18BAB9 209.09%)",
     round: "large"
-  }, _react.default.createElement(_2.Text, null, "I have a linear gradient background")));
+  }, _react.default.createElement(_2.Text, {
+    color: "white"
+  }, "I have a linear gradient background")));
 };
 
 var FixedSizesBox = function FixedSizesBox() {
@@ -206,6 +194,13 @@ var BackgroundBox = function BackgroundBox() {
     gap: "small",
     align: "start"
   }, _react.default.createElement(_2.Box, {
+    pad: "small",
+    background: {
+      color: 'brand',
+      opacity: true
+    },
+    elevation: "large"
+  }, "brand opacity"), _react.default.createElement(_2.Box, {
     pad: "small",
     background: "brand",
     elevation: "large"

@@ -19,7 +19,7 @@ export var themeDoc = {
     defaultValue: 600
   },
   'anchor.textDecoration': {
-    description: 'The text decoration of the label. Refer to https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration for possible values.',
+    description: 'The text decoration of the label. Refer to [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration) for possible values.',
     type: 'string',
     defaultValue: 'none'
   },
@@ -29,7 +29,7 @@ export var themeDoc = {
     defaultValue: undefined
   },
   'anchor.hover.textDecoration': {
-    description: 'The text decoration of the label when hovering. Refer to https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration for possible values.',
+    description: 'The text decoration of the label when hovering. Refer to [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration) for possible values.',
     type: 'string',
     defaultValue: 'underline'
   },

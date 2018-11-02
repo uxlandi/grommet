@@ -2,8 +2,23 @@
 
 exports.__esModule = true;
 exports.doc = doc;
+exports.themeDoc = void 0;
 
 var _reactDesc = require("react-desc");
+
+var themeDoc = {
+  'accordion.icons.collapse': {
+    description: 'The icon to use when the panel is expanded.',
+    type: 'React.element',
+    defaultValue: '<FormUp />'
+  },
+  'accordion.icons.expand': {
+    description: 'The icon to use when the panel is collapsed.',
+    type: 'React.element',
+    defaultValue: '<FormDown />'
+  }
+};
+exports.themeDoc = themeDoc;
 
 function doc(Panel) {
   var DocumentedAccordionPanel = (0, _reactDesc.describe)(Panel).description('An Accordion panel.');

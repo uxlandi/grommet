@@ -1,4 +1,16 @@
 import { describe, PropTypes } from 'react-desc';
+export var themeDoc = {
+  'accordion.icons.collapse': {
+    description: 'The icon to use when the panel is expanded.',
+    type: 'React.element',
+    defaultValue: '<FormUp />'
+  },
+  'accordion.icons.expand': {
+    description: 'The icon to use when the panel is collapsed.',
+    type: 'React.element',
+    defaultValue: '<FormDown />'
+  }
+};
 export function doc(Panel) {
   var DocumentedAccordionPanel = describe(Panel).description('An Accordion panel.');
   DocumentedAccordionPanel.propTypes = {

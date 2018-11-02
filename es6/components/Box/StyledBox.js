@@ -1,7 +1,7 @@
 var _FLEX_MAP;
 
 import styled, { css, keyframes } from 'styled-components';
-import { backgroundStyle, breakpointStyle, edgeStyle, focusStyle, genericStyles, normalizeColor, overflowStyle } from '../../utils';
+import { backgroundStyle, breakpointStyle, edgeStyle, genericStyles, normalizeColor, overflowStyle } from '../../utils';
 var ALIGN_MAP = {
   baseline: 'baseline',
   center: 'center',
@@ -371,7 +371,7 @@ var animationStyle = css(["", ";"], function (props) {
 export var StyledBox = styled.div.withConfig({
   displayName: "StyledBox",
   componentId: "sc-13pk1d4-0"
-})(["display:flex;box-sizing:border-box;outline:none;", ";", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", ""], function (props) {
+})(["display:flex;box-sizing:border-box;outline:none;", ";", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", ""], function (props) {
   return !props.basis && 'max-width: 100%;';
 }, genericStyles, function (props) {
   return props.heightProp && "height: " + (props.theme.global.size[props.heightProp] || props.heightProp) + ";";
@@ -407,8 +407,6 @@ export var StyledBox = styled.div.withConfig({
   return props.elevationProp && elevationStyle;
 }, function (props) {
   return props.animation && animationStyle;
-}, function (props) {
-  return props.focus && focusStyle;
 }, function (props) {
   return props.theme.box && props.theme.box.extend;
 });
