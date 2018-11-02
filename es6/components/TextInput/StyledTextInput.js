@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { inputStyle, parseMetricToNum } from '../../utils';
+import { focusStyle, inputStyle, parseMetricToNum } from '../../utils';
 var placeholderColor = css(["color:", ";"], function (props) {
   return props.theme.global.colors.placeholder;
 });
@@ -13,11 +13,13 @@ var plainStyle = css(["border:none;"]);
 export var StyledTextInput = styled.input.withConfig({
   displayName: "StyledTextInput",
   componentId: "sc-1x30a0s-0"
-})(["", " width:100%;", " ", " &::-webkit-input-placeholder{", ";}&::-moz-placeholder{", ";}&:-ms-input-placeholder{", ";}&::-moz-focus-inner{border:none;outline:none;}", ";"], inputStyle, function (props) {
+})(["", " width:100%;", " ", " &::-webkit-input-placeholder{", ";}&::-moz-placeholder{", ";}&:-ms-input-placeholder{", ";}&::-moz-focus-inner{border:none;outline:none;}", ";", ";"], inputStyle, function (props) {
   return props.size && sizeStyle(props);
 }, function (props) {
   return props.plain && plainStyle;
 }, placeholderColor, placeholderColor, placeholderColor, function (props) {
+  return props.focus && !props.plain && focusStyle;
+}, function (props) {
   return props.theme.textInput && props.theme.textInput.extend;
 });
 export var StyledTextInputContainer = styled.div.withConfig({

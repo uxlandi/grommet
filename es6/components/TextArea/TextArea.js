@@ -6,7 +6,7 @@ function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.crea
 
 import React, { Component } from 'react';
 import { compose } from 'recompose';
-import { withForwardRef, withTheme } from '../hocs';
+import { withFocus, withForwardRef, withTheme } from '../hocs';
 import { StyledTextArea } from './StyledTextArea';
 
 var TextArea =
@@ -22,11 +22,13 @@ function (_Component) {
 
   _proto.render = function render() {
     var _this$props = this.props,
+        fill = _this$props.fill,
         forwardRef = _this$props.forwardRef,
-        rest = _objectWithoutPropertiesLoose(_this$props, ["forwardRef"]);
+        rest = _objectWithoutPropertiesLoose(_this$props, ["fill", "forwardRef"]);
 
     return React.createElement(StyledTextArea, _extends({
-      ref: forwardRef
+      ref: forwardRef,
+      fillArg: fill
     }, rest));
   };
 
@@ -39,5 +41,5 @@ if (process.env.NODE_ENV !== 'production') {
   TextAreaDoc = require('./doc').doc(TextArea); // eslint-disable-line global-require
 }
 
-var TextAreaWrapper = compose(withTheme, withForwardRef)(TextAreaDoc || TextArea);
+var TextAreaWrapper = compose(withFocus, withTheme, withForwardRef)(TextAreaDoc || TextArea);
 export { TextAreaWrapper as TextArea };

@@ -16,7 +16,7 @@ import { Button } from '../Button';
 import { Drop } from '../Drop';
 import { InfiniteScroll } from '../InfiniteScroll';
 import { Keyboard } from '../Keyboard';
-import { withAnnounce, withForwardRef, withTheme } from '../hocs';
+import { withAnnounce, withFocus, withForwardRef, withTheme } from '../hocs';
 import { StyledTextInput, StyledTextInputContainer, StyledPlaceholder, StyledSuggestions } from './StyledTextInput';
 
 function renderLabel(suggestion) {
@@ -257,13 +257,13 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onInput", function (event) {
-      var onInput = _this.props.onInput;
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", function (event) {
+      var onChange = _this.props.onChange;
 
       _this.resetSuggestions();
 
-      if (onInput) {
-        onInput(event);
+      if (onChange) {
+        onChange(event);
       }
     });
 
@@ -366,7 +366,7 @@ function (_Component) {
         onKeyDown = _this$props9.onKeyDown,
         rest = _objectWithoutPropertiesLoose(_this$props9, ["defaultValue", "dropAlign", "dropTarget", "id", "placeholder", "plain", "theme", "value", "onKeyDown"]);
 
-    delete rest.onInput; // se we can manage in onInputChange()
+    delete rest.onChange; // se we can manage in this.onChange()
 
     delete rest.forwardRef;
     delete rest.onSuggestionsOpen;
@@ -423,7 +423,7 @@ function (_Component) {
       value: renderLabel(value),
       onFocus: this.onFocus,
       onBlur: this.onBlur,
-      onInput: this.onInput
+      onChange: this.onChange
     }))), drop);
   };
 
@@ -449,5 +449,5 @@ if (process.env.NODE_ENV !== 'production') {
   TextInputDoc = require('./doc').doc(TextInput); // eslint-disable-line global-require
 }
 
-var TextInputWrapper = compose(withTheme, withAnnounce, withForwardRef)(TextInputDoc || TextInput);
+var TextInputWrapper = compose(withFocus, withTheme, withAnnounce, withForwardRef)(TextInputDoc || TextInput);
 export { TextInputWrapper as TextInput };

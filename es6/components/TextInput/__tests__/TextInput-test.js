@@ -17,7 +17,7 @@ describe('TextInput', function () {
     expect(container.firstChild).toMatchSnapshot();
   });
   test('suggestions', function (done) {
-    var onInput = jest.fn();
+    var onChange = jest.fn();
     var onFocus = jest.fn();
 
     var _render2 = render(React.createElement(TextInput, {
@@ -25,7 +25,7 @@ describe('TextInput', function () {
       id: "item",
       name: "item",
       suggestions: ['test', 'test1'],
-      onInput: onInput,
+      onChange: onChange,
       onFocus: onFocus
     })),
         getByTestId = _render2.getByTestId,
@@ -33,10 +33,14 @@ describe('TextInput', function () {
 
     expect(container.firstChild).toMatchSnapshot();
     fireEvent.focus(getByTestId('test-input'));
-    fireEvent.input(getByTestId('test-input'));
+    fireEvent.change(getByTestId('test-input'), {
+      target: {
+        value: ' '
+      }
+    });
     setTimeout(function () {
       expectPortal('text-input-drop__item').toMatchSnapshot();
-      expect(onInput).toBeCalled();
+      expect(onChange).toBeCalled();
       expect(onFocus).toBeCalled();
       fireEvent(document, new MouseEvent('mousedown', {
         bubbles: true,
@@ -62,7 +66,11 @@ describe('TextInput', function () {
         container = _render3.container;
 
     expect(container.firstChild).toMatchSnapshot();
-    fireEvent.input(getByTestId('test-input'));
+    fireEvent.change(getByTestId('test-input'), {
+      target: {
+        value: ' '
+      }
+    });
     setTimeout(function () {
       expectPortal('text-input-drop__item').toMatchSnapshot();
       fireEvent(document, new MouseEvent('mousedown', {
@@ -84,7 +92,11 @@ describe('TextInput', function () {
         container = _render4.container;
 
     expect(container.firstChild).toMatchSnapshot();
-    fireEvent.input(getByTestId('test-input'));
+    fireEvent.change(getByTestId('test-input'), {
+      target: {
+        value: ' '
+      }
+    });
     setTimeout(function () {
       expectPortal('text-input-drop__item').toMatchSnapshot();
       fireEvent.keyDown(getByTestId('test-input'), {
@@ -115,7 +127,11 @@ describe('TextInput', function () {
         container = _render5.container;
 
     expect(container.firstChild).toMatchSnapshot();
-    fireEvent.input(getByTestId('test-input'));
+    fireEvent.change(getByTestId('test-input'), {
+      target: {
+        value: ' '
+      }
+    });
     setTimeout(function () {
       expectPortal('text-input-drop__item').toMatchSnapshot();
       fireEvent.click(getByText(document, 'test1'));

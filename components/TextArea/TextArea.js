@@ -32,11 +32,13 @@ function (_Component) {
 
   _proto.render = function render() {
     var _this$props = this.props,
+        fill = _this$props.fill,
         forwardRef = _this$props.forwardRef,
-        rest = _objectWithoutPropertiesLoose(_this$props, ["forwardRef"]);
+        rest = _objectWithoutPropertiesLoose(_this$props, ["fill", "forwardRef"]);
 
     return _react.default.createElement(_StyledTextArea.StyledTextArea, _extends({
-      ref: forwardRef
+      ref: forwardRef,
+      fillArg: fill
     }, rest));
   };
 
@@ -49,5 +51,5 @@ if (process.env.NODE_ENV !== 'production') {
   TextAreaDoc = require('./doc').doc(TextArea); // eslint-disable-line global-require
 }
 
-var TextAreaWrapper = (0, _recompose.compose)(_hocs.withTheme, _hocs.withForwardRef)(TextAreaDoc || TextArea);
+var TextAreaWrapper = (0, _recompose.compose)(_hocs.withFocus, _hocs.withTheme, _hocs.withForwardRef)(TextAreaDoc || TextArea);
 exports.TextArea = TextAreaWrapper;

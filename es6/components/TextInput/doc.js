@@ -27,7 +27,7 @@ export var doc = function doc(TextInput) {
       suggestionIsOpen: 'Suggestions drop is open, continue to use arrow keys to navigate'
     }),
     name: PropTypes.string.description('The name attribute of the input.'),
-    onInput: PropTypes.func.description('Function that will be called when the user types in the input.'),
+    onChange: PropTypes.func.description('Function that will be called when the user types in the input.'),
     onSelect: PropTypes.func.description("Function that will be called when the user selects a suggestion.\nThe suggestion contains the object chosen from the supplied suggestions."),
     onSuggestionsOpen: PropTypes.func.description('Function that will be called when the suggestions drop is opened.'),
     onSuggestionsClose: PropTypes.func.description('Function that will be called when the suggestions drop is closed.'),

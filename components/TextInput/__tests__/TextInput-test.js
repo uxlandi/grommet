@@ -28,7 +28,7 @@ describe('TextInput', function () {
     expect(container.firstChild).toMatchSnapshot();
   });
   test('suggestions', function (done) {
-    var onInput = jest.fn();
+    var onChange = jest.fn();
     var onFocus = jest.fn();
 
     var _render2 = (0, _reactTestingLibrary.render)(_react.default.createElement(_.TextInput, {
@@ -36,7 +36,7 @@ describe('TextInput', function () {
       id: "item",
       name: "item",
       suggestions: ['test', 'test1'],
-      onInput: onInput,
+      onChange: onChange,
       onFocus: onFocus
     })),
         getByTestId = _render2.getByTestId,
@@ -46,11 +46,15 @@ describe('TextInput', function () {
 
     _reactTestingLibrary.fireEvent.focus(getByTestId('test-input'));
 
-    _reactTestingLibrary.fireEvent.input(getByTestId('test-input'));
+    _reactTestingLibrary.fireEvent.change(getByTestId('test-input'), {
+      target: {
+        value: ' '
+      }
+    });
 
     setTimeout(function () {
       (0, _portal.expectPortal)('text-input-drop__item').toMatchSnapshot();
-      expect(onInput).toBeCalled();
+      expect(onChange).toBeCalled();
       expect(onFocus).toBeCalled();
       (0, _reactTestingLibrary.fireEvent)(document, new MouseEvent('mousedown', {
         bubbles: true,
@@ -77,7 +81,11 @@ describe('TextInput', function () {
 
     expect(container.firstChild).toMatchSnapshot();
 
-    _reactTestingLibrary.fireEvent.input(getByTestId('test-input'));
+    _reactTestingLibrary.fireEvent.change(getByTestId('test-input'), {
+      target: {
+        value: ' '
+      }
+    });
 
     setTimeout(function () {
       (0, _portal.expectPortal)('text-input-drop__item').toMatchSnapshot();
@@ -101,7 +109,11 @@ describe('TextInput', function () {
 
     expect(container.firstChild).toMatchSnapshot();
 
-    _reactTestingLibrary.fireEvent.input(getByTestId('test-input'));
+    _reactTestingLibrary.fireEvent.change(getByTestId('test-input'), {
+      target: {
+        value: ' '
+      }
+    });
 
     setTimeout(function () {
       (0, _portal.expectPortal)('text-input-drop__item').toMatchSnapshot();
@@ -136,7 +148,11 @@ describe('TextInput', function () {
 
     expect(container.firstChild).toMatchSnapshot();
 
-    _reactTestingLibrary.fireEvent.input(getByTestId('test-input'));
+    _reactTestingLibrary.fireEvent.change(getByTestId('test-input'), {
+      target: {
+        value: ' '
+      }
+    });
 
     setTimeout(function () {
       (0, _portal.expectPortal)('text-input-drop__item').toMatchSnapshot();

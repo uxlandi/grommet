@@ -69,6 +69,7 @@ describe('Calendar', function () {
   });
   test('header', function () {
     var component = _reactTestRenderer.default.create(_react.default.createElement(_.Grommet, null, _react.default.createElement(_.Calendar, {
+      date: DATE,
       onSelect: function onSelect() {},
       size: "small",
       bounds: ['2018-09-08', '2018-12-13'],

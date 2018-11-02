@@ -56,6 +56,7 @@ describe('Calendar', function () {
   });
   test('header', function () {
     var component = renderer.create(React.createElement(Grommet, null, React.createElement(Calendar, {
+      date: DATE,
       onSelect: function onSelect() {},
       size: "small",
       bounds: ['2018-09-08', '2018-12-13'],

@@ -17,10 +17,12 @@ var plainStyle = (0, _styledComponents.css)(["border:none;width:100%;-webkit-app
 var StyledTextArea = _styledComponents.default.textarea.withConfig({
   displayName: "StyledTextArea",
   componentId: "sc-17i3mwp-0"
-})(["", " width:100%;", " &::-webkit-input-placeholder{", ";}&::-moz-placeholder{", ";}&:-ms-input-placeholder{", ";}&::-moz-focus-inner{border:none;outline:none;}&:focus{", ";}", ";"], _utils.inputStyle, function (props) {
+})(["", " width:100%;", " ", " &::-webkit-input-placeholder{", ";}&::-moz-placeholder{", ";}&:-ms-input-placeholder{", ";}&::-moz-focus-inner{border:none;outline:none;}", ";", ";"], _utils.inputStyle, function (props) {
+  return props.fillArg && 'height: 100%;';
+}, function (props) {
   return props.plain && plainStyle;
 }, placeholderColor, placeholderColor, placeholderColor, function (props) {
-  return (!props.plain || props.focusIndicator) && _utils.focusStyle;
+  return props.focus && !props.plain && _utils.focusStyle;
 }, function (props) {
   return props.theme.textArea && props.theme.textArea.extend;
 });

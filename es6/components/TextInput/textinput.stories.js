@@ -86,7 +86,7 @@ function (_Component2) {
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this2)), "onSelect", function (event) {
       return _this2.setState({
-        value: event.suggestion.value
+        value: event.suggestion
       });
     });
 
